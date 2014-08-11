@@ -1,16 +1,39 @@
 package com.example.demonew;
 
 import android.app.Activity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MyRecordActivity extends Activity {
+	Button button_date;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_record);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		button_date = (Button) findViewById(R.id.button_date);
+		button_date.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(MyRecordActivity.this, R.string.add_record, Toast.LENGTH_SHORT).show();
+				addRecord();
+			}
+		});
+	}
+
+	private void addRecord() {
 	}
 
 	@Override

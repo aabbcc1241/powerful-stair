@@ -31,5 +31,6 @@
     <string name="type_of_exercise">Type of Exercise</string>
     <string name="energ_used">Energy Used</string>
     <string name="title_activity_date_pick_action_bar">DatePickActionBarActivity</string>
+    <string name="add_record">Adding Record</string>
 
 </resources>

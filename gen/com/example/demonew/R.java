@@ -73,6 +73,7 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f050001;
+        public static final int add_record=0x7f05001b;
         public static final int analysis_on_personal_diet_list=0x7f050005;
         public static final int app_name=0x7f050000;
         public static final int background_color=0x7f05000c;
