@@ -10,20 +10,19 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MenuMainActivity extends Activity {
-	Button button_energy_calculator;
-
+public class WalkOnHkccStairActivity extends Activity {
+Button button_my_record;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_menu_main);
+		setContentView(R.layout.activity_walk_on_hkcc_stair);
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-		button_energy_calculator = (Button) findViewById(R.id.button4);
-		button_energy_calculator.setOnClickListener(new OnClickListener() {
+		button_my_record = (Button) findViewById(R.id.button_my_record);
+		button_my_record.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(MenuMainActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
@@ -36,7 +35,7 @@ public class MenuMainActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.menu_main, menu);
+		getMenuInflater().inflate(R.menu.walk_on_hkcc_stair, menu);
 		return true;
 	}
 

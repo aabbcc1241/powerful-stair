@@ -22,5 +22,9 @@
     <string name="walk_on_hkccs_stair">"Walk on HKCC's Stair"</string>
     <string name="other_exercise">Other Exercise</string>
     <string name="title_activity_energy_calculator">EnergyCalculatorActivity</string>
+    <string name="title_activity_walk_on_hkcc_stair">WalkOnHkccStairActivity</string>
+    <string name="my_record">My Record</string>
+    <string name="tap_there">Tap There</string>
+    <string name="title_activity_my_record">MyRecordActivity</string>
 
 </resources>

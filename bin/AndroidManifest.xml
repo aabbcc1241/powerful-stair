@@ -30,6 +30,14 @@
             android:name=".EnergyCalculatorActivity"
             android:label="@string/title_activity_energy_calculator" >
         </activity>
+        <activity
+            android:name=".WalkOnHkccStairActivity"
+            android:label="@string/title_activity_walk_on_hkcc_stair" >
+        </activity>
+        <activity
+            android:name=".MyRecordActivity"
+            android:label="@string/title_activity_my_record" >
+        </activity>
     </application>
 
 </manifest>
