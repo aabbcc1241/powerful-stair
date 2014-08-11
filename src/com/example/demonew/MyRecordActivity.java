@@ -9,10 +9,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MyRecordActivity extends Activity {
+	TableLayout table_layout_my_record;
 	Button button_date;
+	int times = 0;
+	int cal = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,14 @@ public class MyRecordActivity extends Activity {
 	}
 
 	private void addRecord() {
+		times++;
+		cal += 15;
+		TextView tv1 = (TextView) findViewById(R.id.tv_1);
+		TextView tv2 = (TextView) findViewById(R.id.tv_2);
+		TextView tv3 = (TextView) findViewById(R.id.tv_3);
+		tv1.setText(R.string.energy_type_hkcc_stair_walk);
+		tv2.setText(String.valueOf(times));
+		tv3.setText(String.valueOf(cal));
 	}
 
 	@Override
