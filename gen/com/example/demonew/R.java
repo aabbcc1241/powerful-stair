@@ -22,11 +22,12 @@ public final class R {
         public static final int activity_vertical_margin=0x7f040001;
     }
     public static final class drawable {
-        public static final int button_bg_1=0x7f020000;
-        public static final int ic_launcher=0x7f020001;
-        public static final int loadinggif=0x7f020004;
-        public static final int slide0004_image009=0x7f020002;
-        public static final int start_screen_slogan=0x7f020003;
+        public static final int button_bg_blue_1=0x7f020000;
+        public static final int button_bg_orange_1=0x7f020001;
+        public static final int ic_launcher=0x7f020002;
+        public static final int loadinggif=0x7f020005;
+        public static final int slide0004_image009=0x7f020003;
+        public static final int start_screen_slogan=0x7f020004;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f080000;

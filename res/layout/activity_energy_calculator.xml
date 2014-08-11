@@ -20,16 +20,18 @@
             android:id="@+id/button_walk_on_hkccs_stair"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/button_bg_1"
+            android:background="@drawable/button_bg_blue_1"
             android:width="120dp"
             android:text="@string/walk_on_hkccs_stair" />
 
-        <Space 
-            android:layout_height="39dp"/>
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="39dp" />
+
         <Button
             android:id="@+id/button_other_exercise"
             android:width="120dp"
-            android:background="@drawable/button_bg_1"
+            android:background="@drawable/button_bg_blue_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/other_exercise" />
