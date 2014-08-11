@@ -11,7 +11,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class WalkOnHkccStairActivity extends Activity {
-Button button_my_record;
+	Button button_my_record;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -25,9 +26,9 @@ Button button_my_record;
 		button_my_record.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Toast.makeText(MenuMainActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
-				Intent intent = new Intent(MenuMainActivity.this, EnergyCalculatorActivity.class);
-				MenuMainActivity.this.startActivity(intent);
+				Toast.makeText(WalkOnHkccStairActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(WalkOnHkccStairActivity.this, MyRecordActivity.class);
+				WalkOnHkccStairActivity.this.startActivity(intent);
 			}
 		});
 	}

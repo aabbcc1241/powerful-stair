@@ -27,7 +27,8 @@ public class MenuMainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(MenuMainActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
-				Intent intent = new Intent(MenuMainActivity.this, EnergyCalculatorActivity.class);
+				//Intent intent = new Intent(MenuMainActivity.this, EnergyCalculatorActivity.class);
+				Intent intent = new Intent(MenuMainActivity.this, MyRecordActivity.class);
 				MenuMainActivity.this.startActivity(intent);
 			}
 		});

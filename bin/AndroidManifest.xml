@@ -38,6 +38,10 @@
             android:name=".MyRecordActivity"
             android:label="@string/title_activity_my_record" >
         </activity>
+        <activity
+            android:name=".DatePickActionBarActivity"
+            android:label="@string/title_activity_date_pick_action_bar" >
+        </activity>
     </application>
 
 </manifest>

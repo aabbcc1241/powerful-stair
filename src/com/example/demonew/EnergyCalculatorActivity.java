@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 public class EnergyCalculatorActivity extends Activity {
 	Button button_walk_on_hkccs_stair;
+	Button button_my_record;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,15 @@ public class EnergyCalculatorActivity extends Activity {
 			public void onClick(View v) {
 				Toast.makeText(EnergyCalculatorActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
 				Intent intent = new Intent(EnergyCalculatorActivity.this, WalkOnHkccStairActivity.class);
+				EnergyCalculatorActivity.this.startActivity(intent);
+			}
+		});
+		button_my_record = (Button) findViewById(R.id.button_my_record);
+		button_my_record.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Toast.makeText(EnergyCalculatorActivity.this, R.string.loading, Toast.LENGTH_SHORT).show();
+				Intent intent = new Intent(EnergyCalculatorActivity.this, MyRecordActivity.class);
 				EnergyCalculatorActivity.this.startActivity(intent);
 			}
 		});

@@ -26,5 +26,10 @@
     <string name="my_record">My Record</string>
     <string name="tap_there">Tap There</string>
     <string name="title_activity_my_record">MyRecordActivity</string>
+    <string name="date_label">Date</string>
+    <string name="date_default">Click to pick a date</string>
+    <string name="type_of_exercise">Type of Exercise</string>
+    <string name="energ_used">Energy Used</string>
+    <string name="title_activity_date_pick_action_bar">DatePickActionBarActivity</string>
 
 </resources>
