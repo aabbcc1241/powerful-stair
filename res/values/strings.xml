@@ -11,6 +11,10 @@
     <string name="tips_on_physical_activities">Tips on Ex.</string>
     <string name="tips_on_nutrition">Tips on nutrition</string>
     <string name="loading">Loading</string>
+    
+     <string name="nfc_not_found">NFC is not support by this device</string>
+    <string name="nfc_not_enabled">NFC is not enabled yet</string>
+    <string name="nfc_enabled">NFC enabled (Scanning)</string>
 
     <drawable name="loadinggif">@drawable/slide0004_image009</drawable>
 
@@ -32,5 +36,10 @@
     <string name="energ_used">Energy Used</string>
     <string name="title_activity_date_pick_action_bar">DatePickActionBarActivity</string>
     <string name="add_record">Adding Record</string>
+    <string name="energy_per_walk_stair">15</string>
+    <string name="energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
+    <string name="times">Time(s)</string>
+    <string name="ok">OK</string>
+    <string name="alertDialogTitle">Attention</string>
 
 </resources>

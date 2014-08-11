@@ -39,8 +39,9 @@
         </LinearLayout>
 
         <TableLayout
+            android:id="@+id/table_layout_my_record"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal" >
 
@@ -48,24 +49,32 @@
                 android:id="@+id/tableRow1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal" >
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical" >
 
                 <TextView
                     android:id="@+id/textView_type_of_exercise"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/type_of_exercise"
                     android:textAppearance="?android:attr/textAppearanceMedium" />
 
-                <Space android:layout_width="20dp" />
-
+                 <TextView
+                    android:id="@+id/textView_times"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/times"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+                
+                 
                 <TextView
                     android:id="@+id/textView_energy_used"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="@string/energ_used"
@@ -76,6 +85,31 @@
                 android:id="@+id/tableRow2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
+
+                <TextView
+                    android:id="@+id/tv_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="@string/energy_type_hkcc_stair_walk"
+                     />
+
+                  <TextView
+                    android:id="@+id/tv_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="0" />
+                  
+                <TextView
+                    android:id="@+id/tv_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="0" />
             </TableRow>
 
             <TableRow
