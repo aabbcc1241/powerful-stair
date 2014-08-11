@@ -20,7 +20,7 @@
     <string name="title_activity_menu_main">MenuMainActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="walk_on_hkccs_stair">"Walk on HKCC's Stair"</string>
-    <string name="other_exercise">Other Exercise</string>
+    <string name="hello_world">Hello world!</string>
     <string name="title_activity_energy_calculator">EnergyCalculatorActivity</string>
 
 </resources>

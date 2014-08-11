@@ -26,6 +26,10 @@
             android:name=".MenuMainActivity"
             android:label="@string/title_activity_menu_main" >
         </activity>
+        <activity
+            android:name=".EnergyCalculatorActivity"
+            android:label="@string/title_activity_energy_calculator" >
+        </activity>
     </application>
 
 </manifest>
