@@ -26,15 +26,19 @@ public final class R {
         public static final int button_bg_orange_1=0x7f020001;
         public static final int button_bg_pink_1=0x7f020002;
         public static final int ic_launcher=0x7f020003;
-        public static final int loadinggif=0x7f020007;
-        public static final int slide0004_image009=0x7f020004;
-        public static final int start_screen_slogan=0x7f020005;
-        public static final int tap_there=0x7f020006;
+        public static final int loadinggif=0x7f02000b;
+        public static final int nfc_disabled=0x7f020004;
+        public static final int nfc_enabled=0x7f020005;
+        public static final int nfc_logo=0x7f020006;
+        public static final int nfc_not_supported=0x7f020007;
+        public static final int slide0004_image009=0x7f020008;
+        public static final int start_screen_slogan=0x7f020009;
+        public static final int tap_there=0x7f02000a;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f080000;
         public static final int LinearLayout1=0x7f08000a;
-        public static final int action_settings=0x7f08001a;
+        public static final int action_settings=0x7f08001b;
         public static final int button1=0x7f080004;
         public static final int button2=0x7f080005;
         public static final int button3=0x7f080006;
@@ -44,21 +48,22 @@ public final class R {
         public static final int button_date=0x7f08000c;
         public static final int button_my_record=0x7f080003;
         public static final int button_other_exercise=0x7f080002;
-        public static final int button_start=0x7f080018;
+        public static final int button_start=0x7f080019;
         public static final int button_walk_on_hkccs_stair=0x7f080001;
-        public static final int imageView_tap_there=0x7f080019;
-        public static final int tableRow1=0x7f08000e;
-        public static final int tableRow2=0x7f080012;
-        public static final int tableRow3=0x7f080016;
-        public static final int tableRow4=0x7f080017;
-        public static final int table_layout_my_record=0x7f08000d;
+        public static final int imageView_tap_there=0x7f08001a;
+        public static final int imageview_nfc_status=0x7f08000d;
+        public static final int tableRow1=0x7f08000f;
+        public static final int tableRow2=0x7f080013;
+        public static final int tableRow3=0x7f080017;
+        public static final int tableRow4=0x7f080018;
+        public static final int table_layout_my_record=0x7f08000e;
         public static final int textView_date_label=0x7f08000b;
-        public static final int textView_energy_used=0x7f080011;
-        public static final int textView_times=0x7f080010;
-        public static final int textView_type_of_exercise=0x7f08000f;
-        public static final int tv_1=0x7f080013;
-        public static final int tv_2=0x7f080014;
-        public static final int tv_3=0x7f080015;
+        public static final int textView_energy_used=0x7f080012;
+        public static final int textView_times=0x7f080011;
+        public static final int textView_type_of_exercise=0x7f080010;
+        public static final int tv_1=0x7f080014;
+        public static final int tv_2=0x7f080015;
+        public static final int tv_3=0x7f080016;
     }
     public static final class layout {
         public static final int activity_date_pick_action_bar=0x7f030000;
@@ -91,6 +96,7 @@ public final class R {
         public static final int hello_world=0x7f05000e;
         public static final int introduction=0x7f050004;
         public static final int loading=0x7f050009;
+        public static final int loading_nfc=0x7f05001f;
         public static final int my_record=0x7f050013;
         public static final int other_exercise=0x7f050010;
         public static final int personal_particular=0x7f050003;

@@ -1,8 +1,10 @@
 package com.example.demonew;
 
 import android.app.Activity;
+import android.app.PendingIntent;
 
 import android.content.Intent;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MyRecordActivity extends Activity {
+	NfcAdapter nfcAdapter;
+	PendingIntent pendingIntent;
 	TableLayout table_layout_my_record;
 	Button button_date;
 	int times = 0;
@@ -23,6 +27,15 @@ public class MyRecordActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_my_record);
+		init();
+	}
+
+	private void init() {
+		nfcAdapter=NfcAdapter.getDefaultAdapter(this);
+		if(nfcAdapter==null){
+			
+			
+		}
 	}
 
 	@Override

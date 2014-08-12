@@ -35,5 +35,6 @@
     <string name="add_record">Adding Record</string>
     <string name="energy_per_walk_stair">15</string>
     <string name="energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
+    <string name="loading_nfc">loading NFC component ...</string>
 
 </resources>
