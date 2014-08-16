@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -25,18 +26,27 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	 * navigation drawer.
 	 */
 	private NavigationDrawerFragment mNavigationDrawerFragment;
-
 	/**
 	 * Used to store the last screen title. For use in
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
 
+	//my vars
+	private Resources res;
+	private String[] navigation_drawer_titles;
+	
+	private void initvar() {
+		res=getResources();
+		navigation_drawer_titles=res.getStringArray(R.array.navigation_drawer_titles);
+	}
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		initvar();
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(
 				R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -45,6 +55,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 	}
+
+	
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
@@ -55,7 +67,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	}
 
 	public void onSectionAttached(int number) {
-		switch (number) {
+		/*switch (number) {
 		case 1:
 			mTitle = getString(R.string.title_section1);
 			break;
@@ -65,7 +77,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		case 3:
 			mTitle = getString(R.string.title_section3);
 			break;
-		}
+		}*/
+		mTitle=navigation_drawer_titles[number];
 	}
 
 	public void restoreActionBar() {

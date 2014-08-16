@@ -8,6 +8,7 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -59,7 +60,16 @@ public class NavigationDrawerFragment extends Fragment {
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
 
+	// my vars
+	private Resources res;
+	private String[] navigation_drawer_titles;
+
 	public NavigationDrawerFragment() {
+	}
+
+	private void initvar() {
+		res = getResources();
+		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
 	}
 
 	@Override
@@ -72,7 +82,9 @@ public class NavigationDrawerFragment extends Fragment {
 		SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
 		mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
 
-		if (savedInstanceState != null) {
+		if (savedInstanceState == null) {
+			selectItem(0);
+		} else {
 			mCurrentSelectedPosition = savedInstanceState.getInt(STATE_SELECTED_POSITION);
 			mFromSavedInstanceState = true;
 		}
@@ -98,10 +110,12 @@ public class NavigationDrawerFragment extends Fragment {
 				selectItem(position);
 			}
 		});
-		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar().getThemedContext(),
+		/*mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar().getThemedContext(),
 				android.R.layout.simple_list_item_activated_1, android.R.id.text1, new String[] {
 						getString(R.string.title_section1), getString(R.string.title_section2),
-						getString(R.string.title_section3), }));
+						getString(R.string.title_section3), }));*/
+		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar().getThemedContext(),
+				android.R.layout.simple_list_item_activated_1, android.R.id.text1, navigation_drawer_titles ));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}
