@@ -32,15 +32,24 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	 */
 	private CharSequence mTitle;
 
-	//my vars
+	// my vars
 	private Resources res;
 	private String[] navigation_drawer_titles;
-	
+	String title_section_1, title_section_2, title_section_3, title_section_4, title_section_5,
+			title_section_6, title_section_7;
+
 	private void initvar() {
-		res=getResources();
-		navigation_drawer_titles=res.getStringArray(R.array.navigation_drawer_titles);
+		res = getResources();
+		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
+		title_section_1 = getString(R.string.title_section_1);
+		title_section_2 = getString(R.string.title_section_2);
+		title_section_3 = getString(R.string.title_section_3);
+		title_section_4 = getString(R.string.title_section_4);
+		title_section_5 = getString(R.string.title_section_5);
+		title_section_6 = getString(R.string.title_section_6);
+		title_section_7 = getString(R.string.title_section_7);
 	}
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,29 +65,29 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 	}
 
-	
-
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
 		fragmentManager.beginTransaction()
-				.replace(R.id.container, PlaceholderFragment.newInstance(position + 1)).commit();
+				.replace(R.id.container, PlaceholderFragment.newInstance(position )).commit();
 	}
 
 	public void onSectionAttached(int number) {
+
 		/*switch (number) {
 		case 1:
-			mTitle = getString(R.string.title_section1);
+			mTitle = title_section_1;
 			break;
 		case 2:
-			mTitle = getString(R.string.title_section2);
+			mTitle = title_section_2;
 			break;
 		case 3:
-			mTitle = getString(R.string.title_section3);
+			mTitle = title_section_3;
 			break;
 		}*/
-		mTitle=navigation_drawer_titles[number];
+
+		 mTitle = navigation_drawer_titles[number];
 	}
 
 	public void restoreActionBar() {
