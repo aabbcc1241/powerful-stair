@@ -1,5 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
+import java.util.logging.Logger;
+
 import android.app.Activity;
 
 import android.app.ActionBar;
@@ -9,6 +11,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,8 +19,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.webkit.WebView.FindListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -69,25 +74,19 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction()
-				.replace(R.id.container, PlaceholderFragment.newInstance(position )).commit();
+		fragmentManager.beginTransaction().replace(R.id.container, PlaceholderFragment.newInstance(position))
+				.commit();
 	}
 
 	public void onSectionAttached(int number) {
 
-		/*switch (number) {
-		case 1:
-			mTitle = title_section_1;
-			break;
-		case 2:
-			mTitle = title_section_2;
-			break;
-		case 3:
-			mTitle = title_section_3;
-			break;
-		}*/
+		/*
+		 * switch (number) { case 1: mTitle = title_section_1; break; case 2:
+		 * mTitle = title_section_2; break; case 3: mTitle = title_section_3;
+		 * break; }
+		 */
 
-		 mTitle = navigation_drawer_titles[number];
+		mTitle = navigation_drawer_titles[number];
 	}
 
 	public void restoreActionBar() {
@@ -148,7 +147,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+			// View rootView = inflater.inflate(R.layout.fragment_main,
+			// container, false);
+			int resid = R.layout.activity_welcome;
+			Log.d("resid ", String.valueOf(resid));
+			Log.d("textview ", String.valueOf(R.id.section_label));
+			Log.d("int 1", String.valueOf(1));
+			Log.d("section num", String.valueOf(savedInstanceState.getInt(ARG_SECTION_NUMBER)));
+			View rootView = inflater.inflate(resid, container, false);
 			return rootView;
 		}
 
