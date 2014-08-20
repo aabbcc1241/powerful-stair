@@ -38,9 +38,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	private CharSequence mTitle;
 
 	// my vars
-	private Resources res;
-	private String[] navigation_drawer_titles;
-	String title_section_1, title_section_2, title_section_3, title_section_4, title_section_5,
+	public Resources res;
+	public String[] navigation_drawer_titles;
+	public static int sectionNum = 0;
+	public String title_section_1, title_section_2, title_section_3, title_section_4, title_section_5,
 			title_section_6, title_section_7;
 
 	private void initvar() {
@@ -121,6 +122,18 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		return super.onOptionsItemSelected(item);
 	}
 
+	public static int getFragmentLayoutId(int sectionNum) {
+		int resid = 0;
+		switch (sectionNum) {
+		case 0:
+			resid = R.layout.fragment_welcome;
+			break;
+		default:
+			resid = R.layout.fragment_welcome;
+		}
+		return resid;
+	}
+
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
@@ -135,6 +148,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		 * Returns a new instance of this fragment for the given section number.
 		 */
 		public static PlaceholderFragment newInstance(int sectionNumber) {
+			sectionNum = sectionNumber;
 			PlaceholderFragment fragment = new PlaceholderFragment();
 			Bundle args = new Bundle();
 			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
@@ -149,11 +163,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			// View rootView = inflater.inflate(R.layout.fragment_main,
 			// container, false);
-			int resid = R.layout.activity_welcome;
-			Log.d("resid ", String.valueOf(resid));
-			Log.d("textview ", String.valueOf(R.id.section_label));
-			Log.d("int 1", String.valueOf(1));
-			Log.d("section num", String.valueOf(savedInstanceState.getInt(ARG_SECTION_NUMBER)));
+			int resid = getFragmentLayoutId(sectionNum);
 			View rootView = inflater.inflate(resid, container, false);
 			return rootView;
 		}

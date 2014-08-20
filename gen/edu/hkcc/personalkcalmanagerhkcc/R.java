@@ -37,7 +37,7 @@ public final class R {
         public static final int start_screen_slogan=0x7f020003;
     }
     public static final class id {
-        public static final int FrameLayout1=0x7f090003;
+        public static final int FrameLayout1=0x7f090004;
         public static final int action_example=0x7f090008;
         public static final int action_settings=0x7f090007;
         public static final int button_start=0x7f090006;
@@ -45,13 +45,13 @@ public final class R {
         public static final int drawer_layout=0x7f090000;
         public static final int imageView1=0x7f090005;
         public static final int navigation_drawer=0x7f090002;
-        public static final int section_label=0x7f090004;
+        public static final int section_label=0x7f090003;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int activity_welcome=0x7f030001;
-        public static final int fragment_main=0x7f030002;
-        public static final int fragment_navigation_drawer=0x7f030003;
+        public static final int fragment_main=0x7f030001;
+        public static final int fragment_navigation_drawer=0x7f030002;
+        public static final int fragment_welcome=0x7f030003;
     }
     public static final class menu {
         public static final int global=0x7f080000;
