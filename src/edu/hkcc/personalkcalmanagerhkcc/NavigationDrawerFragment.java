@@ -64,21 +64,13 @@ public class NavigationDrawerFragment extends Fragment {
 	}
 
 	// my vars
-	private Resources res;
-	private String[] navigation_drawer_titles;
-	String title_section_1, title_section_2, title_section_3, title_section_4, title_section_5,
-			title_section_6, title_section_7;
+	public Resources res;
+	public String[] navigation_drawer_titles;
+	public static int sectionNum = 0;
 
-	private void initvar() {
+	public void initvar() {
 		res = getResources();
 		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
-		title_section_1 = getString(R.string.title_section_1);
-		title_section_2 = getString(R.string.title_section_2);
-		title_section_3 = getString(R.string.title_section_3);
-		title_section_4 = getString(R.string.title_section_4);
-		title_section_5 = getString(R.string.title_section_5);
-		title_section_6 = getString(R.string.title_section_6);
-		title_section_7 = getString(R.string.title_section_7);
 	}
 
 	@Override
@@ -112,6 +104,7 @@ public class NavigationDrawerFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		initvar();
 		mDrawerListView = (ListView) inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
 		mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -120,11 +113,7 @@ public class NavigationDrawerFragment extends Fragment {
 			}
 		});
 		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar().getThemedContext(),
-				android.R.layout.simple_list_item_activated_1, android.R.id.text1, new String[] {
-						getString(R.string.title_section_1), getString(R.string.title_section_2),
-						getString(R.string.title_section_3), getString(R.string.title_section_4),
-						getString(R.string.title_section_5), getString(R.string.title_section_6),
-						getString(R.string.title_section_7), }));
+				android.R.layout.simple_list_item_activated_1, android.R.id.text1, navigation_drawer_titles));
 		/*
 		 * mDrawerListView.setAdapter(new
 		 * ArrayAdapter<String>(getActionBar().getThemedContext(),

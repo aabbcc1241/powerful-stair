@@ -41,19 +41,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	public Resources res;
 	public String[] navigation_drawer_titles;
 	public static int sectionNum = 0;
-	public String title_section_1, title_section_2, title_section_3, title_section_4, title_section_5,
-			title_section_6, title_section_7;
-
-	private void initvar() {
+	
+	public void initvar() {
 		res = getResources();
 		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
-		title_section_1 = getString(R.string.title_section_1);
-		title_section_2 = getString(R.string.title_section_2);
-		title_section_3 = getString(R.string.title_section_3);
-		title_section_4 = getString(R.string.title_section_4);
-		title_section_5 = getString(R.string.title_section_5);
-		title_section_6 = getString(R.string.title_section_6);
-		title_section_7 = getString(R.string.title_section_7);
 	}
 
 	@Override
@@ -129,7 +120,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 			resid = R.layout.fragment_welcome;
 			break;
 		default:
-			resid = R.layout.fragment_welcome;
+			resid = R.layout.fragment_about_you;
 		}
 		return resid;
 	}
