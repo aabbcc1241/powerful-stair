@@ -2,6 +2,8 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import java.util.logging.Logger;
 
+import edu.hkcc.myutils.Utils;
+
 import android.app.Activity;
 
 import android.app.ActionBar;
@@ -9,6 +11,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.Resources;
+import android.location.GpsStatus.Listener;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -17,10 +20,12 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.webkit.WebView.FindListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,11 +46,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	public Resources res;
 	public String[] navigation_drawer_titles;
 	public static int sectionNum = 0;
-	
-	public void initvar() {
+
+	private void initvar() {
 		res = getResources();
 		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
-	}
+			}
+
+	// layout elements
+	public Button welcome_button_start;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +68,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
+
+		
+		// initListener();
 	}
 
 	@Override
@@ -119,10 +130,13 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		case 0:
 			resid = R.layout.fragment_welcome;
 			break;
+		case 1:
+			resid = R.layout.fragment_about_you;
+			break;
 		default:
 			resid = R.layout.fragment_error_404;
 		}
-		return resid;
+						return resid;
 	}
 
 	/**

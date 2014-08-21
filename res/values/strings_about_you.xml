@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="aboutyou_username_label">Name:</string>
+    <string name="aboutyou_userage_label">Age:</string>
+    <string name="aboutyou_userheight_label">Height:</string>
+    <string name="aboutyou_userweight_label">Weight:</string>
+
+</resources>

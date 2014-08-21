@@ -1,5 +1,6 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
+import edu.hkcc.myutils.Utils;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -71,6 +72,7 @@ public class NavigationDrawerFragment extends Fragment {
 	public void initvar() {
 		res = getResources();
 		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
+		Utils.showToast(getActivity(), "initvar fragment");
 	}
 
 	@Override
