@@ -57,7 +57,7 @@ public class NavigationDrawerFragment extends Fragment {
 	private ListView mDrawerListView;
 	private View mFragmentContainerView;
 
-	private int mCurrentSelectedPosition = 0;
+	public int mCurrentSelectedPosition = 0;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
 
@@ -67,13 +67,12 @@ public class NavigationDrawerFragment extends Fragment {
 	// my vars
 	public Resources res;
 	public String[] navigation_drawer_titles;
-	public static int sectionNum = 0;
+	
 
 	public void initvar() {
 		res = getResources();
 		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
-		Utils.showToast(getActivity(), "initvar fragment");
-	}
+			}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
