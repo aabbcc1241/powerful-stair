@@ -120,7 +120,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 			resid = R.layout.fragment_welcome;
 			break;
 		default:
-			resid = R.layout.fragment_about_you;
+			resid = R.layout.fragment_error_404;
 		}
 		return resid;
 	}
