@@ -45,7 +45,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	// my vars
 	public Resources res;
 	public String[] navigation_drawer_titles;
-	public static int sectionNum = 0;
+	
 
 	private void initvar() {
 		res = getResources();
@@ -124,60 +124,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		return super.onOptionsItemSelected(item);
 	}
 
-	public static int getFragmentLayoutId(int sectionNum) {
-		int resid = 0;
-		switch (sectionNum) {
-		case 0:
-			resid = R.layout.fragment_welcome;
-			break;
-		case 1:
-			resid = R.layout.fragment_about_you;
-			break;
-		default:
-			resid = R.layout.fragment_error_404;
-		}
-						return resid;
-	}
-
-	/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	public static class PlaceholderFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		private static final String ARG_SECTION_NUMBER = "section_number";
-
-		/**
-		 * Returns a new instance of this fragment for the given section number.
-		 */
-		public static PlaceholderFragment newInstance(int sectionNumber) {
-			sectionNum = sectionNumber;
-			PlaceholderFragment fragment = new PlaceholderFragment();
-			Bundle args = new Bundle();
-			args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-			fragment.setArguments(args);
-			return fragment;
-		}
-
-		public PlaceholderFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			// View rootView = inflater.inflate(R.layout.fragment_main,
-			// container, false);
-			int resid = getFragmentLayoutId(sectionNum);
-			View rootView = inflater.inflate(resid, container, false);
-			return rootView;
-		}
-
-		@Override
-		public void onAttach(Activity activity) {
-			super.onAttach(activity);
-			((MainActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
-		}
-	}
+	
+	
 
 }

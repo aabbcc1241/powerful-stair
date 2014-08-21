@@ -1,11 +1,14 @@
 package edu.hkcc.myutils;
 
+import edu.hkcc.personalkcalmanagerhkcc.R;
 import android.content.Context;
 import android.widget.Toast;
 
 public class Utils {
 
-	/* ------- showToast ------- */
+	/*
+	 * showToast
+	 */
 	public static void showToast(Context context, CharSequence text, int duration) {
 		Toast.makeText(context, text, duration).show();
 	}
@@ -21,4 +24,7 @@ public class Utils {
 	public static void showToast(Context context, int resId) {
 		Toast.makeText(context, resId, Toast.LENGTH_SHORT).show();
 	}
+
+	
+
 }
