@@ -31,7 +31,7 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="@string/std_space_height" />
+            android:layout_height="@dimen/std_space_height" />
 
         <Button
             android:id="@+id/welcome_button_start"

@@ -7,7 +7,7 @@
 
     <Space
         android:layout_width="wrap_content"
-        android:layout_height="@string/std_space_height" />
+        android:layout_height="@dimen/std_space_height" />
 
     <TableRow>
 
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" >
+            android:inputType="number" >
         </EditText>
     </TableRow>
 
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" >
+            android:inputType="numberDecimal" >
         </EditText>
     </TableRow>
 
@@ -73,7 +73,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" >
+            android:inputType="numberDecimal" >
         </EditText>
     </TableRow>
 
@@ -101,7 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" >
+            android:inputType="numberDecimal" >
         </EditText>
     </TableRow>
 
