@@ -6,5 +6,6 @@
     <string name="aboutyou_userheight_label">Height:</string>
     <string name="aboutyou_userweight_label">Weight:</string>
     <string name="aboutyou_bmi_label">BMI:</string>
+    <string name="aboutyou_bmi_calc">Calcuate BMI</string>
 
 </resources>

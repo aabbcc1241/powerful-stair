@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#fff"
     tools:context="edu.hkcc.personalkcalmanagerhkcc.MainActivity" >
 
     <TextView
@@ -30,12 +31,13 @@
 
         <Space
             android:layout_width="wrap_content"
-            android:layout_height="39dp" />
+            android:layout_height="@string/std_space_height" />
 
         <Button
             android:id="@+id/welcome_button_start"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:background="@drawable/button_bg_orange_1"
             android:text="@string/start" />
     </LinearLayout>
 

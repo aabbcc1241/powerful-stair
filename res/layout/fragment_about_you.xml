@@ -3,64 +3,106 @@
     android:id="@+id/TableLayout1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal"
-    android:gravity="center_horizontal" >
+    android:layout_gravity="center_horizontal" >
 
     <Space
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
+        android:layout_width="wrap_content"
+        android:layout_height="@string/std_space_height" />
 
-    <TextView
-        android:id="@+id/aboutyou_username_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/aboutyou_username_label" />
+    <TableRow>
 
-    <EditText
-        android:id="@+id/aboutyou_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName" >
-    </EditText>
+        <TextView
+            android:id="@+id/aboutyou_username_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutyou_username_label" />
 
-    <TextView
-        android:id="@+id/aboutyou_userage_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/aboutyou_userage_label" />
+        <EditText
+            android:id="@+id/aboutyou_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" >
+        </EditText>
+    </TableRow>
 
-    <EditText
-        android:id="@+id/aboutyou_userage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal" >
-    </EditText>
- <TextView
-        android:id="@+id/aboutyou_userheight_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/aboutyou_userheight_label" />
+    <TableRow>
 
-    <EditText
-        android:id="@+id/aboutyou_userheight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal" >
-    </EditText>
-     <TextView
-        android:id="@+id/aboutyou_userweight_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/aboutyou_userweight_label" />
+        <TextView
+            android:id="@+id/aboutyou_userage_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutyou_userage_label" />
 
-    <EditText
-        android:id="@+id/aboutyou_userweight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="numberDecimal" >
-    </EditText>
+        <EditText
+            android:id="@+id/aboutyou_userage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="numberDecimal" >
+        </EditText>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/aboutyou_userheight_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutyou_userheight_label" />
+
+        <EditText
+            android:id="@+id/aboutyou_userheight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+        </EditText>
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/aboutyou_userweight_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutyou_userweight_label" />
+
+        <EditText
+            android:id="@+id/aboutyou_userweight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+        </EditText>
+    </TableRow>
+
+    <FrameLayout>
+
+        <Button
+            android:id="@+id/aboutyou_button_bmi_calc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/aboutyou_bmi_calc"
+            android:background="@drawable/button_bg_pink_1" />
+    </FrameLayout>
+
+    <TableRow>
+
+        <TextView
+            android:id="@+id/aboutyou_bmi_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aboutyou_bmi_label" />
+
+        <EditText
+            android:id="@+id/aboutyou_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" >
+        </EditText>
+    </TableRow>
+
 </TableLayout>

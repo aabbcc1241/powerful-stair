@@ -18,7 +18,8 @@
     </string-array>
 
     <string name="loading">Loading</string>
-    <string name="error_404">"Under Development!!o(｀・ω・´)o"</string>
+    <string name="error_404">"Under Development!! o(｀・ω・´)o"</string>
+    <string name="std_space_height">39dp</string>
     <string name="slogan">"Keep Fit!\nDon't Eat??"</string>
     <string name="start">Start</string>
 
