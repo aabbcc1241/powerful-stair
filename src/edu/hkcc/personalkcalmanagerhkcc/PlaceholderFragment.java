@@ -12,7 +12,7 @@ import edu.hkcc.personalkcalmanagerhkcc.ResLinker;
  * A placeholder fragment containing a simple view.
  */
 public class PlaceholderFragment extends Fragment {
-	public int sectionNum;
+
 	/**
 	 * The fragment argument representing the section number for this fragment.
 	 */
@@ -22,22 +22,21 @@ public class PlaceholderFragment extends Fragment {
 	 * Returns a new instance of this fragment for the given section number.
 	 */
 	public static PlaceholderFragment newInstance(int sectionNumber) {
-				PlaceholderFragment fragment = new PlaceholderFragment(sectionNumber);
+		PlaceholderFragment fragment = new PlaceholderFragment();
 		Bundle args = new Bundle();
 		args.putInt(ARG_SECTION_NUMBER, sectionNumber);
 		fragment.setArguments(args);
 		return fragment;
 	}
 
-	public PlaceholderFragment(int sectionNumber) {
-		this.sectionNum=sectionNumber;
-		}
+	public PlaceholderFragment() {
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// View rootView = inflater.inflate(R.layout.fragment_main,
 		// container, false);
-		int resid = ResLinker.getFragmentLayoutId(sectionNum);
+		int resid = ResLinker.getFragmentLayoutId(getArguments().getInt(ARG_SECTION_NUMBER));
 		View rootView = inflater.inflate(resid, container, false);
 		return rootView;
 	}
