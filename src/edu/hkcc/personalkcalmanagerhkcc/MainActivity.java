@@ -1,5 +1,6 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 import edu.hkcc.myutils.Utils;
@@ -43,14 +44,21 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	private CharSequence mTitle;
 
 	// my vars
+	public static boolean inited = false;
 	public Resources res;
 	public String[] navigation_drawer_titles;
-	
+	public PlaceholderFragment[] placeholderFragments;
 
 	private void initvar() {
+		if (inited)
+			return;
 		res = getResources();
 		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
-			}
+		placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
+		for (int i = 0; i < placeholderFragments.length; i++)
+			placeholderFragments[i] = PlaceholderFragment.newInstance(i);
+		inited = true;
+	}
 
 	// layout elements
 	public Button welcome_button_start;
@@ -69,17 +77,18 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 
-		
 		// initListener();
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
+		initvar();
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.container, PlaceholderFragment.newInstance(position))
-				.commit();
-			}
+		// fragmentManager.beginTransaction().replace(R.id.container,
+		// PlaceholderFragment.newInstance(position)).commit();
+		fragmentManager.beginTransaction().replace(R.id.container, placeholderFragments[position]).commit();
+	}
 
 	public void onSectionAttached(int number) {
 
@@ -123,8 +132,5 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		}
 		return super.onOptionsItemSelected(item);
 	}
-
-	
-	
 
 }
