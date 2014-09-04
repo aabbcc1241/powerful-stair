@@ -1,6 +1,5 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import edu.hkcc.myutils.Utils;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;

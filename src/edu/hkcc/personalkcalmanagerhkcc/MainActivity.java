@@ -1,33 +1,17 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import java.util.ArrayList;
-import java.util.logging.Logger;
-
-import edu.hkcc.myutils.Utils;
 import android.app.Activity;
 import android.app.ActionBar;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.res.Resources;
-import android.location.GpsStatus.Listener;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
-import android.webkit.WebView.FindListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -47,6 +31,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	public Resources res;
 	public String[] navigation_drawer_titles;
 	public PlaceholderFragment[] placeholderFragments;
+	public WelcomeFragment welcomeFragment;
 
 	private void initvar() {
 		if (inited)
@@ -56,6 +41,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
 		for (int i = 0; i < placeholderFragments.length; i++)
 			placeholderFragments[i] = PlaceholderFragment.newInstance(i);
+		welcomeFragment = new WelcomeFragment(this);
 		inited = true;
 	}
 
@@ -70,7 +56,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
 	private void initListener_welcome() {
 		if ((welcome_button_start = (Button) findViewById(R.id.welcome_button_start)) != null) {
-			welcome_button_start.setOnClickListener(WelcomeActivity
+			welcome_button_start.setOnClickListener(welcomeFragment
 					.welcome_button_start_OnClickListener(MainActivity.this));
 		}
 	}
