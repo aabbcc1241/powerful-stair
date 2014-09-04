@@ -29,8 +29,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements
-		NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -53,8 +52,7 @@ public class MainActivity extends Activity implements
 		if (inited)
 			return;
 		res = getResources();
-		navigation_drawer_titles = res
-				.getStringArray(R.array.navigation_drawer_titles);
+		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
 		placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
 		for (int i = 0; i < placeholderFragments.length; i++)
 			placeholderFragments[i] = PlaceholderFragment.newInstance(i);
@@ -66,17 +64,18 @@ public class MainActivity extends Activity implements
 
 	private void initListener() {
 		initListener_welcome();
-		
+
 		myInit();
 	}
 
-	private void initListener_welcome() {		
-		if((welcome_button_start = (Button) findViewById(R.id.welcome_button_start))!=null){
-			welcome_button_start.setOnClickListener(WelcomeActivity.welcome_button_start_OnClickListener(MainActivity.this));
+	private void initListener_welcome() {
+		if ((welcome_button_start = (Button) findViewById(R.id.welcome_button_start)) != null) {
+			welcome_button_start.setOnClickListener(WelcomeActivity
+					.welcome_button_start_OnClickListener(MainActivity.this));
 		}
 	}
 
-	private void myInit() {		
+	private void myInit() {
 	}
 
 	@Override
@@ -91,15 +90,13 @@ public class MainActivity extends Activity implements
 		setContentView(R.layout.activity_main);
 
 		initvar();
-		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
-				.findFragmentById(R.id.navigation_drawer);
+		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(
+				R.id.navigation_drawer);
 		mTitle = getTitle();
 
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-
-		// initListener();
 	}
 
 	@Override
@@ -109,9 +106,7 @@ public class MainActivity extends Activity implements
 		FragmentManager fragmentManager = getFragmentManager();
 		// fragmentManager.beginTransaction().replace(R.id.container,
 		// PlaceholderFragment.newInstance(position)).commit();
-		fragmentManager.beginTransaction()
-				.replace(R.id.container, placeholderFragments[position])
-				.commit();
+		fragmentManager.beginTransaction().replace(R.id.container, placeholderFragments[position]).commit();
 	}
 
 	public void onSectionAttached(int number) {
