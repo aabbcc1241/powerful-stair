@@ -6,9 +6,10 @@ import android.view.View;
 import android.widget.Toast;
 
 public class WelcomeFragment {
-	
+	private MainActivity mainActivity;
 
-	public WelcomeFragment() {	
+	public WelcomeFragment(MainActivity mainActivity) {
+		this.mainActivity = mainActivity;
 	}
 
 	public View.OnClickListener welcome_button_start_OnClickListener(

@@ -12,6 +12,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends Activity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
@@ -32,12 +34,19 @@ public class MainActivity extends Activity implements
 	public Resources res;
 	public String[] navigation_drawer_titles;
 	public PlaceholderFragment[] placeholderFragments;
+
 	// layout fragments
 	public WelcomeFragment welcomeFragment;
 	public AboutYouFragment aboutYouFragment;
+
 	// layout elements
 	public Button welcome_button_start;
 	public Button aboutyou_button_calcuateBmi;
+	public EditText aboutyou_edittext_username;
+	public EditText aboutyou_edittext_userage;
+	public EditText aboutyou_edittext_userheight;
+	public EditText aboutyou_edittext_userweight;
+	public EditText aboutyou_edittext_userbmi;
 
 	private void initvar() {
 		if (inited)
@@ -48,13 +57,13 @@ public class MainActivity extends Activity implements
 		placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
 		for (int i = 0; i < placeholderFragments.length; i++)
 			placeholderFragments[i] = PlaceholderFragment.newInstance(i);
-		welcomeFragment = new WelcomeFragment();
-		aboutYouFragment = new AboutYouFragment();
+		welcomeFragment = new WelcomeFragment(this);
+		aboutYouFragment = new AboutYouFragment(this);
 		inited = true;
 	}
 
 	private void initListener() {
-		initListener_welcome();		
+		initListener_welcome();
 		initListener_aboutYou();
 
 		myInit();
@@ -69,8 +78,19 @@ public class MainActivity extends Activity implements
 
 	private void initListener_aboutYou() {
 		if ((aboutyou_button_calcuateBmi = (Button) findViewById(R.id.aboutyou_button_calcuateBmi)) != null) {
-			aboutyou_button_calcuateBmi.setOnClickListener(aboutYouFragment.aboutYou_button_calcuateBmi(MainActivity.this));
+			aboutyou_button_calcuateBmi.setOnClickListener(aboutYouFragment
+					.aboutYou_button_calcuateBmi(MainActivity.this));
 		}
+		if ((EditText) findViewById(R.id.aboutyou_edittext_username) != null)
+			aboutyou_edittext_username = (EditText) findViewById(R.id.aboutyou_edittext_username);
+		if ((EditText) findViewById(R.id.aboutyou_edittext_userage) != null)
+			aboutyou_edittext_userage = (EditText) findViewById(R.id.aboutyou_edittext_userage);
+		if((EditText)findViewById(R.id.aboutyou_edittext_userheight)!=null)
+			aboutyou_edittext_userheight=(EditText)findViewById(R.id.aboutyou_edittext_userheight);
+		if((EditText)findViewById(R.id.aboutyou_edittext_userweight)!=null)
+			aboutyou_edittext_userweight=(EditText)findViewById(R.id.aboutyou_edittext_userweight);
+		if((EditText)findViewById(R.id.aboutyou_edittext_userbmi)!=null)
+			aboutyou_edittext_userbmi=(EditText)findViewById(R.id.aboutyou_edittext_userbmi);
 	}
 
 	private void myInit() {

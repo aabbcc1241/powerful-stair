@@ -18,7 +18,7 @@
             android:text="@string/aboutyou_username_label" />
 
         <EditText
-            android:id="@+id/aboutyou_username"
+            android:id="@+id/aboutyou_edittext_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -35,7 +35,7 @@
             android:text="@string/aboutyou_userage_label" />
 
         <EditText
-            android:id="@+id/aboutyou_userage"
+            android:id="@+id/aboutyou_edittext_userage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -52,7 +52,7 @@
             android:text="@string/aboutyou_userheight_label" />
 
         <EditText
-            android:id="@+id/aboutyou_userheight"
+            android:id="@+id/aboutyou_edittext_userheight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -69,7 +69,7 @@
             android:text="@string/aboutyou_userweight_label" />
 
         <EditText
-            android:id="@+id/aboutyou_userweight"
+            android:id="@+id/aboutyou_edittext_userweight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -97,7 +97,7 @@
             android:text="@string/aboutyou_bmi_label" />
 
         <EditText
-            android:id="@+id/aboutyou_bmi"
+            android:id="@+id/aboutyou_edittext_userbmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
