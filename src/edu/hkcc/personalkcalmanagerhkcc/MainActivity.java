@@ -48,13 +48,13 @@ public class MainActivity extends Activity implements
 		placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
 		for (int i = 0; i < placeholderFragments.length; i++)
 			placeholderFragments[i] = PlaceholderFragment.newInstance(i);
-		welcomeFragment = new WelcomeFragment(this);
-		aboutYouFragment = new AboutYouFragment(this);
+		welcomeFragment = new WelcomeFragment();
+		aboutYouFragment = new AboutYouFragment();
 		inited = true;
 	}
 
 	private void initListener() {
-		initListener_welcome();
+		initListener_welcome();		
 		initListener_aboutYou();
 
 		myInit();

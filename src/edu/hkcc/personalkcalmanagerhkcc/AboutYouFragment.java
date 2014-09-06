@@ -5,10 +5,8 @@ import android.content.Context;
 import android.view.View;
 
 public class AboutYouFragment {
-	private MainActivity mainActivity;
 
-	public AboutYouFragment(MainActivity mainActivity) {
-		this.mainActivity = mainActivity;
+	public AboutYouFragment() {
 	}
 
 	public View.OnClickListener aboutYou_button_calcuateBmi(Context context) {
