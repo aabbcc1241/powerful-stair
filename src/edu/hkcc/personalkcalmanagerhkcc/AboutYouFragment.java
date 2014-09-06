@@ -3,23 +3,21 @@ package edu.hkcc.personalkcalmanagerhkcc;
 import edu.hkcc.myutils.Utils;
 import android.content.Context;
 import android.view.View;
-import android.widget.Toast;
 
-public class WelcomeFragment {
+public class AboutYouFragment {
 	private MainActivity mainActivity;
 
-	public WelcomeFragment(MainActivity mainActivity) {
+	public AboutYouFragment(MainActivity mainActivity) {
 		this.mainActivity = mainActivity;
 	}
 
-	public View.OnClickListener welcome_button_start_OnClickListener(Context context) {
+	public View.OnClickListener aboutYou_button_calcuateBmi(Context context) {
 		final Context myContext = context;
 		return new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				Utils.showToast(myContext, R.string.lets_go,Toast.LENGTH_LONG);
-				// method to open drawer
+				Utils.showToast(myContext, R.string.aboutyou_calculating);
 			}
 		};
 	}

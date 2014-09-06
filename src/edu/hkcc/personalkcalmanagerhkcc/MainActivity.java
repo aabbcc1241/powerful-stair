@@ -13,7 +13,8 @@ import android.view.View;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Button;
 
-public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class MainActivity extends Activity implements
+		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -31,25 +32,30 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 	public Resources res;
 	public String[] navigation_drawer_titles;
 	public PlaceholderFragment[] placeholderFragments;
+	// layout fragments
 	public WelcomeFragment welcomeFragment;
+	public AboutYouFragment aboutYouFragment;
+	// layout elements
+	public Button welcome_button_start;
+	public Button aboutyou_button_calcuateBmi;
 
 	private void initvar() {
 		if (inited)
 			return;
 		res = getResources();
-		navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
+		navigation_drawer_titles = res
+				.getStringArray(R.array.navigation_drawer_titles);
 		placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
 		for (int i = 0; i < placeholderFragments.length; i++)
 			placeholderFragments[i] = PlaceholderFragment.newInstance(i);
 		welcomeFragment = new WelcomeFragment(this);
+		aboutYouFragment = new AboutYouFragment(this);
 		inited = true;
 	}
 
-	// layout elements
-	public Button welcome_button_start;
-
 	private void initListener() {
 		initListener_welcome();
+		initListener_aboutYou();
 
 		myInit();
 	}
@@ -58,6 +64,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		if ((welcome_button_start = (Button) findViewById(R.id.welcome_button_start)) != null) {
 			welcome_button_start.setOnClickListener(welcomeFragment
 					.welcome_button_start_OnClickListener(MainActivity.this));
+		}
+	}
+
+	private void initListener_aboutYou() {
+		if ((aboutyou_button_calcuateBmi = (Button) findViewById(R.id.aboutyou_button_calcuateBmi)) != null) {
+			aboutyou_button_calcuateBmi.setOnClickListener(aboutYouFragment.aboutYou_button_calcuateBmi(MainActivity.this));
 		}
 	}
 
@@ -76,8 +88,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		setContentView(R.layout.activity_main);
 
 		initvar();
-		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager().findFragmentById(
-				R.id.navigation_drawer);
+		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
+				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
 
 		// Set up the drawer.
@@ -92,7 +104,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 		FragmentManager fragmentManager = getFragmentManager();
 		// fragmentManager.beginTransaction().replace(R.id.container,
 		// PlaceholderFragment.newInstance(position)).commit();
-		fragmentManager.beginTransaction().replace(R.id.container, placeholderFragments[position]).commit();
+		fragmentManager.beginTransaction()
+				.replace(R.id.container, placeholderFragments[position])
+				.commit();
 	}
 
 	public void onSectionAttached(int number) {

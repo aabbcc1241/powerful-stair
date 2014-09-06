@@ -80,7 +80,7 @@
     <FrameLayout>
 
         <Button
-            android:id="@+id/aboutyou_button_bmi_calc"
+            android:id="@+id/aboutyou_button_calcuateBmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
