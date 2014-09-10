@@ -9,6 +9,10 @@ import android.widget.TextView;
 public class AboutYouFragment {
 	private MainActivity mainActivity;
 
+	protected String name;
+	protected float height,weight,bmi;
+	protected int age;
+	
 	public AboutYouFragment(MainActivity mainActivity) {
 		this.mainActivity = mainActivity;
 	}
@@ -19,10 +23,21 @@ public class AboutYouFragment {
 
 			@Override
 			public void onClick(View v) {
+				if(allFilled()){
 				Utils.showToast(myContext, R.string.aboutyou_calculating);
-				calcBmi();
+				calcBmi();}
+				else{
+					Utils.showToast(myContext, R.string.aboutyou_pleasefillallinfo);
+				}
 			}
 		};
+	}
+
+	protected boolean allFilled() {
+		// TODO Auto-generated method stub
+		boolean allFilled=true;
+		height=mainActivity.aboutyou_edittext_userheight.get
+		return allFilled;
 	}
 
 	protected void calcBmi() {

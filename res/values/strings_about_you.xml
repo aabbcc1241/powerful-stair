@@ -8,5 +8,6 @@
     <string name="aboutyou_bmi_label">BMI:</string>
     <string name="aboutyou_bmi_calc">Calcuate BMI</string>
     <string name="aboutyou_calculating">Calcuating\.\.\.</string>
+    <string name="aboutyou_pleasefillallinfo">Please fill your body status above ~</string>
 
 </resources>
