@@ -80,6 +80,7 @@ public final class R {
         public static final int aboutyou_bmi_calc=0x7f05000e;
         public static final int aboutyou_bmi_label=0x7f05000d;
         public static final int aboutyou_calculating=0x7f05000f;
+        public static final int aboutyou_pleasefillallinfo=0x7f050010;
         public static final int aboutyou_userage_label=0x7f05000a;
         public static final int aboutyou_userheight_label=0x7f05000b;
         public static final int aboutyou_username_label=0x7f050009;
@@ -88,7 +89,7 @@ public final class R {
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
         public static final int error_404=0x7f050006;
-        public static final int lets_go=0x7f050010;
+        public static final int lets_go=0x7f050011;
         public static final int loading=0x7f050005;
         public static final int navigation_drawer_close=0x7f050004;
         public static final int navigation_drawer_open=0x7f050003;

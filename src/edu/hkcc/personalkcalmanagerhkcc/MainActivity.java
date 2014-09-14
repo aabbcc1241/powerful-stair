@@ -65,7 +65,7 @@ public class MainActivity extends Activity implements
 	private void initListener() {
 		initListener_welcome();
 		initListener_aboutYou();
-
+		
 		myInit();
 	}
 
@@ -92,6 +92,7 @@ public class MainActivity extends Activity implements
 		if((EditText)findViewById(R.id.aboutyou_edittext_userbmi)!=null)
 			aboutyou_edittext_userbmi=(EditText)findViewById(R.id.aboutyou_edittext_userbmi);
 	}
+	
 
 	private void myInit() {
 	}
