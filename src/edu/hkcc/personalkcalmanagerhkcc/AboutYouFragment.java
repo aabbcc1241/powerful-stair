@@ -3,15 +3,13 @@ package edu.hkcc.personalkcalmanagerhkcc;
 import edu.hkcc.myutils.Utils;
 import android.content.Context;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 
 public class AboutYouFragment {
 	private MainActivity mainActivity;
 
 	protected String name;
 	protected float height, weight, bmi;
+	protected float heightUnit;
 	protected int age;
 
 	public AboutYouFragment(MainActivity mainActivity) {
@@ -49,7 +47,11 @@ public class AboutYouFragment {
 	}
 
 	protected void calcBmi() {
-		bmi=(float) (weight/Math.pow(height, 2));
+		heightUnit = height < 100 ? 1 : 0.01f;
+		mainActivity.aboutyou_userheight_label
+				.setText(heightUnit == 1 ? R.string.aboutyou_userheight_label_m
+						: R.string.aboutyou_userheight_label_cm);
+		bmi = (float) (weight / Math.pow(height * heightUnit, 2));
 		mainActivity.aboutyou_edittext_userbmi.setText(String.valueOf(bmi));
 	}
 }

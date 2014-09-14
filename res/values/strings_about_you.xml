@@ -3,8 +3,9 @@
 
     <string name="aboutyou_username_label">Name:</string>
     <string name="aboutyou_userage_label">Age:</string>
-    <string name="aboutyou_userheight_label">Height:</string>
-    <string name="aboutyou_userweight_label">Weight:</string>
+    <string name="aboutyou_userheight_label_m">Height(m):</string>
+    <string name="aboutyou_userheight_label_cm">Height(cm):</string>
+    <string name="aboutyou_userweight_label">Weight(kg):</string>
     <string name="aboutyou_bmi_label">BMI:</string>
     <string name="aboutyou_bmi_calc">Calcuate BMI</string>
     <string name="aboutyou_calculating">Calcuating\.\.\.</string>

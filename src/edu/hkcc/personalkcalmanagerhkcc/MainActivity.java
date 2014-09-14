@@ -29,19 +29,22 @@ public class MainActivity extends Activity implements
 	 */
 	private CharSequence mTitle;
 
-	// my vars
+	/* my vars */
 	public static boolean inited = false;
 	public Resources res;
 	public String[] navigation_drawer_titles;
 	public PlaceholderFragment[] placeholderFragments;
 
-	// layout fragments
+	/* layout fragments */
 	public WelcomeFragment welcomeFragment;
 	public AboutYouFragment aboutYouFragment;
 
-	// layout elements
+	/* layout elements */
+	// welcome
 	public Button welcome_button_start;
+	// about you
 	public Button aboutyou_button_calcuateBmi;
+	public TextView aboutyou_userheight_label;
 	public EditText aboutyou_edittext_username;
 	public EditText aboutyou_edittext_userage;
 	public EditText aboutyou_edittext_userheight;
@@ -65,7 +68,7 @@ public class MainActivity extends Activity implements
 	private void initListener() {
 		initListener_welcome();
 		initListener_aboutYou();
-		
+
 		myInit();
 	}
 
@@ -85,14 +88,15 @@ public class MainActivity extends Activity implements
 			aboutyou_edittext_username = (EditText) findViewById(R.id.aboutyou_edittext_username);
 		if ((EditText) findViewById(R.id.aboutyou_edittext_userage) != null)
 			aboutyou_edittext_userage = (EditText) findViewById(R.id.aboutyou_edittext_userage);
-		if((EditText)findViewById(R.id.aboutyou_edittext_userheight)!=null)
-			aboutyou_edittext_userheight=(EditText)findViewById(R.id.aboutyou_edittext_userheight);
-		if((EditText)findViewById(R.id.aboutyou_edittext_userweight)!=null)
-			aboutyou_edittext_userweight=(EditText)findViewById(R.id.aboutyou_edittext_userweight);
-		if((EditText)findViewById(R.id.aboutyou_edittext_userbmi)!=null)
-			aboutyou_edittext_userbmi=(EditText)findViewById(R.id.aboutyou_edittext_userbmi);
+		if ((EditText) findViewById(R.id.aboutyou_edittext_userheight) != null)
+			aboutyou_edittext_userheight = (EditText) findViewById(R.id.aboutyou_edittext_userheight);
+		if ((EditText) findViewById(R.id.aboutyou_edittext_userweight) != null)
+			aboutyou_edittext_userweight = (EditText) findViewById(R.id.aboutyou_edittext_userweight);
+		if ((EditText) findViewById(R.id.aboutyou_edittext_userbmi) != null)
+			aboutyou_edittext_userbmi = (EditText) findViewById(R.id.aboutyou_edittext_userbmi);
+		if (findViewById(R.id.aboutyou_userheight_label) != null)
+			aboutyou_userheight_label = (TextView) findViewById(R.id.aboutyou_userheight_label);
 	}
-	
 
 	private void myInit() {
 	}
