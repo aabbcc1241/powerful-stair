@@ -41,8 +41,9 @@ public final class R {
         public static final int start_screen_slogan=0x7f020006;
     }
     public static final class id {
-        public static final int LinearLayout1=0x7f090011;
+        public static final int LinearLayout1=0x7f090016;
         public static final int TableLayout1=0x7f090003;
+        public static final int TableLayout_energycal_tablelayout_kcalrecord=0x7f09000f;
         public static final int aboutyou_bmi_label=0x7f09000d;
         public static final int aboutyou_button_calcuateBmi=0x7f09000c;
         public static final int aboutyou_edittext_userage=0x7f090007;
@@ -54,15 +55,19 @@ public final class R {
         public static final int aboutyou_userheight_label=0x7f090008;
         public static final int aboutyou_username_label=0x7f090004;
         public static final int aboutyou_userweight_label=0x7f09000a;
-        public static final int action_example=0x7f090015;
-        public static final int action_settings=0x7f090014;
+        public static final int action_example=0x7f09001a;
+        public static final int action_settings=0x7f090019;
         public static final int container=0x7f090001;
         public static final int drawer_layout=0x7f090000;
-        public static final int imageView1=0x7f090012;
+        public static final int imageView1=0x7f090017;
         public static final int navigation_drawer=0x7f090002;
-        public static final int section_label=0x7f090010;
-        public static final int textView1=0x7f09000f;
-        public static final int welcome_button_start=0x7f090013;
+        public static final int section_label=0x7f090015;
+        public static final int tableRow1=0x7f090010;
+        public static final int textView1=0x7f090014;
+        public static final int textView_energy_used=0x7f090013;
+        public static final int textView_times=0x7f090012;
+        public static final int textView_type_of_exercise=0x7f090011;
+        public static final int welcome_button_start=0x7f090018;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
@@ -90,8 +95,14 @@ public final class R {
         public static final int action_example=0x7f050001;
         public static final int action_settings=0x7f050002;
         public static final int app_name=0x7f050000;
+        public static final int energycal_adding_record=0x7f050015;
+        public static final int energycal_date=0x7f050013;
+        public static final int energycal_energy_accum=0x7f050014;
+        public static final int energycal_energy_per_walk_stair=0x7f050016;
+        public static final int energycal_energy_type_hkcc_stair_walk=0x7f050017;
+        public static final int energycal_type_of_exercise=0x7f050012;
         public static final int error_404=0x7f050006;
-        public static final int lets_go=0x7f050012;
+        public static final int lets_go=0x7f050018;
         public static final int loading=0x7f050005;
         public static final int navigation_drawer_close=0x7f050004;
         public static final int navigation_drawer_open=0x7f050003;
