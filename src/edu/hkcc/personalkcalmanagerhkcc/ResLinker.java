@@ -13,6 +13,9 @@ public class ResLinker {
 		case 1:
 			resid = R.layout.fragment_about_you;
 			break;
+		case 4:
+			resid=R.layout.fragment_energy_cal;
+			break;
 		default:
 			resid = R.layout.fragment_error_404;
 		}

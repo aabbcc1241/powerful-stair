@@ -38,6 +38,7 @@ public class MainActivity extends Activity implements
 	/* layout fragments */
 	public WelcomeFragment welcomeFragment;
 	public AboutYouFragment aboutYouFragment;
+	public EnergyCalFragment energyCalFragment;
 
 	/* layout elements */
 	// welcome
@@ -62,12 +63,14 @@ public class MainActivity extends Activity implements
 			placeholderFragments[i] = PlaceholderFragment.newInstance(i);
 		welcomeFragment = new WelcomeFragment(this);
 		aboutYouFragment = new AboutYouFragment(this);
+		energyCalFragment = new EnergyCalFragment(this);
 		inited = true;
 	}
 
 	private void initListener() {
 		initListener_welcome();
 		initListener_aboutYou();
+		initListener_energyCal();
 
 		myInit();
 	}
@@ -96,6 +99,9 @@ public class MainActivity extends Activity implements
 			aboutyou_edittext_userbmi = (EditText) findViewById(R.id.aboutyou_edittext_userbmi);
 		if (findViewById(R.id.aboutyou_userheight_label) != null)
 			aboutyou_userheight_label = (TextView) findViewById(R.id.aboutyou_userheight_label);
+	}
+
+	private void initListener_energyCal() {
 	}
 
 	private void myInit() {
