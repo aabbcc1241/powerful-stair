@@ -58,19 +58,20 @@ public final class R {
         public static final int aboutyou_userheight_label=0x7f0a0008;
         public static final int aboutyou_username_label=0x7f0a0004;
         public static final int aboutyou_userweight_label=0x7f0a000a;
-        public static final int action_example=0x7f0a0019;
-        public static final int action_settings=0x7f0a0018;
+        public static final int action_example=0x7f0a001a;
+        public static final int action_settings=0x7f0a0019;
         public static final int container=0x7f0a0001;
         public static final int drawer_layout=0x7f0a0000;
-        public static final int imageView1=0x7f0a0016;
+        public static final int energycal_tablelayout_energy=0x7f0a0010;
+        public static final int imageView1=0x7f0a0017;
         public static final int navigation_drawer=0x7f0a0002;
-        public static final int section_label=0x7f0a0015;
-        public static final int tableRow1=0x7f0a0010;
-        public static final int textView1=0x7f0a0014;
-        public static final int textView_energy_used=0x7f0a0013;
-        public static final int textView_times=0x7f0a0012;
-        public static final int textView_type_of_exercise=0x7f0a0011;
-        public static final int welcome_button_start=0x7f0a0017;
+        public static final int section_label=0x7f0a0016;
+        public static final int tableRow1=0x7f0a0011;
+        public static final int textView1=0x7f0a0015;
+        public static final int textView_energy_used=0x7f0a0014;
+        public static final int textView_times=0x7f0a0013;
+        public static final int textView_type_of_exercise=0x7f0a0012;
+        public static final int welcome_button_start=0x7f0a0018;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

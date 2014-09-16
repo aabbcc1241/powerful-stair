@@ -1,5 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.FragmentManager;
@@ -7,12 +9,16 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements
@@ -51,6 +57,8 @@ public class MainActivity extends Activity implements
 	public EditText aboutyou_edittext_userheight;
 	public EditText aboutyou_edittext_userweight;
 	public EditText aboutyou_edittext_userbmi;
+	// energy cal
+	public TableLayout energycal_tablelayout_energy;
 
 	private void initvar() {
 		if (inited)
@@ -102,6 +110,34 @@ public class MainActivity extends Activity implements
 	}
 
 	private void initListener_energyCal() {
+		if ((TableLayout) findViewById(R.id.energycal_tablelayout_energy) != null) {
+			energycal_tablelayout_energy = (TableLayout) findViewById(R.id.energycal_tablelayout_energy);
+			energyCal_addRecord();
+			energyCal_addRecord();
+		}
+	}
+
+	public void energyCal_addRecord() {
+		int id=99999999;
+		TableRow tableRow = new TableRow(this);
+		tableRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,TableRow.LayoutParams.WRAP_CONTENT,Gravity.CENTER_HORIZONTAL));
+		tableRow.setGravity(Gravity.CENTER_HORIZONTAL);
+		tableRow.setId(id);
+		TextView textView1 = new TextView(this);
+		TextView textView2 = new TextView(this);
+		TextView textView3 = new TextView(this);
+		textView1.setText(getString(R.string.energycal_energy_type_hkcc_stair_walk));
+		Calendar calendar=Calendar.getInstance();
+		int date=calendar.get(Calendar.DATE);
+		int month=calendar.get(Calendar.MONTH);
+		textView2.setText(date+"/"+month);
+		int newCal=Integer.valueOf(getString(R.string.energycal_energy_per_walk_stair));
+		energyCalFragment.accumCal(newCal);
+		textView3.setText(energyCalFragment.getCalAccumAsString());
+		tableRow.addView(textView1);
+		tableRow.addView(textView2);
+		tableRow.addView(textView3);
+		energycal_tablelayout_energy.addView(tableRow);
 	}
 
 	private void myInit() {
