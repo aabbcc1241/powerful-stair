@@ -2,12 +2,18 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import java.util.Calendar;
 
+import edu.hkcc.myutils.Utils;
+
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
+import android.nfc.NdefMessage;
+import android.nfc.NfcAdapter;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.Menu;
@@ -18,7 +24,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TableRow;
-import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements
@@ -34,6 +39,8 @@ public class MainActivity extends Activity implements
 	 * {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
+
+	/* nfc */
 
 	/* my vars */
 	public static boolean inited = false;
@@ -112,33 +119,35 @@ public class MainActivity extends Activity implements
 	private void initListener_energyCal() {
 		if ((TableLayout) findViewById(R.id.energycal_tablelayout_energy) != null) {
 			energycal_tablelayout_energy = (TableLayout) findViewById(R.id.energycal_tablelayout_energy);
-			energyCal_addRecord();
-			energyCal_addRecord();
 		}
 	}
 
-	public void energyCal_addRecord() {
-		int id=99999999;
+	/*public void energyCal_addRecord() {
+		int id = 99999999;
 		TableRow tableRow = new TableRow(this);
-		tableRow.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT,TableRow.LayoutParams.WRAP_CONTENT,Gravity.CENTER_HORIZONTAL));
+		tableRow.setLayoutParams(new TableRow.LayoutParams(
+				TableRow.LayoutParams.MATCH_PARENT,
+				TableRow.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL));
 		tableRow.setGravity(Gravity.CENTER_HORIZONTAL);
 		tableRow.setId(id);
 		TextView textView1 = new TextView(this);
 		TextView textView2 = new TextView(this);
 		TextView textView3 = new TextView(this);
-		textView1.setText(getString(R.string.energycal_energy_type_hkcc_stair_walk));
-		Calendar calendar=Calendar.getInstance();
-		int date=calendar.get(Calendar.DATE);
-		int month=calendar.get(Calendar.MONTH);
-		textView2.setText(date+"/"+month);
-		int newCal=Integer.valueOf(getString(R.string.energycal_energy_per_walk_stair));
+		textView1
+				.setText(getString(R.string.energycal_energy_type_hkcc_stair_walk));
+		Calendar calendar = Calendar.getInstance();
+		int date = calendar.get(Calendar.DATE);
+		int month = calendar.get(Calendar.MONTH);
+		textView2.setText(date + "/" + month);
+		int newCal = Integer
+				.valueOf(getString(R.string.energycal_energy_per_walk_stair));
 		energyCalFragment.accumCal(newCal);
 		textView3.setText(energyCalFragment.getCalAccumAsString());
 		tableRow.addView(textView1);
 		tableRow.addView(textView2);
 		tableRow.addView(textView3);
 		energycal_tablelayout_energy.addView(tableRow);
-	}
+	}*/
 
 	private void myInit() {
 	}
@@ -153,6 +162,7 @@ public class MainActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		resolveIntent(getIntent());
 
 		initvar();
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
@@ -162,6 +172,19 @@ public class MainActivity extends Activity implements
 		// Set up the drawer.
 		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
+	}
+
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
+
+	@Override
+	protected void onNewIntent(Intent intent) {
+		// TODO Auto-generated method stub
+		setIntent(intent);
+		resolveIntent(intent);
 	}
 
 	@Override
@@ -217,6 +240,29 @@ public class MainActivity extends Activity implements
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	private void resolveIntent(Intent intent) {
+		String action = intent.getAction();
+		if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action)
+				|| NfcAdapter.ACTION_TECH_DISCOVERED.equals(action)
+				|| NfcAdapter.ACTION_NDEF_DISCOVERED.equals(action)) {
+			Parcelable[] rawMsgs = intent
+					.getParcelableArrayExtra(NfcAdapter.EXTRA_NDEF_MESSAGES);
+			NdefMessage[] msgs;
+			if (rawMsgs != null) {
+				// known tag type
+				msgs = new NdefMessage[rawMsgs.length];
+				for (int i = 0; i < rawMsgs.length; i++)
+					msgs[i] = (NdefMessage) rawMsgs[i];
+			} else {
+				// unknown tag type
+				msgs = new NdefMessage[1];
+			}
+			Utils.showToast(MainActivity.this, "by nfc");
+			energyCalFragment.addRecord();
+		} else
+			Utils.showToast(MainActivity.this, "not by nfc");
 	}
 
 }
