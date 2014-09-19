@@ -14,11 +14,20 @@ public class ResLinker {
 			resid = R.layout.fragment_about_you;
 			break;
 		case 4:
-			resid=R.layout.fragment_energy_cal;
+			resid = R.layout.fragment_energy_cal;
 			break;
 		default:
 			resid = R.layout.fragment_error_404;
 		}
 		return resid;
+	}
+
+	public static void loadContent(MainActivity mainActivity, int sectionNum) {
+		switch (sectionNum) {
+		case 4:
+			mainActivity.energyCalFragment.loadContent();
+			break;
+		default:
+		}
 	}
 }

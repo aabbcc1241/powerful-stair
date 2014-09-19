@@ -87,7 +87,7 @@ public class MainActivity extends Activity implements
 		initListener_aboutYou();
 		initListener_energyCal();
 
-		myInit();
+		//myInit();
 	}
 
 	private void initListener_welcome() {
@@ -122,34 +122,29 @@ public class MainActivity extends Activity implements
 		}
 	}
 
-	/*public void energyCal_addRecord() {
-		int id = 99999999;
-		TableRow tableRow = new TableRow(this);
-		tableRow.setLayoutParams(new TableRow.LayoutParams(
-				TableRow.LayoutParams.MATCH_PARENT,
-				TableRow.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL));
-		tableRow.setGravity(Gravity.CENTER_HORIZONTAL);
-		tableRow.setId(id);
-		TextView textView1 = new TextView(this);
-		TextView textView2 = new TextView(this);
-		TextView textView3 = new TextView(this);
-		textView1
-				.setText(getString(R.string.energycal_energy_type_hkcc_stair_walk));
-		Calendar calendar = Calendar.getInstance();
-		int date = calendar.get(Calendar.DATE);
-		int month = calendar.get(Calendar.MONTH);
-		textView2.setText(date + "/" + month);
-		int newCal = Integer
-				.valueOf(getString(R.string.energycal_energy_per_walk_stair));
-		energyCalFragment.accumCal(newCal);
-		textView3.setText(energyCalFragment.getCalAccumAsString());
-		tableRow.addView(textView1);
-		tableRow.addView(textView2);
-		tableRow.addView(textView3);
-		energycal_tablelayout_energy.addView(tableRow);
-	}*/
+	/*
+	 * public void energyCal_addRecord() { int id = 99999999; TableRow tableRow
+	 * = new TableRow(this); tableRow.setLayoutParams(new TableRow.LayoutParams(
+	 * TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT,
+	 * Gravity.CENTER_HORIZONTAL));
+	 * tableRow.setGravity(Gravity.CENTER_HORIZONTAL); tableRow.setId(id);
+	 * TextView textView1 = new TextView(this); TextView textView2 = new
+	 * TextView(this); TextView textView3 = new TextView(this); textView1
+	 * .setText(getString(R.string.energycal_energy_type_hkcc_stair_walk));
+	 * Calendar calendar = Calendar.getInstance(); int date =
+	 * calendar.get(Calendar.DATE); int month = calendar.get(Calendar.MONTH);
+	 * textView2.setText(date + "/" + month); int newCal = Integer
+	 * .valueOf(getString(R.string.energycal_energy_per_walk_stair));
+	 * energyCalFragment.accumCal(newCal);
+	 * textView3.setText(energyCalFragment.getCalAccumAsString());
+	 * tableRow.addView(textView1); tableRow.addView(textView2);
+	 * tableRow.addView(textView3);
+	 * energycal_tablelayout_energy.addView(tableRow); }
+	 */
 
 	private void myInit() {
+		initvar();
+		initListener();
 	}
 
 	@Override
@@ -189,7 +184,8 @@ public class MainActivity extends Activity implements
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
-		initvar();
+		//initvar();
+		myInit();
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
 		// fragmentManager.beginTransaction().replace(R.id.container,
@@ -199,7 +195,7 @@ public class MainActivity extends Activity implements
 				.commit();
 	}
 
-	public void onSectionAttached(int number) {
+	public void onSectionAttached(int sectinoNum) {
 
 		/*
 		 * switch (number) { case 1: mTitle = title_section_1; break; case 2:
@@ -207,7 +203,14 @@ public class MainActivity extends Activity implements
 		 * break; }
 		 */
 
-		mTitle = navigation_drawer_titles[number];
+		mTitle = navigation_drawer_titles[sectinoNum];
+	}
+
+	public void switchSection(int sectionNum) {
+		//onSectionAttached(sectionNum);
+		//onNavigationDrawerItemSelected(sectionNum);
+		mNavigationDrawerFragment.selectItem(sectionNum);
+		restoreActionBar();
 	}
 
 	public void restoreActionBar() {
