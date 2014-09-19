@@ -20,6 +20,7 @@ public class WelcomeFragment {
 			public void onClick(View v) {
 				Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
 				// method to open drawer
+				mainActivity.switchSection(EnergyCalFragment.drawerPosition);
 			}
 		};
 	}

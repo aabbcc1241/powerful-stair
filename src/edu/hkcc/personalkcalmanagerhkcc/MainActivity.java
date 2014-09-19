@@ -188,6 +188,7 @@ public class MainActivity extends Activity implements
 		// onNavigationDrawerItemSelected(sectionNum);
 		mNavigationDrawerFragment.selectItem(sectionNum);
 		restoreActionBar();
+		ResLinker.loadContent(this, sectionNum);
 	}
 
 	public void restoreActionBar() {
@@ -240,6 +241,7 @@ public class MainActivity extends Activity implements
 				msgs = new NdefMessage[1];
 			}
 			Utils.showToast(MainActivity.this, "by nfc");
+			switchSection(EnergyCalFragment.drawerPosition);
 			energyCalFragment.addRecord();
 		} else
 			Utils.showToast(MainActivity.this, "not by nfc");

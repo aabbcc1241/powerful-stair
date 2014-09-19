@@ -22,6 +22,24 @@ public class ResLinker {
 		return resid;
 	}
 
+	public static int getSectionNum(int fragmentLayoutId) {
+		int sectionNum = 0;
+		switch (fragmentLayoutId) {
+		case R.layout.fragment_welcome:
+			sectionNum = 0;
+			break;
+		case R.layout.fragment_about_you:
+			sectionNum = 1;
+			break;
+		case R.layout.fragment_energy_cal:
+			sectionNum = 4;
+			break;
+		default:
+			sectionNum = R.layout.fragment_error_404;
+		}
+		return sectionNum;
+	}
+
 	public static void loadContent(MainActivity mainActivity, int sectionNum) {
 		switch (sectionNum) {
 		case 4:

@@ -15,7 +15,8 @@ public class EnergyCalFragment implements MyFragment {
 
 	private int calAccum;
 
-	private static int drawerPosition = 4;
+	public static int drawerPosition = ResLinker
+			.getSectionNum(R.layout.fragment_energy_cal);
 
 	public EnergyCalFragment(MainActivity mainActivity) {
 		this.mainActivity = mainActivity;
@@ -34,9 +35,8 @@ public class EnergyCalFragment implements MyFragment {
 		return String.valueOf(calAccum);
 	}
 
-	public void addRecord() {
-		//mainActivity.onNavigationDrawerItemSelected(drawerPosition);
-		mainActivity.switchSection(drawerPosition);
+	/* load from database */
+	public void showRecord() {
 		int id = 99999999;
 		TableRow tableRow = new TableRow(mainActivity);
 		tableRow.setLayoutParams(new TableRow.LayoutParams(
@@ -53,9 +53,6 @@ public class EnergyCalFragment implements MyFragment {
 		int date = calendar.get(Calendar.DATE);
 		int month = calendar.get(Calendar.MONTH);
 		textView2.setText(date + "/" + month);
-		int newCal = Integer.valueOf(mainActivity
-				.getString(R.string.energycal_energy_per_walk_stair));
-		accumCal(newCal);
 		textView3.setText(getCalAccumAsString());
 		tableRow.addView(textView1);
 		tableRow.addView(textView2);
@@ -63,9 +60,16 @@ public class EnergyCalFragment implements MyFragment {
 		mainActivity.energycal_tablelayout_energy.addView(tableRow);
 	}
 
+	public void addRecord() {
+		int newCal = Integer.valueOf(mainActivity
+				.getString(R.string.energycal_energy_per_walk_stair));
+		accumCal(newCal);
+		showRecord();
+	}
+
 	@Override
 	public void loadContent() {
 		// TODO Auto-generated method stub
-
+		// showRecord();
 	}
 }
