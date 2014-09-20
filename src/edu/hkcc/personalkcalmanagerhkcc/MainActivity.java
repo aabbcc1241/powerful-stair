@@ -57,13 +57,13 @@ public class MainActivity extends Activity implements
 	// welcome
 	public Button welcome_button_start;
 	// about you
-	public Button aboutyou_button_calcuateBmi;
-	public TextView aboutyou_userheight_label;
-	public EditText aboutyou_edittext_username;
-	public EditText aboutyou_edittext_userage;
-	public EditText aboutyou_edittext_userheight;
-	public EditText aboutyou_edittext_userweight;
-	public EditText aboutyou_edittext_userbmi;
+	public Button aboutYou_button_calcuateBmi;
+	public TextView aboutYou_userheight_label;
+	public EditText aboutYou_edittext_username;
+	public EditText aboutYou_edittext_userage;
+	public EditText aboutYou_edittext_userheight;
+	public EditText aboutYou_edittext_userweight;
+	public EditText aboutYou_edittext_userbmi;
 	// energy cal
 	public TableLayout energycal_tablelayout_energy;
 
@@ -108,22 +108,22 @@ public class MainActivity extends Activity implements
 	}
 
 	private void initListener_aboutYou() {
-		if ((aboutyou_button_calcuateBmi = (Button) findViewById(R.id.aboutyou_button_calcuateBmi)) != null) {
-			aboutyou_button_calcuateBmi.setOnClickListener(aboutYouFragment
+		if ((aboutYou_button_calcuateBmi = (Button) findViewById(R.id.aboutYou_button_calcuateBmi)) != null) {
+			aboutYou_button_calcuateBmi.setOnClickListener(aboutYouFragment
 					.aboutYou_button_calcuateBmi(MainActivity.this));
 		}
-		if ((EditText) findViewById(R.id.aboutyou_edittext_username) != null)
-			aboutyou_edittext_username = (EditText) findViewById(R.id.aboutyou_edittext_username);
-		if ((EditText) findViewById(R.id.aboutyou_edittext_userage) != null)
-			aboutyou_edittext_userage = (EditText) findViewById(R.id.aboutyou_edittext_userage);
-		if ((EditText) findViewById(R.id.aboutyou_edittext_userheight) != null)
-			aboutyou_edittext_userheight = (EditText) findViewById(R.id.aboutyou_edittext_userheight);
-		if ((EditText) findViewById(R.id.aboutyou_edittext_userweight) != null)
-			aboutyou_edittext_userweight = (EditText) findViewById(R.id.aboutyou_edittext_userweight);
-		if ((EditText) findViewById(R.id.aboutyou_edittext_userbmi) != null)
-			aboutyou_edittext_userbmi = (EditText) findViewById(R.id.aboutyou_edittext_userbmi);
-		if (findViewById(R.id.aboutyou_userheight_label) != null)
-			aboutyou_userheight_label = (TextView) findViewById(R.id.aboutyou_userheight_label);
+		if ((EditText) findViewById(R.id.aboutYou_edittext_username) != null)
+			aboutYou_edittext_username = (EditText) findViewById(R.id.aboutYou_edittext_username);
+		if ((EditText) findViewById(R.id.aboutYou_edittext_userage) != null)
+			aboutYou_edittext_userage = (EditText) findViewById(R.id.aboutYou_edittext_userage);
+		if ((EditText) findViewById(R.id.aboutYou_edittext_userheight) != null)
+			aboutYou_edittext_userheight = (EditText) findViewById(R.id.aboutYou_edittext_userheight);
+		if ((EditText) findViewById(R.id.aboutYou_edittext_userweight) != null)
+			aboutYou_edittext_userweight = (EditText) findViewById(R.id.aboutYou_edittext_userweight);
+		if ((EditText) findViewById(R.id.aboutYou_edittext_userbmi) != null)
+			aboutYou_edittext_userbmi = (EditText) findViewById(R.id.aboutYou_edittext_userbmi);
+		if (findViewById(R.id.aboutYou_userheight_label) != null)
+			aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
 	}
 
 	private void initListener_energyCal() {

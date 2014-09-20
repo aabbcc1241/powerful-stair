@@ -19,9 +19,12 @@
 
     <string name="loading">Loading</string>
     <string name="error_404">"Under Development!! o(｀・ω・´)o"</string>
-        <dimen  name="std_space_height">39dp</dimen>
+
+    <dimen name="std_space_height">39dp</dimen>
+
     <string name="slogan">"Keep Fit!\nDon't Eat??"</string>
     <string name="start">Start</string>
-    
+    <string name="url_tips_on_ex">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"</string>
+    <string name="url_tips_on_nutrition">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"</string>
 
 </resources>

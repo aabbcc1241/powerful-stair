@@ -12,13 +12,13 @@
     <TableRow>
 
         <TextView
-            android:id="@+id/aboutyou_username_label"
+            android:id="@+id/aboutYou_username_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutyou_username_label" />
+            android:text="@string/aboutYou_username_label" />
 
         <EditText
-            android:id="@+id/aboutyou_edittext_username"
+            android:id="@+id/aboutYou_edittext_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -29,13 +29,13 @@
     <TableRow>
 
         <TextView
-            android:id="@+id/aboutyou_userage_label"
+            android:id="@+id/aboutYou_userage_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutyou_userage_label" />
+            android:text="@string/aboutYou_userage_label" />
 
         <EditText
-            android:id="@+id/aboutyou_edittext_userage"
+            android:id="@+id/aboutYou_edittext_userage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -46,13 +46,13 @@
     <TableRow>
 
         <TextView
-            android:id="@+id/aboutyou_userheight_label"
+            android:id="@+id/aboutYou_userheight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutyou_userheight_label_m" />
+            android:text="@string/aboutYou_userheight_label_m" />
 
         <EditText
-            android:id="@+id/aboutyou_edittext_userheight"
+            android:id="@+id/aboutYou_edittext_userheight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"            
             android:ems="10"
@@ -63,13 +63,13 @@
     <TableRow>
 
         <TextView
-            android:id="@+id/aboutyou_userweight_label"
+            android:id="@+id/aboutYou_userweight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutyou_userweight_label" />
+            android:text="@string/aboutYou_userweight_label" />
 
         <EditText
-            android:id="@+id/aboutyou_edittext_userweight"
+            android:id="@+id/aboutYou_edittext_userweight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -80,24 +80,24 @@
     <FrameLayout>
 
         <Button
-            android:id="@+id/aboutyou_button_calcuateBmi"
+            android:id="@+id/aboutYou_button_calcuateBmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/aboutyou_bmi_calc"
+            android:text="@string/aboutYou_bmi_calc"
             android:background="@drawable/button_bg_pink_1" />
     </FrameLayout>
 
     <TableRow>
 
         <TextView
-            android:id="@+id/aboutyou_bmi_label"
+            android:id="@+id/aboutYou_bmi_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutyou_bmi_label" />
+            android:text="@string/aboutYou_bmi_label" />
 
         <EditText
-            android:id="@+id/aboutyou_edittext_userbmi"
+            android:id="@+id/aboutYou_edittext_userbmi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
