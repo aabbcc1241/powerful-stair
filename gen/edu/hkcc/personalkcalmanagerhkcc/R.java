@@ -45,9 +45,9 @@ public final class R {
         public static final int start_screen_slogan=0x7f020006;
     }
     public static final class id {
+        public static final int FrameLayout1=0x7f0a0017;
         public static final int LinearLayout1=0x7f0a000f;
         public static final int TableLayout1=0x7f0a0003;
-        public static final int ViewSwitcher1=0x7f0a0017;
         public static final int aboutYou_bmi_label=0x7f0a000d;
         public static final int aboutYou_button_calcuateBmi=0x7f0a000c;
         public static final int aboutYou_edittext_userage=0x7f0a0007;
