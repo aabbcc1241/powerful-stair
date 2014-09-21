@@ -37,10 +37,10 @@ public class AboutYouFragment {
 		// TODO Auto-generated method stub
 		boolean allFilled = true;
 		String temp;
-		temp = mainActivity.aboutYou_edittext_userheight.getText().toString();
+		temp = mainActivity.aboutYou_editText_userheight.getText().toString();
 		if (allFilled &= (allFilled &= temp.length() > 0))
 			height = Float.valueOf(temp);
-		temp = mainActivity.aboutYou_edittext_userweight.getText().toString();
+		temp = mainActivity.aboutYou_editText_userweight.getText().toString();
 		if (allFilled &= (allFilled &= temp.length() > 0))
 			weight = Float.valueOf(temp);
 		return allFilled;
@@ -52,6 +52,6 @@ public class AboutYouFragment {
 				.setText(heightUnit == 1 ? R.string.aboutYou_userheight_label_m
 						: R.string.aboutYou_userheight_label_cm);
 		bmi = (float) (weight / Math.pow(height * heightUnit, 2));
-		mainActivity.aboutYou_edittext_userbmi.setText(String.valueOf(bmi));
+		mainActivity.aboutYou_editText_userbmi.setText(String.valueOf(bmi));
 	}
 }

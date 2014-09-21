@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.support.v4.widget.DrawerLayout;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
@@ -59,13 +60,17 @@ public class MainActivity extends Activity implements
 	// about you
 	public Button aboutYou_button_calcuateBmi;
 	public TextView aboutYou_userheight_label;
-	public EditText aboutYou_edittext_username;
-	public EditText aboutYou_edittext_userage;
-	public EditText aboutYou_edittext_userheight;
-	public EditText aboutYou_edittext_userweight;
-	public EditText aboutYou_edittext_userbmi;
+	public EditText aboutYou_editText_username;
+	public EditText aboutYou_editText_userage;
+	public EditText aboutYou_editText_userheight;
+	public EditText aboutYou_editText_userweight;
+	public EditText aboutYou_editText_userbmi;
 	// energy cal
 	public TableLayout energycal_tablelayout_energy;
+	// tips on ex
+	public WebView tipsOnEx_webView;
+	// tips on nutrition
+	public WebView tipsOnNutrition_webView;
 
 	private void initvar() {
 		if (inited)
@@ -92,54 +97,70 @@ public class MainActivity extends Activity implements
 				(DrawerLayout) findViewById(R.id.drawer_layout));
 	}
 
-	private void initListener() {
-		initListener_welcome();
-		initListener_aboutYou();
-		initListener_energyCal();
+	private void initSections() {
+		initSection_welcome();
+		initSection_aboutYou();
+		initSection_energyCal();
+		initSection_tipsOnEx();
+		initSection_tipsOnNutrition();
 
 		// myInit();
 	}
 
-	private void initListener_welcome() {
+	private void initSection_welcome() {
 		if ((welcome_button_start = (Button) findViewById(R.id.welcome_button_start)) != null) {
 			welcome_button_start.setOnClickListener(welcomeFragment
 					.welcome_button_start_OnClickListener(MainActivity.this));
 		}
 	}
 
-	private void initListener_aboutYou() {
+	private void initSection_aboutYou() {
 		if ((aboutYou_button_calcuateBmi = (Button) findViewById(R.id.aboutYou_button_calcuateBmi)) != null) {
 			aboutYou_button_calcuateBmi.setOnClickListener(aboutYouFragment
 					.aboutYou_button_calcuateBmi(MainActivity.this));
 		}
-		if ((EditText) findViewById(R.id.aboutYou_edittext_username) != null)
-			aboutYou_edittext_username = (EditText) findViewById(R.id.aboutYou_edittext_username);
-		if ((EditText) findViewById(R.id.aboutYou_edittext_userage) != null)
-			aboutYou_edittext_userage = (EditText) findViewById(R.id.aboutYou_edittext_userage);
-		if ((EditText) findViewById(R.id.aboutYou_edittext_userheight) != null)
-			aboutYou_edittext_userheight = (EditText) findViewById(R.id.aboutYou_edittext_userheight);
-		if ((EditText) findViewById(R.id.aboutYou_edittext_userweight) != null)
-			aboutYou_edittext_userweight = (EditText) findViewById(R.id.aboutYou_edittext_userweight);
-		if ((EditText) findViewById(R.id.aboutYou_edittext_userbmi) != null)
-			aboutYou_edittext_userbmi = (EditText) findViewById(R.id.aboutYou_edittext_userbmi);
+		if ((EditText) findViewById(R.id.aboutYou_editText_username) != null)
+			aboutYou_editText_username = (EditText) findViewById(R.id.aboutYou_editText_username);
+		if ((EditText) findViewById(R.id.aboutYou_editText_userage) != null)
+			aboutYou_editText_userage = (EditText) findViewById(R.id.aboutYou_editText_userage);
+		if ((EditText) findViewById(R.id.aboutYou_editText_userheight) != null)
+			aboutYou_editText_userheight = (EditText) findViewById(R.id.aboutYou_editText_userheight);
+		if ((EditText) findViewById(R.id.aboutYou_editText_userweight) != null)
+			aboutYou_editText_userweight = (EditText) findViewById(R.id.aboutYou_editText_userweight);
+		if ((EditText) findViewById(R.id.aboutYou_editText_userbmi) != null)
+			aboutYou_editText_userbmi = (EditText) findViewById(R.id.aboutYou_editText_userbmi);
 		if (findViewById(R.id.aboutYou_userheight_label) != null)
 			aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
 	}
 
-	private void initListener_energyCal() {
+	private void initSection_energyCal() {
 		if ((TableLayout) findViewById(R.id.energycal_tablelayout_energy) != null) {
 			energycal_tablelayout_energy = (TableLayout) findViewById(R.id.energycal_tablelayout_energy);
 		}
 	}
 
+	private void initSection_tipsOnEx() {
+		if ((WebView) findViewById(R.id.tipsOnEx_webView) != null) {
+			tipsOnEx_webView = (WebView) findViewById(R.id.tipsOnEx_webView);			
+			tipsOnEx_webView.loadUrl(getString(R.string.url_tips_on_ex));
+		}
+	}
+
+	private void initSection_tipsOnNutrition() {
+		if ((WebView) findViewById(R.id.tipsOnNutrition_webView) != null) {
+			tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);			
+			tipsOnNutrition_webView.loadUrl(getString(R.string.url_tips_on_nutrition));
+		}
+	}
+
 	private void myInit() {
 		initvar();
-		initListener();
+		initSections();
 	}
 
 	@Override
 	public View onCreateView(String name, Context context, AttributeSet attrs) {
-		initListener();
+		initSections();
 		return super.onCreateView(name, context, attrs);
 	}
 

@@ -16,6 +16,12 @@ public class ResLinker {
 		case 4:
 			resid = R.layout.fragment_energy_cal;
 			break;
+		case 5:
+			resid = R.layout.fragment_tips_on_ex;
+			break;
+		case 6:
+			resid = R.layout.fragment_tips_on_nutrition;
+			break;
 		default:
 			resid = R.layout.fragment_error_404;
 		}
@@ -33,6 +39,12 @@ public class ResLinker {
 			break;
 		case R.layout.fragment_energy_cal:
 			sectionNum = 4;
+			break;
+		case R.layout.fragment_tips_on_ex:
+			sectionNum = 5;
+			break;
+		case R.layout.fragment_tips_on_nutrition:
+			sectionNum = 6;
 			break;
 		default:
 			sectionNum = R.layout.fragment_error_404;

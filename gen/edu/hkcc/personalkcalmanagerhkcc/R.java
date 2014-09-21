@@ -50,11 +50,11 @@ public final class R {
         public static final int TableLayout1=0x7f0a0003;
         public static final int aboutYou_bmi_label=0x7f0a000d;
         public static final int aboutYou_button_calcuateBmi=0x7f0a000c;
-        public static final int aboutYou_edittext_userage=0x7f0a0007;
-        public static final int aboutYou_edittext_userbmi=0x7f0a000e;
-        public static final int aboutYou_edittext_userheight=0x7f0a0009;
-        public static final int aboutYou_edittext_username=0x7f0a0005;
-        public static final int aboutYou_edittext_userweight=0x7f0a000b;
+        public static final int aboutYou_editText_userage=0x7f0a0007;
+        public static final int aboutYou_editText_userbmi=0x7f0a000e;
+        public static final int aboutYou_editText_userheight=0x7f0a0009;
+        public static final int aboutYou_editText_username=0x7f0a0005;
+        public static final int aboutYou_editText_userweight=0x7f0a000b;
         public static final int aboutYou_userage_label=0x7f0a0006;
         public static final int aboutYou_userheight_label=0x7f0a0008;
         public static final int aboutYou_username_label=0x7f0a0004;
