@@ -53,6 +53,8 @@ public class MainActivity extends Activity implements
 	public WelcomeFragment welcomeFragment;
 	public AboutYouFragment aboutYouFragment;
 	public EnergyCalFragment energyCalFragment;
+	public TipsOnExFragment tipsOnExFragment;
+	public TipsOnNutritionFragment tipsOnNutritionFragment;
 
 	/* layout elements */
 	// welcome
@@ -84,6 +86,8 @@ public class MainActivity extends Activity implements
 		welcomeFragment = new WelcomeFragment(this);
 		aboutYouFragment = new AboutYouFragment(this);
 		energyCalFragment = new EnergyCalFragment(this);
+		tipsOnExFragment=new TipsOnExFragment(this);
+		tipsOnNutritionFragment=new TipsOnNutritionFragment(this);
 		inited = true;
 	}
 
@@ -141,15 +145,15 @@ public class MainActivity extends Activity implements
 
 	private void initSection_tipsOnEx() {
 		if ((WebView) findViewById(R.id.tipsOnEx_webView) != null) {
-			tipsOnEx_webView = (WebView) findViewById(R.id.tipsOnEx_webView);			
-			tipsOnEx_webView.loadUrl(getString(R.string.url_tips_on_ex));
+			tipsOnEx_webView = (WebView) findViewById(R.id.tipsOnEx_webView);
+			tipsOnExFragment.loadContent();
 		}
 	}
 
 	private void initSection_tipsOnNutrition() {
 		if ((WebView) findViewById(R.id.tipsOnNutrition_webView) != null) {
-			tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);			
-			tipsOnNutrition_webView.loadUrl(getString(R.string.url_tips_on_nutrition));
+			tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);
+			tipsOnNutritionFragment.loadContent();
 		}
 	}
 
@@ -200,8 +204,8 @@ public class MainActivity extends Activity implements
 				.commit();
 	}
 
-	public void onSectionAttached(int sectinoNum) {
-		mTitle = navigation_drawer_titles[sectinoNum];
+	public void onSectionAttached(int sectionNum) {
+		mTitle = navigation_drawer_titles[sectionNum];		
 	}
 
 	public void switchSection(int sectionNum) {
@@ -216,7 +220,7 @@ public class MainActivity extends Activity implements
 		ActionBar actionBar = getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
 		actionBar.setDisplayShowTitleEnabled(true);
-		actionBar.setTitle(mTitle);
+		actionBar.setTitle(mTitle);		
 	}
 
 	@Override

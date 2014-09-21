@@ -57,6 +57,11 @@ public class ResLinker {
 		case 4:
 			mainActivity.energyCalFragment.loadContent();
 			break;
+		case 5:
+			mainActivity.tipsOnExFragment.loadContent();
+			break;
+		case 6 :
+			mainActivity.tipsOnNutritionFragment.loadContent();
 		default:
 		}
 	}
