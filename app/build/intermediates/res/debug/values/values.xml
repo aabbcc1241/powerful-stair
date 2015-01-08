@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="navigation_drawer_titles">
+        <item>Welcome</item>
+        <item>About You</item>
+        <item>Intro.</item>
+        <item>Diet</item>
+        <item>Energy Cal.</item>
+        <item>Tips on Ex.</item>
+        <item>Tips on nutrition</item>
+    </string-array>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens_energy_cal.xml -->
+    <eat-comment/>
+    <color name="energyCal_space_color">#999</color>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens_energy_cal.xml -->
+    <eat-comment/>
+    <dimen name="energyCal_colume_margin">5dp</dimen>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens.xml -->
+    <eat-comment/>
+    <dimen name="navigation_drawer_width">240dp</dimen>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <dimen name="std_space_height">39dp</dimen>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_about_you.xml -->
+    <eat-comment/>
+    <string name="aboutYou_bmi_calc">Calcuate BMI</string>
+    <string name="aboutYou_bmi_label">BMI:</string>
+    <string name="aboutYou_calculating">Calcuating\.\.\.</string>
+    <string name="aboutYou_pleasefillallinfo">Please fill your body status above ~</string>
+    <string name="aboutYou_userage_label">Age:</string>
+    <string name="aboutYou_userheight_label_cm">Height(cm):</string>
+    <string name="aboutYou_userheight_label_m">Height(m):</string>
+    <string name="aboutYou_username_label">Name:</string>
+    <string name="aboutYou_userweight_label">Weight(kg):</string>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="action_example">Example action</string>
+    <string name="action_settings">Settings</string>
+    <string name="app_name">Personal Kcal Manager (HKCC)</string>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_energy_cal.xml -->
+    <eat-comment/>
+    <string name="energyCal_adding_record">Adding Record</string>
+    <string name="energyCal_date">Date</string>
+    <string name="energyCal_energy_accum">Energy Accum</string>
+    <string name="energyCal_energy_per_walk_stair">15</string>
+    <string name="energyCal_energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
+    <string name="energyCal_scan">Scan stair code</string>
+    <string name="energyCal_tap">Tap stair tag</string>
+    <string name="energyCal_type_of_exercise">Type of Exercise</string>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="error_404">"Under Development!! o(｀・ω・´)o"</string>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_welcome.xml -->
+    <eat-comment/>
+    <string name="lets_go">"Let's go!\nOpen the drawer from the left :)"</string>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="loading">Loading</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="scan">Scan</string>
+    <string name="slogan">"Keep Fit!\nDon't Eat??"</string>
+    <string name="start">Start</string>
+    <string name="tap">Tap</string>
+    <string name="url_tips_on_ex">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"</string>
+    <string name="url_tips_on_nutrition">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"</string>
+    <!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

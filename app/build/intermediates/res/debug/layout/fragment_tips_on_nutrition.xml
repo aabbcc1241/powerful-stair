@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <WebView
+        android:id="@+id/tipsOnNutrition_webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout><!-- From: file:/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/src/main/res/layout/fragment_tips_on_nutrition.xml -->
