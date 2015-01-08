@@ -1,2 +1,2 @@
-/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/build/intermediates/classes/debug
-/home/beenotung/git/workspace/personal-kcal-manager-hkcc/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-95a363f7fadad141ffe290eb5375030e031abdb4.jar
+/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/build/intermediates/classes/debug
+/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/build/intermediates/pre-dexed/debug/support-v4-19.1.0-95a363f7fadad141ffe290eb5375030e031abdb4.jar
