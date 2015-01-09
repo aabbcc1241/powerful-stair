@@ -18,9 +18,15 @@ public class WelcomeFragment {
 
 			@Override
 			public void onClick(View v) {
-				Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
+				//Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
 				// method to open drawer
-				mainActivity.switchSection(EnergyCalFragment.drawerPosition);
+                String msg;
+                if(mainActivity.lastStairCode!=null)
+                    msg=mainActivity.lastStairCode.code;
+                else
+                    msg="oops";
+                Utils.showToast(mainActivity,msg);
+				//mainActivity.switchSection(EnergyCalFragment.drawerPosition);
 			}
 		};
 	}
