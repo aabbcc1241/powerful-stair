@@ -75,3 +75,9 @@ category#android.intent.category.DEFAULT
 ADDED from AndroidManifest.xml:34:17
 	android:name
 		ADDED from AndroidManifest.xml:34:27
+activity#com.example.barcodescanner.MainActivityExample
+ADDED from AndroidManifest.xml:37:9
+	android:label
+		ADDED from AndroidManifest.xml:39:13
+	android:name
+		ADDED from AndroidManifest.xml:38:13
