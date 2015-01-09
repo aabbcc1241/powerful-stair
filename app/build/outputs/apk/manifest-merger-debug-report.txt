@@ -35,43 +35,65 @@ uses-permission#android.permission.INTERNET
 ADDED from AndroidManifest.xml:14:5
 	android:name
 		ADDED from AndroidManifest.xml:14:22
-application
+android:uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from AndroidManifest.xml:16:5
-	android:label
-		ADDED from AndroidManifest.xml:19:9
-	android:allowBackup
-		ADDED from AndroidManifest.xml:17:9
-	android:icon
+	android:maxSdkVersion
 		ADDED from AndroidManifest.xml:18:9
-	android:theme
-		ADDED from AndroidManifest.xml:20:9
-activity#edu.hkcc.personalkcalmanagerhkcc.MainActivity
-ADDED from AndroidManifest.xml:21:9
+	android:name
+		ADDED from AndroidManifest.xml:17:9
+android:uses-permission#android.permission.READ_PHONE_STATE
+ADDED from AndroidManifest.xml:19:5
+	android:name
+		ADDED from AndroidManifest.xml:19:30
+android:uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:20:5
+	android:maxSdkVersion
+		ADDED from AndroidManifest.xml:22:9
+	android:name
+		ADDED from AndroidManifest.xml:21:9
+application
+ADDED from AndroidManifest.xml:24:5
 	android:label
-		ADDED from AndroidManifest.xml:24:13
+		ADDED from AndroidManifest.xml:27:9
+	android:allowBackup
+		ADDED from AndroidManifest.xml:25:9
+	android:icon
+		ADDED from AndroidManifest.xml:26:9
+	android:theme
+		ADDED from AndroidManifest.xml:28:9
+activity#edu.hkcc.personalkcalmanagerhkcc.MainActivity
+ADDED from AndroidManifest.xml:29:9
+	android:label
+		ADDED from AndroidManifest.xml:32:13
 	android:launchMode
-		ADDED from AndroidManifest.xml:25:13
+		ADDED from AndroidManifest.xml:33:13
 	android:alwaysRetainTaskState
-		ADDED from AndroidManifest.xml:23:13
+		ADDED from AndroidManifest.xml:31:13
 	android:name
-		ADDED from AndroidManifest.xml:22:13
+		ADDED from AndroidManifest.xml:30:13
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:26:13
+ADDED from AndroidManifest.xml:34:13
 action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:27:17
+ADDED from AndroidManifest.xml:35:17
 	android:name
-		ADDED from AndroidManifest.xml:27:25
+		ADDED from AndroidManifest.xml:35:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:29:17
+ADDED from AndroidManifest.xml:37:17
 	android:name
-		ADDED from AndroidManifest.xml:29:27
+		ADDED from AndroidManifest.xml:37:27
 intent-filter#android.intent.category.DEFAULT+android.nfc.action.TAG_DISCOVERED
-ADDED from AndroidManifest.xml:31:13
+ADDED from AndroidManifest.xml:39:13
 action#android.nfc.action.TAG_DISCOVERED
-ADDED from AndroidManifest.xml:32:17
+ADDED from AndroidManifest.xml:40:17
 	android:name
-		ADDED from AndroidManifest.xml:32:25
+		ADDED from AndroidManifest.xml:40:25
 category#android.intent.category.DEFAULT
-ADDED from AndroidManifest.xml:34:17
+ADDED from AndroidManifest.xml:42:17
 	android:name
-		ADDED from AndroidManifest.xml:34:27
+		ADDED from AndroidManifest.xml:42:27
+activity#edu.hkcc.personalkcalmanagerhkcc.ScanActivity
+ADDED from AndroidManifest.xml:45:9
+	android:label
+		ADDED from AndroidManifest.xml:47:13
+	android:name
+		ADDED from AndroidManifest.xml:46:13

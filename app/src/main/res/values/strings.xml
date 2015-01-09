@@ -28,7 +28,8 @@
     <string name="url_tips_on_nutrition">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"</string>
     <string name="scan">Scan</string>
     <string name="tap">Tap</string>
-
     <string name="action_scan_desc">Loading Scanner...</string>
+    <string name="title_activity_scan">Scan QR Label</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

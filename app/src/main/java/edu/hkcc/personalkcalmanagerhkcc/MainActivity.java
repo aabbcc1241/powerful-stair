@@ -1,9 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
-
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
+import edu.hkcc.personalkcalmanagerhkcc.stair.StairCode;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -16,17 +14,15 @@ import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
-import android.view.Gravity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.support.v4.widget.DrawerLayout;
-import android.view.Window;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -172,6 +168,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        currentActivity = this;
         setContentView(R.layout.activity_main);
         resolveIntent(getIntent());
 
@@ -179,15 +176,15 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         initDrawer();
     }
 
-    @Override
-    protected void onResume() {
-        // TODO Auto-generated method stub
-        super.onResume();
+    public void receiveStairCode(StairCode stairCode) {
+        Log.w("Main","receive Stair Code");
+        lastStairCode=stairCode;
     }
+
+    StairCode lastStairCode=null;
 
     @Override
     protected void onNewIntent(Intent intent) {
-        // TODO Auto-generated method stub
         setIntent(intent);
         resolveIntent(intent);
     }
@@ -244,7 +241,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             case R.id.action_settings:
                 return true;
             case R.id.action_scan:
-                Toast.makeText(this, getString(R.string.action_scan_desc), Toast.LENGTH_SHORT).show();
                 scanQRCode();
                 return true;
             default:
@@ -253,19 +249,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void scanQRCode() {
-        IntentIntegrator scanIntegrator = new IntentIntegrator(this);
-        scanIntegrator.initiateScan();
+        Log.w("QR", "to scan");
+        Intent intent = new Intent(this, ScanActivity.class);
+        startActivityForResult(intent, 1);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
-        Toast.makeText(this, "[onActivityResult]", Toast.LENGTH_SHORT);
-        //get scan data
-        IntentResult scanResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, intent);
-        if (scanResult == null) return;
-        String scanContent = scanResult.getContents();
-        Toast.makeText(this, scanContent, Toast.LENGTH_LONG);
-    }
+    public static MainActivity currentActivity = null;
 
     private void resolveIntent(Intent intent) {
         String action = intent.getAction();
