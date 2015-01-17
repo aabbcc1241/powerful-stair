@@ -41,7 +41,11 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_scan">Scanner</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_scanner.xml -->
+    <eat-comment/>
     <string name="action_scan_desc">Loading Scanner...</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="app_name">Personal Kcal Manager (HKCC)</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_energy_cal.xml -->
@@ -66,11 +70,21 @@
     <string name="loading">Loading</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_scanner.xml -->
+    <eat-comment/>
+    <string name="prompt_first_scan">OK! Move On @v@</string>
+    <string name="prompt_second_scan">OK! Recorded ;-></string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="scan">Scan</string>
     <string name="slogan">"Keep Fit!\nDon't Eat??"</string>
     <string name="start">Start</string>
     <string name="tap">Tap</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_scanner.xml -->
+    <eat-comment/>
     <string name="title_activity_scan">Scan QR Label</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="url_tips_on_ex">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"</string>
     <string name="url_tips_on_nutrition">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/styles.xml -->

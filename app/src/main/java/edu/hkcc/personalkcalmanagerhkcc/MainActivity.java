@@ -28,32 +28,20 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
-    /**
-     * Fragment managing the behaviors, interactions and presentation of the
-     * navigation drawer.
-     */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
-    /**
-     * Used to store the last screen title. For use in
-     * {@link #restoreActionBar()}.
-     */
-    private CharSequence mTitle;
-
-	/* nfc */
-
     /* my vars */
     public static boolean inited = false;
+    public static MainActivity currentActivity = null;
+
+    /* nfc */
     public Resources res;
     public String[] navigation_drawer_titles;
     public PlaceholderFragment[] placeholderFragments;
-
     /* layout fragments */
     public WelcomeFragment welcomeFragment;
     public AboutYouFragment aboutYouFragment;
     public EnergyCalFragment energyCalFragment;
     public TipsOnExFragment tipsOnExFragment;
     public TipsOnNutritionFragment tipsOnNutritionFragment;
-
     /* layout elements */
     // welcome
     public Button welcome_button_start;
@@ -71,6 +59,18 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnEx_webView;
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
+    protected StairCode lastStairCode = null;
+    protected StairCode currentStairCode = null;
+    /**
+     * Fragment managing the behaviors, interactions and presentation of the
+     * navigation drawer.
+     */
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+    /**
+     * Used to store the last screen title. For use in
+     * {@link #restoreActionBar()}.
+     */
+    private CharSequence mTitle;
 
     private void initvar() {
         if (inited)
@@ -177,11 +177,11 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void receiveStairCode(StairCode stairCode) {
-        Log.w("Main","receive Stair Code");
-        lastStairCode=stairCode;
+        Log.w("Main", "receive Stair Code");
+        lastStairCode = currentStairCode;
+        currentStairCode = stairCode;
+        Utils.showToast(this, "OK!");
     }
-
-    StairCode lastStairCode=null;
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -254,8 +254,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         startActivityForResult(intent, 1);
     }
 
-    public static MainActivity currentActivity = null;
-
     private void resolveIntent(Intent intent) {
         String action = intent.getAction();
         if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(action)
@@ -280,4 +278,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
 
+    public void checkPersonalInfo() {
+        //TODO if no weight, ask from BMI page
+        switchSection(AboutYouFragment.drawerPosition);
+    }
 }

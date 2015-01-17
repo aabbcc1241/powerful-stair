@@ -1,11 +1,15 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
+import edu.hkcc.myutils.MyFragment;
 import edu.hkcc.myutils.Utils;
 import android.content.Context;
 import android.view.View;
 
-public class AboutYouFragment {
+public class AboutYouFragment implements MyFragment {
 	private MainActivity mainActivity;
+
+    public static int drawerPosition = ResLinker
+            .getSectionNum(R.layout.fragment_about_you);
 
 	protected String name;
 	protected float height, weight, bmi;
@@ -34,7 +38,6 @@ public class AboutYouFragment {
 	}
 
 	protected boolean allFilled() {
-		// TODO Auto-generated method stub
 		boolean allFilled = true;
 		String temp;
 		temp = mainActivity.aboutYou_editText_userheight.getText().toString();
@@ -54,4 +57,9 @@ public class AboutYouFragment {
 		bmi = (float) (weight / Math.pow(height * heightUnit, 2));
 		mainActivity.aboutYou_editText_userbmi.setText(String.valueOf(bmi));
 	}
+
+    @Override
+    public void loadContent() {
+        //TODO
+    }
 }

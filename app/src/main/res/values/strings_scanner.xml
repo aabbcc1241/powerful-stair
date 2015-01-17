@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_scan_desc">Loading Scanner...</string>
+    <string name="title_activity_scan">Scan QR Label</string>
+    <string name="prompt_first_scan">OK! Move On @v@</string>
+    <string name="prompt_second_scan">OK! Recorded ;-></string>
+</resources>
