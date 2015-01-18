@@ -1,4 +1,4 @@
-package edu.hkcc.personalkcalmanagerhkcc.stair;
+package edu.hkcc.personalkcalmanagerhkcc.database.stair;
 
 /**
  * Created by beenotung on 1/17/15.
@@ -16,9 +16,7 @@ public class StairMapItem {
     protected StairMapItem() {
     }
 
-    public StairMapItem(int id) {
-        this.id = id;
-    }
+
 
     public StairMapItem(long id, String up_code, String down_code, double distance) {
         this.id = id;
@@ -26,9 +24,11 @@ public class StairMapItem {
         this.down_code = down_code;
         this.distance = distance;
     }
-
-    public static StairMapItem create() {
-        return new StairMapItem(getNewId());
+    public StairMapItem( String up_code, String down_code, double distance) {
+        this.up_code = up_code;
+        this.down_code = down_code;
+        this.distance = distance;
+        id=new String(up_code+down_code+distance).hashCode();
     }
 
     public static int getNewId() {

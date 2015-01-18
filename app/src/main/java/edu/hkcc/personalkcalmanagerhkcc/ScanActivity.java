@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.google.zxing.integration.android.IntentIntegrator;
 
 import edu.hkcc.myutils.Utils;
-import edu.hkcc.personalkcalmanagerhkcc.stair.StairCode;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
 
 
 public class ScanActivity extends Activity {

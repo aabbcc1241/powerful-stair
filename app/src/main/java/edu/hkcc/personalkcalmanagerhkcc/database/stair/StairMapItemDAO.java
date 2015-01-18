@@ -1,4 +1,4 @@
-package edu.hkcc.personalkcalmanagerhkcc.stair;
+package edu.hkcc.personalkcalmanagerhkcc.database.stair;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,6 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
+import edu.hkcc.personalkcalmanagerhkcc.database.StairMapDatabaseHelper;
 
 /**
  * Created by beenotung on 1/17/15.
@@ -23,9 +26,9 @@ public class StairMapItemDAO extends StairMapItem {
     protected List<StairMapItem> stairMapItems = null;
     private SQLiteDatabase db;
 
-    public StairMapItemDAO(Context context) {
+    public StairMapItemDAO(MainActivity mainActivity,Context context) {
         super();
-        db = StairMapDatabaseHelper.getDatabase(context);
+        db = StairMapDatabaseHelper.getDatabase(mainActivity,context);
     }
 
     public List<StairMapItem> getStairMapItems() {

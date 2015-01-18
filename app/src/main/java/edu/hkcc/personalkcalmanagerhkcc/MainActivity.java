@@ -1,7 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
-import edu.hkcc.personalkcalmanagerhkcc.stair.StairCode;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -24,7 +24,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 

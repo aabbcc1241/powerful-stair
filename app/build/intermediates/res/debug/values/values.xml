@@ -11,6 +11,17 @@
         <item>Tips on Ex.</item>
         <item>Tips on nutrition</item>
     </string-array>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_stairmap.xml -->
+    <eat-comment/>
+    <string-array name="stair_map_pair_string_array">
+        <item>Welcome</item>
+        <item>About You</item>
+        <item>Intro.</item>
+        <item>Diet</item>
+        <item>Energy Cal.</item>
+        <item>Tips on Ex.</item>
+        <item>Tips on nutrition</item>
+    </string-array>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens_energy_cal.xml -->
     <eat-comment/>
     <color name="energyCal_space_color">#999</color>

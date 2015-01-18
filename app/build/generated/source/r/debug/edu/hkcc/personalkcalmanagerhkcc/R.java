@@ -10,6 +10,7 @@ package edu.hkcc.personalkcalmanagerhkcc;
 public final class R {
     public static final class array {
         public static final int navigation_drawer_titles=0x7f040000;
+        public static final int stair_map_pair_string_array=0x7f040001;
     }
     public static final class attr {
     }
