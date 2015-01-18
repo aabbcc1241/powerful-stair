@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="stair_map_pair_string_array">
+        <item>Welcome</item>
+        <item>About You</item>
+        <item>Intro.</item>
+        <item>Diet</item>
+        <item>Energy Cal.</item>
+        <item>Tips on Ex.</item>
+        <item>Tips on nutrition</item>
+    </string-array>
+</resources>
