@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
-import edu.hkcc.personalkcalmanagerhkcc.database.StairMapDatabaseHelper;
 
 /**
  * Created by beenotung on 1/17/15.
@@ -26,9 +25,9 @@ public class StairMapItemDAO extends StairMapItem {
     protected List<StairMapItem> stairMapItems = null;
     private SQLiteDatabase db;
 
-    public StairMapItemDAO(MainActivity mainActivity,Context context) {
+    public StairMapItemDAO(MainActivity mainActivity, Context context) {
         super();
-        db = StairMapDatabaseHelper.getDatabase(mainActivity,context);
+        db = StairMapDatabaseHelper.getDatabase(mainActivity, context);
     }
 
     public List<StairMapItem> getStairMapItems() {
@@ -51,6 +50,10 @@ public class StairMapItemDAO extends StairMapItem {
 
         long id = db.insert(TABLE_NAME, null, contentValues);
         item.id = id;
+    }
+
+    public int getCount() {
+        return getAll().size();
     }
 
     public List<StairMapItem> getAll() {

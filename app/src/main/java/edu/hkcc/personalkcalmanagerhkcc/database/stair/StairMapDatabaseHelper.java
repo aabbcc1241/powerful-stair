@@ -1,4 +1,4 @@
-package edu.hkcc.personalkcalmanagerhkcc.database;
+package edu.hkcc.personalkcalmanagerhkcc.database.stair;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,6 +11,7 @@ import java.util.Vector;
 
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;
+import edu.hkcc.personalkcalmanagerhkcc.database.MyDatabaseHelper;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItemDAO;
 
@@ -21,7 +22,6 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
     public static final String DATABASE_NAME = "stairmap.db";
     public static final int VERSION = 1;
 
-
     public StairMapDatabaseHelper(MainActivity mainActivity, Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(mainActivity, context, name, factory, version);
     }
@@ -30,19 +30,19 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
         super(mainActivity, context, name, factory, version, errorHandler);
     }
 
-
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(StairMapItemDAO.CREATE_TABLE);
+        insertFromXml();
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        database.execSQL("DROP TABLE IF EXISTS " + StairMapItemDAO.TABLE_NAME);
         onCreate(db);
     }
 
-
-    public void initDb() {
+    public void insertFromXml() {
         String[] rawStrings = mainActivity.getResources().getStringArray(R.array.stair_map_pair_string_array);
         Vector<StairMapItem> stairMapItems = new Vector<>();
         int j; //buffer

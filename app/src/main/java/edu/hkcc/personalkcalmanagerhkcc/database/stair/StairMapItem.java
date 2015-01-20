@@ -16,19 +16,18 @@ public class StairMapItem {
     protected StairMapItem() {
     }
 
-
-
     public StairMapItem(long id, String up_code, String down_code, double distance) {
         this.id = id;
         this.up_code = up_code;
         this.down_code = down_code;
         this.distance = distance;
     }
-    public StairMapItem( String up_code, String down_code, double distance) {
+
+    public StairMapItem(String up_code, String down_code, double distance) {
         this.up_code = up_code;
         this.down_code = down_code;
         this.distance = distance;
-        id=new String(up_code+down_code+distance).hashCode();
+        id = new String(up_code + down_code + distance).hashCode();
     }
 
     public static int getNewId() {
