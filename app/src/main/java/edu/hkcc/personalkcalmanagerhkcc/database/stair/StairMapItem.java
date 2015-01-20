@@ -30,6 +30,7 @@ public class StairMapItem {
         id = new String(up_code + down_code + distance).hashCode();
     }
 
+
     public static int getNewId() {
         return ++lastID;
     }

@@ -2,6 +2,8 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItem;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItemDAO;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -31,6 +33,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public static boolean inited = false;
     public static MainActivity currentActivity = null;
 
+
     /* nfc */
     public Resources res;
     public String[] navigation_drawer_titles;
@@ -58,8 +61,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnEx_webView;
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
+
+    // database stuff
+    public StairMapItemDAO stairMapItemDAO=new StairMapItemDAO(this,getApplicationContext());
     protected StairCode lastStairCode = null;
     protected StairCode currentStairCode = null;
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
@@ -180,6 +187,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         lastStairCode = currentStairCode;
         currentStairCode = stairCode;
         Utils.showToast(this, "OK!");
+        databaseTest(stairCode);
+    }
+
+    private void databaseTest(StairCode stairCode) {
+        StairMapItem item=new StairMapItem(lastStairCode.code,currentStairCode.code,12d);
+        stairMapItemDAO.insert(item);
     }
 
     @Override
