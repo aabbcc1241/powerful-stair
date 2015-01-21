@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +26,9 @@ public class StairMapItemDAO extends StairMapItem {
     protected List<StairMapItem> stairMapItems = null;
     private SQLiteDatabase db;
 
-    public StairMapItemDAO(MainActivity mainActivity, Context context) {
+    public StairMapItemDAO(MainActivity mainActivity ) {
         super();
-        db = StairMapDatabaseHelper.getDatabase(mainActivity, context);
+        db = StairMapDatabaseHelper.getDatabase(mainActivity );
     }
 
     public List<StairMapItem> getStairMapItems() {
@@ -41,6 +42,7 @@ public class StairMapItemDAO extends StairMapItem {
     }
 
     public void insert(StairMapItem item) {
+        Log.w("DAO", "insert");
         ContentValues contentValues = new ContentValues();
 
         //contentValues.put(ID_COL,item.id);
@@ -53,6 +55,7 @@ public class StairMapItemDAO extends StairMapItem {
     }
 
     public int getCount() {
+        Log.w("DAO", "getCount");
         return getAll().size();
     }
 

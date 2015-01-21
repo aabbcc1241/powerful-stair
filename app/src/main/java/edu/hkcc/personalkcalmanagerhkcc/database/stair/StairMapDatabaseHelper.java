@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.util.Vector;
@@ -22,18 +23,21 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
     public static final String DATABASE_NAME = "stairmap.db";
     public static final int VERSION = 1;
 
-    public StairMapDatabaseHelper(MainActivity mainActivity, Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(mainActivity, context, name, factory, version);
+    public StairMapDatabaseHelper(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
+        super(mainActivity,  DATABASE_NAME, factory, VERSION);
     }
 
-    public StairMapDatabaseHelper(MainActivity mainActivity, Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
-        super(mainActivity, context, name, factory, version, errorHandler);
+    public StairMapDatabaseHelper(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler) {
+        super(mainActivity,  DATABASE_NAME, factory, VERSION, errorHandler);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        Log.w("StairMapDatabaseHelper","create table");
         db.execSQL(StairMapItemDAO.CREATE_TABLE);
+        Log.w("StairMapDatabaseHelper","insertFromXml");
         insertFromXml();
+        Log.w("StairMapDatabaseHelper","insertFromXml OK");
     }
 
     @Override
@@ -63,7 +67,7 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
                     break;
             }
         }
-        StairMapItemDAO dao = new StairMapItemDAO(mainActivity, mainActivity);
+        StairMapItemDAO dao = new StairMapItemDAO(mainActivity);
         for (StairMapItem item : stairMapItems)
             dao.insert(item);
     }

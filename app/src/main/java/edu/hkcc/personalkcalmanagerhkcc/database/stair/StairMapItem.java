@@ -1,5 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.stair;
 
+import android.util.Log;
+
 /**
  * Created by beenotung on 1/17/15.
  */
@@ -14,9 +16,12 @@ public class StairMapItem {
     public double distance;
 
     protected StairMapItem() {
+        super();
+        Log.w("StairMapItem", "new object");
     }
 
     public StairMapItem(long id, String up_code, String down_code, double distance) {
+        this();
         this.id = id;
         this.up_code = up_code;
         this.down_code = down_code;
@@ -24,10 +29,14 @@ public class StairMapItem {
     }
 
     public StairMapItem(String up_code, String down_code, double distance) {
+        Log.w("StairMapItem", "new object");
+        //this();
         this.up_code = up_code;
         this.down_code = down_code;
         this.distance = distance;
+        Log.w("StairMapItem", "get id");
         id = new String(up_code + down_code + distance).hashCode();
+        Log.w("StairMapItem", String.valueOf(id));
     }
 
 

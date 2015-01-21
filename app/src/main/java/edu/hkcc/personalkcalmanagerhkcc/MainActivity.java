@@ -2,6 +2,7 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapDatabaseHelper;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItemDAO;
 
@@ -63,7 +64,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnNutrition_webView;
 
     // database stuff
-    public StairMapItemDAO stairMapItemDAO = new StairMapItemDAO(this, getApplicationContext());
+    StairMapDatabaseHelper stairMapDatabaseHelper;
+    public StairMapItemDAO stairMapItemDAO ;
     protected StairCode lastStairCode = null;
     protected StairCode currentStairCode = null;
 
@@ -82,6 +84,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         if (inited)
             return;
         res = getResources();
+        // layout
         navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
         placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
         for (int i = 0; i < placeholderFragments.length; i++)
@@ -91,6 +94,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         energyCalFragment = new EnergyCalFragment(this);
         tipsOnExFragment = new TipsOnExFragment(this);
         tipsOnNutritionFragment = new TipsOnNutritionFragment(this);
+
+        //database
+        stairMapItemDAO = new StairMapItemDAO(this);
+        stairMapDatabaseHelper=new StairMapDatabaseHelper(this,null);
+        stairMapDatabaseHelper.initDatabase();
+
         inited = true;
     }
 
@@ -191,6 +200,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void databaseTest(StairCode stairCode) {
+        if(lastStairCode==null || currentActivity==null)return;
+        Log.w("Main", "databaseTest");
+        Log.w("Main", "new object");
         StairMapItem item = new StairMapItem(lastStairCode.code, currentStairCode.code, 12d);
         stairMapItemDAO.insert(item);
         int n = stairMapItemDAO.getCount();

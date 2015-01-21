@@ -16,21 +16,21 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static SQLiteDatabase database;
     public MainActivity mainActivity;
 
-    public MyDatabaseHelper(MainActivity mainActivity, Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, name, factory, version);
+    public MyDatabaseHelper(MainActivity mainActivity,  String name, SQLiteDatabase.CursorFactory factory, int version) {
+        super(mainActivity, name, factory, version);
         this.mainActivity = mainActivity;
         myInit();
     }
 
-    public MyDatabaseHelper(MainActivity mainActivity, Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
-        super(context, name, factory, version, errorHandler);
+    public MyDatabaseHelper(MainActivity mainActivity,  String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
+        super(mainActivity, name, factory, version, errorHandler);
         this.mainActivity = mainActivity;
         myInit();
     }
 
-    public static SQLiteDatabase getDatabase(MainActivity mainActivity,Context context) {
+    public static SQLiteDatabase getDatabase(MainActivity mainActivity) {
         if (database == null || !database.isOpen())
-            database = new MyDatabaseHelper(mainActivity,context, DATABASE_NAME, null, VERSION).getWritableDatabase();
+            database = new MyDatabaseHelper(mainActivity, DATABASE_NAME, null, VERSION).getWritableDatabase();
         return database;
     }
 
@@ -44,5 +44,9 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onCreate(db);
+    }
+
+    public void initDatabase() {
+        onCreate(getDatabase(mainActivity));
     }
 }
