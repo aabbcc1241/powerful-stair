@@ -63,7 +63,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnNutrition_webView;
 
     // database stuff
-    public StairMapItemDAO stairMapItemDAO=new StairMapItemDAO(this,getApplicationContext());
+    public StairMapItemDAO stairMapItemDAO = new StairMapItemDAO(this, getApplicationContext());
     protected StairCode lastStairCode = null;
     protected StairCode currentStairCode = null;
 
@@ -191,8 +191,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void databaseTest(StairCode stairCode) {
-        StairMapItem item=new StairMapItem(lastStairCode.code,currentStairCode.code,12d);
+        StairMapItem item = new StairMapItem(lastStairCode.code, currentStairCode.code, 12d);
         stairMapItemDAO.insert(item);
+        int n = stairMapItemDAO.getCount();
+        Utils.showToast(getApplicationContext(), String.valueOf(n));
     }
 
     @Override
