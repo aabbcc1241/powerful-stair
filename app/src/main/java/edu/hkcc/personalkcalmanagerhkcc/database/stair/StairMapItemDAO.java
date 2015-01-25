@@ -1,7 +1,6 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.stair;
 
 import android.content.ContentValues;
-import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
@@ -18,7 +17,7 @@ public class StairMapItemDAO extends StairMapItem {
     public static final String TABLE_NAME = "item";
 
     public static final String CREATE_TABLE =
-            "CREATE TABLE " + TABLE_NAME + " (" +
+            "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
                     ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     UP_CODE_COL + " TEXT NOT NULL, " +
                     DOWN_CODE_COL + " TEXT NOT NULL, " +
@@ -50,7 +49,8 @@ public class StairMapItemDAO extends StairMapItem {
         contentValues.put(DOWN_CODE_COL, item.down_code);
         contentValues.put(DISTANCE_COL, item.distance);
 
-        long id = db.insert(TABLE_NAME, null, contentValues);
+        //long id = db.insert(TABLE_NAME, null, contentValues);
+        long id = db.insertWithOnConflict(TABLE_NAME,null,contentValues,SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
     }
 
