@@ -22,8 +22,8 @@ public class WelcomeFragment {
                 Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
                 // method to open drawer
                 /*String msg;
-                if(mainActivity.lastStairCode!=null)
-                    msg=mainActivity.lastStairCode.code;
+                if(mainActivity.firstStairCode!=null)
+                    msg=mainActivity.firstStairCode.code;
                 else
                     msg="oops";
                 Utils.showToast(mainActivity,msg);*/

@@ -14,7 +14,7 @@ import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
  * Created by beenotung on 1/17/15.
  */
 public class StairMapItemDAO extends StairMapItem {
-    public static final String TABLE_NAME = "item";
+    public static final String TABLE_NAME = "stair_pair";
 
     public static final String CREATE_TABLE =
             "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
@@ -25,9 +25,9 @@ public class StairMapItemDAO extends StairMapItem {
     protected List<StairMapItem> stairMapItems = null;
     private SQLiteDatabase db;
 
-    public StairMapItemDAO(MainActivity mainActivity ) {
+    public StairMapItemDAO(MainActivity mainActivity) {
         super();
-        db = StairMapDatabaseHelper.getDatabase(mainActivity );
+        db = StairMapDatabaseHelper.getDatabase(mainActivity);
     }
 
     public List<StairMapItem> getStairMapItems() {
@@ -41,7 +41,7 @@ public class StairMapItemDAO extends StairMapItem {
     }
 
     public void insert(StairMapItem item) {
-        Log.w("DAO", "insert");
+        Log.w("StairMapItemDAO", "insert");
         ContentValues contentValues = new ContentValues();
 
         //contentValues.put(ID_COL,item.id);
@@ -50,12 +50,12 @@ public class StairMapItemDAO extends StairMapItem {
         contentValues.put(DISTANCE_COL, item.distance);
 
         //long id = db.insert(TABLE_NAME, null, contentValues);
-        long id = db.insertWithOnConflict(TABLE_NAME,null,contentValues,SQLiteDatabase.CONFLICT_REPLACE);
+        long id = db.insertWithOnConflict(TABLE_NAME, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
     }
 
     public int getCount() {
-        Log.w("DAO", "getCount");
+        Log.w("StairMapItemDAO", "getCount");
         return getAll().size();
     }
 
@@ -68,6 +68,16 @@ public class StairMapItemDAO extends StairMapItem {
         return result;
     }
 
+    public boolean isExist(String code) {
+        List<StairMapItem> list = getAll();
+        String A,B,C;
+        for (StairMapItem item : list) {
+            if((code.compareTo(item.up_code)*code.compareTo(item.down_code))==0)
+                return true;
+        }
+        return false;
+    }
+
     public void updateList() {
         stairMapItems = getAll();
     }
@@ -76,7 +86,7 @@ public class StairMapItemDAO extends StairMapItem {
         getStairMapItems();
         StairMapItem result = null;
         for (StairMapItem item : stairMapItems) {
-            if (item.hasPair(code1, code2))
+            if (item.isPair(code1, code2))
                 result = item;
         }
         return result;

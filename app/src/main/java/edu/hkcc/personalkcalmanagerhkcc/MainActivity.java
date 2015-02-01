@@ -62,13 +62,11 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnEx_webView;
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
-
+    public StairMapItemDAO stairMapItemDAO;
+    protected StairCode firstStairCode = null;
+    protected StairCode secondStairCode = null;
     // database stuff
     StairMapDatabaseHelper stairMapDatabaseHelper;
-    public StairMapItemDAO stairMapItemDAO ;
-    protected StairCode lastStairCode = null;
-    protected StairCode currentStairCode = null;
-
     /**
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
@@ -97,8 +95,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
         //database
         stairMapItemDAO = new StairMapItemDAO(this);
-        stairMapDatabaseHelper=new StairMapDatabaseHelper(this,null);
-        stairMapDatabaseHelper.initDatabase();
+        stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
+        //stairMapDatabaseHelper.m
 
         inited = true;
     }
@@ -193,17 +191,24 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     public void receiveStairCode(StairCode stairCode) {
         Log.w("Main", "receive Stair Code");
-        lastStairCode = currentStairCode;
-        currentStairCode = stairCode;
-        Utils.showToast(this, "OK!");
-        databaseTest(stairCode);
+        if (firstStairCode == null)
+            firstStairCode = stairCode;
+        else {
+            secondStairCode = stairCode;
+        }
+        //Utils.showToast(this, "OK!");
+        //databaseTest(stairCode);
+        if (stairMapItemDAO.isExist(stairCode.code))
+            Utils.showToast(this, "exist");
+        else
+            Utils.showToast(this, "not exist");
     }
 
     private void databaseTest(StairCode stairCode) {
-        if(lastStairCode==null || currentActivity==null)return;
+        if (firstStairCode == null || currentActivity == null) return;
         Log.w("Main", "databaseTest");
         Log.w("Main", "new object");
-        StairMapItem item = new StairMapItem(lastStairCode.code, currentStairCode.code, 12d);
+        StairMapItem item = new StairMapItem(firstStairCode.code, secondStairCode.code, 12d);
         stairMapItemDAO.insert(item);
         int n = stairMapItemDAO.getCount();
         Utils.showToast(getApplicationContext(), String.valueOf(n));
@@ -296,11 +301,11 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 // unknown tag type
                 msgs = new NdefMessage[1];
             }
-            Utils.showToast(MainActivity.this, "by nfc");
+            Utils.showToast(MainActivity.this, "nfc detected");
             switchSection(EnergyCalFragment.drawerPosition);
             energyCalFragment.addRecord();
         } else
-            Utils.showToast(MainActivity.this, "not by nfc");
+            ;//Utils.showToast(MainActivity.this, "welcome");
     }
 
 

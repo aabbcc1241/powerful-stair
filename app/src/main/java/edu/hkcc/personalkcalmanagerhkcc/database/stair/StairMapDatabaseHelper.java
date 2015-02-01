@@ -25,10 +25,12 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
 
     public StairMapDatabaseHelper(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
         super(mainActivity,  DATABASE_NAME, factory, VERSION);
+        myInit();
     }
 
     public StairMapDatabaseHelper(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler) {
         super(mainActivity,  DATABASE_NAME, factory, VERSION, errorHandler);
+        myInit();
     }
 
     @Override
@@ -70,5 +72,10 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
         StairMapItemDAO dao = new StairMapItemDAO(mainActivity);
         for (StairMapItem item : stairMapItems)
             dao.insert(item);
+    }
+
+    @Override
+    protected void myInit() {
+        insertFromXml();
     }
 }
