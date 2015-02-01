@@ -36,6 +36,7 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.w("StairMapDatabaseHelper","create table");
+        db.execSQL(StairMapItemDAO.DROP_TABLE);
         db.execSQL(StairMapItemDAO.CREATE_TABLE);
         Log.w("StairMapDatabaseHelper","insertFromXml");
         insertFromXml();
@@ -76,6 +77,5 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
 
     @Override
     protected void myInit() {
-        insertFromXml();
     }
 }

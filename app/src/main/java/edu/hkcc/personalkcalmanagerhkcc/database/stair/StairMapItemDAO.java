@@ -22,6 +22,7 @@ public class StairMapItemDAO extends StairMapItem {
                     UP_CODE_COL + " TEXT NOT NULL, " +
                     DOWN_CODE_COL + " TEXT NOT NULL, " +
                     DISTANCE_COL + " REAL NOT NULL)";
+    public static final String DROP_TABLE="DROP TABLE IF EXISTS "+TABLE_NAME;
     protected List<StairMapItem> stairMapItems = null;
     private SQLiteDatabase db;
 
@@ -56,7 +57,11 @@ public class StairMapItemDAO extends StairMapItem {
 
     public int getCount() {
         Log.w("StairMapItemDAO", "getCount");
-        return getAll().size();
+        Cursor cursor = db.rawQuery("select count (*) from item",null);
+        if(!cursor.moveToFirst())
+            return 0;
+        else
+        return cursor.getInt(0);
     }
 
     public List<StairMapItem> getAll() {
@@ -70,9 +75,8 @@ public class StairMapItemDAO extends StairMapItem {
 
     public boolean isExist(String code) {
         List<StairMapItem> list = getAll();
-        String A,B,C;
         for (StairMapItem item : list) {
-            if((code.compareTo(item.up_code)*code.compareTo(item.down_code))==0)
+            if(code.equals(item.up_code)||code.equals(item.down_code))
                 return true;
         }
         return false;

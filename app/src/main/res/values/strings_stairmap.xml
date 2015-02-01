@@ -3,12 +3,12 @@
 
     <string-array name="stair_map_pair_string_array">
 
-        <item>hhb 02</item>
-        <item>hhb 03</item>
+        <item>hhb_02</item>
+        <item>hhb_03</item>
         <item>12.3</item>
 
-        <item>hhb 03</item>
-        <item>hhb 04</item>
+        <item>hhb_03</item>
+        <item>hhb_04</item>
         <item>12.3</item>
         
     </string-array>

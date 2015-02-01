@@ -10,6 +10,7 @@ public class StairMapItem {
     public static final String UP_CODE_COL = "up_code";
     public static final String DOWN_CODE_COL = "down_code";
     public static final String DISTANCE_COL = "distance";
+    public static final String[] COLUMNS = {ID_COL,UP_CODE_COL,DOWN_CODE_COL,DISTANCE_COL};
     public static int lastID = 0;
     public long id;
     public String up_code, down_code;
