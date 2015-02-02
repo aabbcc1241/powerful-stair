@@ -24,11 +24,9 @@ public class StairMapItemDAO extends StairMapItem {
                     DISTANCE_COL + " REAL NOT NULL)";
     public static final String DROP_TABLE="DROP TABLE IF EXISTS "+TABLE_NAME;
     protected List<StairMapItem> stairMapItems = null;
-    private SQLiteDatabase db;
 
     public StairMapItemDAO(MainActivity mainActivity) {
         super();
-        db = StairMapDatabaseHelper.getDatabase(mainActivity);
     }
 
     public List<StairMapItem> getStairMapItems() {
@@ -37,11 +35,9 @@ public class StairMapItemDAO extends StairMapItem {
         return stairMapItems;
     }
 
-    public void close() {
-        db.close();
-    }
 
-    public void insert(StairMapItem item) {
+
+    public synchronized void insert(StairMapItem item) {
         Log.w("StairMapItemDAO", "insert");
         ContentValues contentValues = new ContentValues();
 
@@ -50,30 +46,30 @@ public class StairMapItemDAO extends StairMapItem {
         contentValues.put(DOWN_CODE_COL, item.down_code);
         contentValues.put(DISTANCE_COL, item.distance);
 
-        //long id = db.insert(TABLE_NAME, null, contentValues);
-        long id = db.insertWithOnConflict(TABLE_NAME, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+        //long id = database.insert(TABLE_NAME, null, contentValues);
+        long id = StairMapDatabaseHelper.getDatabase().insertWithOnConflict(TABLE_NAME, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
     }
 
-    public int getCount() {
+    public synchronized int getCount() {
         Log.w("StairMapItemDAO", "getCount");
-        Cursor cursor = db.rawQuery("select count (*) from item",null);
+        Cursor cursor = StairMapDatabaseHelper.getDatabase().rawQuery("select count (*) from "+TABLE_NAME,null);
         if(!cursor.moveToFirst())
             return 0;
         else
         return cursor.getInt(0);
     }
 
-    public List<StairMapItem> getAll() {
+    public synchronized List<StairMapItem> getAll() {
         List<StairMapItem> result = new ArrayList<>();
-        Cursor cursor = db.query(TABLE_NAME, null, null, null, null, null, null);
+        Cursor cursor = StairMapDatabaseHelper.getDatabase().query(TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext())
             result.add(getRecord(cursor));
         cursor.close();
         return result;
     }
 
-    public boolean isExist(String code) {
+    public  boolean isExist(String code) {
         List<StairMapItem> list = getAll();
         for (StairMapItem item : list) {
             if(code.equals(item.up_code)||code.equals(item.down_code))

@@ -16,6 +16,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     public static final int VERSION = 1;
     public static SQLiteDatabase database;
     public MainActivity mainActivity;
+    public static MyDatabaseHelper current=null;
 
     public MyDatabaseHelper(MainActivity mainActivity,  String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(mainActivity, name, factory, version);
@@ -30,13 +31,15 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public static SQLiteDatabase getDatabase(MainActivity mainActivity) {
+        if(current==null)
+            current=new MyDatabaseHelper(mainActivity,DATABASE_NAME,null,VERSION);
         if (database == null || !database.isOpen())
             database = new MyDatabaseHelper(mainActivity, DATABASE_NAME, null, VERSION).getWritableDatabase();
         return database;
     }
 
     protected void myInit(){
-
+        current=this;
     }
     @Override
     public void onCreate(SQLiteDatabase db) {

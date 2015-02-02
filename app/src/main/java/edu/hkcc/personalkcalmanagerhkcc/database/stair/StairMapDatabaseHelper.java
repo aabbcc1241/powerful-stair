@@ -19,33 +19,49 @@ import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItemDAO;
 /**
  * Created by beenotung on 1/17/15.
  */
-public class StairMapDatabaseHelper extends MyDatabaseHelper {
+public class StairMapDatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "stairmap.db";
     public static final int VERSION = 1;
+    public static StairMapDatabaseHelper current = null;
+    public static SQLiteDatabase database;
+    public MainActivity mainActivity;
 
     public StairMapDatabaseHelper(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
-        super(mainActivity,  DATABASE_NAME, factory, VERSION);
+        super(mainActivity, DATABASE_NAME, factory, VERSION);
+        this.mainActivity = mainActivity;
         myInit();
     }
 
     public StairMapDatabaseHelper(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory, DatabaseErrorHandler errorHandler) {
-        super(mainActivity,  DATABASE_NAME, factory, VERSION, errorHandler);
+        super(mainActivity, DATABASE_NAME, factory, VERSION, errorHandler);
+        this.mainActivity = mainActivity;
         myInit();
+    }
+
+    public static synchronized SQLiteDatabase getDatabase(MainActivity mainActivity) {
+        if (current == null)
+            current = new StairMapDatabaseHelper(mainActivity, null);
+        if (database == null || !database.isOpen())
+            database =current.getWritableDatabase();
+        return database;
+    }
+    public static synchronized SQLiteDatabase getDatabase() {
+        return getDatabase(current.mainActivity);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        Log.w("StairMapDatabaseHelper","create table");
-        db.execSQL(StairMapItemDAO.DROP_TABLE);
+        myInit();
+        Log.w("StairMapDatabaseHelper", "create table");
         db.execSQL(StairMapItemDAO.CREATE_TABLE);
-        Log.w("StairMapDatabaseHelper","insertFromXml");
+        Log.w("StairMapDatabaseHelper", "insertFromXml");
         insertFromXml();
-        Log.w("StairMapDatabaseHelper","insertFromXml OK");
+        Log.w("StairMapDatabaseHelper", "insertFromXml OK");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        database.execSQL("DROP TABLE IF EXISTS " + StairMapItemDAO.TABLE_NAME);
+        database.execSQL(StairMapItemDAO.DROP_TABLE);
         onCreate(db);
     }
 
@@ -75,7 +91,8 @@ public class StairMapDatabaseHelper extends MyDatabaseHelper {
             dao.insert(item);
     }
 
-    @Override
+
     protected void myInit() {
+        current = this;
     }
 }
