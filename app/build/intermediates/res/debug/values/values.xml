@@ -11,9 +11,9 @@
         <item>Tips on Ex.</item>
         <item>Tips on nutrition</item>
     </string-array>
-    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_stairmap.xml -->
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_stair_pair.xml -->
     <eat-comment/>
-    <string-array name="stair_map_pair_string_array">
+    <string-array name="stair_pair_string_array">
 
         <item>hhb_02</item>
         <item>hhb_03</item>

@@ -101,6 +101,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         //stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
         //stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
         myDAO = new MyDAO(this);
+        myDAO.myInit();
 
         inited = true;
     }

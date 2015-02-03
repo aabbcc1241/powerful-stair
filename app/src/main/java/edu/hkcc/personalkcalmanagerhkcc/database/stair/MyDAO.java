@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
+import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;
 
@@ -33,6 +34,7 @@ public class MyDAO extends SQLiteOpenHelper {
                     TABLE_STAIR_PAIR_COL_DISTANCE + " REAL NOT NULL)";
     public static int VERSION = 1;
     public MainActivity mainActivity;
+    public SQLiteDatabase database = getWritableDatabase();
 
     public MyDAO(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
         super(mainActivity, DATABASE_NAME, factory, VERSION);
@@ -46,7 +48,6 @@ public class MyDAO extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(TABLE_CREATE_STAIR_PAIR);
-        insertStairPairsFromXml();
     }
 
     @Override
@@ -56,8 +57,13 @@ public class MyDAO extends SQLiteOpenHelper {
         VERSION = newVersion;
     }
 
+    public synchronized void myInit() {
+        insertStairPairsFromXml();
+    }
+
     public synchronized void insertStairPairsFromXml() {
-        String[] rawStrings = mainActivity.getResources().getStringArray(R.array.stair_pair_string_array);
+        String[] rawStrings =
+                mainActivity.getResources().getStringArray(R.array.stair_pair_string_array);
         Vector<StairPair> stairPairs = new Vector<>();
         int j; //buffer
         String upCode = "", downCode = "";
@@ -95,7 +101,6 @@ public class MyDAO extends SQLiteOpenHelper {
         long id = database.insertWithOnConflict(TABLE_STAIR_PAIR, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
     }
-    public SQLiteDatabase database=getWritableDatabase();
 
     public StairPair getStairMapRecord(Cursor cursor) {
         StairPair result = new StairPair();
@@ -110,7 +115,7 @@ public class MyDAO extends SQLiteOpenHelper {
 
     public synchronized List<StairPair> getAllStairPairItems() {
         List<StairPair> result = new ArrayList<>();
-        Cursor cursor =database.query(TABLE_STAIR_PAIR, null, null, null, null, null, null);
+        Cursor cursor = database.query(TABLE_STAIR_PAIR, null, null, null, null, null, null);
         while (cursor.moveToNext())
             result.add(getStairMapRecord(cursor));
         cursor.close();
@@ -119,8 +124,8 @@ public class MyDAO extends SQLiteOpenHelper {
 
     public synchronized int getStairPairCount() {
         Log.w("StairMapItemDAO", "getCount");
-        Cursor cursor = StairMapDatabaseHelper.getDatabase().rawQuery("select count (*) from "+TABLE_STAIR_PAIR,null);
-        if(!cursor.moveToFirst())
+        Cursor cursor = StairMapDatabaseHelper.getDatabase().rawQuery("select count (*) from " + TABLE_STAIR_PAIR, null);
+        if (!cursor.moveToFirst())
             return 0;
         else
             return cursor.getInt(0);
