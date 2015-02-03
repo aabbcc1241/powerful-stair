@@ -48,9 +48,9 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
         myInit();
         Log.w("StairMapDatabaseHelper", "create table");
         db.execSQL(StairPairItemDAO.CREATE_TABLE);
-        Log.w("StairMapDatabaseHelper", "insertFromXml");
+        Log.w("StairMapDatabaseHelper", "insertStairPairsFromXml");
         insertFromXml();
-        Log.w("StairMapDatabaseHelper", "insertFromXml OK");
+        Log.w("StairMapDatabaseHelper", "insertStairPairsFromXml OK");
     }
 
     @Override
@@ -60,7 +60,7 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void insertFromXml() {
-        String[] rawStrings = mainActivity.getResources().getStringArray(R.array.stair_map_pair_string_array);
+        String[] rawStrings = mainActivity.getResources().getStringArray(R.array.stair_pair_string_array);
         Vector<StairPairItem> stairPairItems = new Vector<>();
         int j; //buffer
         String upCode = "", downCode = "";
