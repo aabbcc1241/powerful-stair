@@ -13,7 +13,7 @@ import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 /**
  * Created by beenotung on 1/17/15.
  */
-public class StairPairItemDAO extends StairPairItem {
+public class StairPairDAO extends StairPair {
     public static final String TABLE_NAME = "stair_pair";
 
     public static final String CREATE_TABLE =
@@ -23,22 +23,22 @@ public class StairPairItemDAO extends StairPairItem {
                     DOWN_CODE_COL + " TEXT NOT NULL, " +
                     DISTANCE_COL + " REAL NOT NULL)";
     public static final String DROP_TABLE="DROP TABLE IF EXISTS "+TABLE_NAME;
-    protected List<StairPairItem> stairPairItems = null;
+    protected List<StairPair> stairPairs = null;
 
-    public StairPairItemDAO(MainActivity mainActivity) {
+    public StairPairDAO(MainActivity mainActivity) {
         super();
     }
 
-    public List<StairPairItem> getStairPairItems() {
-        if (stairPairItems == null)
-            stairPairItems = getAll();
-        return stairPairItems;
+    public List<StairPair> getStairPairs() {
+        if (stairPairs == null)
+            stairPairs = getAll();
+        return stairPairs;
     }
 
 
 
-    public synchronized void insert(StairPairItem item) {
-        Log.w("StairMapItemDAO", "insert");
+    public synchronized void insert(StairPair item) {
+        Log.w("StairMapItemDAO", "insertStairPair");
         ContentValues contentValues = new ContentValues();
 
         //contentValues.put(ID_COL,item.id);
@@ -46,7 +46,7 @@ public class StairPairItemDAO extends StairPairItem {
         contentValues.put(DOWN_CODE_COL, item.down_code);
         contentValues.put(DISTANCE_COL, item.distance);
 
-        //long id = database.insert(TABLE_NAME, null, contentValues);
+        //long id = database.insertStairPair(TABLE_NAME, null, contentValues);
         long id = StairMapDatabaseHelper.getDatabase().insertWithOnConflict(TABLE_NAME, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
     }
@@ -60,8 +60,8 @@ public class StairPairItemDAO extends StairPairItem {
         return cursor.getInt(0);
     }
 
-    public synchronized List<StairPairItem> getAll() {
-        List<StairPairItem> result = new ArrayList<>();
+    public synchronized List<StairPair> getAll() {
+        List<StairPair> result = new ArrayList<>();
         Cursor cursor = StairMapDatabaseHelper.getDatabase().query(TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext())
             result.add(getRecord(cursor));
@@ -70,8 +70,8 @@ public class StairPairItemDAO extends StairPairItem {
     }
 
     public  boolean isExist(String code) {
-        List<StairPairItem> list = getAll();
-        for (StairPairItem item : list) {
+        List<StairPair> list = getAll();
+        for (StairPair item : list) {
             if(code.equals(item.up_code)||code.equals(item.down_code))
                 return true;
         }
@@ -79,13 +79,13 @@ public class StairPairItemDAO extends StairPairItem {
     }
 
     public void updateList() {
-        stairPairItems = getAll();
+        stairPairs = getAll();
     }
 
-    public StairPairItem getPair(String code1, String code2) {
-        getStairPairItems();
-        StairPairItem result = null;
-        for (StairPairItem item : stairPairItems) {
+    public StairPair getPair(String code1, String code2) {
+        getStairPairs();
+        StairPair result = null;
+        for (StairPair item : stairPairs) {
             if (item.isPair(code1, code2))
                 result = item;
         }
@@ -93,14 +93,14 @@ public class StairPairItemDAO extends StairPairItem {
     }
 
     public double getDistance(String code1, String code2) {
-        getStairPairItems();
-        StairPairItem item = getPair(code1, code2);
+        getStairPairs();
+        StairPair item = getPair(code1, code2);
         if (item == null) return 0d;
         return item.distance;
     }
 
-    public StairPairItem getRecord(Cursor cursor) {
-        StairPairItem result = new StairPairItem();
+    public StairPair getRecord(Cursor cursor) {
+        StairPair result = new StairPair();
 
         result.id = cursor.getLong(0);
         result.up_code = cursor.getString(1);

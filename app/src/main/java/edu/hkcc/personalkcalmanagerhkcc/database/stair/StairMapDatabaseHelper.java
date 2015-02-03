@@ -47,7 +47,7 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         myInit();
         Log.w("StairMapDatabaseHelper", "create table");
-        db.execSQL(StairPairItemDAO.CREATE_TABLE);
+        db.execSQL(StairPairDAO.CREATE_TABLE);
         Log.w("StairMapDatabaseHelper", "insertStairPairsFromXml");
         insertFromXml();
         Log.w("StairMapDatabaseHelper", "insertStairPairsFromXml OK");
@@ -55,13 +55,13 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        database.execSQL(StairPairItemDAO.DROP_TABLE);
+        database.execSQL(StairPairDAO.DROP_TABLE);
         onCreate(db);
     }
 
     public void insertFromXml() {
         String[] rawStrings = mainActivity.getResources().getStringArray(R.array.stair_pair_string_array);
-        Vector<StairPairItem> stairPairItems = new Vector<>();
+        Vector<StairPair> stairPairs = new Vector<>();
         int j; //buffer
         String upCode = "", downCode = "";
         double distance;
@@ -76,12 +76,12 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
                     break;
                 case 2:
                     distance = Double.parseDouble(rawStrings[i]);
-                    stairPairItems.add(new StairPairItem(upCode, downCode, distance));
+                    stairPairs.add(new StairPair(upCode, downCode, distance));
                     break;
             }
         }
-        StairPairItemDAO dao = new StairPairItemDAO(mainActivity);
-        for (StairPairItem item : stairPairItems)
+        StairPairDAO dao = new StairPairDAO(mainActivity);
+        for (StairPair item : stairPairs)
             dao.insert(item);
     }
 

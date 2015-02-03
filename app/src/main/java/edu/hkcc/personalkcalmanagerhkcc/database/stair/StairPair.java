@@ -5,7 +5,7 @@ import android.util.Log;
 /**
  * Created by beenotung on 1/17/15.
  */
-public class StairPairItem {
+public class StairPair {
     public static final String ID_COL = "id";
     public static final String UP_CODE_COL = "up_code";
     public static final String DOWN_CODE_COL = "down_code";
@@ -16,12 +16,12 @@ public class StairPairItem {
     public String up_code, down_code;
     public double distance;
 
-    protected StairPairItem() {
+    protected StairPair() {
         super();
         //Log.w("StairMapItem", "new object");
     }
 
-    public StairPairItem(long id, String up_code, String down_code, double distance) {
+    public StairPair(long id, String up_code, String down_code, double distance) {
         //Log.w("StairMapItem", "new object");
         this.id = id;
         this.up_code = up_code;
@@ -33,7 +33,7 @@ public class StairPairItem {
 //        Log.w("StairMapItem", "\tdistance:"+distance);
     }
 
-    public StairPairItem(String up_code, String down_code, double distance) {
+    public StairPair(String up_code, String down_code, double distance) {
         //Log.w("StairMapItem", "new object");
         //this();
         this.up_code = up_code;

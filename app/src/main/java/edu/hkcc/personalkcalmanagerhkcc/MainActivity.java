@@ -2,8 +2,8 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapDAO;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPairItem;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.MyDAO;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPair;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -65,7 +65,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // database stuff
     //StairMapDatabaseHelper stairMapDatabaseHelper;
     //public StairMapItemDAO stairMapItemDAO;
-    public StairMapDAO stairMapDAO;
+    public MyDAO myDAO;
     protected StairCode firstStairCode = null;
     protected StairCode secondStairCode = null;
 
@@ -100,7 +100,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         //stairMapItemDAO = new StairMapItemDAO(this);
         //stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
         //stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
-        stairMapDAO = new StairMapDAO(this);
+        myDAO = new MyDAO(this);
 
         inited = true;
     }
@@ -202,7 +202,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         }
         //Utils.showToast(this, "OK!");
         //databaseTest(stairCode);
-        if (stairMapDAO.isExist(stairCode.code))
+        if (myDAO.isStairCodeExist(stairCode.code))
             Utils.showToast(this, "exist");
         else
             Utils.showToast(this, "not exist");
@@ -212,10 +212,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         if (firstStairCode == null || currentActivity == null) return;
         Log.w("Main", "databaseTest");
         Log.w("Main", "new object");
-        StairPairItem item = new StairPairItem(firstStairCode.code, secondStairCode.code, 12d);
-        stairMapItemDAO.insert(item);
-        int n = stairMapItemDAO.getCount();
-        Utils.showToast(getApplicationContext(), String.valueOf(n));
+        StairPair item = new StairPair(firstStairCode.code, secondStairCode.code, 12d);
+        myDAO.insertStairPair(item);
+        int n = myDAO.getStairPairCount();
+        Utils.showToast(this, String.valueOf(n));
     }
 
     @Override
