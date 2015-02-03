@@ -2,9 +2,8 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapDatabaseHelper;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItem;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItemDAO;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapDAO;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPairItem;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -62,11 +61,15 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnEx_webView;
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
-    public StairMapItemDAO stairMapItemDAO;
+
+    // database stuff
+    //StairMapDatabaseHelper stairMapDatabaseHelper;
+    //public StairMapItemDAO stairMapItemDAO;
+    public StairMapDAO stairMapDAO;
     protected StairCode firstStairCode = null;
     protected StairCode secondStairCode = null;
-    // database stuff
-    StairMapDatabaseHelper stairMapDatabaseHelper;
+
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
@@ -94,9 +97,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         tipsOnNutritionFragment = new TipsOnNutritionFragment(this);
 
         //database
-        stairMapItemDAO = new StairMapItemDAO(this);
-        stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
-        stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
+        //stairMapItemDAO = new StairMapItemDAO(this);
+        //stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
+        //stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
+        stairMapDAO = new StairMapDAO(this);
 
         inited = true;
     }
@@ -198,7 +202,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         }
         //Utils.showToast(this, "OK!");
         //databaseTest(stairCode);
-        if (stairMapItemDAO.isExist(stairCode.code))
+        if (stairMapDAO.isExist(stairCode.code))
             Utils.showToast(this, "exist");
         else
             Utils.showToast(this, "not exist");
@@ -208,7 +212,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         if (firstStairCode == null || currentActivity == null) return;
         Log.w("Main", "databaseTest");
         Log.w("Main", "new object");
-        StairMapItem item = new StairMapItem(firstStairCode.code, secondStairCode.code, 12d);
+        StairPairItem item = new StairPairItem(firstStairCode.code, secondStairCode.code, 12d);
         stairMapItemDAO.insert(item);
         int n = stairMapItemDAO.getCount();
         Utils.showToast(getApplicationContext(), String.valueOf(n));

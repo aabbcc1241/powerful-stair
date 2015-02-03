@@ -1,20 +1,14 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.stair;
 
-import android.content.Context;
-import android.content.res.Resources;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.Vector;
 
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;
-import edu.hkcc.personalkcalmanagerhkcc.database.MyDatabaseHelper;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItem;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapItemDAO;
 
 /**
  * Created by beenotung on 1/17/15.
@@ -53,7 +47,7 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         myInit();
         Log.w("StairMapDatabaseHelper", "create table");
-        db.execSQL(StairMapItemDAO.CREATE_TABLE);
+        db.execSQL(StairPairItemDAO.CREATE_TABLE);
         Log.w("StairMapDatabaseHelper", "insertFromXml");
         insertFromXml();
         Log.w("StairMapDatabaseHelper", "insertFromXml OK");
@@ -61,13 +55,13 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        database.execSQL(StairMapItemDAO.DROP_TABLE);
+        database.execSQL(StairPairItemDAO.DROP_TABLE);
         onCreate(db);
     }
 
     public void insertFromXml() {
         String[] rawStrings = mainActivity.getResources().getStringArray(R.array.stair_map_pair_string_array);
-        Vector<StairMapItem> stairMapItems = new Vector<>();
+        Vector<StairPairItem> stairPairItems = new Vector<>();
         int j; //buffer
         String upCode = "", downCode = "";
         double distance;
@@ -82,12 +76,12 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
                     break;
                 case 2:
                     distance = Double.parseDouble(rawStrings[i]);
-                    stairMapItems.add(new StairMapItem(upCode, downCode, distance));
+                    stairPairItems.add(new StairPairItem(upCode, downCode, distance));
                     break;
             }
         }
-        StairMapItemDAO dao = new StairMapItemDAO(mainActivity);
-        for (StairMapItem item : stairMapItems)
+        StairPairItemDAO dao = new StairPairItemDAO(mainActivity);
+        for (StairPairItem item : stairPairItems)
             dao.insert(item);
     }
 

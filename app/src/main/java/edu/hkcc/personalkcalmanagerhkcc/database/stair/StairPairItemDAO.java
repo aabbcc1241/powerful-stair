@@ -13,7 +13,7 @@ import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 /**
  * Created by beenotung on 1/17/15.
  */
-public class StairMapItemDAO extends StairMapItem {
+public class StairPairItemDAO extends StairPairItem {
     public static final String TABLE_NAME = "stair_pair";
 
     public static final String CREATE_TABLE =
@@ -23,21 +23,21 @@ public class StairMapItemDAO extends StairMapItem {
                     DOWN_CODE_COL + " TEXT NOT NULL, " +
                     DISTANCE_COL + " REAL NOT NULL)";
     public static final String DROP_TABLE="DROP TABLE IF EXISTS "+TABLE_NAME;
-    protected List<StairMapItem> stairMapItems = null;
+    protected List<StairPairItem> stairPairItems = null;
 
-    public StairMapItemDAO(MainActivity mainActivity) {
+    public StairPairItemDAO(MainActivity mainActivity) {
         super();
     }
 
-    public List<StairMapItem> getStairMapItems() {
-        if (stairMapItems == null)
-            stairMapItems = getAll();
-        return stairMapItems;
+    public List<StairPairItem> getStairPairItems() {
+        if (stairPairItems == null)
+            stairPairItems = getAll();
+        return stairPairItems;
     }
 
 
 
-    public synchronized void insert(StairMapItem item) {
+    public synchronized void insert(StairPairItem item) {
         Log.w("StairMapItemDAO", "insert");
         ContentValues contentValues = new ContentValues();
 
@@ -60,8 +60,8 @@ public class StairMapItemDAO extends StairMapItem {
         return cursor.getInt(0);
     }
 
-    public synchronized List<StairMapItem> getAll() {
-        List<StairMapItem> result = new ArrayList<>();
+    public synchronized List<StairPairItem> getAll() {
+        List<StairPairItem> result = new ArrayList<>();
         Cursor cursor = StairMapDatabaseHelper.getDatabase().query(TABLE_NAME, null, null, null, null, null, null);
         while (cursor.moveToNext())
             result.add(getRecord(cursor));
@@ -70,8 +70,8 @@ public class StairMapItemDAO extends StairMapItem {
     }
 
     public  boolean isExist(String code) {
-        List<StairMapItem> list = getAll();
-        for (StairMapItem item : list) {
+        List<StairPairItem> list = getAll();
+        for (StairPairItem item : list) {
             if(code.equals(item.up_code)||code.equals(item.down_code))
                 return true;
         }
@@ -79,13 +79,13 @@ public class StairMapItemDAO extends StairMapItem {
     }
 
     public void updateList() {
-        stairMapItems = getAll();
+        stairPairItems = getAll();
     }
 
-    public StairMapItem getPair(String code1, String code2) {
-        getStairMapItems();
-        StairMapItem result = null;
-        for (StairMapItem item : stairMapItems) {
+    public StairPairItem getPair(String code1, String code2) {
+        getStairPairItems();
+        StairPairItem result = null;
+        for (StairPairItem item : stairPairItems) {
             if (item.isPair(code1, code2))
                 result = item;
         }
@@ -93,14 +93,14 @@ public class StairMapItemDAO extends StairMapItem {
     }
 
     public double getDistance(String code1, String code2) {
-        getStairMapItems();
-        StairMapItem item = getPair(code1, code2);
+        getStairPairItems();
+        StairPairItem item = getPair(code1, code2);
         if (item == null) return 0d;
         return item.distance;
     }
 
-    public StairMapItem getRecord(Cursor cursor) {
-        StairMapItem result = new StairMapItem();
+    public StairPairItem getRecord(Cursor cursor) {
+        StairPairItem result = new StairPairItem();
 
         result.id = cursor.getLong(0);
         result.up_code = cursor.getString(1);
