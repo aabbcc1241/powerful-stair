@@ -85,7 +85,7 @@ public class MyDAO extends SQLiteOpenHelper {
         }
         StairPairDAO dao = new StairPairDAO(mainActivity);
         for (StairPair item : stairPairs)
-            dao.insert(item);
+            insertStairPair(item);
     }
 
     public synchronized void insertStairPair(StairPair item) {

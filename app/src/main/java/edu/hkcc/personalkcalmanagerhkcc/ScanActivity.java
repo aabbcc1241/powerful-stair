@@ -19,19 +19,18 @@ import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
 public class ScanActivity extends Activity {
 
     Button button;
-    TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_scan);
         initVar();
         scanQR();
     }
 
     private void initVar() {
-        textView = (TextView) findViewById(R.id.tvtest);
-        button = (Button) findViewById(R.id.bnttest);
+        button = (Button) findViewById(R.id.bntscan);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,7 +40,6 @@ public class ScanActivity extends Activity {
     }
 
     private void onClick() {
-        Utils.showToast(this, "clicked");
         scanQR();
     }
 

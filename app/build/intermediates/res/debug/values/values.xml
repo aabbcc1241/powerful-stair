@@ -61,6 +61,9 @@
     <eat-comment/>
     <string name="action_settings">Settings</string>
     <string name="app_name">Personal Kcal Manager (HKCC)</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_scanner.xml -->
+    <eat-comment/>
+    <string name="button_text">Scan</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_energy_cal.xml -->
     <eat-comment/>
     <string name="energyCal_adding_record">Adding Record</string>
@@ -90,6 +93,11 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="scan">Scan</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_scanner.xml -->
+    <eat-comment/>
+    <string name="scan_page_desc">Launching Bardcode Scanner</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
     <string name="slogan">"Keep Fit!\nDon't Eat??"</string>
     <string name="start">Start</string>
     <string name="tap">Tap</string>

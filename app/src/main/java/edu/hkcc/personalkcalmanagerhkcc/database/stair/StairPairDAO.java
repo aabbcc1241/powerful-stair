@@ -22,11 +22,13 @@ public class StairPairDAO extends StairPair {
                     UP_CODE_COL + " TEXT NOT NULL, " +
                     DOWN_CODE_COL + " TEXT NOT NULL, " +
                     DISTANCE_COL + " REAL NOT NULL)";
-    public static final String DROP_TABLE="DROP TABLE IF EXISTS "+TABLE_NAME;
+    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
+    private final MainActivity mainActivity;
     protected List<StairPair> stairPairs = null;
 
     public StairPairDAO(MainActivity mainActivity) {
         super();
+        this.mainActivity = mainActivity;
     }
 
     public List<StairPair> getStairPairs() {
@@ -36,28 +38,18 @@ public class StairPairDAO extends StairPair {
     }
 
 
-
+    @Deprecated
     public synchronized void insert(StairPair item) {
-        Log.w("StairMapItemDAO", "insertStairPair");
-        ContentValues contentValues = new ContentValues();
-
-        //contentValues.put(ID_COL,item.id);
-        contentValues.put(UP_CODE_COL, item.up_code);
-        contentValues.put(DOWN_CODE_COL, item.down_code);
-        contentValues.put(DISTANCE_COL, item.distance);
-
-        //long id = database.insertStairPair(TABLE_NAME, null, contentValues);
-        long id = StairMapDatabaseHelper.getDatabase().insertWithOnConflict(TABLE_NAME, null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
-        item.id = id;
+        mainActivity.myDAO.insertStairPair(item);
     }
 
     public synchronized int getCount() {
         Log.w("StairMapItemDAO", "getCount");
-        Cursor cursor = StairMapDatabaseHelper.getDatabase().rawQuery("select count (*) from "+TABLE_NAME,null);
-        if(!cursor.moveToFirst())
+        Cursor cursor = StairMapDatabaseHelper.getDatabase().rawQuery("select count (*) from " + TABLE_NAME, null);
+        if (!cursor.moveToFirst())
             return 0;
         else
-        return cursor.getInt(0);
+            return cursor.getInt(0);
     }
 
     public synchronized List<StairPair> getAll() {
@@ -69,10 +61,10 @@ public class StairPairDAO extends StairPair {
         return result;
     }
 
-    public  boolean isExist(String code) {
+    public boolean isExist(String code) {
         List<StairPair> list = getAll();
         for (StairPair item : list) {
-            if(code.equals(item.up_code)||code.equals(item.down_code))
+            if (code.equals(item.up_code) || code.equals(item.down_code))
                 return true;
         }
         return false;
