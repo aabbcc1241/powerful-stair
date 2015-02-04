@@ -1,7 +1,12 @@
 package edu.hkcc.personalkcalmanagerhkcc.database;
 
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
+import java.util.List;
+
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapDatabaseHelper;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPair;
 
 /**
@@ -22,5 +27,7 @@ public interface DAOItem<ItemType> {
 
     public abstract int getCount(SQLiteDatabase database);
 
-    public abstract ItemType[] getAll(SQLiteDatabase database);
+    public abstract List<ItemType> getAll(SQLiteDatabase database);
+
+    public abstract ItemType getItemRecord(Cursor cursor);
 }

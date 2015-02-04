@@ -6,7 +6,7 @@ import android.util.Log;
  * Created by beenotung on 1/17/15.
  */
 public class StairPair {
-    public static final String ID_COL = "id";
+    public static final String ID_COL = "stair_pair_id";
     public static final String UP_CODE_COL = "up_code";
     public static final String DOWN_CODE_COL = "down_code";
     public static final String DISTANCE_COL = "distance";
