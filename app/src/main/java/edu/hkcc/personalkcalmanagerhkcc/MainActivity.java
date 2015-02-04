@@ -61,8 +61,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
     // database stuff
-    //StairMapDatabaseHelper stairMapDatabaseHelper;
-    //public StairMapItemDAO stairMapItemDAO;
     public MyDAO myDAO;
     public boolean scanning = false;
     protected StairCode firstStairCode = null;
@@ -120,8 +118,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         initSection_energyCal();
         initSection_tipsOnEx();
         initSection_tipsOnNutrition();
-
-        // myInit();
     }
 
     private void initSection_welcome() {
@@ -197,7 +193,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         scanTryCount++;
         Log.w("Main", "receive Stair Code: " + stairCode.code);
         Log.w("Main", "scanTryCount: " + scanTryCount);
-        if (myDAO.isStairCodeExist(stairCode.code))
+        if (myDAO.stairPairDAOItem.isStairCodeExist(stairCode.code))
             if (firstStairCode == null) {
                 firstStairCode = stairCode;
                 Utils.showToast(this, getString(R.string.prompt_first_scan_success));
@@ -210,17 +206,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             if (scanTryCount <= MAX_TRY_COUNT) scanQRCode();
         }
         scanTryCount = 0;
-        //databaseTest(stairCode);
-    }
-
-    private void databaseTest(StairCode stairCode) {
-        if (firstStairCode == null || currentActivity == null) return;
-        Log.w("Main", "databaseTest");
-        Log.w("Main", "new object");
-        StairPair item = new StairPair(firstStairCode.code, secondStairCode.code, 12d);
-        myDAO.insertStairPair(item);
-        int n = myDAO.getStairPairCount();
-        Utils.showToast(this, String.valueOf(n));
     }
 
     @Override
@@ -231,7 +216,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        // initvar();
         myInit();
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getFragmentManager();
