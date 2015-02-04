@@ -44,25 +44,26 @@ public class ScanActivity extends Activity {
     }
 
     public void scanQR() {
+        if (!MainActivity.currentActivity.scanning) return;
         IntentIntegrator intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.initiateScan();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        Log.w("QR", "RESULT");;
+        Log.w("QR", "RESULT");
         super.onActivityResult(requestCode, resultCode, data);
-            if (resultCode == RESULT_OK) {
-                String contents = data.getStringExtra("SCAN_RESULT");
-                String format = data.getStringExtra("SCAN_RESULT_FORMAT");
-                Log.w("QR", contents);
-                Log.w("QR", format);
-                // Handle successful scan
-                StairCode stairCode = new StairCode(contents, format);
-                MainActivity.currentActivity.receiveStairCode(stairCode);
-            } else if (resultCode == RESULT_CANCELED) {
-                // Handle cancel
-            }
+        if (resultCode == RESULT_OK) {
+            String contents = data.getStringExtra("SCAN_RESULT");
+            String format = data.getStringExtra("SCAN_RESULT_FORMAT");
+            Log.w("QR", "content: "+contents);
+            Log.w("QR", "format: "+format);
+            // Handle successful scan
+            StairCode stairCode = new StairCode(contents, format);
+            MainActivity.currentActivity.receiveStairCode(stairCode);
+        } else if (resultCode == RESULT_CANCELED) {
+            // Handle cancel
+        }
         finish();
     }
 

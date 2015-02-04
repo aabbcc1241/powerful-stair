@@ -47,7 +47,7 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         myInit();
         Log.w("StairMapDatabaseHelper", "create table");
-        db.execSQL(StairPairDAO.CREATE_TABLE);
+        db.execSQL(StairPairDAO_old.CREATE_TABLE);
         Log.w("StairMapDatabaseHelper", "insertStairPairsFromXml");
         insertFromXml();
         Log.w("StairMapDatabaseHelper", "insertStairPairsFromXml OK");
@@ -55,7 +55,7 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        database.execSQL(StairPairDAO.DROP_TABLE);
+        database.execSQL(StairPairDAO_old.DROP_TABLE);
         onCreate(db);
     }
 
@@ -80,7 +80,7 @@ public class StairMapDatabaseHelper extends SQLiteOpenHelper {
                     break;
             }
         }
-        StairPairDAO dao = new StairPairDAO(mainActivity);
+        StairPairDAO_old dao = new StairPairDAO_old(mainActivity);
         for (StairPair item : stairPairs)
             dao.insert(item);
     }

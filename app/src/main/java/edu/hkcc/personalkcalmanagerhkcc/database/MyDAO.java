@@ -1,4 +1,4 @@
-package edu.hkcc.personalkcalmanagerhkcc.database.stair;
+package edu.hkcc.personalkcalmanagerhkcc.database;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -10,28 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairMapDatabaseHelper;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPair;
+import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPairDAO_old;
 
 /**
  * Created by beenotung on 2/3/15.
  */
 public class MyDAO extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "powerful_stair.db";
-    public static final String TABLE_STAIR_PAIR = "stair_pair";
-    public static final String TABLE_DROP_STAIR_PAIR = "DROP TABLE IF EXISTS " + TABLE_STAIR_PAIR;
-    public static final String TABLE_STAIR_PAIR_COL_ID = StairPair.ID_COL;
-    public static final String TABLE_STAIR_PAIR_COL_UP_CODE = StairPair.UP_CODE_COL;
-    public static final String TABLE_STAIR_PAIR_COL_DOWN_CODE = StairPair.DOWN_CODE_COL;
-    public static final String TABLE_STAIR_PAIR_COL_DISTANCE = StairPair.DISTANCE_COL;
-    public static final String[] TABLE_STAIR_PAIR_COLUMNS = {TABLE_STAIR_PAIR_COL_ID, TABLE_STAIR_PAIR_COL_UP_CODE, TABLE_STAIR_PAIR_COL_DOWN_CODE, TABLE_STAIR_PAIR_COL_DISTANCE};
-    public static final String TABLE_CREATE_STAIR_PAIR =
-            "CREATE TABLE IF NOT EXISTS " + TABLE_STAIR_PAIR + " (" +
-                    TABLE_STAIR_PAIR_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    TABLE_STAIR_PAIR_COL_UP_CODE + " TEXT NOT NULL, " +
-                    TABLE_STAIR_PAIR_COL_DOWN_CODE + " TEXT NOT NULL, " +
-                    TABLE_STAIR_PAIR_COL_DISTANCE + " REAL NOT NULL)";
+
     public static int VERSION = 1;
     public MainActivity mainActivity;
     public SQLiteDatabase database = getWritableDatabase();
@@ -61,6 +51,19 @@ public class MyDAO extends SQLiteOpenHelper {
         insertStairPairsFromXml();
     }
 
+    public static final String TABLE_STAIR_PAIR = "stair_pair";
+    public static final String TABLE_DROP_STAIR_PAIR = "DROP TABLE IF EXISTS " + TABLE_STAIR_PAIR;
+    public static final String TABLE_STAIR_PAIR_COL_ID = StairPair.ID_COL;
+    public static final String TABLE_STAIR_PAIR_COL_UP_CODE = StairPair.UP_CODE_COL;
+    public static final String TABLE_STAIR_PAIR_COL_DOWN_CODE = StairPair.DOWN_CODE_COL;
+    public static final String TABLE_STAIR_PAIR_COL_DISTANCE = StairPair.DISTANCE_COL;
+    public static final String[] TABLE_STAIR_PAIR_COLUMNS = {TABLE_STAIR_PAIR_COL_ID, TABLE_STAIR_PAIR_COL_UP_CODE, TABLE_STAIR_PAIR_COL_DOWN_CODE, TABLE_STAIR_PAIR_COL_DISTANCE};
+    public static final String TABLE_CREATE_STAIR_PAIR =
+            "CREATE TABLE IF NOT EXISTS " + TABLE_STAIR_PAIR + " (" +
+                    TABLE_STAIR_PAIR_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    TABLE_STAIR_PAIR_COL_UP_CODE + " TEXT NOT NULL, " +
+                    TABLE_STAIR_PAIR_COL_DOWN_CODE + " TEXT NOT NULL, " +
+                    TABLE_STAIR_PAIR_COL_DISTANCE + " REAL NOT NULL)";
     public synchronized void insertStairPairsFromXml() {
         String[] rawStrings =
                 mainActivity.getResources().getStringArray(R.array.stair_pair_string_array);
@@ -83,7 +86,7 @@ public class MyDAO extends SQLiteOpenHelper {
                     break;
             }
         }
-        StairPairDAO dao = new StairPairDAO(mainActivity);
+        StairPairDAO_old dao = new StairPairDAO_old(mainActivity);
         for (StairPair item : stairPairs)
             insertStairPair(item);
     }

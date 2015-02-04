@@ -88,8 +88,9 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_scanner.xml -->
     <eat-comment/>
-    <string name="prompt_first_scan">OK! Move On @v@</string>
-    <string name="prompt_second_scan">OK! Recorded ;-></string>
+    <string name="prompt_first_scan_success">OK! Move On @v@</string>
+    <string name="prompt_scan_error">Emm... Try again ^^;</string>
+    <string name="prompt_second_scan_success">OK! Recorded ;-></string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="scan">Scan</string>

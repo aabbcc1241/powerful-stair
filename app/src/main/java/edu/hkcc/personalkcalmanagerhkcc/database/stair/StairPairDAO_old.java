@@ -13,7 +13,7 @@ import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 /**
  * Created by beenotung on 1/17/15.
  */
-public class StairPairDAO extends StairPair {
+public class StairPairDAO_old extends StairPair {
     public static final String TABLE_NAME = "stair_pair";
 
     public static final String CREATE_TABLE =
@@ -26,7 +26,7 @@ public class StairPairDAO extends StairPair {
     private final MainActivity mainActivity;
     protected List<StairPair> stairPairs = null;
 
-    public StairPairDAO(MainActivity mainActivity) {
+    public StairPairDAO_old(MainActivity mainActivity) {
         super();
         this.mainActivity = mainActivity;
     }

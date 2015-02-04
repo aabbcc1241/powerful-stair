@@ -2,7 +2,7 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.MyDAO;
+import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
 import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPair;
 
 import android.app.Activity;
@@ -32,8 +32,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     /* my vars */
     public static boolean inited = false;
     public static MainActivity currentActivity = null;
-
-
+    private final int MAX_TRY_COUNT = 5;
     /* nfc */
     public Resources res;
     public String[] navigation_drawer_titles;
@@ -61,15 +60,13 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnEx_webView;
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
-
     // database stuff
     //StairMapDatabaseHelper stairMapDatabaseHelper;
     //public StairMapItemDAO stairMapItemDAO;
     public MyDAO myDAO;
+    public boolean scanning = false;
     protected StairCode firstStairCode = null;
     protected StairCode secondStairCode = null;
-
-
     /**
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
@@ -80,6 +77,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
      * {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    private int scanTryCount = 0;
 
     private void initvar() {
         if (inited)
@@ -195,18 +193,24 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void receiveStairCode(StairCode stairCode) {
-        Log.w("Main", "receive Stair Code");
-        if (firstStairCode == null)
-            firstStairCode = stairCode;
-        else {
-            secondStairCode = stairCode;
-        }
-        //Utils.showToast(this, "OK!");
-        //databaseTest(stairCode);
+        scanning = false;
+        scanTryCount++;
+        Log.w("Main", "receive Stair Code: " + stairCode.code);
+        Log.w("Main", "scanTryCount: " + scanTryCount);
         if (myDAO.isStairCodeExist(stairCode.code))
-            Utils.showToast(this, "exist");
-        else
-            Utils.showToast(this, "not exist");
+            if (firstStairCode == null) {
+                firstStairCode = stairCode;
+                Utils.showToast(this, getString(R.string.prompt_first_scan_success));
+            } else {
+                secondStairCode = stairCode;
+                Utils.showToast(this, getString(R.string.prompt_second_scan_success));
+            }
+        else {
+            Utils.showToast(this, getString(R.string.prompt_scan_error));
+            if (scanTryCount <= MAX_TRY_COUNT) scanQRCode();
+        }
+        scanTryCount = 0;
+        //databaseTest(stairCode);
     }
 
     private void databaseTest(StairCode stairCode) {
@@ -286,6 +290,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     public void scanQRCode() {
         Log.w("QR", "to scan");
+        scanning = true;
         Intent intent = new Intent(this, ScanActivity.class);
         startActivityForResult(intent, 1);
     }
