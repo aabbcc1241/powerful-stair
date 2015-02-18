@@ -1,0 +1,7 @@
+<resources>
+
+
+    <dimen name="energycal_colume_margin">5dp</dimen>
+    <color name="energycal_space_color">#999</color>
+
+</resources>

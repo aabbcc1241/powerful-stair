@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scan_page_desc">Launching Bardcode Scanner</string>
+    <string name="action_scan_desc">Loading Scanner...</string>
+    <string name="button_text">Scan</string>
+    <string name="title_activity_scan">Scan QR Label</string>
+    <string name="prompt_first_scan_success">OK! Move On @v@</string>
+    <string name="prompt_second_scan_success">OK! Recorded ;-></string>
+    <string name="prompt_scan_error">Emm... Try again ^^;</string>
+</resources>

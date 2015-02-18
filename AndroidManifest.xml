@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.demonew"
+    package="edu.hkcc.personalkcalmanagerhkcc"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -8,39 +8,31 @@
         android:minSdkVersion="16"
         android:targetSdkVersion="19" />
 
+    <uses-feature android:name="android.hardware.nfc" />
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".StartScreenActivity"
-            android:label="@string/app_name" >
+            android:name=".MainActivity"
+            android:alwaysRetainTaskState="true"
+            android:label="@string/app_name"
+            android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".MenuMainActivity"
-            android:label="@string/title_activity_menu_main" >
-        </activity>
-        <activity
-            android:name=".EnergyCalculatorActivity"
-            android:label="@string/title_activity_energy_calculator" >
-        </activity>
-        <activity
-            android:name=".WalkOnHkccStairActivity"
-            android:label="@string/title_activity_walk_on_hkcc_stair" >
-        </activity>
-        <activity
-            android:name=".MyRecordActivity"
-            android:label="@string/title_activity_my_record" >
-        </activity>
-        <activity
-            android:name=".DatePickActionBarActivity"
-            android:label="@string/title_activity_date_pick_action_bar" >
+            <intent-filter>
+                <action android:name="android.nfc.action.TAG_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
     </application>
 
