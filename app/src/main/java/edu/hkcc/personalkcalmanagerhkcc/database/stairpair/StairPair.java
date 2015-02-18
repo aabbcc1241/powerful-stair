@@ -1,6 +1,4 @@
-package edu.hkcc.personalkcalmanagerhkcc.database.stair;
-
-import android.util.Log;
+package edu.hkcc.personalkcalmanagerhkcc.database.stairpair;
 
 /**
  * Created by beenotung on 1/17/15.

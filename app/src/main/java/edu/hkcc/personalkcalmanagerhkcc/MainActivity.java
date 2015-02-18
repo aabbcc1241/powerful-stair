@@ -1,9 +1,8 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.Utils;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairCode;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPair;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -200,6 +199,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             } else {
                 secondStairCode = stairCode;
                 Utils.showToast(this, getString(R.string.prompt_second_scan_success));
+                //TODO save record
+                firstStairCode=null;
             }
         else {
             Utils.showToast(this, getString(R.string.prompt_scan_error));

@@ -1,15 +1,13 @@
-package edu.hkcc.personalkcalmanagerhkcc.database.stair;
+package edu.hkcc.personalkcalmanagerhkcc.database.stairpair;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;
 import edu.hkcc.personalkcalmanagerhkcc.database.DAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;

@@ -8,12 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 
-import edu.hkcc.myutils.Utils;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairCode;
 
 
 public class ScanActivity extends Activity {

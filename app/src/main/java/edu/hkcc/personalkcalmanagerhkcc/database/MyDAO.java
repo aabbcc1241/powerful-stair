@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPairDAOItem;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPairDAOItem;
 
 /**
  * Created by beenotung on 2/3/15.
