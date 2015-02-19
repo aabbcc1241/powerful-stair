@@ -16,9 +16,11 @@ import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
  * Created by beenotung on 2/4/15.
  */
 public class StairPairDAOItem implements DAOItem<StairPair> {
-    public static final String TABLE_COL_UP_CODE = StairPair.UP_CODE_COL;
-    public static final String TABLE_COL_DOWN_CODE = StairPair.DOWN_CODE_COL;
-    public static final String TABLE_COL_DISTANCE = StairPair.DISTANCE_COL;
+    public static final String TABLE_COL_ID = "stair_pair_id";
+    public static final String TABLE_COL_UP_CODE = "up_code";
+    public static final String TABLE_COL_DOWN_CODE = "down_code";
+    public static final String TABLE_COL_DISTANCE = "distance";
+    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_DISTANCE};
     public static StairPairDAOItem static_ = new StairPairDAOItem(null);
     private final MyDAO myDAO;
 
@@ -33,12 +35,12 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
 
     @Override
     public String getTableColId() {
-        return StairPair.ID_COL;
+        return TABLE_COL_ID;
     }
 
     @Override
     public String[] getTableColumns() {
-        return new String[]{getTableColId(), TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_DISTANCE};
+        return COLUMNS;
     }
 
     @Override
@@ -66,6 +68,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
     }
+
     public synchronized boolean isStairCodeExist(String code) {
         List<StairPair> list = getAll();
         for (StairPair item : list) {
