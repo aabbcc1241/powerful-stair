@@ -79,7 +79,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
     }
 
     @Override
-    public void insertFromXml() {
+    public void insertDefaultData() {
         String[] rawStrings =
                 myDAO.mainActivity.getResources().getStringArray(R.array.stair_pair_string_array);
         Vector<StairPair> stairPairs = new Vector<>();

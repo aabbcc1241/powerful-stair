@@ -13,14 +13,14 @@ import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
 /**
  * Created by beenotung on 2/19/15.
  */
-public class UserInfoDAO implements DAOItem<UserInfo> {
+public class UserInfoDAOItem implements DAOItem<UserInfo> {
     public static final String TABLE_COL_NAME = "var_name";
     public static final String TABLE_COL_VALUE = "var_value";
     public static final String[] COLUMNS = {TABLE_COL_NAME, TABLE_COL_VALUE};
-    public static UserInfoDAO static_ = new UserInfoDAO(null);
+    public static UserInfoDAOItem static_ = new UserInfoDAOItem(null);
     private final MyDAO myDAO;
 
-    public UserInfoDAO(MyDAO myDAO) {
+    public UserInfoDAOItem(MyDAO myDAO) {
         this.myDAO = myDAO;
     }
 
@@ -53,14 +53,11 @@ public class UserInfoDAO implements DAOItem<UserInfo> {
 
     @Override
     public void insert(UserInfo item) {
-        ContentValues contentValues = new ContentValues();
-
-        contentValues.put(TABLE_COL_NAME, item.up_code);
-        contentValues.put(TABLE_COL_VALUE, item.down_code);
-        contentValues.put(TABLE_COL_DISTANCE, item.distance);
-
-        long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
-        item.id = id;
+        insert(item.name);
+        insert(item.age);
+        insert(item.height);
+        insert(item.weight);
+        insert(item.bmi);
     }
 
     public void insert(ContentPair item) {
@@ -73,8 +70,8 @@ public class UserInfoDAO implements DAOItem<UserInfo> {
     }
 
     @Override
-    public void insertFromXml() {
-
+    public void insertDefaultData() {
+        insert(new UserInfo());
     }
 
     @Override

@@ -5,18 +5,21 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPairDAOItem;
+import edu.hkcc.personalkcalmanagerhkcc.database.userinfo.UserInfoDAOItem;
 
 /**
  * Created by beenotung on 2/3/15.
  */
 public class MyDAO extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "powerful_stair.db";
-
     public static int VERSION = 1;
+
     public MainActivity mainActivity;
     public SQLiteDatabase database = getWritableDatabase();
 
-    public StairPairDAOItem stairPairDAOItem=new StairPairDAOItem(this);
+    //MY DAO
+    public StairPairDAOItem stairPairDAOItem = new StairPairDAOItem(this);
+    public UserInfoDAOItem userInfoDAOItem = new UserInfoDAOItem(this);
 
     public MyDAO(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
         super(mainActivity, DATABASE_NAME, factory, VERSION);
@@ -34,6 +37,7 @@ public class MyDAO extends SQLiteOpenHelper {
 
     private void createTables(SQLiteDatabase db) {
         db.execSQL(stairPairDAOItem.getTableCreate());
+        db.execSQL(userInfoDAOItem.getTableCreate());
     }
 
     @Override
@@ -45,6 +49,7 @@ public class MyDAO extends SQLiteOpenHelper {
 
     public void dropTables(SQLiteDatabase db) {
         db.execSQL(stairPairDAOItem.getTableDrop());
+        //db.execSQL(userInfoDAOItem.getTableDrop());
     }
 
     public synchronized void myInit() {
@@ -52,8 +57,6 @@ public class MyDAO extends SQLiteOpenHelper {
     }
 
     public void insertFromXml() {
-        stairPairDAOItem.insertFromXml();
+        stairPairDAOItem.insertDefaultData();
     }
-
-
 }
