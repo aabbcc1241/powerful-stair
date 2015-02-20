@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import edu.hkcc.personalkcalmanagerhkcc.database.ContentPair;
@@ -75,17 +76,48 @@ public class UserInfoDAOItem implements DAOItem<UserInfo> {
     }
 
     @Override
+    @Deprecated
     public int getCount() {
-        return 0;
+        Cursor cursor = myDAO.database.rawQuery("select count (*) from " + getTableName(), null);
+        if (!cursor.moveToFirst())
+            return 0;
+        else
+            return cursor.getInt(0);
     }
 
     @Override
+    @Deprecated
     public List<UserInfo> getAll() {
-        return null;
+        List<UserInfo> result = new ArrayList<>();
+        Cursor cursor = myDAO.database.query(getTableName(), null, null, null, null, null, null);
+        while (cursor.moveToNext())
+            result.add(getItemRecord(cursor));
+        cursor.close();
+        return result;
     }
 
     @Override
+    @Deprecated
     public UserInfo getItemRecord(Cursor cursor) {
         return null;
+    }
+
+    protected ContentPair getContentPairRecord(Cursor cursor) {
+        ContentPair result = new ContentPair(cursor.getString(0));
+        result.value = cursor.getString(1);
+        return result;
+    }
+
+    public UserInfo getUserInfo(){
+        List<ContentPair> contentPairs = new ArrayList<>();
+        Cursor cursor = myDAO.database.query(getTableName(), null, null, null, null, null, null);
+        while (cursor.moveToNext())
+            contentPairs.add(getContentPairRecord(cursor));
+        cursor.close();
+
+        UserInfo result=new UserInfo();
+        result.name=get
+
+        return result;
     }
 }
