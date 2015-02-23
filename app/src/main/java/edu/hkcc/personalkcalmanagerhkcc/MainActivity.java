@@ -1,11 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import edu.hkcc.myutils.Utils;
-import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairCode;
-import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
-
-import android.app.Activity;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -14,17 +10,21 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.support.v4.widget.DrawerLayout;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
+
+import edu.hkcc.myutils.Utils;
+import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairCode;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -81,6 +81,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         if (inited)
             return;
         res = getResources();
+
+        //database
+        //stairMapItemDAO = new StairMapItemDAO(this);
+        //stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
+        //stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
+        myDAO = new MyDAO(this);
+        myDAO.myInit();
+
         // layout
         navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
         placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
@@ -91,13 +99,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         energyCalFragment = new EnergyCalFragment(this);
         tipsOnExFragment = new TipsOnExFragment(this);
         tipsOnNutritionFragment = new TipsOnNutritionFragment(this);
-
-        //database
-        //stairMapItemDAO = new StairMapItemDAO(this);
-        //stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
-        //stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
-        myDAO = new MyDAO(this);
-        myDAO.myInit();
 
         inited = true;
     }
@@ -203,7 +204,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 secondStairCode = stairCode;
                 Utils.showToast(this, getString(R.string.prompt_second_scan_success));
                 //TODO save record
-                firstStairCode=null;
+                firstStairCode = null;
             }
         else {
             Utils.showToast(this, getString(R.string.prompt_scan_error));

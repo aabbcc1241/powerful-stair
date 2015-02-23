@@ -36,8 +36,8 @@ public class MyDAO extends SQLiteOpenHelper {
     }
 
     private void createTables(SQLiteDatabase db) {
-        db.execSQL(stairPairDAOItem.getTableCreate());
-        db.execSQL(userInfoDAOItem.getTableCreate());
+        db.execSQL(StairPairDAOItem.static_.getTableCreate());
+        db.execSQL(UserInfoDAOItem.static_.getTableCreate());
     }
 
     @Override
@@ -48,15 +48,15 @@ public class MyDAO extends SQLiteOpenHelper {
     }
 
     public void dropTables(SQLiteDatabase db) {
-        db.execSQL(stairPairDAOItem.getTableDrop());
+        db.execSQL(StairPairDAOItem.static_.getTableDrop());
         //db.execSQL(userInfoDAOItem.getTableDrop());
     }
 
     public synchronized void myInit() {
-        insertFromXml();
+        insertDefaultData();
     }
 
-    public void insertFromXml() {
+    public void insertDefaultData() {
         stairPairDAOItem.insertDefaultData();
     }
 }
