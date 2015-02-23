@@ -24,7 +24,7 @@ public class UserInfo {
         this.age.value = String.valueOf(age);
         this.height.value = String.valueOf(height);
         this.weight.value = String.valueOf(weight);
-        this.bmi.value = String.valueOf(Maths.getBmi(height, weight));
+        updateBmi();
     }
 
 
@@ -61,10 +61,11 @@ public class UserInfo {
     }
 
     public float getBmi() {
+        updateBmi();
         return Float.parseFloat(bmi.value);
     }
 
-    public void setBmi(float bmi) {
-        this.bmi.value = String.valueOf(bmi);
+    public void updateBmi() {
+        bmi.value = String.valueOf(Maths.getBmi(getHeight(), getWeight()));
     }
 }

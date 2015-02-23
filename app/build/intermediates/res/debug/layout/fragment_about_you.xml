@@ -66,7 +66,7 @@
             android:id="@+id/aboutYou_userweight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutYou_userweight_label" />
+            android:text="@string/aboutYou_userweight_label_kg" />
 
         <EditText
             android:id="@+id/aboutYou_editText_userweight"

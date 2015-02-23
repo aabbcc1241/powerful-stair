@@ -88,12 +88,7 @@ public class UserInfoDAOItem implements DAOItem<UserInfo> {
     @Override
     @Deprecated
     public List<UserInfo> getAll() {
-        List<UserInfo> result = new ArrayList<>();
-        Cursor cursor = myDAO.database.query(getTableName(), null, null, null, null, null, null);
-        while (cursor.moveToNext())
-            result.add(getItemRecord(cursor));
-        cursor.close();
-        return result;
+        return null;
     }
 
     @Override
@@ -102,22 +97,38 @@ public class UserInfoDAOItem implements DAOItem<UserInfo> {
         return null;
     }
 
+    public List<ContentPair> getContentPairs() {
+        List<ContentPair> result = new ArrayList<>();
+        Cursor cursor = myDAO.database.query(getTableName(), null, null, null, null, null, null);
+        while (cursor.moveToNext())
+            result.add(getContentPairRecord(cursor));
+        cursor.close();
+        return result;
+    }
+
     protected ContentPair getContentPairRecord(Cursor cursor) {
         ContentPair result = new ContentPair(cursor.getString(0));
         result.value = cursor.getString(1);
         return result;
     }
 
-    public UserInfo getUserInfo() {
-        List<ContentPair> contentPairs = new ArrayList<>();
-        Cursor cursor = myDAO.database.query(getTableName(), null, null, null, null, null, null);
-        while (cursor.moveToNext())
-            contentPairs.add(getContentPairRecord(cursor));
-        cursor.close();
-
-        UserInfo result = new UserInfo();
-        result.name = get
-
-        return result;
+    public void getContentValue(List<ContentPair> contentPairs, ContentPair contentPair) {
+        for (ContentPair iContentPair : contentPairs)
+            if (contentPair.name == iContentPair.name)
+                contentPair.value = iContentPair.value;
     }
+
+    public UserInfo getUserInfo() {
+        List<ContentPair> contentPairs = getContentPairs();
+
+        UserInfo userInfo = new UserInfo();
+        getContentValue(contentPairs, userInfo.name);
+        getContentValue(contentPairs, userInfo.age);
+        getContentValue(contentPairs, userInfo.height);
+        getContentValue(contentPairs, userInfo.weight);
+        getContentValue(contentPairs, userInfo.bmi);
+
+        return userInfo;
+    }
+
 }
