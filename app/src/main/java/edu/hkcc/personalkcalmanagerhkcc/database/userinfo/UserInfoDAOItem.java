@@ -108,15 +108,15 @@ public class UserInfoDAOItem implements DAOItem<UserInfo> {
         return result;
     }
 
-    public UserInfo getUserInfo(){
+    public UserInfo getUserInfo() {
         List<ContentPair> contentPairs = new ArrayList<>();
         Cursor cursor = myDAO.database.query(getTableName(), null, null, null, null, null, null);
         while (cursor.moveToNext())
             contentPairs.add(getContentPairRecord(cursor));
         cursor.close();
 
-        UserInfo result=new UserInfo();
-        result.name=get
+        UserInfo result = new UserInfo();
+        result.name = get
 
         return result;
     }

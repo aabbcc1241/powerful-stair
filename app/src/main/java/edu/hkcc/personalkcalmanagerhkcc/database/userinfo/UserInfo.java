@@ -12,15 +12,51 @@ public class UserInfo {
     public ContentPair weight = new ContentPair("Weight");
     public ContentPair bmi = new ContentPair("BMI");
 
-    public UserInfo(String name,float age,float height,float weight,float bmi) {
-        this.name.value=name;
-        this.age.value= String.valueOf(age);
-        this.height.value= String.valueOf(height);
-        this.weight.value=String.valueOf(weight);
-        this.bmi.value=String.valueOf(bmi);
+    public UserInfo(String name, float age, float height, float weight, float bmi) {
+        this.name.value = name;
+        this.age.value = String.valueOf(age);
+        this.height.value = String.valueOf(height);
+        this.weight.value = String.valueOf(weight);
+        this.bmi.value = String.valueOf(bmi);
     }
-    public String getName(){
+
+    public String getName() {
         return name.value;
     }
-    public
+
+    public void setName(String name) {
+        this.name.value = name;
+    }
+
+    public float getAge() {
+        return Float.parseFloat(age.value);
+    }
+
+    public void setAge(float age) {
+        this.age.value = String.valueOf(age);
+    }
+
+    public float getHeight() {
+        return Float.parseFloat(height.value);
+    }
+
+    public void setHeight(float height) {
+        this.height.value = String.valueOf(height);
+    }
+
+    public float getWeight() {
+        return Float.parseFloat(weight.value);
+    }
+
+    public void setWeight(float weight) {
+        this.weight.value = String.valueOf(weight);
+    }
+
+    public float getBmi() {
+        return Float.parseFloat(bmi.value);
+    }
+
+    public void setBmi(float bmi) {
+        this.bmi.value = String.valueOf(bmi);
+    }
 }
