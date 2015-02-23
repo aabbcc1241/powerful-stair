@@ -15,7 +15,7 @@ public class AboutYouFragment implements MyFragment {
     private final UserInfoDAOItem userInfoDAOItem;
     protected String name;
     protected float height, weight, bmi;
-    protected float heightUnit,weightUnit;
+    protected float heightUnit, weightUnit;
     protected int age;
     private MainActivity mainActivity;
 
@@ -45,11 +45,15 @@ public class AboutYouFragment implements MyFragment {
         boolean allFilled = true;
         String temp;
         temp = mainActivity.aboutYou_editText_userheight.getText().toString();
-        if (allFilled &= (allFilled &= temp.length() > 0))
-            height = Float.valueOf(temp);
+        if (allFilled &= temp.length() > 0)
+            height = Float.parseFloat(temp);
+        else
+            height = 0f;
         temp = mainActivity.aboutYou_editText_userweight.getText().toString();
-        if (allFilled &= (allFilled &= temp.length() > 0))
-            weight = Float.valueOf(temp);
+        if (allFilled &= temp.length() > 0)
+            weight = Float.parseFloat(temp);
+        else
+            weight = 0f;
         return allFilled;
     }
 
@@ -62,13 +66,13 @@ public class AboutYouFragment implements MyFragment {
         mainActivity.aboutYou_userweight_label
                 .setText(weightUnit == 1 ? R.string.aboutYou_userweight_label_kg
                         : R.string.aboutYou_userweight_label_lbs);
-        bmi = Maths.getBmi(height,weight);
+        bmi = Maths.getBmi(height, weight);
         mainActivity.aboutYou_editText_userbmi.setText(String.valueOf(bmi));
     }
 
     @Override
     public void loadContent() {
         //TODO
-        UserInfo userInfo=userInfoDAOItem.getUserInfo();
+        UserInfo userInfo = userInfoDAOItem.getUserInfo();
     }
 }
