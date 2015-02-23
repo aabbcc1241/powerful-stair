@@ -48,6 +48,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // about you
     public Button aboutYou_button_calcuateBmi;
     public TextView aboutYou_userheight_label;
+    public TextView aboutYou_userweight_label;
     public EditText aboutYou_editText_username;
     public EditText aboutYou_editText_userage;
     public EditText aboutYou_editText_userheight;
@@ -143,6 +144,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             aboutYou_editText_userbmi = (EditText) findViewById(R.id.aboutYou_editText_userbmi);
         if (findViewById(R.id.aboutYou_userheight_label) != null)
             aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
+        if (findViewById(R.id.aboutYou_userweight_label) != null)
+            aboutYou_userweight_label = (TextView) findViewById(R.id.aboutYou_userweight_label);
     }
 
     private void initSection_energyCal() {

@@ -5,7 +5,8 @@
     <string name="aboutYou_userage_label">Age:</string>
     <string name="aboutYou_userheight_label_m">Height(m):</string>
     <string name="aboutYou_userheight_label_cm">Height(cm):</string>
-    <string name="aboutYou_userweight_label">Weight(kg):</string>
+    <string name="aboutYou_userweight_label_kg">Weight(kg):</string>
+    <string name="aboutYou_userweight_label_lbs">Weight(lbs):</string>
     <string name="aboutYou_bmi_label">BMI:</string>
     <string name="aboutYou_bmi_calc">Calcuate BMI</string>
     <string name="aboutYou_calculating">Saved~ Add oil! \\^0^/</string>
