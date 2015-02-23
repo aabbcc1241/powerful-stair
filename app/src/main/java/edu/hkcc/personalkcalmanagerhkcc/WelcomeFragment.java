@@ -1,10 +1,10 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import edu.hkcc.myutils.Utils;
-
 import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
+
+import edu.hkcc.myutils.Utils;
 
 public class WelcomeFragment {
     private MainActivity mainActivity;

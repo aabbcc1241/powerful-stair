@@ -54,8 +54,8 @@ public class ScanActivity extends Activity {
         if (resultCode == RESULT_OK) {
             String contents = data.getStringExtra("SCAN_RESULT");
             String format = data.getStringExtra("SCAN_RESULT_FORMAT");
-            Log.w("QR", "content: "+contents);
-            Log.w("QR", "format: "+format);
+            Log.w("QR", "content: " + contents);
+            Log.w("QR", "format: " + format);
             // Handle successful scan
             StairCode stairCode = new StairCode(contents, format);
             MainActivity.currentActivity.receiveStairCode(stairCode);
