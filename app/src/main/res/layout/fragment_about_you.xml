@@ -32,7 +32,7 @@
             android:id="@+id/aboutYou_userage_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutYou_userage_label" />
+            android:text="@string/aboutYou_userAge_label" />
 
         <EditText
             android:id="@+id/aboutYou_editText_userage"
@@ -49,7 +49,7 @@
             android:id="@+id/aboutYou_userheight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutYou_userheight_label_m" />
+            android:text="@string/aboutYou_userHeight_label_m" />
 
         <EditText
             android:id="@+id/aboutYou_editText_userheight"
@@ -66,7 +66,7 @@
             android:id="@+id/aboutYou_userweight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutYou_userweight_label_kg" />
+            android:text="@string/aboutYou_userWeight_label_kg" />
 
         <EditText
             android:id="@+id/aboutYou_editText_userweight"
@@ -102,7 +102,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:editable="false">
+            android:focusable="false"
+            android:focusableInTouchMode="false">
         </EditText>
     </TableRow>
 

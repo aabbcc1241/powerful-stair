@@ -35,7 +35,7 @@ public class AboutYouFragment implements MyFragment {
                     calcBmi();
                 } else {
                     Utils.showToast(myContext,
-                            R.string.aboutYou_pleasefillallinfo);
+                            R.string.aboutYou_pleaseFillAllInfo);
                 }
             }
         };
@@ -60,12 +60,12 @@ public class AboutYouFragment implements MyFragment {
     protected void calcBmi() {
         heightUnit = height < 100 ? 1 : 0.01f;
         mainActivity.aboutYou_userheight_label
-                .setText(heightUnit == 1 ? R.string.aboutYou_userheight_label_m
-                        : R.string.aboutYou_userheight_label_cm);
+                .setText(heightUnit == 1 ? R.string.aboutYou_userHeight_label_m
+                        : R.string.aboutYou_userHeight_label_cm);
         weightUnit = weight < 120 ? 1 : 0.453592f;
         mainActivity.aboutYou_userweight_label
-                .setText(weightUnit == 1 ? R.string.aboutYou_userweight_label_kg
-                        : R.string.aboutYou_userweight_label_lbs);
+                .setText(weightUnit == 1 ? R.string.aboutYou_userWeight_label_kg
+                        : R.string.aboutYou_userWeight_label_lbs);
         bmi = Maths.getBmi(height, weight);
         mainActivity.aboutYou_editText_userbmi.setText(String.valueOf(bmi));
     }

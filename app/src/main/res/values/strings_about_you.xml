@@ -2,14 +2,14 @@
 <resources>
 
     <string name="aboutYou_username_label">Name:</string>
-    <string name="aboutYou_userage_label">Age:</string>
-    <string name="aboutYou_userheight_label_m">Height(m):</string>
-    <string name="aboutYou_userheight_label_cm">Height(cm):</string>
-    <string name="aboutYou_userweight_label_kg">Weight(kg):</string>
-    <string name="aboutYou_userweight_label_lbs">Weight(lbs):</string>
+    <string name="aboutYou_userAge_label">Age:</string>
+    <string name="aboutYou_userHeight_label_m">Height(m):</string>
+    <string name="aboutYou_userHeight_label_cm">Height(cm):</string>
+    <string name="aboutYou_userWeight_label_kg">Weight(kg):</string>
+    <string name="aboutYou_userWeight_label_lbs">Weight(lbs):</string>
     <string name="aboutYou_bmi_label">BMI:</string>
-    <string name="aboutYou_bmi_calc">Calcuate BMI</string>
+    <string name="aboutYou_bmi_calc">update</string>
     <string name="aboutYou_calculating">Saved~ Add oil! \\^0^/</string>
-    <string name="aboutYou_pleasefillallinfo">Please fill your body status above ~</string>
+    <string name="aboutYou_pleaseFillAllInfo">Please fill your body status above ~</string>
 
 </resources>
