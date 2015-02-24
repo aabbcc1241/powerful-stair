@@ -13,6 +13,7 @@ public class EnergyCalFragment implements MyFragment {
             .getSectionNum(R.layout.fragment_energy_cal);
     private MainActivity mainActivity;
     private int calAccum;
+    private boolean shown = false;
 
     public EnergyCalFragment(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -67,5 +68,10 @@ public class EnergyCalFragment implements MyFragment {
     public void loadContent() {
         // TODO Auto-generated method stub
         // showRecord();
+    }
+
+    @Override
+    public boolean isShown() {
+        return shown;
     }
 }

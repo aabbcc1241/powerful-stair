@@ -8,7 +8,8 @@
     <string name="aboutYou_userWeight_label_kg">Weight(kg):</string>
     <string name="aboutYou_userWeight_label_lbs">Weight(lbs):</string>
     <string name="aboutYou_bmi_label">BMI:</string>
-    <string name="aboutYou_bmi_calc">update</string>
+    <string name="aboutYou_load">load</string>
+    <string name="aboutYou_update">update</string>
     <string name="aboutYou_calculating">Saved~ Add oil! \\^0^/</string>
     <string name="aboutYou_pleaseFillAllInfo">Please fill your body status above ~</string>
 

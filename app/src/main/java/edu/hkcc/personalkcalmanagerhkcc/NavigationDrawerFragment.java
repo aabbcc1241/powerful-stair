@@ -57,6 +57,7 @@ public class NavigationDrawerFragment extends Fragment {
     private View mFragmentContainerView;
     private boolean mFromSavedInstanceState;
     private boolean mUserLearnedDrawer;
+
     public NavigationDrawerFragment() {
     }
 
@@ -107,7 +108,7 @@ public class NavigationDrawerFragment extends Fragment {
         mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar().getThemedContext(),
                 android.R.layout.simple_list_item_activated_1, android.R.id.text1, navigation_drawer_titles));
         /*
-		 * mDrawerListView.setAdapter(new
+         * mDrawerListView.setAdapter(new
 		 * ArrayAdapter<String>(getActionBar().getThemedContext(),
 		 * android.R.layout.simple_list_item_activated_1, android.R.id.text1,
 		 * navigation_drawer_titles ));
@@ -119,7 +120,9 @@ public class NavigationDrawerFragment extends Fragment {
     public boolean isDrawerOpen() {
         return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(mFragmentContainerView);
     }
-
+public void openDrawer(){
+    mDrawerLayout.openDrawer(mFragmentContainerView);
+}
     /**
      * Users of this fragment must call this method to set up the navigation
      * drawer interactions.
@@ -146,11 +149,11 @@ public class NavigationDrawerFragment extends Fragment {
                 mDrawerLayout, /* DrawerLayout object */
                 R.drawable.ic_drawer, /* nav drawer image to replace 'Up' caret */
                 R.string.navigation_drawer_open, /*
-										 * "open drawer" description for
+                                         * "open drawer" description for
 										 * accessibility
 										 */
                 R.string.navigation_drawer_close /*
-										 * "close drawer" description for
+                                         * "close drawer" description for
 										 * accessibility
 										 */
         ) {

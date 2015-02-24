@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
@@ -46,7 +47,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // welcome
     public Button welcome_button_start;
     // about you
-    public Button aboutYou_button_calcuateBmi;
+    public Button aboutYou_button_load;
+    public Button aboutYou_button_update;
     public TextView aboutYou_userheight_label;
     public TextView aboutYou_userweight_label;
     public EditText aboutYou_editText_username;
@@ -77,7 +79,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private CharSequence mTitle;
     private int scanTryCount = 0;
 
-    private void initvar() {
+    private void initVar() {
         if (inited)
             return;
         res = getResources();
@@ -114,6 +116,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSections() {
+        initVar();
         initSection_welcome();
         initSection_aboutYou();
         initSection_energyCal();
@@ -122,31 +125,44 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSection_welcome() {
+        welcomeFragment.shown = true;
         if ((welcome_button_start = (Button) findViewById(R.id.welcome_button_start)) != null) {
             welcome_button_start.setOnClickListener(welcomeFragment
                     .welcome_button_start_OnClickListener(MainActivity.this));
-        }
+        } else welcomeFragment.shown = false;
     }
 
     private void initSection_aboutYou() {
-        if ((aboutYou_button_calcuateBmi = (Button) findViewById(R.id.aboutYou_button_calcuateBmi)) != null) {
-            aboutYou_button_calcuateBmi.setOnClickListener(aboutYouFragment
-                    .aboutYou_button_calcuateBmi(MainActivity.this));
-        }
+        aboutYouFragment.shown = true;
+        if ((aboutYou_button_load = (Button) findViewById(R.id.aboutYou_button_load)) != null) {
+            aboutYou_button_load.setOnClickListener(aboutYouFragment
+                    .aboutYou_button_load_onClickListener(MainActivity.this));
+        } else aboutYouFragment.shown = false;
+        if ((aboutYou_button_update = (Button) findViewById(R.id.aboutYou_button_update)) != null) {
+            aboutYou_button_update.setOnClickListener(aboutYouFragment
+                    .aboutYou_button_update_onClickListener(MainActivity.this));
+        } else aboutYouFragment.shown = false;
         if ((EditText) findViewById(R.id.aboutYou_editText_username) != null)
             aboutYou_editText_username = (EditText) findViewById(R.id.aboutYou_editText_username);
+        else aboutYouFragment.shown = false;
         if ((EditText) findViewById(R.id.aboutYou_editText_userage) != null)
             aboutYou_editText_userage = (EditText) findViewById(R.id.aboutYou_editText_userage);
+        else aboutYouFragment.shown = false;
         if ((EditText) findViewById(R.id.aboutYou_editText_userheight) != null)
             aboutYou_editText_userheight = (EditText) findViewById(R.id.aboutYou_editText_userheight);
+        else aboutYouFragment.shown = false;
         if ((EditText) findViewById(R.id.aboutYou_editText_userweight) != null)
             aboutYou_editText_userweight = (EditText) findViewById(R.id.aboutYou_editText_userweight);
+        else aboutYouFragment.shown = false;
         if ((EditText) findViewById(R.id.aboutYou_editText_userbmi) != null)
             aboutYou_editText_userbmi = (EditText) findViewById(R.id.aboutYou_editText_userbmi);
+        else aboutYouFragment.shown = false;
         if (findViewById(R.id.aboutYou_userheight_label) != null)
             aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
+        else aboutYouFragment.shown = false;
         if (findViewById(R.id.aboutYou_userweight_label) != null)
             aboutYou_userweight_label = (TextView) findViewById(R.id.aboutYou_userweight_label);
+        else aboutYouFragment.shown = false;
     }
 
     private void initSection_energyCal() {
@@ -170,12 +186,13 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void myInit() {
-        initvar();
+        initVar();
         initSections();
     }
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
+        Log.w("MainActivity", "onCreateView");
         initSections();
         return super.onCreateView(name, context, attrs);
     }
@@ -187,7 +204,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         setContentView(R.layout.activity_main);
         resolveIntent(getIntent());
 
-        initvar();
+        initVar();
         initDrawer();
     }
 
@@ -268,6 +285,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_settings:
+                settingsOnClick();
                 return true;
             case R.id.action_scan:
                 scanQRCode();
@@ -308,8 +326,21 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
 
-    public void checkPersonalInfo() {
-        //TODO if no weight, ask from BMI page
+    public void start(Context context) {
+        // method to open drawer
+                /*String msg;
+                if(mainActivity.firstStairCode!=null)
+                    msg=mainActivity.firstStairCode.code;
+                else
+                    msg="oops";
+                Utils.showToast(mainActivity,msg);*/
+        //mainActivity.switchSection(EnergyCalFragment.drawerPosition);
+        if(aboutYouFragment.isPersonalInfoFilled())
+        {Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
+        mNavigationDrawerFragment.openDrawer();}
+        else {switchSection(AboutYouFragment.drawerPosition);}
+    }
+    public void settingsOnClick(){
         switchSection(AboutYouFragment.drawerPosition);
     }
 }

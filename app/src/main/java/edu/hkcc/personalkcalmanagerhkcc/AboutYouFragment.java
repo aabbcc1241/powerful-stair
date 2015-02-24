@@ -13,6 +13,7 @@ public class AboutYouFragment implements MyFragment {
     public static int drawerPosition = ResLinker
             .getSectionNum(R.layout.fragment_about_you);
     private final UserInfoDAOItem userInfoDAOItem;
+    public boolean shown = false;
     protected String name;
     protected float height, weight, bmi;
     protected float heightUnit, weightUnit;
@@ -24,7 +25,24 @@ public class AboutYouFragment implements MyFragment {
         userInfoDAOItem = mainActivity.myDAO.userInfoDAOItem;
     }
 
-    public View.OnClickListener aboutYou_button_calcuateBmi(Context context) {
+    public View.OnClickListener aboutYou_button_load_onClickListener(Context context) {
+        final Context myContext = context;
+        return new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (allFilled()) {
+                    Utils.showToast(myContext, R.string.aboutYou_calculating);
+                    calcBmi();
+                } else {
+                    Utils.showToast(myContext,
+                            R.string.aboutYou_pleaseFillAllInfo);
+                }
+            }
+        };
+    }
+
+    public View.OnClickListener aboutYou_button_update_onClickListener(Context context) {
         final Context myContext = context;
         return new View.OnClickListener() {
 
@@ -74,5 +92,15 @@ public class AboutYouFragment implements MyFragment {
     public void loadContent() {
         //TODO
         UserInfo userInfo = userInfoDAOItem.getUserInfo();
+    }
+
+    @Override
+    public boolean isShown() {
+        return shown;
+    }
+
+    public boolean isPersonalInfoFilled() {
+        //TODO if no weight, ask from BMI page
+        return true;//false;
     }
 }

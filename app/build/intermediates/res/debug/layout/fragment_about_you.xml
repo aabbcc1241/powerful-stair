@@ -32,7 +32,7 @@
             android:id="@+id/aboutYou_userage_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutYou_userage_label" />
+            android:text="@string/aboutYou_userAge_label" />
 
         <EditText
             android:id="@+id/aboutYou_editText_userage"
@@ -49,7 +49,7 @@
             android:id="@+id/aboutYou_userheight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutYou_userheight_label_m" />
+            android:text="@string/aboutYou_userHeight_label_m" />
 
         <EditText
             android:id="@+id/aboutYou_editText_userheight"
@@ -66,7 +66,7 @@
             android:id="@+id/aboutYou_userweight_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/aboutYou_userweight_label_kg" />
+            android:text="@string/aboutYou_userWeight_label_kg" />
 
         <EditText
             android:id="@+id/aboutYou_editText_userweight"
@@ -77,16 +77,25 @@
         </EditText>
     </TableRow>
 
-    <FrameLayout>
-
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
         <Button
-            android:id="@+id/aboutYou_button_calcuateBmi"
+            android:id="@+id/aboutYou_button_load"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/aboutYou_bmi_calc"
+            android:text="@string/aboutYou_load"
             android:background="@drawable/button_bg_pink_1" />
-    </FrameLayout>
+        <Button
+            android:id="@+id/aboutYou_button_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/aboutYou_update"
+            android:background="@drawable/button_bg_pink_1" />
+    </LinearLayout>
 
     <TableRow>
 
@@ -102,7 +111,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="numberDecimal"
-            android:editable="false">
+            android:focusable="false"
+            android:focusableInTouchMode="false">
         </EditText>
     </TableRow>
 
