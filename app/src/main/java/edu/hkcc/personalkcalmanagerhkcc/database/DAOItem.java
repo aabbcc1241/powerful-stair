@@ -21,7 +21,8 @@ public interface DAOItem<ItemType> {
 
     public abstract void insert(ItemType item);
 
-    public abstract void insertFromXml();
+    public abstract void insertDefaultData();
+    //e.g. from xml
 
     public abstract int getCount();
 

@@ -1,4 +1,4 @@
-package edu.hkcc.personalkcalmanagerhkcc.database.stair;
+package edu.hkcc.personalkcalmanagerhkcc.database.stairpair;
 
 /**
  * Created by beenotung on 1/10/15.

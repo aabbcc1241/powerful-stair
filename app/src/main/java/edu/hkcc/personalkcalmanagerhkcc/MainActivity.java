@@ -1,12 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import edu.hkcc.myutils.Utils;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairCode;
-import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
-import edu.hkcc.personalkcalmanagerhkcc.database.stair.StairPair;
-
-import android.app.Activity;
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -15,17 +10,22 @@ import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v4.widget.DrawerLayout;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.support.v4.widget.DrawerLayout;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import edu.hkcc.myutils.Utils;
+import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairCode;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -47,8 +47,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // welcome
     public Button welcome_button_start;
     // about you
-    public Button aboutYou_button_calcuateBmi;
+    public Button aboutYou_button_load;
+    public Button aboutYou_button_update;
     public TextView aboutYou_userheight_label;
+    public TextView aboutYou_userweight_label;
     public EditText aboutYou_editText_username;
     public EditText aboutYou_editText_userage;
     public EditText aboutYou_editText_userheight;
@@ -77,10 +79,18 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private CharSequence mTitle;
     private int scanTryCount = 0;
 
-    private void initvar() {
+    private void initVar() {
         if (inited)
             return;
         res = getResources();
+
+        //database
+        //stairMapItemDAO = new StairMapItemDAO(this);
+        //stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
+        //stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
+        myDAO = new MyDAO(this);
+        myDAO.myInit();
+
         // layout
         navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
         placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
@@ -91,13 +101,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         energyCalFragment = new EnergyCalFragment(this);
         tipsOnExFragment = new TipsOnExFragment(this);
         tipsOnNutritionFragment = new TipsOnNutritionFragment(this);
-
-        //database
-        //stairMapItemDAO = new StairMapItemDAO(this);
-        //stairMapDatabaseHelper = new StairMapDatabaseHelper(this, null);
-        //stairMapDatabaseHelper.onCreate(stairMapDatabaseHelper.getWritableDatabase());
-        myDAO = new MyDAO(this);
-        myDAO.myInit();
 
         inited = true;
     }
@@ -112,7 +115,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
-    private void initSections() {
+    public void initSections() {
+        initVar();
         initSection_welcome();
         initSection_aboutYou();
         initSection_energyCal();
@@ -121,58 +125,41 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSection_welcome() {
-        if ((welcome_button_start = (Button) findViewById(R.id.welcome_button_start)) != null) {
-            welcome_button_start.setOnClickListener(welcomeFragment
-                    .welcome_button_start_OnClickListener(MainActivity.this));
-        }
+        welcome_button_start = (Button) findViewById(R.id.welcome_button_start);
     }
 
     private void initSection_aboutYou() {
-        if ((aboutYou_button_calcuateBmi = (Button) findViewById(R.id.aboutYou_button_calcuateBmi)) != null) {
-            aboutYou_button_calcuateBmi.setOnClickListener(aboutYouFragment
-                    .aboutYou_button_calcuateBmi(MainActivity.this));
-        }
-        if ((EditText) findViewById(R.id.aboutYou_editText_username) != null)
-            aboutYou_editText_username = (EditText) findViewById(R.id.aboutYou_editText_username);
-        if ((EditText) findViewById(R.id.aboutYou_editText_userage) != null)
-            aboutYou_editText_userage = (EditText) findViewById(R.id.aboutYou_editText_userage);
-        if ((EditText) findViewById(R.id.aboutYou_editText_userheight) != null)
-            aboutYou_editText_userheight = (EditText) findViewById(R.id.aboutYou_editText_userheight);
-        if ((EditText) findViewById(R.id.aboutYou_editText_userweight) != null)
-            aboutYou_editText_userweight = (EditText) findViewById(R.id.aboutYou_editText_userweight);
-        if ((EditText) findViewById(R.id.aboutYou_editText_userbmi) != null)
-            aboutYou_editText_userbmi = (EditText) findViewById(R.id.aboutYou_editText_userbmi);
-        if (findViewById(R.id.aboutYou_userheight_label) != null)
-            aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
+        aboutYou_button_load = (Button) findViewById(R.id.aboutYou_button_load);
+        aboutYou_button_update = (Button) findViewById(R.id.aboutYou_button_update);
+        aboutYou_editText_username = (EditText) findViewById(R.id.aboutYou_editText_username);
+        aboutYou_editText_userage = (EditText) findViewById(R.id.aboutYou_editText_userage);
+        aboutYou_editText_userheight = (EditText) findViewById(R.id.aboutYou_editText_userheight);
+        aboutYou_editText_userweight = (EditText) findViewById(R.id.aboutYou_editText_userweight);
+        aboutYou_editText_userbmi = (EditText) findViewById(R.id.aboutYou_editText_userbmi);
+        aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
+        aboutYou_userweight_label = (TextView) findViewById(R.id.aboutYou_userweight_label);
     }
 
     private void initSection_energyCal() {
-        if ((TableLayout) findViewById(R.id.energyCal_tablelayout_energy) != null) {
-            energyCal_tablelayout_energy = (TableLayout) findViewById(R.id.energyCal_tablelayout_energy);
-        }
+        energyCal_tablelayout_energy = (TableLayout) findViewById(R.id.energyCal_tablelayout_energy);
     }
 
     private void initSection_tipsOnEx() {
-        if ((WebView) findViewById(R.id.tipsOnEx_webView) != null) {
-            tipsOnEx_webView = (WebView) findViewById(R.id.tipsOnEx_webView);
-            tipsOnExFragment.loadContent();
-        }
+        tipsOnEx_webView = (WebView) findViewById(R.id.tipsOnEx_webView);
     }
 
     private void initSection_tipsOnNutrition() {
-        if ((WebView) findViewById(R.id.tipsOnNutrition_webView) != null) {
-            tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);
-            tipsOnNutritionFragment.loadContent();
-        }
+        tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);
     }
 
     private void myInit() {
-        initvar();
+        initVar();
         initSections();
     }
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
+        Log.w("MainActivity", "onCreateView");
         initSections();
         return super.onCreateView(name, context, attrs);
     }
@@ -184,7 +171,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         setContentView(R.layout.activity_main);
         resolveIntent(getIntent());
 
-        initvar();
+        initVar();
         initDrawer();
     }
 
@@ -200,6 +187,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             } else {
                 secondStairCode = stairCode;
                 Utils.showToast(this, getString(R.string.prompt_second_scan_success));
+                //TODO save record
+                firstStairCode = null;
             }
         else {
             Utils.showToast(this, getString(R.string.prompt_scan_error));
@@ -229,11 +218,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void switchSection(int sectionNum) {
-        // onSectionAttached(sectionNum);
-        // onNavigationDrawerItemSelected(sectionNum);
+        onSectionAttached(sectionNum);
+        //onNavigationDrawerItemSelected(sectionNum);
         mNavigationDrawerFragment.selectItem(sectionNum);
         restoreActionBar();
-        ResLinker.loadContent(this, sectionNum);
     }
 
     public void restoreActionBar() {
@@ -263,6 +251,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         // as you specify a parent activity in AndroidManifest.xml.
         switch (item.getItemId()) {
             case R.id.action_settings:
+                settingsOnClick();
                 return true;
             case R.id.action_scan:
                 scanQRCode();
@@ -303,8 +292,24 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
 
-    public void checkPersonalInfo() {
-        //TODO if no weight, ask from BMI page
+    public void start(Context context) {
+        // method to open drawer
+                /*String msg;
+                if(mainActivity.firstStairCode!=null)
+                    msg=mainActivity.firstStairCode.code;
+                else
+                    msg="oops";
+                Utils.showToast(mainActivity,msg);*/
+        //mainActivity.switchSection(EnergyCalFragment.drawerPosition);
+        if (aboutYouFragment.isPersonalInfoFilled()) {
+            Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
+            mNavigationDrawerFragment.openDrawer();
+        } else {
+            switchSection(AboutYouFragment.drawerPosition);
+        }
+    }
+
+    public void settingsOnClick() {
         switchSection(AboutYouFragment.drawerPosition);
     }
 }

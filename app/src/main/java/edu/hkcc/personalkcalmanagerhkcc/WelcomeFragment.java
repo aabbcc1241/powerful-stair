@@ -1,12 +1,11 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import edu.hkcc.myutils.Utils;
-
 import android.content.Context;
 import android.view.View;
-import android.widget.Toast;
 
-public class WelcomeFragment {
+import edu.hkcc.myutils.MyFragment;
+
+public class WelcomeFragment implements MyFragment {
     private MainActivity mainActivity;
 
     public WelcomeFragment(MainActivity mainActivity) {
@@ -19,16 +18,18 @@ public class WelcomeFragment {
 
             @Override
             public void onClick(View v) {
-                Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
-                // method to open drawer
-                /*String msg;
-                if(mainActivity.firstStairCode!=null)
-                    msg=mainActivity.firstStairCode.code;
-                else
-                    msg="oops";
-                Utils.showToast(mainActivity,msg);*/
-                //mainActivity.switchSection(EnergyCalFragment.drawerPosition);
-                mainActivity.checkPersonalInfo();
+                mainActivity.start(context);
+            }
+        };
+    }
+
+    @Override
+    public Runnable getLoadContentRunnable() {
+        return new Runnable() {
+            @Override
+            public void run() {
+                mainActivity.welcome_button_start.setOnClickListener(
+                        welcome_button_start_OnClickListener(mainActivity));
             }
         };
     }

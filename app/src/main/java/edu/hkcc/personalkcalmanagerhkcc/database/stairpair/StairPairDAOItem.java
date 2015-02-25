@@ -1,15 +1,13 @@
-package edu.hkcc.personalkcalmanagerhkcc.database.stair;
+package edu.hkcc.personalkcalmanagerhkcc.database.stairpair;
 
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
-import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;
 import edu.hkcc.personalkcalmanagerhkcc.database.DAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
@@ -18,9 +16,11 @@ import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
  * Created by beenotung on 2/4/15.
  */
 public class StairPairDAOItem implements DAOItem<StairPair> {
-    public static final String TABLE_COL_UP_CODE = StairPair.UP_CODE_COL;
-    public static final String TABLE_COL_DOWN_CODE = StairPair.DOWN_CODE_COL;
-    public static final String TABLE_COL_DISTANCE = StairPair.DISTANCE_COL;
+    public static final String TABLE_COL_ID = "stair_pair_id";
+    public static final String TABLE_COL_UP_CODE = "up_code";
+    public static final String TABLE_COL_DOWN_CODE = "down_code";
+    public static final String TABLE_COL_DISTANCE = "distance";
+    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_DISTANCE};
     public static StairPairDAOItem static_ = new StairPairDAOItem(null);
     private final MyDAO myDAO;
 
@@ -35,12 +35,12 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
 
     @Override
     public String getTableColId() {
-        return StairPair.ID_COL;
+        return TABLE_COL_ID;
     }
 
     @Override
     public String[] getTableColumns() {
-        return new String[]{getTableColId(), TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_DISTANCE};
+        return COLUMNS;
     }
 
     @Override
@@ -68,6 +68,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
     }
+
     public synchronized boolean isStairCodeExist(String code) {
         List<StairPair> list = getAll();
         for (StairPair item : list) {
@@ -78,7 +79,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
     }
 
     @Override
-    public void insertFromXml() {
+    public void insertDefaultData() {
         String[] rawStrings =
                 myDAO.mainActivity.getResources().getStringArray(R.array.stair_pair_string_array);
         Vector<StairPair> stairPairs = new Vector<>();
