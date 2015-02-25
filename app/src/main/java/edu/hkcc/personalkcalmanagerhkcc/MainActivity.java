@@ -335,12 +335,15 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                     msg="oops";
                 Utils.showToast(mainActivity,msg);*/
         //mainActivity.switchSection(EnergyCalFragment.drawerPosition);
-        if(aboutYouFragment.isPersonalInfoFilled())
-        {Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
-        mNavigationDrawerFragment.openDrawer();}
-        else {switchSection(AboutYouFragment.drawerPosition);}
+        if (aboutYouFragment.isPersonalInfoFilled()) {
+            Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
+            mNavigationDrawerFragment.openDrawer();
+        } else {
+            switchSection(AboutYouFragment.drawerPosition);
+        }
     }
-    public void settingsOnClick(){
+
+    public void settingsOnClick() {
         switchSection(AboutYouFragment.drawerPosition);
     }
 }

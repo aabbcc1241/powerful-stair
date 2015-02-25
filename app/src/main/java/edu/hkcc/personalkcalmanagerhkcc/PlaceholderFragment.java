@@ -3,6 +3,7 @@ package edu.hkcc.personalkcalmanagerhkcc;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +29,12 @@ public class PlaceholderFragment extends Fragment {
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
+        timer(fragment);
         return fragment;
+    }
+
+    private static void timer(PlaceholderFragment fragment) {
+        new Timer(fragment).start();
     }
 
     @Override
@@ -44,5 +50,33 @@ public class PlaceholderFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         ((MainActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
+        Log.w("Debug", "PlaceholderFragment.onAttach:ARG_SECTION_NUMBER=" + getArguments().getInt(ARG_SECTION_NUMBER));
+    }
+
+    private static class Timer extends Thread {
+        private final Fragment fragment;
+        private boolean wasVisible = false;
+
+        Timer(Fragment fragment) {
+            this.fragment = fragment;
+        }
+
+        @Override
+        public void run() {
+            while (fragment != null) {
+                if (fragment.isVisible())
+                    if (!wasVisible) {
+                        Log.w("debug", "fragment " + fragment.getArguments().getInt(ARG_SECTION_NUMBER) + "is visible now");
+                        if(fragment.getArguments().getInt(ARG_SECTION_NUMBER)==AboutYouFragment.drawerPosition)
+                        Log.w("debug", fragment.getActivity().findViewById(R.id.aboutYou_editText_userheight).toString());
+                    }
+                wasVisible=fragment.isVisible();
+                try {
+                    sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

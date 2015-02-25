@@ -2,10 +2,8 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.Toast;
 
 import edu.hkcc.myutils.MyFragment;
-import edu.hkcc.myutils.Utils;
 
 public class WelcomeFragment implements MyFragment {
     public boolean shown = false;
