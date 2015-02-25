@@ -6,7 +6,6 @@ import android.view.View;
 import edu.hkcc.myutils.MyFragment;
 
 public class WelcomeFragment implements MyFragment {
-    public boolean shown = false;
     private MainActivity mainActivity;
 
     public WelcomeFragment(MainActivity mainActivity) {
@@ -25,12 +24,13 @@ public class WelcomeFragment implements MyFragment {
     }
 
     @Override
-    public void loadContent() {
-
-    }
-
-    @Override
-    public boolean isShown() {
-        return shown;
+    public Runnable getLoadContentRunnable() {
+        return new Runnable() {
+            @Override
+            public void run() {
+                mainActivity.welcome_button_start.setOnClickListener(
+                        welcome_button_start_OnClickListener(mainActivity));
+            }
+        };
     }
 }

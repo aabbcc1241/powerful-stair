@@ -5,6 +5,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.Calendar;
+import java.util.Random;
 
 import edu.hkcc.myutils.MyFragment;
 
@@ -13,7 +14,7 @@ public class EnergyCalFragment implements MyFragment {
             .getSectionNum(R.layout.fragment_energy_cal);
     private MainActivity mainActivity;
     private int calAccum;
-    private boolean shown = false;
+
 
     public EnergyCalFragment(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -34,7 +35,7 @@ public class EnergyCalFragment implements MyFragment {
 
     /* load from database */
     public void showRecord() {
-        int id = 99999999;
+        int id = new Random().nextInt(1024);
         TableRow tableRow = new TableRow(mainActivity);
         tableRow.setLayoutParams(new TableRow.LayoutParams(
                 TableRow.LayoutParams.MATCH_PARENT,
@@ -65,13 +66,10 @@ public class EnergyCalFragment implements MyFragment {
     }
 
     @Override
-    public void loadContent() {
+    public Runnable getLoadContentRunnable() {
         // TODO Auto-generated method stub
         // showRecord();
+        return null;
     }
 
-    @Override
-    public boolean isShown() {
-        return shown;
-    }
 }

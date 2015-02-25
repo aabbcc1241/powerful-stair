@@ -73,7 +73,7 @@ public class PlaceholderFragment extends Fragment {
                 if (fragment.isVisible())
                     if (!wasVisible) {
                         Log.w("debug", "fragment " + fragment.getArguments().getInt(ARG_SECTION_NUMBER) + " is visible now");
-                        ResLinker.loadContent(MainActivity.currentActivity,fragment.getArguments().getInt(ARG_SECTION_NUMBER));
+                        ResLinker.loadContent(MainActivity.currentActivity, fragment.getArguments().getInt(ARG_SECTION_NUMBER));
                     }
                 wasVisible = fragment.isVisible();
                 try {

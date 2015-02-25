@@ -1,7 +1,5 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import android.util.Log;
-
 public class ResLinker {
     /*
      * get fragment layout id (xml-file) from navgation drawers section number
@@ -56,19 +54,23 @@ public class ResLinker {
 
     public static void loadContent(MainActivity mainActivity, int sectionNum) {
         mainActivity.initSections();
+        Runnable action;
         switch (getFragmentLayoutId(sectionNum)) {
             case R.layout.fragment_about_you:
-                mainActivity.aboutYouFragment.loadContent();
+                action = mainActivity.aboutYouFragment.getLoadContentRunnable();
                 break;
             case R.layout.fragment_energy_cal:
-                mainActivity.energyCalFragment.loadContent();
+                action = mainActivity.energyCalFragment.getLoadContentRunnable();
                 break;
             case R.layout.fragment_tips_on_ex:
-                mainActivity.tipsOnExFragment.loadContent();
+                action = mainActivity.tipsOnExFragment.getLoadContentRunnable();
                 break;
             case R.layout.fragment_tips_on_nutrition:
-                mainActivity.tipsOnNutritionFragment.loadContent();
+                action = mainActivity.tipsOnNutritionFragment.getLoadContentRunnable();
+                break;
             default:
+                return;
         }
+        mainActivity.runOnUiThread(action);
     }
 }

@@ -125,64 +125,31 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSection_welcome() {
-        welcomeFragment.shown = true;
-        if ((welcome_button_start = (Button) findViewById(R.id.welcome_button_start)) != null) {
-            welcome_button_start.setOnClickListener(welcomeFragment
-                    .welcome_button_start_OnClickListener(MainActivity.this));
-        } else welcomeFragment.shown = false;
+        welcome_button_start = (Button) findViewById(R.id.welcome_button_start);
     }
 
     private void initSection_aboutYou() {
-        aboutYouFragment.shown = true;
-        if ((aboutYou_button_load = (Button) findViewById(R.id.aboutYou_button_load)) != null) {
-            aboutYou_button_load.setOnClickListener(aboutYouFragment
-                    .aboutYou_button_load_onClickListener(MainActivity.this));
-        } else aboutYouFragment.shown = false;
-        if ((aboutYou_button_update = (Button) findViewById(R.id.aboutYou_button_update)) != null) {
-            aboutYou_button_update.setOnClickListener(aboutYouFragment
-                    .aboutYou_button_update_onClickListener(MainActivity.this));
-        } else aboutYouFragment.shown = false;
-        if ((EditText) findViewById(R.id.aboutYou_editText_username) != null)
-            aboutYou_editText_username = (EditText) findViewById(R.id.aboutYou_editText_username);
-        else aboutYouFragment.shown = false;
-        if ((EditText) findViewById(R.id.aboutYou_editText_userage) != null)
-            aboutYou_editText_userage = (EditText) findViewById(R.id.aboutYou_editText_userage);
-        else aboutYouFragment.shown = false;
-        if ((EditText) findViewById(R.id.aboutYou_editText_userheight) != null)
-            aboutYou_editText_userheight = (EditText) findViewById(R.id.aboutYou_editText_userheight);
-        else aboutYouFragment.shown = false;
-        if ((EditText) findViewById(R.id.aboutYou_editText_userweight) != null)
-            aboutYou_editText_userweight = (EditText) findViewById(R.id.aboutYou_editText_userweight);
-        else aboutYouFragment.shown = false;
-        if ((EditText) findViewById(R.id.aboutYou_editText_userbmi) != null)
-            aboutYou_editText_userbmi = (EditText) findViewById(R.id.aboutYou_editText_userbmi);
-        else aboutYouFragment.shown = false;
-        if (findViewById(R.id.aboutYou_userheight_label) != null)
-            aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
-        else aboutYouFragment.shown = false;
-        if (findViewById(R.id.aboutYou_userweight_label) != null)
-            aboutYou_userweight_label = (TextView) findViewById(R.id.aboutYou_userweight_label);
-        else aboutYouFragment.shown = false;
+        aboutYou_button_load = (Button) findViewById(R.id.aboutYou_button_load);
+        aboutYou_button_update = (Button) findViewById(R.id.aboutYou_button_update);
+        aboutYou_editText_username = (EditText) findViewById(R.id.aboutYou_editText_username);
+        aboutYou_editText_userage = (EditText) findViewById(R.id.aboutYou_editText_userage);
+        aboutYou_editText_userheight = (EditText) findViewById(R.id.aboutYou_editText_userheight);
+        aboutYou_editText_userweight = (EditText) findViewById(R.id.aboutYou_editText_userweight);
+        aboutYou_editText_userbmi = (EditText) findViewById(R.id.aboutYou_editText_userbmi);
+        aboutYou_userheight_label = (TextView) findViewById(R.id.aboutYou_userheight_label);
+        aboutYou_userweight_label = (TextView) findViewById(R.id.aboutYou_userweight_label);
     }
 
     private void initSection_energyCal() {
-        if ((TableLayout) findViewById(R.id.energyCal_tablelayout_energy) != null) {
-            energyCal_tablelayout_energy = (TableLayout) findViewById(R.id.energyCal_tablelayout_energy);
-        }
+        energyCal_tablelayout_energy = (TableLayout) findViewById(R.id.energyCal_tablelayout_energy);
     }
 
     private void initSection_tipsOnEx() {
-        if ((WebView) findViewById(R.id.tipsOnEx_webView) != null) {
-            tipsOnEx_webView = (WebView) findViewById(R.id.tipsOnEx_webView);
-            tipsOnExFragment.loadContent();
-        }
+        tipsOnEx_webView = (WebView) findViewById(R.id.tipsOnEx_webView);
     }
 
     private void initSection_tipsOnNutrition() {
-        if ((WebView) findViewById(R.id.tipsOnNutrition_webView) != null) {
-            tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);
-            tipsOnNutritionFragment.loadContent();
-        }
+        tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);
     }
 
     private void myInit() {
@@ -251,8 +218,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void switchSection(int sectionNum) {
-         onSectionAttached(sectionNum);
-         //onNavigationDrawerItemSelected(sectionNum);
+        onSectionAttached(sectionNum);
+        //onNavigationDrawerItemSelected(sectionNum);
         mNavigationDrawerFragment.selectItem(sectionNum);
         restoreActionBar();
     }
