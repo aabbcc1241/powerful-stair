@@ -1,6 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 
 import edu.hkcc.myutils.Maths;
@@ -91,6 +92,7 @@ public class AboutYouFragment implements MyFragment {
     @Override
     public void loadContent() {
         //TODO
+            Log.w("debug", mainActivity.findViewById(R.id.aboutYou_editText_userheight).toString());
         UserInfo userInfo = userInfoDAOItem.getUserInfo();
     }
 

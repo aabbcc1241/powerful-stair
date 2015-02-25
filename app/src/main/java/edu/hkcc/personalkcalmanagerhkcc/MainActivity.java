@@ -115,7 +115,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
-    private void initSections() {
+    public void initSections() {
         initVar();
         initSection_welcome();
         initSection_aboutYou();
@@ -251,11 +251,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void switchSection(int sectionNum) {
-        // onSectionAttached(sectionNum);
-        // onNavigationDrawerItemSelected(sectionNum);
+         onSectionAttached(sectionNum);
+         //onNavigationDrawerItemSelected(sectionNum);
         mNavigationDrawerFragment.selectItem(sectionNum);
         restoreActionBar();
-        ResLinker.loadContent(this, sectionNum);
     }
 
     public void restoreActionBar() {

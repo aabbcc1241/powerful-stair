@@ -8,6 +8,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -17,6 +20,7 @@ public class PlaceholderFragment extends Fragment {
      * The fragment argument representing the section number for this fragment.
      */
     private static final String ARG_SECTION_NUMBER = "section_number";
+    private static List<FragmentVisibleMonitorThread> fragmentVisibleMonitorThreads = new ArrayList<FragmentVisibleMonitorThread>();
 
     public PlaceholderFragment() {
     }
@@ -29,12 +33,14 @@ public class PlaceholderFragment extends Fragment {
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
         fragment.setArguments(args);
-        timer(fragment);
+        addToFragmentVisibleMonitorList(fragment);
         return fragment;
     }
 
-    private static void timer(PlaceholderFragment fragment) {
-        new Timer(fragment).start();
+    private static void addToFragmentVisibleMonitorList(PlaceholderFragment fragment) {
+        FragmentVisibleMonitorThread newThread = new FragmentVisibleMonitorThread(fragment);
+        newThread.start();
+        fragmentVisibleMonitorThreads.add(newThread);
     }
 
     @Override
@@ -53,11 +59,11 @@ public class PlaceholderFragment extends Fragment {
         Log.w("Debug", "PlaceholderFragment.onAttach:ARG_SECTION_NUMBER=" + getArguments().getInt(ARG_SECTION_NUMBER));
     }
 
-    private static class Timer extends Thread {
+    private static class FragmentVisibleMonitorThread extends Thread {
         private final Fragment fragment;
         private boolean wasVisible = false;
 
-        Timer(Fragment fragment) {
+        FragmentVisibleMonitorThread(Fragment fragment) {
             this.fragment = fragment;
         }
 
@@ -66,11 +72,10 @@ public class PlaceholderFragment extends Fragment {
             while (fragment != null) {
                 if (fragment.isVisible())
                     if (!wasVisible) {
-                        Log.w("debug", "fragment " + fragment.getArguments().getInt(ARG_SECTION_NUMBER) + "is visible now");
-                        if(fragment.getArguments().getInt(ARG_SECTION_NUMBER)==AboutYouFragment.drawerPosition)
-                        Log.w("debug", fragment.getActivity().findViewById(R.id.aboutYou_editText_userheight).toString());
+                        Log.w("debug", "fragment " + fragment.getArguments().getInt(ARG_SECTION_NUMBER) + " is visible now");
+                        ResLinker.loadContent(MainActivity.currentActivity,fragment.getArguments().getInt(ARG_SECTION_NUMBER));
                     }
-                wasVisible=fragment.isVisible();
+                wasVisible = fragment.isVisible();
                 try {
                     sleep(500);
                 } catch (InterruptedException e) {
