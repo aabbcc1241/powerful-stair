@@ -34,14 +34,13 @@ public final class R {
         public static final int start_screen_slogan=0x7f020006;
     }
     public static final class id {
-        public static final int FrameLayout1=0x7f0a001a;
-        public static final int LinearLayout1=0x7f0a0012;
+        public static final int FrameLayout1=0x7f0a0019;
+        public static final int LinearLayout1=0x7f0a0011;
         public static final int TableLayout1=0x7f0a0005;
-        public static final int aboutYou_bmi_label=0x7f0a0010;
-        public static final int aboutYou_button_load=0x7f0a000e;
-        public static final int aboutYou_button_update=0x7f0a000f;
+        public static final int aboutYou_bmi_label=0x7f0a000f;
+        public static final int aboutYou_button_update=0x7f0a000e;
         public static final int aboutYou_editText_userage=0x7f0a0009;
-        public static final int aboutYou_editText_userbmi=0x7f0a0011;
+        public static final int aboutYou_editText_userbmi=0x7f0a0010;
         public static final int aboutYou_editText_userheight=0x7f0a000b;
         public static final int aboutYou_editText_username=0x7f0a0007;
         public static final int aboutYou_editText_userweight=0x7f0a000d;
@@ -49,27 +48,27 @@ public final class R {
         public static final int aboutYou_userheight_label=0x7f0a000a;
         public static final int aboutYou_username_label=0x7f0a0006;
         public static final int aboutYou_userweight_label=0x7f0a000c;
-        public static final int action_scan=0x7f0a0023;
-        public static final int action_settings=0x7f0a0022;
+        public static final int action_scan=0x7f0a0022;
+        public static final int action_settings=0x7f0a0021;
         public static final int bntscan=0x7f0a0004;
         public static final int container=0x7f0a0001;
         public static final int drawer_layout=0x7f0a0000;
-        public static final int energyCal_tablelayout_energy=0x7f0a0013;
-        public static final int imageView1=0x7f0a001d;
+        public static final int energyCal_tablelayout_energy=0x7f0a0012;
+        public static final int imageView1=0x7f0a001c;
         public static final int navigation_drawer=0x7f0a0002;
-        public static final int scan_button=0x7f0a001f;
-        public static final int scan_content=0x7f0a0021;
-        public static final int scan_format=0x7f0a0020;
-        public static final int section_label=0x7f0a0019;
-        public static final int tableRow1=0x7f0a0014;
-        public static final int textView1=0x7f0a0018;
-        public static final int textView_energy_used=0x7f0a0017;
-        public static final int textView_times=0x7f0a0016;
-        public static final int textView_type_of_exercise=0x7f0a0015;
-        public static final int tipsOnEx_webView=0x7f0a001b;
-        public static final int tipsOnNutrition_webView=0x7f0a001c;
+        public static final int scan_button=0x7f0a001e;
+        public static final int scan_content=0x7f0a0020;
+        public static final int scan_format=0x7f0a001f;
+        public static final int section_label=0x7f0a0018;
+        public static final int tableRow1=0x7f0a0013;
+        public static final int textView1=0x7f0a0017;
+        public static final int textView_energy_used=0x7f0a0016;
+        public static final int textView_times=0x7f0a0015;
+        public static final int textView_type_of_exercise=0x7f0a0014;
+        public static final int tipsOnEx_webView=0x7f0a001a;
+        public static final int tipsOnNutrition_webView=0x7f0a001b;
         public static final int tvtest=0x7f0a0003;
-        public static final int welcome_button_start=0x7f0a001e;
+        public static final int welcome_button_start=0x7f0a001d;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;

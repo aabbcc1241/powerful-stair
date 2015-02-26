@@ -79,15 +79,9 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        <Button
-            android:id="@+id/aboutYou_button_load"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/aboutYou_load"
-            android:background="@drawable/button_bg_pink_1" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
         <Button
             android:id="@+id/aboutYou_button_update"
             android:layout_width="wrap_content"

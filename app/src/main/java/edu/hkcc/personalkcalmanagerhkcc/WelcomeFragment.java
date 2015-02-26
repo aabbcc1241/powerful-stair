@@ -2,8 +2,10 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.Toast;
 
 import edu.hkcc.myutils.MyFragment;
+import edu.hkcc.myutils.Utils;
 
 public class WelcomeFragment implements MyFragment {
     private MainActivity mainActivity;
@@ -18,9 +20,18 @@ public class WelcomeFragment implements MyFragment {
 
             @Override
             public void onClick(View v) {
-                mainActivity.start(context);
+                welcome_onclick(context);
             }
         };
+    }
+
+    private void welcome_onclick(Context context) {
+        if (mainActivity.myDAO.userInfoDAOItem.getUserInfo().isSufficient())
+            mainActivity.switchSection(AboutYouFragment.drawerPosition);
+        else {
+            Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
+            mainActivity.mNavigationDrawerFragment.openDrawer();
+        }
     }
 
     @Override

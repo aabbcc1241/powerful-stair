@@ -16,7 +16,7 @@ public class UserInfo {
 
 
     public UserInfo() {
-        this("", 18, 165, 50);
+        this("", 0, 0, 0);
     }
 
     public UserInfo(String name, float age, float height, float weight) {
@@ -67,5 +67,9 @@ public class UserInfo {
 
     public void updateBmi() {
         bmi.value = String.valueOf(Maths.getBmi(getHeight(), getWeight()));
+    }
+
+    public boolean isSufficient() {
+        return getHeight() * getWeight() == 0;
     }
 }

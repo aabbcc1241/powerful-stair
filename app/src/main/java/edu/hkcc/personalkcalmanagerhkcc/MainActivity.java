@@ -21,7 +21,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TableLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
@@ -47,7 +46,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     // welcome
     public Button welcome_button_start;
     // about you
-    public Button aboutYou_button_load;
     public Button aboutYou_button_update;
     public TextView aboutYou_userheight_label;
     public TextView aboutYou_userweight_label;
@@ -71,7 +69,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
      */
-    private NavigationDrawerFragment mNavigationDrawerFragment;
+    NavigationDrawerFragment mNavigationDrawerFragment;
     /**
      * Used to store the last screen title. For use in
      * {@link #restoreActionBar()}.
@@ -129,7 +127,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSection_aboutYou() {
-        aboutYou_button_load = (Button) findViewById(R.id.aboutYou_button_load);
         aboutYou_button_update = (Button) findViewById(R.id.aboutYou_button_update);
         aboutYou_editText_username = (EditText) findViewById(R.id.aboutYou_editText_username);
         aboutYou_editText_userage = (EditText) findViewById(R.id.aboutYou_editText_userage);
@@ -289,24 +286,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
             energyCalFragment.addRecord();
         } else
             ;//Utils.showToast(MainActivity.this, "welcome");
-    }
-
-
-    public void start(Context context) {
-        // method to open drawer
-                /*String msg;
-                if(mainActivity.firstStairCode!=null)
-                    msg=mainActivity.firstStairCode.code;
-                else
-                    msg="oops";
-                Utils.showToast(mainActivity,msg);*/
-        //mainActivity.switchSection(EnergyCalFragment.drawerPosition);
-        if (aboutYouFragment.isPersonalInfoFilled()) {
-            Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
-            mNavigationDrawerFragment.openDrawer();
-        } else {
-            switchSection(AboutYouFragment.drawerPosition);
-        }
     }
 
     public void settingsOnClick() {
