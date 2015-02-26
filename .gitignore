@@ -1,1 +1,4 @@
 *.class
+/app/build/generated
+/app/build/intermediates
+/app/build/tmp
