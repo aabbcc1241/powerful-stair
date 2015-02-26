@@ -13,7 +13,7 @@ public class AboutYouFragment implements MyFragment {
     protected String name;
     protected float height, weight, bmi;
     protected float heightUnit, weightUnit;
-    protected float age;
+    protected int age;
     private MainActivity mainActivity;
 
     public AboutYouFragment(MainActivity mainActivity) {
@@ -38,8 +38,8 @@ public class AboutYouFragment implements MyFragment {
     public void update_onclick(Context myContext) {
         if (readFromLayout()) {
             calcBmi();
-            Utils.showToast(myContext, R.string.aboutYou_calculating);
             saveToDb();
+            Utils.showToast(myContext, R.string.aboutYou_calculating);
         } else {
             Utils.showToast(myContext,
                     R.string.aboutYou_pleaseFillAllInfo);
@@ -57,7 +57,7 @@ public class AboutYouFragment implements MyFragment {
         temp = mainActivity.aboutYou_editText_username.getText().toString();
         name = temp.length() > 0 ? temp : "";
         temp = mainActivity.aboutYou_editText_userage.getText().toString();
-        age = temp.length() > 0 ? Float.parseFloat(temp) : 0;
+        age = temp.length() > 0 ? Integer.parseInt(temp) : 0;
         return true;
     }
 

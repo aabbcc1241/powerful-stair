@@ -36,11 +36,15 @@ public class UserInfo {
         this.name.value = name;
     }
 
-    public float getAge() {
-        return Float.parseFloat(age.value);
+    public int getAge() {
+        try {
+            return Integer.parseInt(age.value);
+        } catch (NumberFormatException e) {
+            return Math.round(Float.parseFloat(age.value));
+        }
     }
 
-    public void setAge(float age) {
+    public void setAge(int age) {
         this.age.value = String.valueOf(age);
     }
 

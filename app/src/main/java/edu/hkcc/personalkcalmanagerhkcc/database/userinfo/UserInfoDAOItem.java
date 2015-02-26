@@ -114,7 +114,7 @@ public class UserInfoDAOItem implements DAOItem<UserInfo> {
 
     public void getContentValue(List<ContentPair> contentPairs, ContentPair contentPair) {
         for (ContentPair iContentPair : contentPairs)
-            if (contentPair.name == iContentPair.name)
+            if (contentPair.name.equals(iContentPair.name))
                 contentPair.value = iContentPair.value;
     }
 
