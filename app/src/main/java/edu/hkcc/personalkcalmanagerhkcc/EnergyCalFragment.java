@@ -67,9 +67,13 @@ public class EnergyCalFragment implements MyFragment {
 
     @Override
     public Runnable getLoadContentRunnable() {
-        // TODO Auto-generated method stub
-        // showRecord();
-        return null;
+        return new Runnable() {
+            @Override
+            public void run() {
+                // TODO Auto-generated method stub
+                // showRecord();
+            }
+        };
     }
 
 }
