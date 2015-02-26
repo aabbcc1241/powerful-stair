@@ -18,6 +18,17 @@ public class StairRecord {
         calBurned = calBurned(MainActivity.currentActivity.myDAO.stairPairDAOItem.getDistance(stairPairId), durationInMinutes);
     }
 
+    public StairRecord(long id, int stairPairId, float calBurned, int time) {
+        this.id = id;
+        this.stairPairId = stairPairId;
+        this.calBurned = calBurned;
+        this.time = time;
+    }
+
+    public StairRecord() {
+        super();
+    }
+
     public String getWhereString() {
         return StairRecordDAOItem.TABLE_COL_ID + "=" + id;
     }

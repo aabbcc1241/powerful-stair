@@ -74,6 +74,6 @@ public class UserInfo {
     }
 
     public boolean isSufficient() {
-        return getHeight() * getWeight() == 0;
+        return getHeight() * getWeight() > 0;
     }
 }

@@ -1,6 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -26,7 +27,7 @@ public class WelcomeFragment implements MyFragment {
     }
 
     private void welcome_onclick(Context context) {
-        if (mainActivity.myDAO.userInfoDAOItem.getUserInfo().isSufficient())
+        if (!mainActivity.myDAO.userInfoDAOItem.getUserInfo().isSufficient())
             mainActivity.switchSection(AboutYouFragment.drawerPosition);
         else {
             Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
@@ -41,6 +42,14 @@ public class WelcomeFragment implements MyFragment {
             public void run() {
                 mainActivity.welcome_button_start.setOnClickListener(
                         welcome_button_start_OnClickListener(mainActivity));
+                if (!mainActivity.myDAO.userInfoDAOItem.getUserInfo().isSufficient()) {
+                    Log.w("Warning", "user height and weight is empty");
+                    try {
+                        Thread.sleep(Utils.DEFAULT_TIMEOUT);
+                    } catch (InterruptedException e) {
+                    }
+                    mainActivity.switchSection(AboutYouFragment.drawerPosition);
+                }
             }
         };
     }

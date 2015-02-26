@@ -43,7 +43,7 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_about_you.xml -->
     <eat-comment/>
     <string name="aboutYou_bmi_label">BMI:</string>
-    <string name="aboutYou_calculating">Saved~ Add oil! \\^0^/</string>
+    <string name="aboutYou_calculating">Add oil! \\^0^/</string>
     <string name="aboutYou_load">load</string>
     <string name="aboutYou_pleaseFillAllInfo">Please fill your body status above ~</string>
     <string name="aboutYou_update">update</string>
@@ -69,20 +69,20 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_energy_cal.xml -->
     <eat-comment/>
     <string name="energyCal_adding_record">Adding Record</string>
-    <string name="energyCal_date">Date</string>
-    <string name="energyCal_energy_accum">Energy Accum</string>
     <string name="energyCal_energy_per_walk_stair">15</string>
     <string name="energyCal_energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
     <string name="energyCal_scan">Scan stair code</string>
     <string name="energyCal_tap">Tap stair tag</string>
-    <string name="energyCal_type_of_exercise">Type of Exercise</string>
+    <string name="energyCal_title_date_range">Day-Range</string>
+    <string name="energyCal_title_progress">Progress</string>
+    <string name="energyCal_title_week_number">Week</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="error_404">"Under Development!! o(｀・ω・´)o"</string>
     <string name="hello_world">Hello world!</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_welcome.xml -->
     <eat-comment/>
-    <string name="lets_go">"Let's go!\nOpen the drawer from the left :)"</string>
+    <string name="lets_go">"Let's go!\nOpen the drawer from the left : )"</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="loading">Loading</string>
