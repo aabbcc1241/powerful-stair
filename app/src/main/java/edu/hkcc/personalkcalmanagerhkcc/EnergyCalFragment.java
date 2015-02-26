@@ -8,13 +8,14 @@ import java.util.Calendar;
 import java.util.Random;
 
 import edu.hkcc.myutils.MyFragment;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
 
 public class EnergyCalFragment implements MyFragment {
     public static int drawerPosition = ResLinker
             .getSectionNum(R.layout.fragment_energy_cal);
+    public float targetPerWeek;
     private MainActivity mainActivity;
     private int calAccum;
-
 
     public EnergyCalFragment(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
@@ -65,6 +66,30 @@ public class EnergyCalFragment implements MyFragment {
         showRecord();
     }
 
+    public void addTableViewRecord(StairRecord record) {
+        int id = new Random().nextInt(1024);
+        TableRow tableRow = new TableRow(mainActivity);
+        tableRow.setLayoutParams(new TableRow.LayoutParams(
+                TableRow.LayoutParams.MATCH_PARENT,
+                TableRow.LayoutParams.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL));
+        tableRow.setGravity(Gravity.CENTER_HORIZONTAL);
+        tableRow.setId(id);
+        TextView textView1 = new TextView(mainActivity);
+        TextView textView2 = new TextView(mainActivity);
+        TextView textView3 = new TextView(mainActivity);
+        textView1.setText(mainActivity
+                .getString(R.string.energyCal_energy_type_hkcc_stair_walk));
+        Calendar calendar = Calendar.getInstance();
+        int date = calendar.get(Calendar.DATE);
+        int month = calendar.get(Calendar.MONTH);
+        textView2.setText(date + "/" + month);
+        textView3.setText(getCalAccumAsString());
+        tableRow.addView(textView1);
+        tableRow.addView(textView2);
+        tableRow.addView(textView3);
+        mainActivity.energyCal_tablelayout_energy.addView(tableRow);
+    }
+
     @Override
     public Runnable getLoadContentRunnable() {
         return new Runnable() {
@@ -72,8 +97,10 @@ public class EnergyCalFragment implements MyFragment {
             public void run() {
                 // TODO Auto-generated method stub
                 // showRecord();
+                addRecord();
             }
         };
     }
+
 
 }

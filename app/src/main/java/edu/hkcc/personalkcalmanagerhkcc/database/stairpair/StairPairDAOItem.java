@@ -85,7 +85,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         Vector<StairPair> stairPairs = new Vector<>();
         int j; //buffer
         String upCode = "", downCode = "";
-        double distance;
+        float distance;
         for (int i = 0; i < rawStrings.length; i++) {
             j = i % 3;
             switch (j) {
@@ -96,7 +96,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
                     downCode = rawStrings[i];
                     break;
                 case 2:
-                    distance = Double.parseDouble(rawStrings[i]);
+                    distance = Float.parseFloat(rawStrings[i]);
                     stairPairs.add(new StairPair(upCode, downCode, distance));
                     break;
             }
@@ -132,8 +132,20 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         result.id = cursor.getLong(0);
         result.up_code = cursor.getString(1);
         result.down_code = cursor.getString(2);
-        result.distance = cursor.getDouble(3);
+        result.distance = cursor.getFloat(3);
 
         return result;
     }
+
+    public float getDistance(int stairPairId) {
+        StairPair stairPair = null;
+
+        Cursor cursor = myDAO.database.
+                rawQuery("select " + TABLE_COL_DISTANCE + " from " + getTableName() + " where " + TABLE_COL_ID + " = ?", new String[]{String.valueOf(stairPairId)});
+        while (cursor.moveToNext())
+            stairPair = getItemRecord(cursor);
+
+        return stairPair == null ? StairPair.DEFAULT_STAIR_HEIGHT : stairPair.distance;
+    }
+
 }

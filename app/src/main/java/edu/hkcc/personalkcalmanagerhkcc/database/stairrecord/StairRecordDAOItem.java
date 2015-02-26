@@ -16,9 +16,9 @@ import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
 public class StairRecordDAOItem implements DAOItem<StairRecord> {
     public static final String TABLE_COL_ID = "stair_record_id";
     public static final String TABLE_COL_STAIR_PAIR_ID = "stair_pair_id";
-    public static final String TABLE_COL_DURATION = "duration";
+    public static final String TABLE_COL_CAL_BURNED = "cal_burned";
     public static final String TABLE_COL_TIME = "time";
-    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_STAIR_PAIR_ID, TABLE_COL_DURATION, TABLE_COL_TIME};
+    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_STAIR_PAIR_ID, TABLE_COL_CAL_BURNED, TABLE_COL_TIME};
     public static StairRecordDAOItem static_ = new StairRecordDAOItem(null);
     private final MyDAO myDAO;
 
@@ -46,7 +46,7 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         return "CREATE TABLE IF NOT EXISTS " + getTableName() + " (" +
                 getTableColId() + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 TABLE_COL_STAIR_PAIR_ID + " INTEGER NOT NULL, " +
-                TABLE_COL_DURATION + " INTEGER NOT NULL, " +
+                TABLE_COL_CAL_BURNED + " REAL NOT NULL, " +
                 TABLE_COL_TIME + " INTEGER NOT NULL)";
     }
 
@@ -60,7 +60,7 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         ContentValues contentValues = new ContentValues();
 
         contentValues.put(TABLE_COL_STAIR_PAIR_ID, item.stairPairId);
-        contentValues.put(TABLE_COL_DURATION, item.duration);
+        contentValues.put(TABLE_COL_CAL_BURNED, item.calBurned);
         contentValues.put(TABLE_COL_TIME, item.time);
 
         long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
@@ -97,9 +97,13 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
 
         result.id = cursor.getLong(0);
         result.stairPairId = cursor.getInt(1);
-        result.duration = cursor.getInt(2);
+        result.calBurned = cursor.getFloat(2);
         result.time = cursor.getInt(3);
 
         return result;
+    }
+
+    public double getDurationInMinutes(int duration) {
+        return duration * 60;
     }
 }

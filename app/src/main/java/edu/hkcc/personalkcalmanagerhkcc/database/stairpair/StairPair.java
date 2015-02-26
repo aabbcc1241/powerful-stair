@@ -5,23 +5,24 @@ package edu.hkcc.personalkcalmanagerhkcc.database.stairpair;
  */
 public class StairPair {
 
+    public static final float DEFAULT_STAIR_HEIGHT = 2.2f;
     public static int lastID = 0;
     public long id;
     public String up_code, down_code;
-    public double distance;
+    public float distance;
 
     public StairPair() {
         super();
     }
 
-    public StairPair(long id, String up_code, String down_code, double distance) {
+    public StairPair(long id, String up_code, String down_code, float distance) {
         this.id = id;
         this.up_code = up_code;
         this.down_code = down_code;
         this.distance = distance;
     }
 
-    public StairPair(String up_code, String down_code, double distance) {
+    public StairPair(String up_code, String down_code, float distance) {
         this.up_code = up_code;
         this.down_code = down_code;
         this.distance = distance;

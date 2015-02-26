@@ -10,10 +10,10 @@ import edu.hkcc.personalkcalmanagerhkcc.database.userinfo.UserInfo;
 
 public class AboutYouFragment implements MyFragment {
     public static int drawerPosition = ResLinker.getSectionNum(R.layout.fragment_about_you);
-    protected String name;
-    protected float height, weight, bmi;
-    protected float heightUnit, weightUnit;
-    protected int age;
+    public String name;
+    public float height, weight, bmi;
+    public float heightUnit, weightUnit;
+    public int age;
     private MainActivity mainActivity;
 
     public AboutYouFragment(MainActivity mainActivity) {

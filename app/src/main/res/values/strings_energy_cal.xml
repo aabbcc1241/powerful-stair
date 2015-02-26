@@ -3,9 +3,9 @@
 
     <string name="energyCal_tap">Tap stair tag</string>
     <string name="energyCal_scan">Scan stair code</string>
-    <string name="energyCal_type_of_exercise">Type of Exercise</string>
-    <string name="energyCal_date">Date</string>
-    <string name="energyCal_energy_accum">Energy Accum</string>
+    <string name="energyCal_title_week_number">Week</string>
+    <string name="energyCal_title_date_range">Day Range</string>
+    <string name="energyCal_title_progress">Progress</string>
     <string name="energyCal_adding_record">Adding Record</string>
     <string name="energyCal_energy_per_walk_stair">15</string>
     <string name="energyCal_energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
