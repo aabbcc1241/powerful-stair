@@ -1,7 +1,6 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.View;
 
 import edu.hkcc.myutils.Maths;
@@ -28,18 +27,15 @@ public class AboutYouFragment implements MyFragment {
     public View.OnClickListener load_onClickListener(Context context) {
         final Context myContext = context;
         return new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                if (allFilled()) {
-                    Utils.showToast(myContext, R.string.aboutYou_calculating);
-                    calcBmi();
-                } else {
-                    Utils.showToast(myContext,
-                            R.string.aboutYou_pleaseFillAllInfo);
-                }
+                load_onclick(myContext);
             }
         };
+    }
+
+    private void load_onclick(Context myContext) {
+        mainActivity.runOnUiThread(getLoadContentRunnable());
     }
 
     public View.OnClickListener update_onClickListener(Context context) {
@@ -48,15 +44,19 @@ public class AboutYouFragment implements MyFragment {
 
             @Override
             public void onClick(View v) {
-                if (allFilled()) {
-                    Utils.showToast(myContext, R.string.aboutYou_calculating);
-                    calcBmi();
-                } else {
-                    Utils.showToast(myContext,
-                            R.string.aboutYou_pleaseFillAllInfo);
-                }
+                update_onclick(myContext);
             }
         };
+    }
+
+    public void update_onclick(Context myContext) {
+        if (allFilled()) {
+            Utils.showToast(myContext, R.string.aboutYou_calculating);
+            calcBmi();
+        } else {
+            Utils.showToast(myContext,
+                    R.string.aboutYou_pleaseFillAllInfo);
+        }
     }
 
     protected boolean allFilled() {
@@ -72,7 +72,7 @@ public class AboutYouFragment implements MyFragment {
             weight = Float.parseFloat(temp);
         else
             weight = 0f;
-        return allFilled;
+        return allFilled && height > 0 && weight > 0;
     }
 
     protected void calcBmi() {
@@ -95,10 +95,13 @@ public class AboutYouFragment implements MyFragment {
             @Override
             public void run() {
                 mainActivity.aboutYou_button_load.setOnClickListener(load_onClickListener(mainActivity));
-                mainActivity.aboutYou_button_update.setOnClickListener(
-                        update_onClickListener(mainActivity));
-                Log.w("debug", mainActivity.findViewById(R.id.aboutYou_editText_userheight).toString());
+                mainActivity.aboutYou_button_update.setOnClickListener(update_onClickListener(mainActivity));
                 UserInfo userInfo = userInfoDAOItem.getUserInfo();
+                mainActivity.aboutYou_editText_username.setText(userInfo.getName());
+                mainActivity.aboutYou_editText_userage.setText(String.valueOf(userInfo.getAge()));
+                mainActivity.aboutYou_editText_userheight.setText(String.valueOf(userInfo.getHeight()));
+                mainActivity.aboutYou_editText_userweight.setText(String.valueOf(userInfo.getWeight()));
+                update_onclick(mainActivity);
             }
         };
     }

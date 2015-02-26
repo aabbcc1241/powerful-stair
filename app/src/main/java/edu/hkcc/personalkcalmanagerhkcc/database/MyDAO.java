@@ -24,6 +24,7 @@ public class MyDAO extends SQLiteOpenHelper {
     public MyDAO(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
         super(mainActivity, DATABASE_NAME, factory, VERSION);
         this.mainActivity = mainActivity;
+        onCreate(getWritableDatabase());
     }
 
     public MyDAO(MainActivity mainActivity) {
