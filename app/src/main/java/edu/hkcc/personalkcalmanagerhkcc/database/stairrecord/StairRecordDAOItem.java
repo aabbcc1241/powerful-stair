@@ -15,10 +15,11 @@ import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
  */
 public class StairRecordDAOItem implements DAOItem<StairRecord> {
     public static final String TABLE_COL_ID = "stair_record_id";
-    public static final String TABLE_COL_STAIR_PAIR_ID = "stair_pair_id";
+    public static final String TABLE_COL_UP_CODE = "up_code";
+    public static final String TABLE_COL_DOWN_CODE = "down_code";
     public static final String TABLE_COL_CAL_BURNED = "cal_burned";
     public static final String TABLE_COL_TIME = "time";
-    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_STAIR_PAIR_ID, TABLE_COL_CAL_BURNED, TABLE_COL_TIME};
+    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_CAL_BURNED, TABLE_COL_TIME};
     public static StairRecordDAOItem static_ = new StairRecordDAOItem(null);
     private final MyDAO myDAO;
 
@@ -45,7 +46,8 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
     public String getTableCreate() {
         return "CREATE TABLE IF NOT EXISTS " + getTableName() + " (" +
                 getTableColId() + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                TABLE_COL_STAIR_PAIR_ID + " INTEGER NOT NULL, " +
+                TABLE_COL_UP_CODE + " TEXT NOT NULL, " +
+                TABLE_COL_DOWN_CODE + " TEXT NOT NULL, " +
                 TABLE_COL_CAL_BURNED + " REAL NOT NULL, " +
                 TABLE_COL_TIME + " INTEGER NOT NULL)";
     }
@@ -59,7 +61,8 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
     public void insert(StairRecord item) {
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put(TABLE_COL_STAIR_PAIR_ID, item.stairPairId);
+        contentValues.put(TABLE_COL_UP_CODE, item.up_code);
+        contentValues.put(TABLE_COL_DOWN_CODE, item.down_code);
         contentValues.put(TABLE_COL_CAL_BURNED, item.calBurned);
         contentValues.put(TABLE_COL_TIME, item.time);
 
@@ -96,14 +99,11 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         StairRecord result = new StairRecord();
 
         result.id = cursor.getLong(0);
-        result.stairPairId = cursor.getInt(1);
-        result.calBurned = cursor.getFloat(2);
-        result.time = cursor.getInt(3);
+        result.up_code = cursor.getString(1);
+        result.down_code = cursor.getString(2);
+        result.calBurned = cursor.getFloat(3);
+        result.time = cursor.getLong(4);
 
         return result;
-    }
-
-    public double getDurationInMinutes(int duration) {
-        return duration * 60;
     }
 }

@@ -3,7 +3,7 @@
     android:id="@+id/TableLayout1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center_horizontal" >
+    android:layout_gravity="center_horizontal">
 
     <Space
         android:layout_width="wrap_content"
@@ -22,8 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName" >
-        </EditText>
+            android:inputType="textPersonName"></EditText>
     </TableRow>
 
     <TableRow>
@@ -39,8 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" >
-        </EditText>
+            android:inputType="number"></EditText>
     </TableRow>
 
     <TableRow>
@@ -54,10 +52,9 @@
         <EditText
             android:id="@+id/aboutYou_editText_userheight"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"            
+            android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" >
-        </EditText>
+            android:inputType="numberDecimal"></EditText>
     </TableRow>
 
     <TableRow>
@@ -73,22 +70,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal" >
-        </EditText>
+            android:inputType="numberDecimal"></EditText>
     </TableRow>
 
     <LinearLayout
-        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center">
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/aboutYou_button_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/aboutYou_update"
-            android:background="@drawable/button_bg_pink_1" />
+            android:background="@drawable/button_bg_pink_1"
+            android:text="@string/aboutYou_update" />
     </LinearLayout>
 
     <TableRow>
@@ -104,10 +101,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="numberDecimal"
             android:focusable="false"
-            android:focusableInTouchMode="false">
-        </EditText>
+            android:focusableInTouchMode="false"
+            android:inputType="numberDecimal"></EditText>
     </TableRow>
 
 </TableLayout><!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/layout/fragment_about_you.xml -->

@@ -39,8 +39,7 @@
         </activity>
         <activity
             android:name=".ScanActivity"
-            android:label="@string/title_activity_scan">
-        </activity>
+            android:label="@string/title_activity_scan"></activity>
     </application>
 
 </manifest>

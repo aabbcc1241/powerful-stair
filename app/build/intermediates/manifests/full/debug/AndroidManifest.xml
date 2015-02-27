@@ -38,8 +38,7 @@
         </activity>
         <activity
             android:name="edu.hkcc.personalkcalmanagerhkcc.ScanActivity"
-            android:label="@string/title_activity_scan" >
-        </activity>
+            android:label="@string/title_activity_scan" />
     </application>
 
 </manifest>

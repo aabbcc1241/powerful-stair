@@ -1,7 +1,6 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.stairrecord;
 
 import edu.hkcc.myutils.Maths;
-import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPair;
 
 /**
@@ -9,23 +8,21 @@ import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPair;
  */
 public class StairRecord {
     public long id;
-    public long stairPairId;
+    public String up_code;
+    public String down_code;
     public float calBurned;
     public long time;
 
     public StairRecord(StairPair stairPair, float durationInMinutes) {
-        this.stairPairId = stairPair.id;
+        this.up_code = stairPair.up_code;
+        this.down_code = stairPair.down_code;
         calBurned = Maths.calBurned(stairPair.height, durationInMinutes);
         time = System.currentTimeMillis();
     }
 
-    public StairRecord(int stairPairId, float durationInMinutes) {
-        this(MainActivity.currentActivity.myDAO.stairPairDAOItem.getStairPair(stairPairId), durationInMinutes);
-    }
-
-    public StairRecord(long id, int stairPairId, float calBurned, long time) {
-        this.id = id;
-        this.stairPairId = stairPairId;
+    public StairRecord(String up_code, String down_code, float calBurned, long time) {
+        this.up_code = up_code;
+        this.down_code = down_code;
         this.calBurned = calBurned;
         this.time = time;
     }

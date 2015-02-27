@@ -1,6 +1,9 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.stairrecord;
 
+import android.database.sqlite.SQLiteException;
 import android.util.Log;
+
+import java.util.List;
 
 import edu.hkcc.myutils.Maths;
 import edu.hkcc.myutils.Utils;
@@ -43,17 +46,28 @@ public class StairEvent {
                 secondStairCode = stairCode;
                 secondTime = System.currentTimeMillis();
                 //TODO save record
-                StairPair stairPair = mainActivity.myDAO.stairPairDAOItem.getStairPair(firstStairCode, secondStairCode);
-                StairRecord stairRecord = new StairRecord(stairPair, Maths.millisecondsToMinutes(secondTime - firstTime));
-
+                StairPair stairPair = mainActivity.myDAO.stairPairDAOItem.getStairPair(firstStairCode.code, secondStairCode.code);
+                StairRecord record = new StairRecord(stairPair, Maths.millisecondsToMinutes(secondTime - firstTime));
+                mainActivity.myDAO.stairRecordDAOItem.insert(record);
+                if (record.id < 0)
+                    throw new SQLiteException();
+                Log.w("Debug", "new record id=" + record.id);
                 Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_second_scan_success));
                 firstStairCode = null;
             }
         } catch (StairPairNotFoundException e) {
             Log.w("Exception", e.getMessage());
-            Log.w("Debug", "number of stair pair in db=" + mainActivity.myDAO.stairPairDAOItem.getAll().size());
+            List<StairPair> stairPairs = mainActivity.myDAO.stairPairDAOItem.getAll();
+            Log.w("Debug", "number of stair pair in db=" + stairPairs.size());
+            for (StairPair stairPair : stairPairs) {
+                Log.w("Debug", stairPair.toString());
+            }
+            Log.w("Debug", "firstStairCode=" + firstStairCode.code);
+            Log.w("Debug", "secondStairCode=" + secondStairCode.code);
             Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_scan_error));
             if (scanTryCount <= MAX_TRY_COUNT) mainActivity.scanQRCode();
+        } catch (SQLiteException e) {
+            Log.w("Exception", "SQLiteException" + e.getMessage());
         }
         scanTryCount = 0;
     }

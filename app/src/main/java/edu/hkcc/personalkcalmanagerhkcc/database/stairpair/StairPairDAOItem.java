@@ -16,11 +16,11 @@ import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
  * Created by beenotung on 2/4/15.
  */
 public class StairPairDAOItem implements DAOItem<StairPair> {
-    public static final String TABLE_COL_ID = "stair_pair_id";
+    //public static final String TABLE_COL_ID = "stair_pair_id";
     public static final String TABLE_COL_UP_CODE = "up_code";
     public static final String TABLE_COL_DOWN_CODE = "down_code";
     public static final String TABLE_COL_HEIGHT = "height";
-    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_HEIGHT};
+    public static final String[] COLUMNS = {TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_HEIGHT};
     public static StairPairDAOItem static_ = new StairPairDAOItem(null);
     private final MyDAO myDAO;
 
@@ -33,9 +33,11 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         return "stair_pair";
     }
 
+    @Deprecated
     @Override
     public String getTableColId() {
-        return TABLE_COL_ID;
+        //return TABLE_COL_ID;
+        return null;
     }
 
     @Override
@@ -46,10 +48,12 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
     @Override
     public String getTableCreate() {
         return "CREATE TABLE IF NOT EXISTS " + getTableName() + " (" +
-                getTableColId() + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                //getTableColId() + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 TABLE_COL_UP_CODE + " TEXT NOT NULL, " +
                 TABLE_COL_DOWN_CODE + " TEXT NOT NULL, " +
-                TABLE_COL_HEIGHT + " REAL NOT NULL)";
+                TABLE_COL_HEIGHT + " REAL NOT NULL, " +
+                "PRIMARY KEY (" + TABLE_COL_UP_CODE + ", " + TABLE_COL_DOWN_CODE + ") " +
+                ")";
     }
 
     @Override
@@ -65,8 +69,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         contentValues.put(TABLE_COL_DOWN_CODE, item.down_code);
         contentValues.put(TABLE_COL_HEIGHT, item.height);
 
-        long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
-        item.id = id;
+        myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
     }
 
     public synchronized boolean isStairCodeExist(String code) {
@@ -129,24 +132,15 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
     public StairPair getItemRecord(Cursor cursor) {
         StairPair result = new StairPair();
 
-        result.id = cursor.getLong(0);
-        result.up_code = cursor.getString(1);
-        result.down_code = cursor.getString(2);
-        result.height = cursor.getFloat(3);
+
+        result.up_code = cursor.getString(0);
+        result.down_code = cursor.getString(1);
+        result.height = cursor.getFloat(2);
 
         return result;
     }
 
-    public synchronized StairPair getStairPair(long stairPairId) throws StairPairNotFoundException {
-        List<StairPair> list = getAll();
-        for (StairPair item : list) {
-            if (item.id == stairPairId)
-                return item;
-        }
-        throw new StairPairNotFoundException();
-    }
-
-    public synchronized StairPair getStairPair(StairCode source, StairCode destination) throws StairPairNotFoundException {
+    public synchronized StairPair getStairPair(String source, String destination) throws StairPairNotFoundException {
         List<StairPair> list = getAll();
         for (StairPair item : list) {
             if ((source.equals(item.up_code) && destination.equals(item.down_code))

@@ -2,25 +2,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="edu.hkcc.personalkcalmanagerhkcc.ScanActivity"
-    android:orientation="vertical">
+    tools:context="edu.hkcc.personalkcalmanagerhkcc.ScanActivity">
 
     <TextView
         android:id="@+id/tvtest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/scan_page_desc"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/scan_page_desc" />
 
     <Button
         android:id="@+id/bntscan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/button_text"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/button_text" />
 
 </LinearLayout>
