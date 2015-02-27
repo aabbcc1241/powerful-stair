@@ -115,21 +115,22 @@ public final class R {
         public static final int energyCal_title_week_number=0x7f070017;
         public static final int error_404=0x7f070018;
         public static final int hello_world=0x7f070019;
-        public static final int lets_go=0x7f07001a;
-        public static final int loading=0x7f07001b;
-        public static final int navigation_drawer_close=0x7f07001c;
-        public static final int navigation_drawer_open=0x7f07001d;
-        public static final int prompt_first_scan_success=0x7f07001e;
-        public static final int prompt_scan_error=0x7f07001f;
-        public static final int prompt_second_scan_success=0x7f070020;
-        public static final int scan=0x7f070021;
-        public static final int scan_page_desc=0x7f070022;
-        public static final int slogan=0x7f070023;
-        public static final int start=0x7f070024;
-        public static final int tap=0x7f070025;
-        public static final int title_activity_scan=0x7f070026;
-        public static final int url_tips_on_ex=0x7f070027;
-        public static final int url_tips_on_nutrition=0x7f070028;
+        public static final int loading=0x7f07001a;
+        public static final int navigation_drawer_close=0x7f07001b;
+        public static final int navigation_drawer_open=0x7f07001c;
+        public static final int prompt_first_scan_success=0x7f07001d;
+        public static final int prompt_scan_error=0x7f07001e;
+        public static final int prompt_second_scan_success=0x7f07001f;
+        public static final int scan=0x7f070020;
+        public static final int scan_page_desc=0x7f070021;
+        public static final int slogan=0x7f070022;
+        public static final int start=0x7f070023;
+        public static final int tap=0x7f070024;
+        public static final int title_activity_scan=0x7f070025;
+        public static final int url_tips_on_ex=0x7f070026;
+        public static final int url_tips_on_nutrition=0x7f070027;
+        public static final int welcome_hi=0x7f070028;
+        public static final int welcome_lets_go=0x7f070029;
     }
     public static final class style {
         /** 

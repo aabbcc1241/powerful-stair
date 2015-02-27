@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPairDAOItem;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecordDAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.userinfo.UserInfoDAOItem;
 
 /**
@@ -20,6 +21,7 @@ public class MyDAO extends SQLiteOpenHelper {
     //MY DAO
     public StairPairDAOItem stairPairDAOItem = new StairPairDAOItem(this);
     public UserInfoDAOItem userInfoDAOItem = new UserInfoDAOItem(this);
+    public StairRecordDAOItem stairRecordDAOItem = new StairRecordDAOItem(this);
 
     public MyDAO(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
         super(mainActivity, DATABASE_NAME, factory, VERSION);
@@ -39,6 +41,7 @@ public class MyDAO extends SQLiteOpenHelper {
     private void createTables(SQLiteDatabase db) {
         db.execSQL(StairPairDAOItem.static_.getTableCreate());
         db.execSQL(UserInfoDAOItem.static_.getTableCreate());
+        db.execSQL(StairRecordDAOItem.static_.getTableCreate());
     }
 
     @Override
@@ -51,6 +54,7 @@ public class MyDAO extends SQLiteOpenHelper {
     public void dropTables(SQLiteDatabase db) {
         db.execSQL(StairPairDAOItem.static_.getTableDrop());
         //db.execSQL(userInfoDAOItem.getTableDrop());
+        //db.execSQL(StairRecordDAOItem.static_.getTableDrop());
     }
 
     public synchronized void myInit() {

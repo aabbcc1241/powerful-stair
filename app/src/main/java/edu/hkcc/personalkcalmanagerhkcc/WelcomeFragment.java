@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import edu.hkcc.myutils.MyFragment;
 import edu.hkcc.myutils.Utils;
+import edu.hkcc.personalkcalmanagerhkcc.database.userinfo.UserInfo;
 
 public class WelcomeFragment implements MyFragment {
     private MainActivity mainActivity;
@@ -30,7 +31,7 @@ public class WelcomeFragment implements MyFragment {
         if (!mainActivity.myDAO.userInfoDAOItem.getUserInfo().isSufficient())
             mainActivity.switchSection(AboutYouFragment.drawerPosition);
         else {
-            Utils.showToast(context, R.string.lets_go, Toast.LENGTH_LONG);
+            Utils.showToast(context, R.string.welcome_lets_go, Toast.LENGTH_LONG);
             mainActivity.mNavigationDrawerFragment.openDrawer();
         }
     }
@@ -42,7 +43,10 @@ public class WelcomeFragment implements MyFragment {
             public void run() {
                 mainActivity.welcome_button_start.setOnClickListener(
                         welcome_button_start_OnClickListener(mainActivity));
-                if (!mainActivity.myDAO.userInfoDAOItem.getUserInfo().isSufficient()) {
+                UserInfo userInfo = mainActivity.myDAO.userInfoDAOItem.getUserInfo();
+                if (userInfo.isSufficient()) {
+                    Utils.showToast(mainActivity, mainActivity.getString(R.string.welcome_hi) + " " + userInfo.getName());
+                } else {
                     Log.w("Warning", "user height and weight is empty");
                     try {
                         Thread.sleep(Utils.DEFAULT_TIMEOUT);

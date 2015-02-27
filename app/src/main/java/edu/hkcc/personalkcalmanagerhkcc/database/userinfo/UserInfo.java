@@ -14,7 +14,7 @@ public class UserInfo {
     public ContentPair weight = new ContentPair("Weight");
     public ContentPair bmi = new ContentPair("BMI");
 
-
+    @Deprecated
     public UserInfo() {
         this("", 0, 0, 0);
     }

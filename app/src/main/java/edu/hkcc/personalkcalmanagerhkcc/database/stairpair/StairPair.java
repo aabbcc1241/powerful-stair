@@ -9,24 +9,25 @@ public class StairPair {
     public static int lastID = 0;
     public long id;
     public String up_code, down_code;
-    public float distance;
+    public float height;
 
+    @Deprecated
     public StairPair() {
         super();
     }
 
-    public StairPair(long id, String up_code, String down_code, float distance) {
+    public StairPair(long id, String up_code, String down_code, float height) {
         this.id = id;
         this.up_code = up_code;
         this.down_code = down_code;
-        this.distance = distance;
+        this.height = height;
     }
 
-    public StairPair(String up_code, String down_code, float distance) {
+    public StairPair(String up_code, String down_code, float height) {
         this.up_code = up_code;
         this.down_code = down_code;
-        this.distance = distance;
-        id = new String(up_code + down_code + distance).hashCode();
+        this.height = height;
+        id = new String(up_code + down_code + height).hashCode();
     }
 
     public boolean isPair(String code1, String code2) {

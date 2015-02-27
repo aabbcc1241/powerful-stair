@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="lets_go">"Let's go!\nOpen the drawer from the left : )"</string>
+    <string name="welcome_lets_go">"Let's go!\nOpen the drawer from the left : )"</string>
+    <string name="welcome_hi">Hi</string>
 
 </resources>

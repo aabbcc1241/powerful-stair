@@ -20,5 +20,7 @@ public class Maths {
     public static float calBurned(float height, float durationInMinutes) {
         return METs_STAIR_CLIMB * 3.5f * MainActivity.currentActivity.aboutYouFragment.weight * MainActivity.currentActivity.aboutYouFragment.weightUnit / 200f * durationInMinutes * height / STD_STAIR_HEIGHT;
     }
-    public static float miToMinutes
+    public static float millisecondsToMinutes(long milliseconds){
+        return milliseconds/1000f/60f;
+    }
 }
