@@ -137,7 +137,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         return result;
     }
 
-    public float getDistance(int stairPairId) {
+    public synchronized float getDistance(int stairPairId) {
         StairPair stairPair = null;
 
         Cursor cursor = myDAO.database.
@@ -147,6 +147,20 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
 
         return stairPair == null ? StairPair.DEFAULT_STAIR_HEIGHT : stairPair.distance;
     }
-    public float getDistance
+
+    public synchronized float getDistance(StairCode source, StairCode destination) {
+        StairPair stairPair = getStairPair(source, destination);
+        return stairPair != null ? stairPair.distance : -1;
+    }
+
+    public synchronized StairPair getStairPair(StairCode source, StairCode destination) {
+        List<StairPair> list = getAll();
+        for (StairPair item : list) {
+            if ((source.equals(item.up_code) && destination.equals(item.down_code))
+                    || (source.equals(item.down_code) && destination.equals(item.up_code)))
+                return item;
+        }
+        return null;
+    }
 
 }

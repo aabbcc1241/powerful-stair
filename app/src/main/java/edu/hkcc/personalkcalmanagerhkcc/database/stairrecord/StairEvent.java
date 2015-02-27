@@ -25,7 +25,7 @@ public class StairEvent {
         this.mainActivity = mainActivity;
     }
 
-    public void onStairCodeReceive(StairCode stairCode) {
+    public synchronized void onStairCodeReceive(StairCode stairCode) {
         scanning = false;
         scanTryCount++;
         Log.w("Main", "receive Stair Code: " + stairCode.code);
@@ -40,7 +40,8 @@ public class StairEvent {
                 secondTime=System.currentTimeMillis();
                 Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_second_scan_success));
                 //TODO save record
-                StairPair stairPair=mainActivity.myDAO.stairPairDAOItem.getAll()
+StairPair stairPair=mainActivity.myDAO.stairPairDAOItem.getStairPair(firstStairCode,secondStairCode);
+                StairRecord stairRecord=new StairRecord();
                 firstStairCode = null;
             }
         else {
