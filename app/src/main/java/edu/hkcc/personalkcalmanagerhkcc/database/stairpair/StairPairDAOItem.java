@@ -147,5 +147,6 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
 
         return stairPair == null ? StairPair.DEFAULT_STAIR_HEIGHT : stairPair.distance;
     }
+    public float getDistance
 
 }

@@ -24,14 +24,14 @@ import android.widget.TextView;
 
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
-import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairCode;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairEvent;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
     /* my vars */
     public static boolean inited = false;
     public static MainActivity currentActivity = null;
-    private final int MAX_TRY_COUNT = 5;
+
     /* nfc */
     public Resources res;
     public String[] navigation_drawer_titles;
@@ -62,9 +62,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnNutrition_webView;
     // database stuff
     public MyDAO myDAO;
-    public boolean scanning = false;
-    protected StairCode firstStairCode = null;
-    protected StairCode secondStairCode = null;
+    public StairEvent currentStairEvent = new StairEvent(this);
+
     /**
      * Fragment managing the behaviors, interactions and presentation of the
      * navigation drawer.
@@ -75,7 +74,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
      * {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
-    private int scanTryCount = 0;
+
 
     private void initVar() {
         if (inited)
@@ -172,27 +171,6 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         initDrawer();
     }
 
-    public void receiveStairCode(StairCode stairCode) {
-        scanning = false;
-        scanTryCount++;
-        Log.w("Main", "receive Stair Code: " + stairCode.code);
-        Log.w("Main", "scanTryCount: " + scanTryCount);
-        if (myDAO.stairPairDAOItem.isStairCodeExist(stairCode.code))
-            if (firstStairCode == null) {
-                firstStairCode = stairCode;
-                Utils.showToast(this, getString(R.string.prompt_first_scan_success));
-            } else {
-                secondStairCode = stairCode;
-                Utils.showToast(this, getString(R.string.prompt_second_scan_success));
-                //TODO save record
-                firstStairCode = null;
-            }
-        else {
-            Utils.showToast(this, getString(R.string.prompt_scan_error));
-            if (scanTryCount <= MAX_TRY_COUNT) scanQRCode();
-        }
-        scanTryCount = 0;
-    }
 
     @Override
     protected void onNewIntent(Intent intent) {
@@ -260,7 +238,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     public void scanQRCode() {
         Log.w("QR", "to scan");
-        scanning = true;
+        currentStairEvent.scanning = true;
         Intent intent = new Intent(this, ScanActivity.class);
         startActivityForResult(intent, 1);
     }

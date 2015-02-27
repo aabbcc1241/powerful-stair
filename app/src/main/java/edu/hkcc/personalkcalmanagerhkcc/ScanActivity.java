@@ -42,7 +42,7 @@ public class ScanActivity extends Activity {
     }
 
     public void scanQR() {
-        if (!MainActivity.currentActivity.scanning) return;
+        if (!MainActivity.currentActivity.currentStairEvent.scanning) return;
         IntentIntegrator intentIntegrator = new IntentIntegrator(this);
         intentIntegrator.initiateScan();
     }
@@ -58,7 +58,7 @@ public class ScanActivity extends Activity {
             Log.w("QR", "format: " + format);
             // Handle successful scan
             StairCode stairCode = new StairCode(contents, format);
-            MainActivity.currentActivity.receiveStairCode(stairCode);
+            MainActivity.currentActivity.currentStairEvent.onStairCodeReceive(stairCode);
         } else if (resultCode == RESULT_CANCELED) {
             // Handle cancel
         }
