@@ -7,6 +7,7 @@ import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPairDAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecordDAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.userinfo.UserInfoDAOItem;
+import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordDAOItem;
 
 /**
  * Created by beenotung on 2/3/15.
@@ -22,6 +23,7 @@ public class MyDAO extends SQLiteOpenHelper {
     public StairPairDAOItem stairPairDAOItem = new StairPairDAOItem(this);
     public UserInfoDAOItem userInfoDAOItem = new UserInfoDAOItem(this);
     public StairRecordDAOItem stairRecordDAOItem = new StairRecordDAOItem(this);
+    public WeekRecordDAOItem weekRecordDAOItem=new WeekRecordDAOItem(this);
 
     public MyDAO(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
         super(mainActivity, DATABASE_NAME, factory, VERSION);
@@ -42,6 +44,7 @@ public class MyDAO extends SQLiteOpenHelper {
         db.execSQL(StairPairDAOItem.static_.getTableCreate());
         db.execSQL(UserInfoDAOItem.static_.getTableCreate());
         db.execSQL(StairRecordDAOItem.static_.getTableCreate());
+        db.execSQL(WeekRecordDAOItem.static_.getTableCreate());
     }
 
     @Override

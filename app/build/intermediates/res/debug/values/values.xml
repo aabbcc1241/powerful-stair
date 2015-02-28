@@ -5,11 +5,10 @@
     <string-array name="navigation_drawer_titles">
         <item>Welcome</item>
         <item>About You</item>
-        <item>Intro.</item>
-        <item>Diet</item>
         <item>Energy Cal.</item>
         <item>Tips on Ex.</item>
         <item>Tips on nutrition</item>
+        <item>Intro.</item>
     </string-array>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_stair_pair.xml -->
     <eat-comment/>
@@ -27,6 +26,7 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens_energy_cal.xml -->
     <eat-comment/>
     <color name="energyCal_space_color">#999</color>
+    <declare-styleable name="WeekRecordView"><attr format="string" name="exampleString"/><attr format="dimension" name="exampleDimension"/><attr format="color" name="exampleColor"/><attr format="color|reference" name="exampleDrawable"/></declare-styleable>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="activity_horizontal_margin">16dp</dimen>

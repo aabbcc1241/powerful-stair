@@ -33,7 +33,7 @@ public class StairRecord {
     public static long millisecondToWeekId(long millisecond) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(millisecond);
-        return calendar.get(Calendar.YEAR) * 1000 + calendar.get(Calendar.WEEK_OF_YEAR);
+        return calendar.get(Calendar.YEAR) * 10 + calendar.get(Calendar.WEEK_OF_YEAR);
     }
 
     public String getWhereString() {

@@ -19,6 +19,7 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TextView;
 
@@ -55,7 +56,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public EditText aboutYou_editText_userweight;
     public EditText aboutYou_editText_userbmi;
     // energy cal
-    public TableLayout energyCal_tablelayout_energy;
+    public ListView energyCal_listView_weekRecord;
     // tips on ex
     public WebView tipsOnEx_webView;
     // tips on nutrition
@@ -137,7 +138,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSection_energyCal() {
-        energyCal_tablelayout_energy = (TableLayout) findViewById(R.id.energyCal_tablelayout_energy);
+        energyCal_listView_weekRecord= (ListView) findViewById(R.id.energyCal_listview_week_record);
     }
 
     private void initSection_tipsOnEx() {
