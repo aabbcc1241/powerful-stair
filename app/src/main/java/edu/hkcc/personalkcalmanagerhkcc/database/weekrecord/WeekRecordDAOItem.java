@@ -9,7 +9,6 @@ import java.util.List;
 
 import edu.hkcc.personalkcalmanagerhkcc.database.DAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
-import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
 
 /**
  * Created by beenotung on 2/28/15.
@@ -19,12 +18,12 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
     public static final String TABLE_COL_WEEK_TARGET = "week_target";
     public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_WEEK_TARGET};
     public static WeekRecordDAOItem static_ = new WeekRecordDAOItem(null);
+    private final MyDAO myDAO;
 
     public WeekRecordDAOItem(MyDAO myDAO) {
         this.myDAO = myDAO;
     }
 
-    private final MyDAO myDAO;
     @Override
     public String getTableName() {
         return "week_record";
@@ -60,7 +59,7 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
         contentValues.put(TABLE_COL_ID, item.weekId);
         contentValues.put(TABLE_COL_WEEK_TARGET, item.weekTarget);
 
-         myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+        myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
     }
 
     @Override
@@ -95,5 +94,18 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
         result.weekTarget = cursor.getFloat(1);
 
         return result;
+    }
+
+    public synchronized WeekRecord getWeekRecord(long weekId) throws WeekRecordNotFoundException {
+        List<WeekRecord> list = getAll();
+        for (WeekRecord item : list) {
+            if (item.weekId == weekId)
+                return item;
+        }
+        throw new WeekRecordNotFoundException();
+    }
+
+    public synchronized float getWeekTarget(long weekId) throws WeekRecordNotFoundException {
+        return getWeekRecord(weekId).getCalSum();
     }
 }

@@ -12,15 +12,18 @@ public class WeekRecord {
     public long weekId;
     public float weekTarget;
 
-    public float getCalSum(){
-        List<StairRecord> records= MainActivity.currentActivity.myDAO.stairRecordDAOItem.getAllInSameWeek(weekId);
-        float result=0f;
-        for(StairRecord record : records)
-            result+=record.calBurned;
+    public float getCalSum() {
+        List<StairRecord> records = MainActivity.currentActivity.myDAO.stairRecordDAOItem.getAllInSameWeek(weekId);
+        float result = 0f;
+        for (StairRecord record : records)
+            result += record.calBurned;
         return result;
     }
 
-    public float getProgress(){
-        return getCalSum()/ weekTarget;
+    public float getProgress() {
+        return getCalSum() / weekTarget;
+    }
+    public String getWeekString(){
+        return "Week "+weekId % 100;
     }
 }

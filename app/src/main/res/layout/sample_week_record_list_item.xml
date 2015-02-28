@@ -4,22 +4,28 @@
     android:gravity="center">
 
     <TextView
-        android:layout_width="60dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="week 1"
-        android:id="@+id/tv_week_num" />
+        android:text="week num"
+        android:id="@+id/sample_week_record_list_tv_week_num" />
 
     <SeekBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:layout_weight="1" />
+        android:layout_height="70dp"
+        android:id="@+id/sample_week_record_list_seekBar"
+        android:layout_weight="1"
+        android:max="100"
+        android:saveEnabled="false"
+        android:thumb="@drawable/runner3"
+        android:progressDrawable="@drawable/ic_media_ff"
+        android:layout_gravity="center"
+        style="e" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="80%"
-        android:id="@+id/tv_progress" />
+        android:text="100%"
+        android:id="@+id/sample_week_record_list_tv_progress" />
 
 </LinearLayout>
 

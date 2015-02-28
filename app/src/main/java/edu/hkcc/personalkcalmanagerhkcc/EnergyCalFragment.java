@@ -1,17 +1,23 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.view.Gravity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Random;
 
 import edu.hkcc.myutils.MyFragment;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.TableViewRow;
+import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecord;
+import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordArrayAdapter;
 import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordDAOItem;
+import  java.util.List;
 
 public class EnergyCalFragment implements MyFragment {
     public static int drawerPosition = ResLinker
@@ -122,22 +128,12 @@ public class EnergyCalFragment implements MyFragment {
     }
 
     private void setupListView() {
-        String[] values = new String[] { "Android", "iPhone", "WindowsMobile",
-                "Blackberry", "WebOS", "Ubuntu", "Windows7", "Max OS X",
-                "Linux", "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux",
-                "OS/2", "Ubuntu", "Windows7", "Max OS X", "Linux", "OS/2",
-                "Android", "iPhone", "WindowsMobile" };
-        a=mainActivity.myDAO.we
 
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
-        }
-        final StableArrayAdapter adapter = new StableArrayAdapter(this,
-                android.R.layout.simple_list_item_1, list);
-        listview.setAdapter(adapter);
+         final List<WeekRecord> list = mainActivity.myDAO.weekRecordDAOItem.getAll();
+         final WeekRecordArrayAdapter adapter = new WeekRecordArrayAdapter(mainActivity,                 list);
+        mainActivity.energyCal_listView_weekRecord.setAdapter(adapter);
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        mainActivity.energyCal_listView_weekRecord.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
@@ -153,7 +149,6 @@ public class EnergyCalFragment implements MyFragment {
                             }
                         });
             }
-
         });
     }
 
