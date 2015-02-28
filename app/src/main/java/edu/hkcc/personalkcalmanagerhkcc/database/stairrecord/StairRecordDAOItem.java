@@ -18,8 +18,9 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
     public static final String TABLE_COL_UP_CODE = "up_code";
     public static final String TABLE_COL_DOWN_CODE = "down_code";
     public static final String TABLE_COL_CAL_BURNED = "cal_burned";
-    public static final String TABLE_COL_TIME = "time";
-    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_CAL_BURNED, TABLE_COL_TIME};
+    public static final String TABLE_COL_MILLISECOND = "millisecond";
+    public static final String TABLE_COL_WEEK_ID = "week_id";
+    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_CAL_BURNED, TABLE_COL_MILLISECOND,TABLE_COL_WEEK_ID};
     public static StairRecordDAOItem static_ = new StairRecordDAOItem(null);
     private final MyDAO myDAO;
 
@@ -49,7 +50,9 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
                 TABLE_COL_UP_CODE + " TEXT NOT NULL, " +
                 TABLE_COL_DOWN_CODE + " TEXT NOT NULL, " +
                 TABLE_COL_CAL_BURNED + " REAL NOT NULL, " +
-                TABLE_COL_TIME + " INTEGER NOT NULL)";
+                TABLE_COL_MILLISECOND + " INTEGER NOT NULL, " +
+                TABLE_COL_WEEK_ID + " INTEGER NOT NULL" +
+                ")";
     }
 
     @Override
@@ -64,7 +67,8 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         contentValues.put(TABLE_COL_UP_CODE, item.up_code);
         contentValues.put(TABLE_COL_DOWN_CODE, item.down_code);
         contentValues.put(TABLE_COL_CAL_BURNED, item.calBurned);
-        contentValues.put(TABLE_COL_TIME, item.time);
+        contentValues.put(TABLE_COL_MILLISECOND, item.millisecond);
+        contentValues.put(TABLE_COL_WEEK_ID,item.weekId);
 
         long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
@@ -102,7 +106,8 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         result.up_code = cursor.getString(1);
         result.down_code = cursor.getString(2);
         result.calBurned = cursor.getFloat(3);
-        result.time = cursor.getLong(4);
+        result.millisecond = cursor.getLong(4);
+        result.weekId=cursor.getLong(5);
 
         return result;
     }
