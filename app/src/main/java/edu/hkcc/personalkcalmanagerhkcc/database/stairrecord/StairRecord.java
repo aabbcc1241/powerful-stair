@@ -21,9 +21,8 @@ public class StairRecord {
         this.down_code = stairPair.down_code;
         calBurned = Maths.calBurned(stairPair.height, durationInMinutes);
         millisecond = System.currentTimeMillis();
-        weekId=millisecondToWeekId(millisecond);
+        weekId = millisecondToWeekId(millisecond);
     }
-
 
 
     @Deprecated
@@ -31,13 +30,13 @@ public class StairRecord {
         super();
     }
 
-    public String getWhereString() {
-        return StairRecordDAOItem.TABLE_COL_ID + "=" + id;
+    public static long millisecondToWeekId(long millisecond) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(millisecond);
+        return calendar.get(Calendar.YEAR) * 1000 + calendar.get(Calendar.WEEK_OF_YEAR);
     }
 
-    public static  long millisecondToWeekId(long millisecond){
-        Calendar calendar=Calendar.getInstance();
-        calendar.setTimeInMillis(millisecond);
-        return  calendar.get(Calendar.YEAR) * 1000 + calendar.get(Calendar.WEEK_OF_YEAR);
+    public String getWhereString() {
+        return StairRecordDAOItem.TABLE_COL_ID + "=" + id;
     }
 }

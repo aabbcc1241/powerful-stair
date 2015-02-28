@@ -20,7 +20,7 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
     public static final String TABLE_COL_CAL_BURNED = "cal_burned";
     public static final String TABLE_COL_MILLISECOND = "millisecond";
     public static final String TABLE_COL_WEEK_ID = "week_id";
-    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_CAL_BURNED, TABLE_COL_MILLISECOND,TABLE_COL_WEEK_ID};
+    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_UP_CODE, TABLE_COL_DOWN_CODE, TABLE_COL_CAL_BURNED, TABLE_COL_MILLISECOND, TABLE_COL_WEEK_ID};
     public static StairRecordDAOItem static_ = new StairRecordDAOItem(null);
     private final MyDAO myDAO;
 
@@ -68,7 +68,7 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         contentValues.put(TABLE_COL_DOWN_CODE, item.down_code);
         contentValues.put(TABLE_COL_CAL_BURNED, item.calBurned);
         contentValues.put(TABLE_COL_MILLISECOND, item.millisecond);
-        contentValues.put(TABLE_COL_WEEK_ID,item.weekId);
+        contentValues.put(TABLE_COL_WEEK_ID, item.weekId);
 
         long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;
@@ -107,8 +107,17 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         result.down_code = cursor.getString(2);
         result.calBurned = cursor.getFloat(3);
         result.millisecond = cursor.getLong(4);
-        result.weekId=cursor.getLong(5);
+        result.weekId = cursor.getLong(5);
 
+        return result;
+    }
+
+    public List<StairRecord> getAllInSameWeek(long weekId) {
+        List<StairRecord> all = getAll();
+        List<StairRecord> result = new ArrayList<StairRecord>();
+        for (StairRecord record : all)
+            if (record.weekId == weekId)
+                result.add(record);
         return result;
     }
 }
