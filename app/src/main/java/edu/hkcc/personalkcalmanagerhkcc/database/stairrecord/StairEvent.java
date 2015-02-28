@@ -45,7 +45,7 @@ public class StairEvent {
             } else {
                 secondStairCode = stairCode;
                 secondTime = System.currentTimeMillis();
-                //TODO save record
+                // save record
                 StairPair stairPair = mainActivity.myDAO.stairPairDAOItem.getStairPair(firstStairCode.code, secondStairCode.code);
                 StairRecord record = new StairRecord(stairPair, Maths.millisecondsToMinutes(secondTime - firstTime));
                 mainActivity.myDAO.stairRecordDAOItem.insert(record);

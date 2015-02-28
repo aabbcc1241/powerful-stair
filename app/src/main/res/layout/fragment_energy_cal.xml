@@ -48,4 +48,14 @@
         </TableRow>
     </TableLayout>
 
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/seekBar_xml"
+        android:progress="78"
+        android:max="100"
+        android:progressDrawable="@android:drawable/ic_media_ff"
+        android:layout_gravity="center"
+        android:thumb="@drawable/runner2" />
+
 </LinearLayout>

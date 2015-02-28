@@ -1,6 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.view.Gravity;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -9,33 +10,33 @@ import java.util.Random;
 
 import edu.hkcc.myutils.MyFragment;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
+import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.TableViewRow;
 
 public class EnergyCalFragment implements MyFragment {
     public static int drawerPosition = ResLinker
             .getSectionNum(R.layout.fragment_energy_cal);
     public float targetPerWeek;
     private MainActivity mainActivity;
-    private int calAccum;
+    private int calAccumulate=0;
 
     public EnergyCalFragment(MainActivity mainActivity) {
         this.mainActivity = mainActivity;
-        calAccum = 0;
     }
 
-    public void accumCal(int newCal) {
-        calAccum += newCal;
+    public void accumulateCal(int newCal) {
+        calAccumulate += newCal;
     }
 
     public int getCalAccum() {
-        return calAccum;
+        return calAccumulate;
     }
 
     public String getCalAccumAsString() {
-        return String.valueOf(calAccum);
+        return String.valueOf(calAccumulate);
     }
 
     /* load from database */
-    public void showRecord() {
+    public void showRecords() {
         int id = new Random().nextInt(1024);
         TableRow tableRow = new TableRow(mainActivity);
         tableRow.setLayoutParams(new TableRow.LayoutParams(
@@ -57,13 +58,22 @@ public class EnergyCalFragment implements MyFragment {
         tableRow.addView(textView2);
         tableRow.addView(textView3);
         mainActivity.energyCal_tablelayout_energy.addView(tableRow);
+        TableViewRow tableViewRow=new TableViewRow(mainActivity);
+        //mainActivity.energyCal_tablelayout_energy.addView(tableViewRow.tableRow);
+        tableViewRow.tableRow.removeView(tableViewRow.seekBarProgress);
+        ((LinearLayout)mainActivity.findViewById(R.id.LinearLayout1)).addView(tableViewRow.seekBarProgress);
+    }
+
+    /* show record (row) to layout */
+    public void showRecord(TableViewRow viewRow){
+
     }
 
     public void addRecord() {
         int newCal = Integer.valueOf(mainActivity
                 .getString(R.string.energyCal_energy_per_walk_stair));
-        accumCal(newCal);
-        showRecord();
+        accumulateCal(newCal);
+        showRecords();
     }
 
     public void addTableViewRecord(StairRecord record) {
@@ -84,10 +94,16 @@ public class EnergyCalFragment implements MyFragment {
         int month = calendar.get(Calendar.MONTH);
         textView2.setText(date + "/" + month);
         textView3.setText(getCalAccumAsString());
-        tableRow.addView(textView1);
-        tableRow.addView(textView2);
-        tableRow.addView(textView3);
+        //tableRow.addView(textView1);
+        //tableRow.addView(textView2);
+        //tableRow.addView(textView3);
+        TableViewRow tableViewRow=new TableViewRow(mainActivity);
+        tableRow.addView(tableViewRow.tvWeekNumber);
+        tableRow.addView(tableViewRow.seekBarProgress);
+        tableRow.addView(tableViewRow.tvProgress);
         mainActivity.energyCal_tablelayout_energy.addView(tableRow);
+
+        mainActivity.energyCal_tablelayout_energy.addView(tableViewRow.tableRow);
     }
 
     @Override
@@ -96,7 +112,8 @@ public class EnergyCalFragment implements MyFragment {
             @Override
             public void run() {
                 // TODO Auto-generated method stub
-                // showRecord();
+                // showRecords();
+                //TODO remove debug
                 addRecord();
             }
         };

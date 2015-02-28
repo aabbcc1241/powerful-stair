@@ -237,6 +237,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void scanQRCode() {
+        //TODO check week record
         Log.w("QR", "to scan");
         currentStairEvent.scanning = true;
         Intent intent = new Intent(this, ScanActivity.class);

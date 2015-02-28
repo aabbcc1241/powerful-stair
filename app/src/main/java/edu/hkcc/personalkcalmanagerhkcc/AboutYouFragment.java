@@ -86,7 +86,6 @@ public class AboutYouFragment implements MyFragment {
 
     @Override
     public Runnable getLoadContentRunnable() {
-        //TODO
         return new Runnable() {
             @Override
             public void run() {

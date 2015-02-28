@@ -270,13 +270,10 @@ public class NavigationDrawerFragment extends Fragment {
         if (mDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-
         if (item.getItemId() == R.id.action_scan) {
-            //TODO load string from xml file
-            //Toast.makeText(getActivity(), "", Toast.LENGTH_SHORT).show();
+            MainActivity.currentActivity.scanQRCode();
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
