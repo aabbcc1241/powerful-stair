@@ -10,4 +10,6 @@
     -->
     <dimen name="navigation_drawer_width">240dp</dimen>
 
+    <dimen name="sample_week_record_list_height">80dp</dimen>
+
 </resources>

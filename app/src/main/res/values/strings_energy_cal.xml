@@ -10,4 +10,7 @@
     <string name="energyCal_energy_per_walk_stair">15</string>
     <string name="energyCal_energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
 
+    <string name="energyCal_energy_meet_target">Met Target</string>
+    <string name="energyCal_energy_title_input_target">What is your target cal to burn this week?</string>
+
 </resources>

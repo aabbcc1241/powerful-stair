@@ -88,7 +88,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
         Vector<StairPair> stairPairs = new Vector<>();
         int j; //buffer
         String upCode = "", downCode = "";
-        float distance;
+        float height;
         for (int i = 0; i < rawStrings.length; i++) {
             j = i % 3;
             switch (j) {
@@ -99,8 +99,8 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
                     downCode = rawStrings[i];
                     break;
                 case 2:
-                    distance = Float.parseFloat(rawStrings[i]);
-                    stairPairs.add(new StairPair(upCode, downCode, distance));
+                    height = Float.parseFloat(rawStrings[i]);
+                    stairPairs.add(new StairPair(upCode, downCode, height));
                     break;
             }
         }
@@ -147,7 +147,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
                     || (source.equals(item.down_code) && destination.equals(item.up_code)))
                 return item;
         }
-        throw new StairPairNotFoundException();
+        throw new StairPairNotFoundException(source, destination);
     }
 
 }

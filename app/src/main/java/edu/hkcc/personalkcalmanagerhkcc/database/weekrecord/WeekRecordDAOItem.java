@@ -9,7 +9,6 @@ import java.util.List;
 
 import edu.hkcc.personalkcalmanagerhkcc.database.DAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
-import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
 
 /**
  * Created by beenotung on 2/28/15.
@@ -17,14 +16,15 @@ import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
 public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
     public static final String TABLE_COL_ID = "week_id";
     public static final String TABLE_COL_WEEK_TARGET = "week_target";
-    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_WEEK_TARGET};
+    public static final String TABLE_COL_CREATE_TIME = "create_time";
+    public static final String[] COLUMNS = {TABLE_COL_ID, TABLE_COL_WEEK_TARGET, TABLE_COL_CREATE_TIME};
     public static WeekRecordDAOItem static_ = new WeekRecordDAOItem(null);
+    private final MyDAO myDAO;
 
     public WeekRecordDAOItem(MyDAO myDAO) {
         this.myDAO = myDAO;
     }
 
-    private final MyDAO myDAO;
     @Override
     public String getTableName() {
         return "week_record";
@@ -44,7 +44,8 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
     public String getTableCreate() {
         return "CREATE TABLE IF NOT EXISTS " + getTableName() + " (" +
                 getTableColId() + " INTEGER PRIMARY KEY NOT NULL, " +
-                TABLE_COL_WEEK_TARGET + " REAL NOT NULL " +
+                TABLE_COL_WEEK_TARGET + " REAL NOT NULL, " +
+                TABLE_COL_CREATE_TIME + " INTEGER NOT NULL " +
                 ")";
     }
 
@@ -59,8 +60,9 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
 
         contentValues.put(TABLE_COL_ID, item.weekId);
         contentValues.put(TABLE_COL_WEEK_TARGET, item.weekTarget);
+        contentValues.put(TABLE_COL_CREATE_TIME, item.createTime);
 
-         myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
+        myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
     }
 
     @Override
@@ -93,7 +95,31 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
 
         result.weekId = cursor.getLong(0);
         result.weekTarget = cursor.getFloat(1);
+        result.createTime = cursor.getLong(2);
 
+        return result;
+    }
+
+    public synchronized WeekRecord getWeekRecord(long weekId) throws WeekRecordNotFoundException {
+        List<WeekRecord> list = getAll();
+        for (WeekRecord item : list) {
+            if (item.weekId == weekId)
+                return item;
+        }
+        throw new WeekRecordNotFoundException();
+    }
+
+    public synchronized float getWeekTarget(long weekId) throws WeekRecordNotFoundException {
+        return getWeekRecord(weekId).getCalSum();
+    }
+
+    public long getFirstMillisecond() throws WeekRecordNotFoundException {
+        List<WeekRecord> records = getAll();
+        if (records.size() <= 0) throw new WeekRecordNotFoundException();
+        long result = records.get(0).createTime;
+        for (WeekRecord record : records)
+            if (result > record.createTime)
+                result = record.createTime;
         return result;
     }
 }

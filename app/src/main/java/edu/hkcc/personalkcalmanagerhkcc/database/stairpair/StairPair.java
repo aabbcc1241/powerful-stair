@@ -30,7 +30,7 @@ public class StairPair {
 
     @Override
     public String toString() {
-        Vector result=new Vector();
+        Vector result = new Vector();
         result.add(up_code);
         result.add(down_code);
         result.add(height);

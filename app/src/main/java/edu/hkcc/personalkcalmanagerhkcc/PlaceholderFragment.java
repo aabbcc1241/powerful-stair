@@ -55,8 +55,12 @@ public class PlaceholderFragment extends Fragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        ((MainActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
-        Log.w("Debug", "PlaceholderFragment.onAttach:ARG_SECTION_NUMBER=" + getArguments().getInt(ARG_SECTION_NUMBER));
+        try {
+            ((MainActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
+            Log.w("Debug", "PlaceholderFragment.onAttach:ARG_SECTION_NUMBER=" + getArguments().getInt(ARG_SECTION_NUMBER));
+        } catch (NullPointerException e) {
+
+        }
     }
 
     private static class FragmentVisibleMonitorThread extends Thread {

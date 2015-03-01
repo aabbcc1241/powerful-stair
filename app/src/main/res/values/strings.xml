@@ -10,15 +10,17 @@
     <string-array name="navigation_drawer_titles">
         <item>Welcome</item>
         <item>About You</item>
-        <item>Intro.</item>
-        <item>Diet</item>
         <item>Energy Cal.</item>
         <item>Tips on Ex.</item>
         <item>Tips on nutrition</item>
+        <item>Intro.</item>
     </string-array>
 
     <string name="loading">Loading</string>
     <string name="error_404">"Under Development!! o(｀・ω・´)o"</string>
+    <string name="add_oil">"Add Oil o(`・ω・´)o"</string>
+    <string name="yeah">"Yeah ＼(o ´ ω ` o)／"</string>
+
 
     <dimen name="std_space_height">39dp</dimen>
 

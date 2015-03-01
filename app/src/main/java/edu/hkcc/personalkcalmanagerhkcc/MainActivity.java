@@ -19,12 +19,15 @@ import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TableLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import edu.hkcc.myutils.Maths;
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairEvent;
+import edu.hkcc.personalkcalmanagerhkcc.database.userinfo.UserInfo;
+import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordNotFoundException;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -55,7 +58,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public EditText aboutYou_editText_userweight;
     public EditText aboutYou_editText_userbmi;
     // energy cal
-    public TableLayout energyCal_tablelayout_energy;
+    public ListView energyCal_listView_weekRecord;
     // tips on ex
     public WebView tipsOnEx_webView;
     // tips on nutrition
@@ -137,7 +140,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSection_energyCal() {
-        energyCal_tablelayout_energy = (TableLayout) findViewById(R.id.energyCal_tablelayout_energy);
+        energyCal_listView_weekRecord = (ListView) findViewById(R.id.energyCal_listview_week_record);
     }
 
     private void initSection_tipsOnEx() {
@@ -237,6 +240,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     public void scanQRCode() {
+        //TODO check week record
+        //initCheck();
         Log.w("QR", "to scan");
         currentStairEvent.scanning = true;
         Intent intent = new Intent(this, ScanActivity.class);
@@ -259,14 +264,48 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 // unknown tag type
                 msgs = new NdefMessage[1];
             }
+            //TODO nfc function
             Utils.showToast(MainActivity.this, "nfc detected");
             switchSection(EnergyCalFragment.drawerPosition);
-            energyCalFragment.addRecord();
+            //energyCalFragment.addRecord();
         } else
             ;//Utils.showToast(MainActivity.this, "welcome");
     }
 
     public void settingsOnClick() {
         switchSection(AboutYouFragment.drawerPosition);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    public void initCheck() {
+        UserInfo userInfo = myDAO.userInfoDAOItem.getUserInfo();
+        if (userInfo.isSufficient()) {
+            String toastMessage = getString(R.string.welcome_hi) + " " + userInfo.getName();
+            try {
+                int progress = Math.round(myDAO.weekRecordDAOItem.getWeekRecord(Maths.millisecondToWeekId(System.currentTimeMillis())).getProgress() * 100);
+                if (progress < 100)
+                    toastMessage += ", " + progress + "%, " + getString(R.string.add_oil);
+                else
+                    toastMessage += ", " + getString(R.string.energyCal_energy_meet_target) + " " + getString(R.string.yeah);
+            } catch (WeekRecordNotFoundException e) {
+                /*try {
+                    Thread.sleep(Utils.DEFAULT_TIMEOUT);
+                } catch (InterruptedException e2) {
+                }
+                switchSection(EnergyCalFragment.drawerPosition);*/
+            }
+            Utils.showToast(this, toastMessage);
+        } else {
+            Log.w("Warning", "user height and weight is empty");
+            try {
+                Thread.sleep(Utils.DEFAULT_TIMEOUT);
+            } catch (InterruptedException e) {
+            }
+            switchSection(AboutYouFragment.drawerPosition);
+        }
     }
 }
