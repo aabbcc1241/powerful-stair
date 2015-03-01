@@ -40,20 +40,17 @@ public class StairEvent {
             if (!mainActivity.myDAO.stairPairDAOItem.isStairCodeExist(stairCode.code))
                 throw new StairPairNotFoundException(stairCode);
 
-            //check if double scan (same code)
-            if (stairCode.equals(secondStairCode)) {
-                Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_first_scan_success));
-                return;
-            }
-
             firstStairCode = secondStairCode;
             firstTime = secondTime;
             secondStairCode = stairCode;
             secondTime = System.currentTimeMillis();
-            //prevent null pointer
-            if (saved)
-                firstStairCode = secondStairCode;
 
+            //check if double scan (same code)
+            if (saved||firstStairCode.code.equals(secondStairCode.code)) {
+                Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_first_scan_success));
+                saved=false;
+                return;
+            }
 
             // save record
             StairPair stairPair = mainActivity.myDAO.stairPairDAOItem.getStairPair(firstStairCode.code, secondStairCode.code);

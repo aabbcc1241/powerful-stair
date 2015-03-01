@@ -1,5 +1,7 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.weekrecord;
 
+import android.util.Log;
+
 import java.util.List;
 
 import edu.hkcc.myutils.Maths;
@@ -33,8 +35,11 @@ public class WeekRecord {
     public float getCalSum() {
         List<StairRecord> records = MainActivity.currentActivity.myDAO.stairRecordDAOItem.getAllInSameWeek(weekId);
         float result = 0f;
-        for (StairRecord record : records)
+        for (StairRecord record : records) {
             result += record.calBurned;
+            Log.w("cal", record.calBurned + "");
+        }
+        Log.w("cal sum of " + getWeekString() + "(" + records.size() + ")", result + "");
         return result;
     }
 

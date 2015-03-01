@@ -19,15 +19,15 @@ import edu.hkcc.personalkcalmanagerhkcc.R;
 public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
     public static final int RES_Id = R.layout.sample_week_record_list_item;
     private final Context context;
-    private final List<WeekRecord> values;
+    private final List<WeekRecord> weekRecords;
     HashMap<WeekRecord, Integer> mIdMap = new HashMap<WeekRecord, Integer>();
 
-    public WeekRecordArrayAdapter(Context context, List<WeekRecord> values) {
-        super(context, RES_Id, values);
+    public WeekRecordArrayAdapter(Context context, List<WeekRecord> weekRecords) {
+        super(context, RES_Id, weekRecords);
         this.context = context;
-        this.values = values;
-        for (int i = 0; i < values.size(); ++i) {
-            mIdMap.put(values.get(i), i);
+        this.weekRecords = weekRecords;
+        for (int i = 0; i < weekRecords.size(); ++i) {
+            mIdMap.put(weekRecords.get(i), i);
         }
     }
 
@@ -55,12 +55,12 @@ public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
         SeekBar seekBarProgress = (SeekBar) rowView.findViewById(R.id.sample_week_record_list_seekBar);
         TextView tvProgress = (TextView) rowView.findViewById(R.id.sample_week_record_list_tv_progress);
 
-        tvWeekNum.setText(values.get(position).getWeekString());
+        tvWeekNum.setText(weekRecords.get(position).getWeekString());
 
 
-        seekBarProgress.setMinimumHeight(Math.round(rowView.getResources().getDimension(R.dimen.sample_week_record_list_height)));
-        seekBarProgress.setMax(Math.round(values.get(position).weekTarget));
-        seekBarProgress.setProgress(Math.round(values.get(position).getCalSum()));
+        //seekBarProgress.setMinimumHeight(Math.round(rowView.getResources().getDimension(R.dimen.sample_week_record_list_height)));
+        seekBarProgress.setMax(100);
+        seekBarProgress.setProgress(Math.round(weekRecords.get(position).getProgress()*100));
         seekBarProgress.setEnabled(false);
         /*//seekBarProgress.setProgressDrawable(context.getResources().getDrawable(R.drawable.ic_media_ff));
         Bitmap icon = BitmapFactory.decodeResource(mainActivity.res,
@@ -74,7 +74,7 @@ public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
         //runner.setAlpha();
         seekBarProgress.setThumb(mainActivity.res.getDrawable(R.drawable.runner3));*/
 
-        tvProgress.setText(String.format("%d%%", Math.round(values.get(position).getProgress())));
+        tvProgress.setText(String.format("%d%%", Math.round(weekRecords.get(position).getProgress()*100)));
 
         return rowView;
     }

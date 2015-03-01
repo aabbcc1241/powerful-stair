@@ -95,7 +95,7 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
 
         result.weekId = cursor.getLong(0);
         result.weekTarget = cursor.getFloat(1);
-        result.createTime=cursor.getLong(2);
+        result.createTime = cursor.getLong(2);
 
         return result;
     }

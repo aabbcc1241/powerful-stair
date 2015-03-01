@@ -15,7 +15,7 @@ public class StairPairNotFoundException extends Resources.NotFoundException {
     }
 
     public StairPairNotFoundException(String source, String destination) {
-        message = MESSAGE + " source:" + source + ", destination" + destination;
+        message = MESSAGE + " source:" + source + ", destination:" + destination;
     }
 
     @Override

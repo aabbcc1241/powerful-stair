@@ -3,6 +3,7 @@ package edu.hkcc.personalkcalmanagerhkcc.database.stairrecord;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,6 +70,7 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
         contentValues.put(TABLE_COL_CAL_BURNED, item.calBurned);
         contentValues.put(TABLE_COL_MILLISECOND, item.millisecond);
         contentValues.put(TABLE_COL_WEEK_ID, item.weekId);
+        Log.w("insert cal",item.calBurned+"");
 
         long id = myDAO.database.insertWithOnConflict(getTableName(), null, contentValues, SQLiteDatabase.CONFLICT_REPLACE);
         item.id = id;

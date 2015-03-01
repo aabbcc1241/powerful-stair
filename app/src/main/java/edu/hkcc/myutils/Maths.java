@@ -1,5 +1,8 @@
 package edu.hkcc.myutils;
 
+import android.support.v4.util.LogWriter;
+import android.util.Log;
+
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordNotFoundException;
 
@@ -19,7 +22,12 @@ public class Maths {
 
     //METs x 3.5 x weight in kilograms ÷ 200 x duration in minutes
     public static float calBurned(float height, float durationInMinutes) {
-        return METs_STAIR_CLIMB * 3.5f * MainActivity.currentActivity.aboutYouFragment.weight * MainActivity.currentActivity.aboutYouFragment.weightUnit / 200f * durationInMinutes * height / STD_STAIR_HEIGHT;
+        MainActivity.currentActivity.aboutYouFragment.readFromDb();
+        float result=METs_STAIR_CLIMB * 3.5f * MainActivity.currentActivity.aboutYouFragment.weight * MainActivity.currentActivity.aboutYouFragment.weightUnit / 200f * durationInMinutes * height / STD_STAIR_HEIGHT;
+        Log.w("debug", "cal burn:"+height+", "+durationInMinutes+"="+result)               ;
+        Log.w("weight", MainActivity.currentActivity.aboutYouFragment.weight+"")               ;
+        Log.w("weightUnit", MainActivity.currentActivity.aboutYouFragment.weightUnit+"")               ;
+        return result;
     }
 
     public static float millisecondsToMinutes(long milliseconds) {
