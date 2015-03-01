@@ -23,7 +23,7 @@ public class MyDAO extends SQLiteOpenHelper {
     public StairPairDAOItem stairPairDAOItem = new StairPairDAOItem(this);
     public UserInfoDAOItem userInfoDAOItem = new UserInfoDAOItem(this);
     public StairRecordDAOItem stairRecordDAOItem = new StairRecordDAOItem(this);
-    public WeekRecordDAOItem weekRecordDAOItem=new WeekRecordDAOItem(this);
+    public WeekRecordDAOItem weekRecordDAOItem = new WeekRecordDAOItem(this);
 
     public MyDAO(MainActivity mainActivity, SQLiteDatabase.CursorFactory factory) {
         super(mainActivity, DATABASE_NAME, factory, VERSION);

@@ -37,6 +37,7 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/dimens.xml -->
     <eat-comment/>
     <dimen name="navigation_drawer_width">240dp</dimen>
+    <dimen name="sample_week_record_list_height">80dp</dimen>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <dimen name="std_space_height">39dp</dimen>

@@ -1,45 +1,35 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.weekrecord;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Shader;
-import android.graphics.drawable.BitmapDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
 
-import edu.hkcc.myutils.Utils;
-import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;
 
 /**
  * Created by beenotung on 2/28/15.
  */
 public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
+    public static final int RES_Id = R.layout.sample_week_record_list_item;
     private final Context context;
     private final List<WeekRecord> values;
-    public static final int RES_Id=R.layout.sample_week_record_list_item;
+    HashMap<WeekRecord, Integer> mIdMap = new HashMap<WeekRecord, Integer>();
 
     public WeekRecordArrayAdapter(Context context, List<WeekRecord> values) {
         super(context, RES_Id, values);
-        this.context=context;
-        this.values=values;
+        this.context = context;
+        this.values = values;
         for (int i = 0; i < values.size(); ++i) {
             mIdMap.put(values.get(i), i);
         }
     }
-
-    HashMap<WeekRecord, Integer> mIdMap = new HashMap<WeekRecord, Integer>();
-
-
 
     @Override
     public long getItemId(int position) {
@@ -67,13 +57,12 @@ public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
 
         tvWeekNum.setText(values.get(position).getWeekString());
 
-        seekBarProgress.setMinimumHeight(rowView.getdimen);
-        seekBarProgress.setProgress(Utils.random.nextInt(100));
-        seekBarProgress.setMax(100);
-        seekBarProgress.setProgressDrawable(mainActivity.res.getDrawable(R.drawable.ic_media_ff));
 
-        //seekBarProgress.setFocusable(false);
-        //seekBarProgress.setFocusableInTouchMode(false);
+        seekBarProgress.setMinimumHeight(Math.round(rowView.getResources().getDimension(R.dimen.sample_week_record_list_height)));
+        seekBarProgress.setMax(Math.round(values.get(position).weekTarget));
+        seekBarProgress.setProgress(Math.round(values.get(position).getCalSum()));
+        seekBarProgress.setEnabled(false);
+        /*//seekBarProgress.setProgressDrawable(context.getResources().getDrawable(R.drawable.ic_media_ff));
         Bitmap icon = BitmapFactory.decodeResource(mainActivity.res,
                 R.drawable.ic_media_ff);
         BitmapDrawable drawable=new BitmapDrawable(icon);
@@ -81,27 +70,12 @@ public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
         drawable.setAlpha(80);
         //seekBarProgress.setProgressDrawable(mainActivity.res.getDrawable(R.drawable.ic_media_ff));
         seekBarProgress.setProgressDrawable(drawable);
-
         //BitmapDrawable runner=new BitmapDrawable(BitmapFactory.decodeResource(mainActivity.res,R.drawable.runner2));
         //runner.setAlpha();
-        seekBarProgress.setThumb(mainActivity.res.getDrawable(R.drawable.runner3));
+        seekBarProgress.setThumb(mainActivity.res.getDrawable(R.drawable.runner3));*/
 
-        seekBarProgress.setEnabled(false);
-
-
-
-        textView.setText(values[position]);
-        // change the icon for Windows and iPhone
-        String s = values[position];
-        if (s.startsWith("iPhone")) {
-            imageView.setImageResource(R.drawable.no);
-        } else {
-            imageView.setImageResource(R.drawable.ok);
-        }
+        tvProgress.setText(String.format("%d%%", Math.round(values.get(position).getProgress())));
 
         return rowView;
-
-
-        return super.getView(position, convertView, parent);
     }
 }

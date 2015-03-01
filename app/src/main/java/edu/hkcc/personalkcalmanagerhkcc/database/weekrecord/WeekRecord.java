@@ -23,7 +23,8 @@ public class WeekRecord {
     public float getProgress() {
         return getCalSum() / weekTarget;
     }
-    public String getWeekString(){
-        return "Week "+weekId % 100;
+
+    public String getWeekString() {
+        return "Week " + weekId % 100;
     }
 }

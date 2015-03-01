@@ -20,7 +20,6 @@ import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import edu.hkcc.myutils.Utils;
@@ -138,7 +137,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     }
 
     private void initSection_energyCal() {
-        energyCal_listView_weekRecord= (ListView) findViewById(R.id.energyCal_listview_week_record);
+        energyCal_listView_weekRecord = (ListView) findViewById(R.id.energyCal_listview_week_record);
     }
 
     private void initSection_tipsOnEx() {
@@ -261,9 +260,10 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
                 // unknown tag type
                 msgs = new NdefMessage[1];
             }
+            //TODO nfc function
             Utils.showToast(MainActivity.this, "nfc detected");
             switchSection(EnergyCalFragment.drawerPosition);
-            energyCalFragment.addRecord();
+            //energyCalFragment.addRecord();
         } else
             ;//Utils.showToast(MainActivity.this, "welcome");
     }

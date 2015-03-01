@@ -120,11 +120,12 @@ public class StairRecordDAOItem implements DAOItem<StairRecord> {
                 result.add(record);
         return result;
     }
-    public float getSumCalInSameWeek(long weekId){
+
+    public float getSumCalInSameWeek(long weekId) {
         List<StairRecord> records = getAllInSameWeek(weekId);
-        float sum=0f;
-        for (StairRecord record:records)
-            sum+=record.calBurned;
+        float sum = 0f;
+        for (StairRecord record : records)
+            sum += record.calBurned;
         return sum;
     }
 }
