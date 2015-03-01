@@ -44,6 +44,7 @@ public class AboutYouFragment implements MyFragment {
             Utils.showToast(myContext,
                     R.string.aboutYou_pleaseFillAllInfo);
         }
+        mainActivity.initCheck();
     }
 
     private boolean readFromLayout() {

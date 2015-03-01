@@ -83,7 +83,9 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
         while (cursor.moveToNext())
             result.add(getItemRecord(cursor));
         cursor.close();
-        return result;
+        if (result.size() > 0)
+            return result;
+        else throw new WeekRecordNotFoundException();
     }
 
     @Override
@@ -107,5 +109,14 @@ public class WeekRecordDAOItem implements DAOItem<WeekRecord> {
 
     public synchronized float getWeekTarget(long weekId) throws WeekRecordNotFoundException {
         return getWeekRecord(weekId).getCalSum();
+    }
+
+    public long getFirstMillisecond() throws WeekRecordNotFoundException {
+        List<WeekRecord> records = getAll();
+        long result = records.get(0).weekId;
+        for (WeekRecord record : records)
+            if (result > record.weekId)
+                result = record.weekId;
+        return result;
     }
 }

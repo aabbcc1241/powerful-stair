@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center">
 
     <TextView
+        android:id="@+id/sample_week_record_list_tv_week_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="week num"
-        android:id="@+id/sample_week_record_list_tv_week_num" />
+        android:text="week num" />
 
     <SeekBar
+        android:id="@+id/sample_week_record_list_seekBar"
+        style="e"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:id="@+id/sample_week_record_list_seekBar"
+        android:layout_gravity="center"
         android:layout_weight="1"
         android:max="100"
-        android:saveEnabled="false"
-        android:thumb="@drawable/runner3"
         android:progressDrawable="@drawable/ic_media_ff"
-        android:layout_gravity="center"
-        style="e" />
+        android:saveEnabled="false"
+        android:thumb="@drawable/runner3" />
 
     <TextView
+        android:id="@+id/sample_week_record_list_tv_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="100%"
-        android:id="@+id/sample_week_record_list_tv_progress" />
+        android:text="100%" />
 
 </LinearLayout>
 

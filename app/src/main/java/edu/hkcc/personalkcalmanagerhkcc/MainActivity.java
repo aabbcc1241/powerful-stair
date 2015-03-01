@@ -22,9 +22,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import edu.hkcc.myutils.Maths;
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairEvent;
+import edu.hkcc.personalkcalmanagerhkcc.database.userinfo.UserInfo;
+import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordNotFoundException;
 
 public class MainActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -238,6 +241,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     public void scanQRCode() {
         //TODO check week record
+        initCheck();
         Log.w("QR", "to scan");
         currentStairEvent.scanning = true;
         Intent intent = new Intent(this, ScanActivity.class);
@@ -270,5 +274,38 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     public void settingsOnClick() {
         switchSection(AboutYouFragment.drawerPosition);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    public void initCheck() {
+        UserInfo userInfo = myDAO.userInfoDAOItem.getUserInfo();
+        if (userInfo.isSufficient()) {
+            try {
+                int progress = Math.round(myDAO.weekRecordDAOItem.getWeekRecord(Maths.millisecondToWeekId(System.currentTimeMillis())).getProgress() * 100);
+                String toastMessage = getString(R.string.welcome_hi) + " " + userInfo.getName() + ", ";
+                if (progress < 100)
+                    toastMessage += progress + "%, " + getString(R.string.add_oil);
+                else
+                    toastMessage += getString(R.string.energyCal_energy_meet_target) + " " + getString(R.string.yeah);
+                Utils.showToast(this, toastMessage);
+            } catch (WeekRecordNotFoundException e) {
+                try {
+                    Thread.sleep(Utils.DEFAULT_TIMEOUT);
+                } catch (InterruptedException e2) {
+                }
+                switchSection(EnergyCalFragment.drawerPosition);
+            }
+        } else {
+            Log.w("Warning", "user height and weight is empty");
+            try {
+                Thread.sleep(Utils.DEFAULT_TIMEOUT);
+            } catch (InterruptedException e) {
+            }
+            switchSection(AboutYouFragment.drawerPosition);
+        }
     }
 }

@@ -7,6 +7,7 @@ import java.util.Random;
 
 public class Utils {
     public static final int DEFAULT_TIMEOUT = 2000;
+    public static Random random = new Random(System.currentTimeMillis());
 
     /*
      * showToast
@@ -26,5 +27,4 @@ public class Utils {
     public static void showToast(Context context, int resId) {
         Toast.makeText(context, resId, Toast.LENGTH_SHORT).show();
     }
-    public static Random random            =new Random(System.currentTimeMillis());
 }

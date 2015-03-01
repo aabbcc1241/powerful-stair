@@ -1,7 +1,5 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.stairrecord;
 
-import java.util.Calendar;
-
 import edu.hkcc.myutils.Maths;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPair;
 
@@ -21,7 +19,7 @@ public class StairRecord {
         this.down_code = stairPair.down_code;
         calBurned = Maths.calBurned(stairPair.height, durationInMinutes);
         millisecond = System.currentTimeMillis();
-        weekId = millisecondToWeekId(millisecond);
+        weekId = Maths.millisecondToWeekId(millisecond);
     }
 
 
@@ -30,11 +28,6 @@ public class StairRecord {
         super();
     }
 
-    public static long millisecondToWeekId(long millisecond) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(millisecond);
-        return calendar.get(Calendar.YEAR) * 10 + calendar.get(Calendar.WEEK_OF_YEAR);
-    }
 
     public String getWhereString() {
         return StairRecordDAOItem.TABLE_COL_ID + "=" + id;

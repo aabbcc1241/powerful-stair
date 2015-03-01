@@ -1,6 +1,7 @@
 package edu.hkcc.myutils;
 
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
+import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordNotFoundException;
 
 /**
  * Created by beenotung on 2/23/15.
@@ -23,5 +24,17 @@ public class Maths {
 
     public static float millisecondsToMinutes(long milliseconds) {
         return milliseconds / 1000f / 60f;
+    }
+
+    public static long millisecondToWeekId(long millisecond) {
+        try {
+            return (millisecond - MainActivity.currentActivity.myDAO.weekRecordDAOItem.getFirstMillisecond()) / (7 * 24 * 60 * 60 * 1000) + 1;
+        } catch (WeekRecordNotFoundException e) {
+        }
+        return 1;
+    }
+
+    public static String getWeekString(long weekId) {
+        return "Week " + weekId % 100;
     }
 }

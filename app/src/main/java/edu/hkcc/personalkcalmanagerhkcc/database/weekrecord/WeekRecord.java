@@ -2,6 +2,7 @@ package edu.hkcc.personalkcalmanagerhkcc.database.weekrecord;
 
 import java.util.List;
 
+import edu.hkcc.myutils.Maths;
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
 
@@ -11,6 +12,15 @@ import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
 public class WeekRecord {
     public long weekId;
     public float weekTarget;
+
+    public WeekRecord() {
+        super();
+    }
+
+    public WeekRecord(long weekId, float weekTarget) {
+        this.weekId = weekId;
+        this.weekTarget = weekTarget;
+    }
 
     public float getCalSum() {
         List<StairRecord> records = MainActivity.currentActivity.myDAO.stairRecordDAOItem.getAllInSameWeek(weekId);
@@ -25,6 +35,6 @@ public class WeekRecord {
     }
 
     public String getWeekString() {
-        return "Week " + weekId % 100;
+        return Maths.getWeekString(weekId);
     }
 }

@@ -63,6 +63,7 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="action_settings">Settings</string>
+    <string name="add_oil">"Add Oil o(`・ω・´)o"</string>
     <string name="app_name">Personal Kcal Manager (HKCC)</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_scanner.xml -->
     <eat-comment/>
@@ -70,7 +71,9 @@
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings_energy_cal.xml -->
     <eat-comment/>
     <string name="energyCal_adding_record">Adding Record</string>
+    <string name="energyCal_energy_meet_target">Met Target</string>
     <string name="energyCal_energy_per_walk_stair">15</string>
+    <string name="energyCal_energy_title_input_target">What is your target cal to burn this week?</string>
     <string name="energyCal_energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
     <string name="energyCal_scan">Scan stair code</string>
     <string name="energyCal_tap">Tap stair tag</string>
@@ -111,6 +114,9 @@
     <eat-comment/>
     <string name="welcome_hi">Hi</string>
     <string name="welcome_lets_go">"Let's go!\nOpen the drawer from the left : )"</string>
+    <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="yeah">"Yeah ＼(o ´ ω ` o)／"</string>
     <!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">
