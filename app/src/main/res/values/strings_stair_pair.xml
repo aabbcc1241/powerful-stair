@@ -3,13 +3,97 @@
 
     <string-array name="stair_pair_string_array">
 
-        <item>hhb_02</item>
-        <item>hhb_03</item>
-        <item>12.3</item>
+        <item>hhb_06</item>
+        <item>hhb_07</item>
+        <item>4.2</item>
+
+        <item>hhb_07</item>
+        <item>hhb_08</item>
+        <item>4.2</item>
+
+        <item>hhb_05</item>
+        <item>hhb_06</item>
+        <item>4.32</item>
+
+        <item>hhb_04</item>
+        <item>hhb_05</item>
+        <item>4.32</item>
 
         <item>hhb_03</item>
         <item>hhb_04</item>
-        <item>12.3</item>
+        <item>5.64</item>
+
+        <item>hhb_ug</item>
+        <item>hhb_01</item>
+        <item>5.58</item>
+
+        <item>hhb_01</item>
+        <item>hhb_02</item>
+        <item>5.64</item>
+
+        <item>hhb_02</item>
+        <item>hhb_03</item>
+        <item>5.58</item>
+
+        <item>hhb_lg</item>
+        <item>hhb_ug</item>
+        <item>5.32</item>
+
+        <item>wk_lg</item>
+        <item>wk_ug</item>
+        <item>2.775</item>
+
+        <item>wk_ug</item>
+        <item>wk_01</item>
+        <item>2.7</item>
+
+        <item>wk_01</item>
+        <item>wk_02</item>
+        <item>2.4</item>
+
+        <item>wk_02</item>
+        <item>wk_03</item>
+        <item>2.8</item>
+
+        <item>wk_03</item>
+        <item>wk_04</item>
+        <item>2.5</item>
+
+        <item>wk_04</item>
+        <item>wk_05</item>
+        <item>2.5</item>
+
+        <item>wk_05</item>
+        <item>wk_06</item>
+        <item>2.5</item>
+
+        <item>wk_07</item>
+        <item>wk_08</item>
+        <item>2.625</item>
+
+        <item>wk_08</item>
+        <item>wk_09</item>
+        <item>2.625</item>
+
+        <item>wk_06</item>
+        <item>wk_07</item>
+        <item>2.625</item>
+
+        <item>wk_05</item>
+        <item>wk_06</item>
+        <item>2.625</item>
+
+        <item>wk_09</item>
+        <item>wk_10</item>
+        <item>2.84</item>
+
+        <item>wk_10</item>
+        <item>wk_11</item>
+        <item>2.84</item>
+
+        <item>wk_11</item>
+        <item>wk_12</item>
+        <item>2.84</item>
 
     </string-array>
 
