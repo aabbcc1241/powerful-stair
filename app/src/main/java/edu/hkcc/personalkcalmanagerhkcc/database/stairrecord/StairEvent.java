@@ -24,6 +24,7 @@ public class StairEvent {
     public long firstTime;
     public StairCode secondStairCode = null;
     public long secondTime;
+    public boolean saved = true;
     private int scanTryCount = 0;
 
     public StairEvent(MainActivity mainActivity) {
@@ -37,33 +38,40 @@ public class StairEvent {
         Log.w("Main", "scanTryCount: " + scanTryCount);
         try {
             if (!mainActivity.myDAO.stairPairDAOItem.isStairCodeExist(stairCode.code))
-                throw new StairPairNotFoundException();
-            if (firstStairCode == null) {
-                firstStairCode = stairCode;
-                firstTime = System.currentTimeMillis();
+                throw new StairPairNotFoundException(stairCode);
+
+            //check if double scan (same code)
+            if (stairCode.equals(secondStairCode)) {
                 Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_first_scan_success));
-            } else {
-                secondStairCode = stairCode;
-                secondTime = System.currentTimeMillis();
-                // save record
-                StairPair stairPair = mainActivity.myDAO.stairPairDAOItem.getStairPair(firstStairCode.code, secondStairCode.code);
-                StairRecord record = new StairRecord(stairPair, Maths.millisecondsToMinutes(secondTime - firstTime));
-                mainActivity.myDAO.stairRecordDAOItem.insert(record);
-                if (record.id < 0)
-                    throw new SQLiteException();
-                Log.w("Debug", "new record id=" + record.id);
-                Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_second_scan_success));
-                firstStairCode = null;
+                return;
             }
+
+            firstStairCode = secondStairCode;
+            firstTime = secondTime;
+            secondStairCode = stairCode;
+            secondTime = System.currentTimeMillis();
+            //prevent null pointer
+            if (saved)
+                firstStairCode = secondStairCode;
+
+
+            // save record
+            StairPair stairPair = mainActivity.myDAO.stairPairDAOItem.getStairPair(firstStairCode.code, secondStairCode.code);
+            StairRecord record = new StairRecord(stairPair, Maths.millisecondsToMinutes(secondTime - firstTime));
+            mainActivity.myDAO.stairRecordDAOItem.insert(record);
+            if (record.id < 0)
+                throw new SQLiteException();
+            Log.w("Debug", "new record id=" + record.id);
+            Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_second_scan_success));
+            saved = true;
         } catch (StairPairNotFoundException e) {
+            saved = false;
             Log.w("Exception", e.getMessage());
             List<StairPair> stairPairs = mainActivity.myDAO.stairPairDAOItem.getAll();
             Log.w("Debug", "number of stair pair in db=" + stairPairs.size());
             for (StairPair stairPair : stairPairs) {
                 Log.w("Debug", stairPair.toString());
             }
-            Log.w("Debug", "firstStairCode=" + firstStairCode.code);
-            Log.w("Debug", "secondStairCode=" + secondStairCode.code);
             Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_scan_error));
             if (scanTryCount <= MAX_TRY_COUNT) mainActivity.scanQRCode();
         } catch (SQLiteException e) {

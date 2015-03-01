@@ -147,7 +147,7 @@ public class StairPairDAOItem implements DAOItem<StairPair> {
                     || (source.equals(item.down_code) && destination.equals(item.up_code)))
                 return item;
         }
-        throw new StairPairNotFoundException();
+        throw new StairPairNotFoundException(source, destination);
     }
 
 }

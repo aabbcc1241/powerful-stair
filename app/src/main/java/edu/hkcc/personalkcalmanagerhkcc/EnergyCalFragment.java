@@ -68,7 +68,9 @@ public class EnergyCalFragment implements MyFragment {
                 public void onClick(DialogInterface dialog, int which) {
                     try {
                         weekTarget = Float.parseFloat(input.getText().toString());
-                        mainActivity.myDAO.weekRecordDAOItem.insert(new WeekRecord(weekId, weekTarget));
+                        if (weekTarget <= 0)
+                            weekTarget = 1;
+                        mainActivity.myDAO.weekRecordDAOItem.insert(new WeekRecord(weekId,  weekTarget));
                         setupListView();
                     } catch (NumberFormatException e) {
                         // input not number
@@ -87,8 +89,11 @@ public class EnergyCalFragment implements MyFragment {
 
     /* load from database */
     private void setupListView() {
-        loadVars();
         final List<WeekRecord> list = mainActivity.myDAO.weekRecordDAOItem.getAll();
+        if (list.size() == 0) {
+            loadVars();
+            return;
+        }
         final WeekRecordArrayAdapter adapter = new WeekRecordArrayAdapter(mainActivity, list);
         mainActivity.energyCal_listView_weekRecord.setAdapter(adapter);
 

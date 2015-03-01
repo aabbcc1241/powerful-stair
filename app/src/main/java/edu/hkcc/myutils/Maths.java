@@ -30,8 +30,8 @@ public class Maths {
         try {
             return (millisecond - MainActivity.currentActivity.myDAO.weekRecordDAOItem.getFirstMillisecond()) / (7 * 24 * 60 * 60 * 1000) + 1;
         } catch (WeekRecordNotFoundException e) {
+            return 1;
         }
-        return 1;
     }
 
     public static String getWeekString(long weekId) {

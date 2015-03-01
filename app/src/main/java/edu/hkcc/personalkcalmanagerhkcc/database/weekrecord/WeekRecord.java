@@ -11,14 +11,22 @@ import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
  */
 public class WeekRecord {
     public long weekId;
+    public long createTime;
     public float weekTarget;
 
     public WeekRecord() {
         super();
     }
 
+    public WeekRecord(long weekId, long createTime, float weekTarget) {
+        this.weekId = weekId;
+        this.createTime = createTime;
+        this.weekTarget = weekTarget;
+    }
+
     public WeekRecord(long weekId, float weekTarget) {
         this.weekId = weekId;
+        this.createTime = System.currentTimeMillis();
         this.weekTarget = weekTarget;
     }
 

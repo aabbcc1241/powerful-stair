@@ -241,7 +241,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     public void scanQRCode() {
         //TODO check week record
-        initCheck();
+        //initCheck();
         Log.w("QR", "to scan");
         currentStairEvent.scanning = true;
         Intent intent = new Intent(this, ScanActivity.class);
@@ -284,21 +284,21 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public void initCheck() {
         UserInfo userInfo = myDAO.userInfoDAOItem.getUserInfo();
         if (userInfo.isSufficient()) {
+            String toastMessage = getString(R.string.welcome_hi) + " " + userInfo.getName();
             try {
                 int progress = Math.round(myDAO.weekRecordDAOItem.getWeekRecord(Maths.millisecondToWeekId(System.currentTimeMillis())).getProgress() * 100);
-                String toastMessage = getString(R.string.welcome_hi) + " " + userInfo.getName() + ", ";
                 if (progress < 100)
-                    toastMessage += progress + "%, " + getString(R.string.add_oil);
+                    toastMessage += ", " + progress + "%, " + getString(R.string.add_oil);
                 else
-                    toastMessage += getString(R.string.energyCal_energy_meet_target) + " " + getString(R.string.yeah);
-                Utils.showToast(this, toastMessage);
+                    toastMessage += ", " + getString(R.string.energyCal_energy_meet_target) + " " + getString(R.string.yeah);
             } catch (WeekRecordNotFoundException e) {
-                try {
+                /*try {
                     Thread.sleep(Utils.DEFAULT_TIMEOUT);
                 } catch (InterruptedException e2) {
                 }
-                switchSection(EnergyCalFragment.drawerPosition);
+                switchSection(EnergyCalFragment.drawerPosition);*/
             }
+            Utils.showToast(this, toastMessage);
         } else {
             Log.w("Warning", "user height and weight is empty");
             try {

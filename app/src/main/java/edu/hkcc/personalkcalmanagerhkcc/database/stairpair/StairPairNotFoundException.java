@@ -8,8 +8,18 @@ import android.content.res.Resources;
 public class StairPairNotFoundException extends Resources.NotFoundException {
     public static final String MESSAGE = "Stair Pair Not Found Exception";
 
+    public String message;
+
+    public StairPairNotFoundException(StairCode stairCode) {
+        message = MESSAGE + " " + stairCode.toString();
+    }
+
+    public StairPairNotFoundException(String source, String destination) {
+        message = MESSAGE + " source:" + source + ", destination" + destination;
+    }
+
     @Override
     public String getMessage() {
-        return MESSAGE;
+        return message;
     }
 }

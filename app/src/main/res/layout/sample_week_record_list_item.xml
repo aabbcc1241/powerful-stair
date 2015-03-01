@@ -14,7 +14,7 @@
         android:id="@+id/sample_week_record_list_seekBar"
         style="e"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="@dimen/sample_week_record_list_height"
         android:layout_gravity="center"
         android:layout_weight="1"
         android:max="100"
