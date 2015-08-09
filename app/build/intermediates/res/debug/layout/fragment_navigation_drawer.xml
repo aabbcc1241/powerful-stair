@@ -7,4 +7,4 @@
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
     tools:context="edu.hkcc.personalkcalmanagerhkcc.NavigationDrawerFragment" />
-<!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/layout/fragment_navigation_drawer.xml -->
+<!-- From: file:/home/beenotung/.git/workspace/personal-kcal-manager-hkcc/app/src/main/res/layout/fragment_navigation_drawer.xml -->

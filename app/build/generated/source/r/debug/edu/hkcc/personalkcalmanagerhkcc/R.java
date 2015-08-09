@@ -49,14 +49,18 @@ containing a value of this type.
     }
     public static final class color {
         public static final int energyCal_space_color=0x7f050000;
+        public static final int transparent=0x7f050001;
     }
     public static final class dimen {
         public static final int activity_horizontal_margin=0x7f060000;
         public static final int activity_vertical_margin=0x7f060001;
         public static final int energyCal_colume_margin=0x7f060002;
-        public static final int navigation_drawer_width=0x7f060003;
-        public static final int sample_week_record_list_height=0x7f060004;
-        public static final int std_space_height=0x7f060005;
+        public static final int forth_padding=0x7f060003;
+        public static final int half_padding=0x7f060004;
+        public static final int navigation_drawer_width=0x7f060005;
+        public static final int sample_week_record_list_height=0x7f060006;
+        public static final int standard_padding=0x7f060007;
+        public static final int std_space_height=0x7f060008;
     }
     public static final class drawable {
         public static final int button_bg_blue_1=0x7f020000;

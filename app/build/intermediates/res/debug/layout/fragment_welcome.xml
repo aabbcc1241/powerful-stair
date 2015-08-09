@@ -31,4 +31,4 @@
         android:background="@drawable/button_bg_orange_1"
         android:text="@string/start" />
 
-</LinearLayout><!-- From: file:/home/beenotung/git/workspace/android-studio-workspace/personal-kcal-manager-hkcc/app/src/main/res/layout/fragment_welcome.xml -->
+</LinearLayout><!-- From: file:/home/beenotung/.git/workspace/personal-kcal-manager-hkcc/app/src/main/res/layout/fragment_welcome.xml -->
