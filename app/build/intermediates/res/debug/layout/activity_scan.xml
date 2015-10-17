@@ -23,4 +23,4 @@
         android:layout_gravity="center_horizontal"
         android:text="@string/button_text" />
 
-</LinearLayout><!-- From: file:/home/beenotung/.git/workspace/personal-kcal-manager-hkcc/app/src/main/res/layout/activity_scan.xml -->
+</LinearLayout><!-- From: file:/home/beenotung/.git/workspace/powerful_stair/app/src/main/res/layout/activity_scan.xml -->
