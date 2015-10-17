@@ -92,12 +92,19 @@ public class AboutFragment implements MyFragment {
                     }
                 };
                 mainActivity.about_webView.setWebViewClient(webViewClient);
-                mainActivity.about_webView.loadUrl(getFirstUrl());
+//                mainActivity.about_webView.loadUrl(getFirstUrl());
+                setHtml(mainActivity.getString(R.string.loading));
                 //  isloadedUrl = true;
                 //}
             }
 
         };
+    }
+    WebView webView(){
+        return mainActivity.about_webView;
+    }
+    void setHtml(String html){
+        webView().loadData(html,"text/html","utf-8");
     }
 
     String getHtml(String url) throws IOException {

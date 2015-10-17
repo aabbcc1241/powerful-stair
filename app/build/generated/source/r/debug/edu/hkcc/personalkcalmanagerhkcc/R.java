@@ -137,9 +137,9 @@ containing a value of this type.
     public static final class string {
         public static final int aboutYou_bmi_label=0x7f070000;
         public static final int aboutYou_calculating=0x7f070001;
-        public static final int aboutYou_load=0x7f070002;
+        public static final int load =0x7f070002;
         public static final int aboutYou_pleaseFillAllInfo=0x7f070003;
-        public static final int aboutYou_update=0x7f070004;
+        public static final int update =0x7f070004;
         public static final int aboutYou_userAge_label=0x7f070005;
         public static final int aboutYou_userHeight_label_cm=0x7f070006;
         public static final int aboutYou_userHeight_label_m=0x7f070007;
