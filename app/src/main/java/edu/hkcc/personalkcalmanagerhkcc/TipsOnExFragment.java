@@ -14,7 +14,7 @@ public class TipsOnExFragment implements MyFragment {
     }
 
     @Override
-    public Runnable getLoadContentRunnable() {
+    public Runnable getLoadContentRunnable(final MainActivity mainActivity) {
         return new Runnable() {
             @Override
             public void run() {

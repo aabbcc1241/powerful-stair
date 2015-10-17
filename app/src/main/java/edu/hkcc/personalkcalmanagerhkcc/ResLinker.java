@@ -65,22 +65,22 @@ public class ResLinker {
         Runnable action;
         switch (getFragmentLayoutId(sectionNum)) {
             case R.layout.fragment_welcome:
-                action = mainActivity.welcomeFragment.getLoadContentRunnable();
+                action = mainActivity.welcomeFragment.getLoadContentRunnable(mainActivity);
                 break;
             case R.layout.fragment_about_you:
-                action = mainActivity.aboutYouFragment.getLoadContentRunnable();
+                action = mainActivity.aboutYouFragment.getLoadContentRunnable(mainActivity);
                 break;
             case R.layout.fragment_energy_cal:
-                action = mainActivity.energyCalFragment.getLoadContentRunnable();
+                action = mainActivity.energyCalFragment.getLoadContentRunnable(mainActivity);
                 break;
             case R.layout.fragment_tips_on_ex:
-                action = mainActivity.tipsOnExFragment.getLoadContentRunnable();
+                action = mainActivity.tipsOnExFragment.getLoadContentRunnable(mainActivity);
                 break;
             case R.layout.fragment_tips_on_nutrition:
-                action = mainActivity.tipsOnNutritionFragment.getLoadContentRunnable();
+                action = mainActivity.tipsOnNutritionFragment.getLoadContentRunnable(mainActivity);
                 break;
             case R.layout.fragment_about:
-                action=mainActivity.aboutFragment.getLoadContentRunnable();
+                action=mainActivity.aboutFragment.getLoadContentRunnable(mainActivity);
                 break;
             default:
                 return;

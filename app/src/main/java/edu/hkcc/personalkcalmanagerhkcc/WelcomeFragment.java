@@ -1,5 +1,6 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.widget.Toast;
@@ -35,7 +36,7 @@ public class WelcomeFragment implements MyFragment {
     }
 
     @Override
-    public Runnable getLoadContentRunnable() {
+    public Runnable getLoadContentRunnable(MainActivity activity) {
         return new Runnable() {
             @Override
             public void run() {

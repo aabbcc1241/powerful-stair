@@ -21,7 +21,7 @@ public class AboutYouFragment implements MyFragment {
     }
 
     private void load_onclick(Context myContext) {
-        mainActivity.runOnUiThread(getLoadContentRunnable());
+        mainActivity.runOnUiThread(getLoadContentRunnable(mainActivity));
     }
 
     public View.OnClickListener update_onClickListener(Context context) {
@@ -93,7 +93,7 @@ public class AboutYouFragment implements MyFragment {
     }
 
     @Override
-    public Runnable getLoadContentRunnable() {
+    public Runnable getLoadContentRunnable(final MainActivity mainActivity) {
         return new Runnable() {
             @Override
             public void run() {

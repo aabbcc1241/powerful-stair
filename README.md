@@ -15,5 +15,6 @@
 1. move week tag into header line
 2. update websites reference
  - [X] update basic
- - [ ] more efficiently
+ - [X] more efficiently
+ - [ ] tips
 3. add Chinese support in user manual

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="aboutYou_calculating">加油! \\^0^/</string>
+    <string name="aboutYou_calculating">已更新! \\^0^/</string>
     <string name="aboutYou_pleaseFillAllInfo">請填上你的身體狀況</string>
     <string name="aboutYou_userAge_label">年齡：</string>
     <string name="aboutYou_userHeight_label_cm">身高（厘米）：</string>

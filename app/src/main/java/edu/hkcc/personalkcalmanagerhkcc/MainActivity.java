@@ -166,7 +166,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
-        Log.w("MainActivity", "onCreateView");
+//        Log.d("MainActivity", "onCreateView");
         initSections();
         return super.onCreateView(name, context, attrs);
     }
