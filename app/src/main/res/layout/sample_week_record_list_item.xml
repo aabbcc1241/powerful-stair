@@ -1,32 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:gravity="center"
+              android:padding="@dimen/half_padding"
+        >
 
     <TextView
-        android:id="@+id/sample_week_record_list_tv_week_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="week num" />
+            android:id="@+id/sample_week_record_list_tv_week_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="week num"
+            />
 
-    <SeekBar
-        android:id="@+id/sample_week_record_list_seekBar"
-        style="e"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/sample_week_record_list_height"
-        android:layout_gravity="center"
-        android:layout_weight="1"
-        android:max="100"
-        android:progressDrawable="@drawable/ic_media_ff"
-        android:saveEnabled="false"
-        android:thumb="@drawable/runner3" />
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="@dimen/sample_week_record_list_height"
+            >
+
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+            <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_media_ff"
+                    />
+
+        </LinearLayout>
+
+        <SeekBar
+                android:id="@+id/sample_week_record_list_seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sample_week_record_list_height"
+                android:layout_gravity="center"
+                android:max="100"
+                android:progressDrawable="@color/transparent"
+                android:saveEnabled="false"
+                android:thumb="@drawable/runner3"
+                />
+
+
+    </RelativeLayout>
+
 
     <TextView
-        android:id="@+id/sample_week_record_list_tv_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="100%" />
+            android:id="@+id/sample_week_record_list_tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100%"
+            />
 
 </LinearLayout>
 
