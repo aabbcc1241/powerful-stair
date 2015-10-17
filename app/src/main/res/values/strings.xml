@@ -13,7 +13,20 @@
         <item>Energy Cal.</item>
         <item>Tips on Ex.</item>
         <item>Tips on nutrition</item>
-        <item>Intro.</item>
+        <item>About</item>
+    </string-array>
+
+    <string name="url_tips_on_ex">
+        "http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"
+    </string>
+    <string name="url_tips_on_nutrition">
+        "http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"
+    </string>
+    <string-array name="url_about">
+        <item>https://rawgit.com/aabbcc1241/powerful-stair/release/README.html</item>
+        <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/release/README.md</item>
+        <item>https://rawgit.com/aabbcc1241/powerful-stair/master/README.html</item>
+        <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/master/README.md</item>
     </string-array>
 
     <string name="loading">Loading</string>
@@ -26,8 +39,6 @@
 
     <string name="slogan">"Keep Fit!\nDon't Eat??"</string>
     <string name="start">Start</string>
-    <string name="url_tips_on_ex">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"</string>
-    <string name="url_tips_on_nutrition">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"</string>
     <string name="scan">Scan</string>
     <string name="tap">Tap</string>
     <string name="hello_world">Hello world!</string>

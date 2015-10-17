@@ -24,6 +24,9 @@ public class ResLinker {
             case 4:
                 resId = R.layout.fragment_tips_on_nutrition;
                 break;
+            case 5:
+                resId = R.layout.fragment_about;
+                break;
             default:
                 resId = R.layout.fragment_error_404;
         }
@@ -47,6 +50,9 @@ public class ResLinker {
                 break;
             case R.layout.fragment_tips_on_nutrition:
                 sectionNum = 4;
+                break;
+            case R.layout.fragment_about:
+                sectionNum = 5;
                 break;
             default:
                 sectionNum = R.layout.fragment_error_404;
@@ -72,6 +78,9 @@ public class ResLinker {
                 break;
             case R.layout.fragment_tips_on_nutrition:
                 action = mainActivity.tipsOnNutritionFragment.getLoadContentRunnable();
+                break;
+            case R.layout.fragment_about:
+                action=mainActivity.aboutFragment.getLoadContentRunnable();
                 break;
             default:
                 return;

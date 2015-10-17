@@ -13,3 +13,5 @@
 ## Todo list
 1. move week tag into header line
 2. update websites reference
+ - [X] update basic
+ - [ ] more efficiently

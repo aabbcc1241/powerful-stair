@@ -11,6 +11,7 @@ public final class R {
     public static final class array {
         public static final int navigation_drawer_titles=0x7f040000;
         public static final int stair_pair_string_array=0x7f040001;
+        public static final int url_about=0x7f040002;
     }
     public static final class attr {
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
@@ -77,54 +78,56 @@ containing a value of this type.
         public static final int start_screen_slogan=0x7f02000b;
     }
     public static final class id {
-        public static final int FrameLayout1=0x7f0a0014;
-        public static final int LinearLayout1=0x7f0a0017;
-        public static final int TableLayout1=0x7f0a0005;
-        public static final int aboutYou_bmi_label=0x7f0a000f;
-        public static final int aboutYou_button_update=0x7f0a000e;
-        public static final int aboutYou_editText_userage=0x7f0a0009;
-        public static final int aboutYou_editText_userbmi=0x7f0a0010;
-        public static final int aboutYou_editText_userheight=0x7f0a000b;
-        public static final int aboutYou_editText_username=0x7f0a0007;
-        public static final int aboutYou_editText_userweight=0x7f0a000d;
-        public static final int aboutYou_userage_label=0x7f0a0008;
-        public static final int aboutYou_userheight_label=0x7f0a000a;
-        public static final int aboutYou_username_label=0x7f0a0006;
-        public static final int aboutYou_userweight_label=0x7f0a000c;
-        public static final int action_scan=0x7f0a0021;
-        public static final int action_settings=0x7f0a0020;
+        public static final int FrameLayout1=0x7f0a0005;
+        public static final int LinearLayout1=0x7f0a0018;
+        public static final int TableLayout1=0x7f0a0007;
+        public static final int aboutYou_bmi_label=0x7f0a0011;
+        public static final int aboutYou_button_update=0x7f0a0010;
+        public static final int aboutYou_editText_userage=0x7f0a000b;
+        public static final int aboutYou_editText_userbmi=0x7f0a0012;
+        public static final int aboutYou_editText_userheight=0x7f0a000d;
+        public static final int aboutYou_editText_username=0x7f0a0009;
+        public static final int aboutYou_editText_userweight=0x7f0a000f;
+        public static final int aboutYou_userage_label=0x7f0a000a;
+        public static final int aboutYou_userheight_label=0x7f0a000c;
+        public static final int aboutYou_username_label=0x7f0a0008;
+        public static final int aboutYou_userweight_label=0x7f0a000e;
+        public static final int about_webView=0x7f0a0006;
+        public static final int action_scan=0x7f0a0022;
+        public static final int action_settings=0x7f0a0021;
         public static final int bntscan=0x7f0a0004;
         public static final int container=0x7f0a0001;
         public static final int drawer_layout=0x7f0a0000;
-        public static final int energyCal_listview_week_record=0x7f0a0011;
-        public static final int imageView1=0x7f0a0018;
+        public static final int energyCal_listview_week_record=0x7f0a0013;
+        public static final int imageView1=0x7f0a0019;
         public static final int navigation_drawer=0x7f0a0002;
-        public static final int sample_week_record_list_seekBar=0x7f0a001b;
-        public static final int sample_week_record_list_tv_progress=0x7f0a001c;
-        public static final int sample_week_record_list_tv_week_num=0x7f0a001a;
-        public static final int scan_button=0x7f0a001d;
-        public static final int scan_content=0x7f0a001f;
-        public static final int scan_format=0x7f0a001e;
-        public static final int section_label=0x7f0a0013;
-        public static final int textView1=0x7f0a0012;
-        public static final int tipsOnEx_webView=0x7f0a0015;
-        public static final int tipsOnNutrition_webView=0x7f0a0016;
+        public static final int sample_week_record_list_seekBar=0x7f0a001c;
+        public static final int sample_week_record_list_tv_progress=0x7f0a001d;
+        public static final int sample_week_record_list_tv_week_num=0x7f0a001b;
+        public static final int scan_button=0x7f0a001e;
+        public static final int scan_content=0x7f0a0020;
+        public static final int scan_format=0x7f0a001f;
+        public static final int section_label=0x7f0a0015;
+        public static final int textView1=0x7f0a0014;
+        public static final int tipsOnEx_webView=0x7f0a0016;
+        public static final int tipsOnNutrition_webView=0x7f0a0017;
         public static final int tvtest=0x7f0a0003;
-        public static final int welcome_button_start=0x7f0a0019;
+        public static final int welcome_button_start=0x7f0a001a;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
         public static final int activity_scan=0x7f030001;
-        public static final int fragment_about_you=0x7f030002;
-        public static final int fragment_energy_cal=0x7f030003;
-        public static final int fragment_error_404=0x7f030004;
-        public static final int fragment_main=0x7f030005;
-        public static final int fragment_navigation_drawer=0x7f030006;
-        public static final int fragment_tips_on_ex=0x7f030007;
-        public static final int fragment_tips_on_nutrition=0x7f030008;
-        public static final int fragment_welcome=0x7f030009;
-        public static final int sample_week_record_list_item=0x7f03000a;
-        public static final int scanner=0x7f03000b;
+        public static final int fragment_about=0x7f030002;
+        public static final int fragment_about_you=0x7f030003;
+        public static final int fragment_energy_cal=0x7f030004;
+        public static final int fragment_error_404=0x7f030005;
+        public static final int fragment_main=0x7f030006;
+        public static final int fragment_navigation_drawer=0x7f030007;
+        public static final int fragment_tips_on_ex=0x7f030008;
+        public static final int fragment_tips_on_nutrition=0x7f030009;
+        public static final int fragment_welcome=0x7f03000a;
+        public static final int sample_week_record_list_item=0x7f03000b;
+        public static final int scanner=0x7f03000c;
     }
     public static final class menu {
         public static final int global=0x7f090000;
