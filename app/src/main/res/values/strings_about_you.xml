@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="aboutYou_username_label">Name:</string>
+    <string name="aboutYou_username_label">Nickname:</string>
     <string name="aboutYou_userAge_label">Age:</string>
     <string name="aboutYou_userHeight_label_m">Height(m):</string>
     <string name="aboutYou_userHeight_label_cm">Height(cm):</string>
     <string name="aboutYou_userWeight_label_kg">Weight(kg):</string>
     <string name="aboutYou_userWeight_label_lbs">Weight(lbs):</string>
-    <string name="aboutYou_bmi_label">BMI:</string>
-    <string name="aboutYou_load">load</string>
-    <string name="aboutYou_update">update</string>
+    <string name="aboutYou_bmi_label" translatable="false">BMI:</string>
+    <string name="aboutYou_pleaseFillAllInfo">Please fill your body status</string>
     <string name="aboutYou_calculating">Add oil! \\^0^/</string>
-    <string name="aboutYou_pleaseFillAllInfo">Please fill your body status above ~</string>
 
 </resources>

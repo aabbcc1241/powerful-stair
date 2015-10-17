@@ -45,6 +45,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public EnergyCalFragment energyCalFragment;
     public TipsOnExFragment tipsOnExFragment;
     public TipsOnNutritionFragment tipsOnNutritionFragment;
+    public AboutFragment aboutFragment;
     /* layout elements */
     // welcome
     public Button welcome_button_start;
@@ -63,6 +64,8 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WebView tipsOnEx_webView;
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
+    // webView for about (user manual)
+    public WebView about_webView;
     // database stuff
     public MyDAO myDAO;
     public StairEvent currentStairEvent = new StairEvent(this);
@@ -101,6 +104,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         energyCalFragment = new EnergyCalFragment(this);
         tipsOnExFragment = new TipsOnExFragment(this);
         tipsOnNutritionFragment = new TipsOnNutritionFragment(this);
+        aboutFragment=new AboutFragment(this);
 
         inited = true;
     }
@@ -122,6 +126,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         initSection_energyCal();
         initSection_tipsOnEx();
         initSection_tipsOnNutrition();
+        initSection_about();
     }
 
     private void initSection_welcome() {
@@ -149,6 +154,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     private void initSection_tipsOnNutrition() {
         tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);
+    }
+    private void initSection_about() {
+        about_webView= (WebView) findViewById(R.id.about_webView);
     }
 
     private void myInit() {

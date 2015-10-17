@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/button_bg_pink_1"
-            android:text="@string/aboutYou_update" />
+            android:text="@string/update" />
     </LinearLayout>
 
     <TableRow>

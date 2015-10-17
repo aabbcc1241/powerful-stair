@@ -9,7 +9,11 @@
 
 ## Updated list
 1. fixed runner progress bar background issue
+2. added Chinese support in app
 
 ## Todo list
 1. move week tag into header line
 2. update websites reference
+ - [X] update basic
+ - [ ] more efficiently
+3. add Chinese support in user manual

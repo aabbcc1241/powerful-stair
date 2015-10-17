@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="energyCal_tap">Tap stair tag</string>
-    <string name="energyCal_scan">Scan stair code</string>
+    <string name="energyCal_tap" translatable="false">Tap stair tag</string>
+    <string name="energyCal_scan" translatable="false">Scan stair code</string>
     <string name="energyCal_title_week_number">Week</string>
-    <string name="energyCal_title_date_range">Day-Range</string>
+    <string name="energyCal_title_date_range" translatable="false">Day-Range</string>
     <string name="energyCal_title_progress">Progress</string>
     <string name="energyCal_adding_record">Adding Record</string>
-    <string name="energyCal_energy_per_walk_stair">15</string>
-    <string name="energyCal_energy_type_hkcc_stair_walk">Walk on HKCC stair</string>
+    <string name="energyCal_energy_per_walk_stair" translatable="false">15</string>
+    <string name="energyCal_energy_type_hkcc_stair_walk" translatable="false">Walk on HKCC stair</string>
 
     <string name="energyCal_energy_meet_target">Met Target</string>
     <string name="energyCal_energy_title_input_target">What is your target cal to burn this week?</string>

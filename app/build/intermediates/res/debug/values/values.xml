@@ -8,7 +8,7 @@
         <item>Energy Cal.</item>
         <item>Tips on Ex.</item>
         <item>Tips on nutrition</item>
-        <item>Intro.</item>
+        <item>About</item>
     </string-array>
     <!-- From: file:/home/beenotung/.git/workspace/powerful_stair/app/src/main/res/values/strings_stair_pair.xml -->
     <eat-comment/>
@@ -107,6 +107,14 @@
         <item>2.84</item>
 
     </string-array>
+    <!-- From: file:/home/beenotung/.git/workspace/powerful_stair/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="url_about">
+        <item>https://rawgit.com/aabbcc1241/powerful-stair/release/README.html</item>
+        <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/release/README.md</item>
+        <item>https://rawgit.com/aabbcc1241/powerful-stair/master/README.html</item>
+        <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/master/README.md</item>
+    </string-array>
     <!-- From: file:/home/beenotung/.git/workspace/powerful_stair/app/src/main/res/values/dimens_energy_cal.xml -->
     <eat-comment/>
     <color name="energyCal_space_color">#999</color>
@@ -196,8 +204,12 @@
     <string name="title_activity_scan">Scan QR Label</string>
     <!-- From: file:/home/beenotung/.git/workspace/powerful_stair/app/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="url_tips_on_ex">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"</string>
-    <string name="url_tips_on_nutrition">"http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"</string>
+    <string name="url_tips_on_ex">
+        "http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"
+    </string>
+    <string name="url_tips_on_nutrition">
+        "http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"
+    </string>
     <!-- From: file:/home/beenotung/.git/workspace/powerful_stair/app/src/main/res/values/strings_welcome.xml -->
     <eat-comment/>
     <string name="welcome_hi">Hi</string>
