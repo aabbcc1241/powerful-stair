@@ -16,7 +16,7 @@
 2. update websites reference
  - [X] update basic
  - [X] more efficiently
- - [ ] tips
+ - [X] tips
 3. add Chinese support in user manual
 
 ## Todo list (developer)
