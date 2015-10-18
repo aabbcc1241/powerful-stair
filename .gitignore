@@ -5,3 +5,6 @@
 local.properties
 *.apk
 /app/build/outputs/*
+.gradle/*
+.idea/workspace.xml
+app/build/*
