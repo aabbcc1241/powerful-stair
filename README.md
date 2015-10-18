@@ -1,5 +1,5 @@
 # Powerful Stair
-###### For HKCC and SPEED students
+##### For HKCC and SPEED students
 
 ## User Manual
 1. Installation
@@ -19,8 +19,8 @@
  - [X] tips
 3. add Chinese support in user manual
 
-#
-###### For developer
+# ________________
+##### For developer
 This is my first android project, sorry for the poor style.
 ## Todo list (developer)
 1. rewrite page content (fragment) approach
