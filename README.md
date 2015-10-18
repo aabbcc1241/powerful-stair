@@ -59,20 +59,27 @@ https://rawgit.com/aabbcc1241/powerful-stair/release/download.html
 ## Updated list
 1. fixed runner progress bar background issue
 2. added Chinese support in app
-
-## Todo list (feature)
-1. move week tag into header line
-2. update websites reference
- - [X] update basic
- - [X] more efficiently
- - [X] tips
-3. add Chinese support in user manual
+3. updated website reference
 
 # ________________
 ##### For developer
-This is my first android project, sorry for the poor style.
+This is my first android project, sorry for the poor style. -by Beeno
 ## Todo list (developer)
-1. rewrite page content (fragment) approach
+1. improve week record layout
+   1. move week tag into header line
+   2. show week target
+   3. add absolute progress (e.g. 4.5 kcal)
+   4. show alternative bg color by month
+   (e.g. June white, July light-yellow, Augest white)
+   5. implement extensive linear layout
+   (e.g show previous month preview. After click, show each week)
+2. add Chinese support in user manual
+   (by line or two separated page)
+3. rewrite page content (fragment) approach
+   1. use "include" in main activity xml
+   2. build abstract comm fragment
+      1. extract from ResLinker
+      2. abstract onShow() similar to MyWebFragment
 
 ## Contributor
  - Supervisor
