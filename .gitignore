@@ -1,5 +1,5 @@
 .gradle/*
-.idea/workspace.xml
+.idea/*
 local.properties
 *.class
 /app/build/generated/*
