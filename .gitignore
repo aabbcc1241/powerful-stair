@@ -2,3 +2,6 @@
 /app/build/generated/*
 /app/build/intermediates/*
 /app/build/tmp/*
+local.properties
+*.apk
+/app/build/outputs/*
