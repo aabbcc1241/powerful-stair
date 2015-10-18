@@ -1,10 +1,9 @@
+.gradle/*
+.idea/workspace.xml
+local.properties
 *.class
 /app/build/generated/*
 /app/build/intermediates/*
 /app/build/tmp/*
-local.properties
-*.apk
 /app/build/outputs/*
-.gradle/*
-.idea/workspace.xml
-app/build/*
+*.apk

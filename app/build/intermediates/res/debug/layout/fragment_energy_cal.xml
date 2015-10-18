@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ListView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/energyCal_listview_week_record"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</ListView><!-- From: file:/home/beenotung/.git/workspace/powerful_stair/app/src/main/res/layout/fragment_energy_cal.xml -->
