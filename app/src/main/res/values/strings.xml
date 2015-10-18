@@ -25,8 +25,10 @@
         "http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Nutrition.htm"
     </string>
     <string-array name="url_about">
-        <item>https://rawgit.com/aabbcc1241/powerful-stair/release/README.html</item>
-        <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/release/README.md</item>
+        <!--<item>https://rawgit.com/aabbcc1241/powerful-stair/release/README.html</item>-->
+        <!--<item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/release/README.md</item>-->
+        <item>https://rawgit.com/aabbcc1241/powerful-stair/beta/README.html</item>
+        <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/beta/README.md</item>
         <item>https://rawgit.com/aabbcc1241/powerful-stair/master/README.html</item>
         <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/master/README.md</item>
     </string-array>

@@ -112,6 +112,8 @@
     </string><dimen name="std_space_height">39dp</dimen><string name="scan">Scan</string><string name="start">Start</string><string name="error_404">"Under Development!! o(｀・ω・´)o"</string><string-array name="url_about">
         <item>https://rawgit.com/aabbcc1241/powerful-stair/release/README.html</item>
         <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/release/README.md</item>
+        <item>https://rawgit.com/aabbcc1241/powerful-stair/beta/README.html</item>
+        <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/beta/README.md</item>
         <item>https://rawgit.com/aabbcc1241/powerful-stair/master/README.html</item>
         <item>https://raw.githubusercontent.com/aabbcc1241/powerful-stair/master/README.md</item>
     </string-array><string name="load">load</string><string name="navigation_drawer_close">Close navigation drawer</string><string name="url_tips_on_nutrition" translatable="false">
