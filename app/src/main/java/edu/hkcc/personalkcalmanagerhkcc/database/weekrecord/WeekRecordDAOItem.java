@@ -3,12 +3,11 @@ package edu.hkcc.personalkcalmanagerhkcc.database.weekrecord;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import edu.hkcc.personalkcalmanagerhkcc.database.DAOItem;
+import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import edu.hkcc.personalkcalmanagerhkcc.database.DAOItem;
-import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
 
 /**
  * Created by beenotung on 2/28/15.

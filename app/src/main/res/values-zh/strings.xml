@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="aboutYou_calculating">已更新! \\^0^/</string>
+    <string name="aboutYou_pleaseFillAllInfo">請填上你的身體狀況</string>
+    <string name="aboutYou_userAge_label">年齡：</string>
+    <string name="aboutYou_userHeight_label_cm">身高（厘米）：</string>
+    <string name="aboutYou_userHeight_label_m">身高（米）：</string>
+    <string name="aboutYou_userWeight_label_kg">體重（公斤）：</string>
+    <string name="aboutYou_userWeight_label_lbs">體重（磅）：</string>
+    <string name="aboutYou_username_label">暱稱：</string>
+    <string name="action_scan">掃描器</string>
+    <string name="action_scan_desc">載入中掃描程序...</string>
+    <string name="action_settings">設定</string>
+    <string name="add_oil">"加油 o(`・ω・´)o"</string>
+    <string name="button_text">掃描</string>
+    <string name="energyCal_adding_record">現在添加記錄</string>
+    <string name="energyCal_energy_meet_target">已達到目標</string>
+    <string name="energyCal_energy_title_input_target">你本週的 卡路里 燃燒目標 是多少？</string>
+    <string name="energyCal_title_progress">進度</string>
+    <string name="energyCal_title_week_number">星期</string>
+    <string name="error_404">"正在開發!! o(｀・ω・´)o"</string>
+    <string name="load">載入</string>
+    <string name="loading">正在載入</string>
+    <string name="navigation_drawer_close">關閉導航欄</string>
+    <string name="navigation_drawer_open">打開導航欄</string>
+    <string name="prompt_first_scan_success">OK! 繼續前行 @v@</string>
+    <string name="prompt_scan_error">Emm... 再試一次 ^^;</string>
+    <string name="prompt_second_scan_success">OK！已記錄;- ></string>
+    <string name="scan">掃描</string>
+    <string name="scan_page_desc">正在開啟條碼掃描器</string>
+    <string name="slogan">"纖體!\n 節食??"</string>
+    <string name="start">開始</string>
+    <string name="tap">輕觸</string>
+    <string name="title_activity_scan">掃描QR標籤</string>
+    <string name="update">更新</string>
+    <string name="welcome_hi">嗨</string>
+    <string name="welcome_lets_go">"Let's go!\ n從左邊打開導航欄 :)"</string>
+    <string name="tip2">運動與營養</string>
+    <string name="url_tip2">http://cheu.gov.hk/b5/info/exercise.htm</string>
+    <string name="tip1">運動處方</string>
+    <string name="url_tip1">http://exerciserx.cheu.gov.hk/tc/index.asp?MenuID=15</string>
+    <string name="menu_About">關於</string>
+    <string name="menu_AboutYou">我的狀態</string>
+    <string name="menu_EnergyCal">我的記錄</string>
+    <string name="menu_Welcome">主頁</string>
+</resources>

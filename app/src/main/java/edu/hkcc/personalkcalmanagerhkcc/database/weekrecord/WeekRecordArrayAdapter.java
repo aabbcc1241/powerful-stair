@@ -7,11 +7,10 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import edu.hkcc.personalkcalmanagerhkcc.R;
 
 import java.util.HashMap;
 import java.util.List;
-
-import edu.hkcc.personalkcalmanagerhkcc.R;
 
 /**
  * Created by beenotung on 2/28/15.
@@ -60,7 +59,7 @@ public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
 
         //seekBarProgress.setMinimumHeight(Math.round(rowView.getResources().getDimension(R.dimen.sample_week_record_list_height)));
         seekBarProgress.setMax(100);
-        seekBarProgress.setProgress(Math.round(weekRecords.get(position).getProgress()*100));
+        seekBarProgress.setProgress(Math.round(weekRecords.get(position).getProgress() * 100));
         seekBarProgress.setEnabled(false);
         /*//seekBarProgress.setProgressDrawable(context.getResources().getDrawable(R.drawable.ic_media_ff));
         Bitmap icon = BitmapFactory.decodeResource(mainActivity.res,
@@ -74,7 +73,7 @@ public class WeekRecordArrayAdapter extends ArrayAdapter<WeekRecord> {
         //runner.setAlpha();
         seekBarProgress.setThumb(mainActivity.res.getDrawable(R.drawable.runner3));*/
 
-        tvProgress.setText(String.format("%d%%", Math.round(weekRecords.get(position).getProgress()*100)));
+        tvProgress.setText(String.format("%d%%", Math.round(weekRecords.get(position).getProgress() * 100)));
 
         return rowView;
     }
