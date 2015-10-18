@@ -19,5 +19,17 @@
  - [X] tips
 3. add Chinese support in user manual
 
+#
+###### For developer
+This is my first android project, sorry for the poor style.
 ## Todo list (developer)
 1. rewrite page content (fragment) approach
+
+## Contributor
+ - Supervisor
+    - Karly Chan
+ - Programming
+    - Beeno Tung
+ - Art work
+    - Percy Ho
+    - 荃荃(to confirm name)
