@@ -7,6 +7,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <!--@Deprecated-->
     <string-array name="navigation_drawer_titles">
         <item>Welcome</item>
         <item>About You</item>
@@ -15,6 +16,7 @@
         <item>Tips on nutrition</item>
         <item>About</item>
     </string-array>
+
 
     <string name="url_tips_on_ex" translatable="false">
         "http://aabbcc1241.freeiz.com/HKCC/Personal_Kcal_Manager_(HKCC)/tips/Tips_on_Physical_Activities.htm"
@@ -44,6 +46,14 @@
     <string name="scan">Scan</string>
     <string name="tap">Tap</string>
     <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="tip1">ExerciseRx website</string>
+    <string name="tip2">Exercise and Nutrition</string>
+    <string name="url_tip2">http://cheu.gov.hk/eng/info/exercise.htm</string>
+    <string name="url_tip1">http://exerciserx.cheu.gov.hk/en/index.asp?MenuID=15</string>
+    <string name="menu_Welcome">Welcome</string>
+    <string name="menu_AboutYou">My Status</string>
+    <string name="menu_EnergyCal">My Record</string>
+    <string name="menu_About">About</string>
 
 
 </resources>

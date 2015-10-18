@@ -19,10 +19,12 @@ public class ResLinker {
                 resId = R.layout.fragment_energy_cal;
                 break;
             case 3:
-                resId = R.layout.fragment_tips_on_ex;
+//                resId = R.layout.fragment_tips_on_ex;
+                resId = R.layout.fragment_tip1;
                 break;
             case 4:
-                resId = R.layout.fragment_tips_on_nutrition;
+//                resId = R.layout.fragment_tips_on_nutrition;
+                resId = R.layout.fragment_tip2;
                 break;
             case 5:
                 resId = R.layout.fragment_about;
@@ -46,9 +48,11 @@ public class ResLinker {
                 sectionNum = 2;
                 break;
             case R.layout.fragment_tips_on_ex:
+            case R.layout.fragment_tip1:
                 sectionNum = 3;
                 break;
             case R.layout.fragment_tips_on_nutrition:
+            case R.layout.fragment_tip2:
                 sectionNum = 4;
                 break;
             case R.layout.fragment_about:
@@ -76,11 +80,17 @@ public class ResLinker {
             case R.layout.fragment_tips_on_ex:
                 action = mainActivity.tipsOnExFragment.getLoadContentRunnable(mainActivity);
                 break;
+            case R.layout.fragment_tip1:
+                action = mainActivity.tip1Fragment.getLoadContentRunnable(mainActivity);
+                break;
             case R.layout.fragment_tips_on_nutrition:
                 action = mainActivity.tipsOnNutritionFragment.getLoadContentRunnable(mainActivity);
                 break;
+            case R.layout.fragment_tip2:
+                action = mainActivity.tip2Fragment.getLoadContentRunnable(mainActivity);
+                break;
             case R.layout.fragment_about:
-                action=mainActivity.aboutFragment.getLoadContentRunnable(mainActivity);
+                action = mainActivity.aboutFragment.getLoadContentRunnable(mainActivity);
                 break;
             default:
                 return;

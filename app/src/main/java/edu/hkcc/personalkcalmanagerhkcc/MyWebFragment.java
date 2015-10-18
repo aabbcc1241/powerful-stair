@@ -1,6 +1,5 @@
 package edu.hkcc.personalkcalmanagerhkcc;
 
-import android.app.Activity;
 import android.webkit.WebView;
 import edu.hkcc.myutils.MyFragment;
 
@@ -15,6 +14,8 @@ import static edu.hkcc.myutils.Utils.getHtml;
 public abstract class MyWebFragment implements MyFragment {
 
 
+    int url_index = 0;
+
     abstract WebView webView();
 
     void setHtml(String html) {
@@ -22,8 +23,6 @@ public abstract class MyWebFragment implements MyFragment {
     }
 
     protected abstract String[] urls();
-
-    int url_index = 0;
 
     boolean hasNextUrl() {
         return url_index + 1 < urls().length;

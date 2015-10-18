@@ -2,7 +2,6 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import android.content.Context;
 import android.view.View;
-
 import edu.hkcc.myutils.Maths;
 import edu.hkcc.myutils.MyFragment;
 import edu.hkcc.myutils.Utils;
@@ -84,10 +83,11 @@ public class AboutYouFragment implements MyFragment {
         bmi = Maths.getBmi(height, weight);
         mainActivity.aboutYou_editText_userbmi.setText(String.valueOf(bmi));
     }
-    public void readFromDb(){
-        UserInfo userInfo=mainActivity.myDAO.userInfoDAOItem.getUserInfo();
-        height=userInfo.getHeight();
-        weight=userInfo.getWeight();
+
+    public void readFromDb() {
+        UserInfo userInfo = mainActivity.myDAO.userInfoDAOItem.getUserInfo();
+        height = userInfo.getHeight();
+        weight = userInfo.getWeight();
         heightUnit = height < 100 ? 1 : 0.01f;
         weightUnit = weight < 120 ? 1 : 0.453592f;
     }

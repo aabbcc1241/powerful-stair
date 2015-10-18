@@ -35,4 +35,12 @@
     <string name="update">更新</string>
     <string name="welcome_hi">嗨</string>
     <string name="welcome_lets_go">"Let's go!\ n從左邊打開導航欄 :)"</string>
+    <string name="tip2">運動與營養</string>
+    <string name="url_tip2">http://cheu.gov.hk/b5/info/exercise.htm</string>
+    <string name="tip1">運動處方</string>
+    <string name="url_tip1">http://exerciserx.cheu.gov.hk/tc/index.asp?MenuID=15</string>
+    <string name="menu_About">關於</string>
+    <string name="menu_AboutYou">我的狀態</string>
+    <string name="menu_EnergyCal">我的記錄</string>
+    <string name="menu_Welcome">主頁</string>
 </resources>

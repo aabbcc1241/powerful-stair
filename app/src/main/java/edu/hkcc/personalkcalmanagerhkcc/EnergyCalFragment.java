@@ -6,14 +6,13 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
-
-import java.util.List;
-
 import edu.hkcc.myutils.Maths;
 import edu.hkcc.myutils.MyFragment;
 import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecord;
 import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordArrayAdapter;
 import edu.hkcc.personalkcalmanagerhkcc.database.weekrecord.WeekRecordNotFoundException;
+
+import java.util.List;
 
 public class EnergyCalFragment implements MyFragment {
     public static int drawerPosition = ResLinker
@@ -70,7 +69,7 @@ public class EnergyCalFragment implements MyFragment {
                         weekTarget = Float.parseFloat(input.getText().toString());
                         if (weekTarget <= 0)
                             weekTarget = 1;
-                        mainActivity.myDAO.weekRecordDAOItem.insert(new WeekRecord(weekId,  weekTarget));
+                        mainActivity.myDAO.weekRecordDAOItem.insert(new WeekRecord(weekId, weekTarget));
                         setupListView();
                     } catch (NumberFormatException e) {
                         // input not number

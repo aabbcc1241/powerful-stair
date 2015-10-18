@@ -11,12 +11,7 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
+import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -64,6 +59,14 @@ public class NavigationDrawerFragment extends Fragment {
     public void initvar() {
         res = getResources();
         navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
+        navigation_drawer_titles = new String[]{
+                getString(R.string.menu_Welcome)
+                , getString(R.string.menu_AboutYou)
+                , getString(R.string.menu_EnergyCal)
+                , getString(R.string.tip1)
+                , getString(R.string.tip2)
+                , getString(R.string.menu_About)
+        };
     }
 
     @Override

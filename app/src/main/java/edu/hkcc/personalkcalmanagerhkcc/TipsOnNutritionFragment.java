@@ -2,6 +2,7 @@ package edu.hkcc.personalkcalmanagerhkcc;
 
 import edu.hkcc.myutils.MyFragment;
 
+@Deprecated
 public class TipsOnNutritionFragment implements MyFragment {
     public static int drawerPosition = ResLinker.getSectionNum(R.layout.fragment_tips_on_nutrition);
     public boolean isloadedUrl;

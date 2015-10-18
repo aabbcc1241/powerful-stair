@@ -3,13 +3,12 @@ package edu.hkcc.personalkcalmanagerhkcc.database.userinfo;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.hkcc.personalkcalmanagerhkcc.database.ContentPair;
 import edu.hkcc.personalkcalmanagerhkcc.database.DAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by beenotung on 2/19/15.

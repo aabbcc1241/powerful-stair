@@ -2,9 +2,6 @@ package edu.hkcc.personalkcalmanagerhkcc.database.stairrecord;
 
 import android.database.sqlite.SQLiteException;
 import android.util.Log;
-
-import java.util.List;
-
 import edu.hkcc.myutils.Maths;
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
@@ -12,6 +9,8 @@ import edu.hkcc.personalkcalmanagerhkcc.R;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairCode;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPair;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPairNotFoundException;
+
+import java.util.List;
 
 /**
  * Created by beenotung on 2/27/15.
@@ -46,9 +45,9 @@ public class StairEvent {
             secondTime = System.currentTimeMillis();
 
             //check if double scan (same code)
-            if (saved||firstStairCode.code.equals(secondStairCode.code)) {
+            if (saved || firstStairCode.code.equals(secondStairCode.code)) {
                 Utils.showToast(mainActivity, mainActivity.getString(R.string.prompt_first_scan_success));
-                saved=false;
+                saved = false;
                 return;
             }
 
