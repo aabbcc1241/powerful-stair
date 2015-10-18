@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Powerful-Stair Download Page</title>
+    <script>
+        var url = "https://rawgit.com/aabbcc1241/powerful-stair/beta/app/build/outputs/apk/app-debug.apk";
+        function move() {
+            document.getElementById('download_link').href = url;
+            document.getElementById('download_frame').src = url;
+        }
+    </script>
+</head>
+<body onload="move()">
+<iframe id="download_frame" style="display:none;"></iframe>
+<a id="download_link"
+   href=""
+   download="powerful-stair.apk">
+    Powerful Stair (Beta)
+</a>
+</body>
+</html>
