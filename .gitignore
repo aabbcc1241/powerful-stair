@@ -1,9 +1,7 @@
 .gradle/*
-.idea/workspace.xml
+.idea/*
 local.properties
 *.class
 /app/build/generated/*
 /app/build/intermediates/*
 /app/build/tmp/*
-/app/build/outputs/*
-*.apk
