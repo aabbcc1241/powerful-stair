@@ -11,9 +11,13 @@
 1. fixed runner progress bar background issue
 2. added Chinese support in app
 
-## Todo list
+## Todo list (feature)
 1. move week tag into header line
 2. update websites reference
  - [X] update basic
- - [ ] more efficiently
+ - [X] more efficiently
+ - [X] tips
 3. add Chinese support in user manual
+
+## Todo list (developer)
+1. rewrite page content (fragment) approach

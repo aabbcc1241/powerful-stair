@@ -8,7 +8,6 @@ import android.view.Gravity;
 import android.widget.SeekBar;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.R;

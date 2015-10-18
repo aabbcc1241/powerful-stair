@@ -2,7 +2,6 @@ package edu.hkcc.personalkcalmanagerhkcc.database;
 
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairpair.StairPairDAOItem;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecordDAOItem;

@@ -1,12 +1,11 @@
 package edu.hkcc.personalkcalmanagerhkcc.database.weekrecord;
 
 import android.util.Log;
-
-import java.util.List;
-
 import edu.hkcc.myutils.Maths;
 import edu.hkcc.personalkcalmanagerhkcc.MainActivity;
 import edu.hkcc.personalkcalmanagerhkcc.database.stairrecord.StairRecord;
+
+import java.util.List;
 
 /**
  * Created by beenotung on 2/28/15.

@@ -21,7 +21,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import edu.hkcc.myutils.Maths;
 import edu.hkcc.myutils.Utils;
 import edu.hkcc.personalkcalmanagerhkcc.database.MyDAO;
@@ -43,8 +42,12 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public WelcomeFragment welcomeFragment;
     public AboutYouFragment aboutYouFragment;
     public EnergyCalFragment energyCalFragment;
+    @Deprecated
     public TipsOnExFragment tipsOnExFragment;
+    @Deprecated
     public TipsOnNutritionFragment tipsOnNutritionFragment;
+    public Tip1Fragment tip1Fragment;
+    public Tip2Fragment tip2Fragment;
     public AboutFragment aboutFragment;
     /* layout elements */
     // welcome
@@ -60,10 +63,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     public EditText aboutYou_editText_userbmi;
     // energy cal
     public ListView energyCal_listView_weekRecord;
+    @Deprecated
     // tips on ex
     public WebView tipsOnEx_webView;
+    @Deprecated
     // tips on nutrition
     public WebView tipsOnNutrition_webView;
+    public WebView tip1_webView;
+    public WebView tip2_webView;
     // webView for about (user manual)
     public WebView about_webView;
     // database stuff
@@ -96,6 +103,14 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
         // layout
         navigation_drawer_titles = res.getStringArray(R.array.navigation_drawer_titles);
+        navigation_drawer_titles=new String[]{
+                getString(R.string.menu_Welcome)
+                ,getString(R.string.menu_AboutYou)
+                ,getString(R.string.menu_EnergyCal)
+                ,getString(R.string.tip1)
+                ,getString(R.string.tip2)
+                ,getString(R.string.menu_About)
+        };
         placeholderFragments = new PlaceholderFragment[navigation_drawer_titles.length];
         for (int i = 0; i < placeholderFragments.length; i++)
             placeholderFragments[i] = PlaceholderFragment.newInstance(i);
@@ -104,7 +119,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         energyCalFragment = new EnergyCalFragment(this);
         tipsOnExFragment = new TipsOnExFragment(this);
         tipsOnNutritionFragment = new TipsOnNutritionFragment(this);
-        aboutFragment=new AboutFragment(this);
+        tip1Fragment = new Tip1Fragment(this);
+        tip2Fragment = new Tip2Fragment(this);
+        aboutFragment = new AboutFragment(this);
 
         inited = true;
     }
@@ -124,9 +141,9 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
         initSection_welcome();
         initSection_aboutYou();
         initSection_energyCal();
-        initSection_tipsOnEx();
-        initSection_tipsOnNutrition();
-        initSection_about();
+//        initSection_tipsOnEx();
+//        initSection_tipsOnNutrition();
+        initSection_webView();
     }
 
     private void initSection_welcome() {
@@ -155,8 +172,11 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
     private void initSection_tipsOnNutrition() {
         tipsOnNutrition_webView = (WebView) findViewById(R.id.tipsOnNutrition_webView);
     }
-    private void initSection_about() {
-        about_webView= (WebView) findViewById(R.id.about_webView);
+
+    private void initSection_webView() {
+        about_webView = (WebView) findViewById(R.id.about_webView);
+        tip1_webView= (WebView) findViewById(R.id.tip1_webView);
+        tip2_webView= (WebView) findViewById(R.id.tip2_webView);
     }
 
     private void myInit() {
@@ -166,7 +186,7 @@ public class MainActivity extends Activity implements NavigationDrawerFragment.N
 
     @Override
     public View onCreateView(String name, Context context, AttributeSet attrs) {
-        Log.w("MainActivity", "onCreateView");
+//        Log.d("MainActivity", "onCreateView");
         initSections();
         return super.onCreateView(name, context, attrs);
     }
