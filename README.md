@@ -4,7 +4,7 @@
 ## User Manual
 ### 1. Installation
 1. Download from the apk installation file (~470 KB).
-https://rawgit.com/aabbcc1241/powerful-stair/release/download.html
+https://rawgit.com/beenotung/powerful-stair/master/download.html
 2. Click "Next" and "Confirm" to start installation.
 3. If above step fails, clean out some device space for at least 2 MB and try again.
 
